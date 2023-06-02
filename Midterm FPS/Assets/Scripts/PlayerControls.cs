@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class PlayerControls
+    : MonoBehaviour
 {
     [Header("----- Player Settings -----")]
     [SerializeField] CharacterController controller;
