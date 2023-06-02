@@ -19,7 +19,6 @@ public class gameManager : MonoBehaviour
     int enemiesRemaining;
     float timeRemaining;
 
-    bool isInSettings;
     bool isPaused;
     float timeScaleOrig;
 
@@ -34,6 +33,18 @@ public class gameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void switchToSettings()
+    {
+        mainMenu.SetActive(false);
+        settingsMenu.SetActive(true);
+    }
+    
+    public void switchToMain()
+    {
+        settingsMenu.SetActive(false);
+        mainMenu.SetActive(true);
     }
 
     public void statePaused()
