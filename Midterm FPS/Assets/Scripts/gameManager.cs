@@ -63,4 +63,14 @@ public class gameManager : MonoBehaviour
         activeMenu.SetActive(false);
         activeMenu = null;
     }
+
+    public void UpdateGameGoal(int amount)
+    {
+        enemiesRemaining += amount;
+
+        if (enemiesRemaining <= 0)
+        {
+            // win condition
+        }
+    }
 }
