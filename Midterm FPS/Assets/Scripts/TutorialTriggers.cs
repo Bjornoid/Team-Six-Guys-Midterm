@@ -4,24 +4,12 @@ using UnityEngine;
 
 public class TutorialTriggers : MonoBehaviour
 {
-    [SerializeField] GameObject firstUI;
-    [SerializeField] GameObject secondUI;
-
-    [SerializeField] GameObject firstTrigger;
-    [SerializeField] GameObject secondTrigger;
+    public GameObject firstUI;
+    public GameObject secondUI;
 
     void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            if (gameObject == firstTrigger)
-            {
-                gameManager.instance.displayUI(firstUI);
-            }
-            else if (gameObject == secondTrigger)
-            {
-                gameManager.instance.displayUI(secondUI, firstUI);
-            }
-        }
+    { 
+        firstUI.SetActive(false);
+        secondUI.SetActive(true);
     }
 }

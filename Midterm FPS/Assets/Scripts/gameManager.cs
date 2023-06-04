@@ -36,13 +36,11 @@ public class gameManager : MonoBehaviour
         
     }
 
-    public void displayUI(GameObject ui, GameObject prevUI = null)
+    public void displayUI(GameObject ui, GameObject prevUI)
     {
+        prevUI.SetActive(false);
+        
         ui.SetActive(true);
-        if (prevUI != null) 
-        {
-            prevUI.SetActive(false);
-        }
     }
 
     public void switchToSettings()
