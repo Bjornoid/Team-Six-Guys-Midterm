@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
 
 public class gameManager : MonoBehaviour
@@ -33,6 +34,15 @@ public class gameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void displayUI(GameObject ui, GameObject prevUI = null)
+    {
+        ui.SetActive(true);
+        if (prevUI != null) 
+        {
+            prevUI.SetActive(false);
+        }
     }
 
     public void switchToSettings()
