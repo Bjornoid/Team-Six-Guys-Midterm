@@ -18,7 +18,7 @@ public class TutorialTriggers : MonoBehaviour
             firstUI.SetActive(false);
             secondUI.SetActive(true);
         }
-        else if (gameObject.Equals(secondTrigger)) 
+        else if (gameObject.Equals(secondTrigger) && gameManager.instance.getEnemiesRemaining() <= 0) 
         {
                 myDoor.Play("DoorOpen", 0, 0f);
                 secondTrigger.SetActive(false);
