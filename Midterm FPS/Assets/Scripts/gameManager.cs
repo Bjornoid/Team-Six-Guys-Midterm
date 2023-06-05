@@ -19,6 +19,7 @@ public class gameManager : MonoBehaviour
     [Header("----- Game Goal fields -----")]
     int enemiesRemaining;
     float timeRemaining;
+    
 
     bool isPaused;
     float timeScaleOrig;
@@ -33,9 +34,12 @@ public class gameManager : MonoBehaviour
 
     void Update()
     {
-        
     }
 
+    public int getEnemiesRemaining()
+    {
+        return enemiesRemaining;
+    }
     public void switchToSettings()
     {
         mainMenu.SetActive(false);

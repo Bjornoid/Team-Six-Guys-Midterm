@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -71,7 +72,6 @@ public class PlayerControls
         isShooting = true;
 
         RaycastHit hit;
-        
         if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
         {
             IDamage damageable = hit.collider.GetComponent<IDamage>();
