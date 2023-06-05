@@ -28,19 +28,12 @@ public class gameManager : MonoBehaviour
         instance = this;
         timeScaleOrig = Time.timeScale;
         player = GameObject.FindGameObjectWithTag("Player");
-        playerScript = player.gameObject.GetComponent<PlayerControls>();
+        playerScript = player.GetComponent<PlayerControls>();
     }
 
     void Update()
     {
         
-    }
-
-    public void displayUI(GameObject ui, GameObject prevUI)
-    {
-        prevUI.SetActive(false);
-        
-        ui.SetActive(true);
     }
 
     public void switchToSettings()
