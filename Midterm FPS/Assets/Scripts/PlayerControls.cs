@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerControls
-    : MonoBehaviour
+    : MonoBehaviour, IDamage
 {
     [Header("----- Player Settings -----")]
     [SerializeField] CharacterController controller;
@@ -13,6 +13,7 @@ public class PlayerControls
     [Range(1, 100)][SerializeField] float jumpHeight; // jump height for player
     [Range(-10, 100)][SerializeField] float gravityValue; // gravity value for player
     [SerializeField] int jumpMax; // max amount of jump a player can have
+    [SerializeField] int HP;
     public float crouchSpeed;
     public float crouchYScale;
     private float startYScale;
@@ -36,6 +37,11 @@ public class PlayerControls
         walking, 
         sprinting,
         jumping
+    }
+
+    public void takeDamage(int dmg)
+    {
+        HP -= dmg;
     }
 
     private void stateHandler()

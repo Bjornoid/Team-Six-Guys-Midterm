@@ -11,6 +11,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Transform headPos;
     [SerializeField] Transform shootPos;
+    [SerializeField] Animator animator;
 
     [Header("----- Enemy Stats -----")]
     [SerializeField] int HP;
@@ -28,6 +29,7 @@ public class EnemyAI : MonoBehaviour, IDamage
 
     void Start()
     {
+        animator.Play("DS_onehand_idle_A");
         gameManager.instance.UpdateGameGoal(1); // enemy exists
     }
 
@@ -55,6 +57,7 @@ public class EnemyAI : MonoBehaviour, IDamage
             {
                 agent.SetDestination(gameManager.instance.player.transform.position); // go towards the player
 
+                animator.Play("DS_onehand_walk");
                 if (agent.remainingDistance <= agent.stoppingDistance)
                 {
                     facePlayer();
