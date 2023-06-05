@@ -34,7 +34,10 @@ public class EnemyAI : MonoBehaviour, IDamage
     // Update is called once per frame
     void Update()
     {
+        if (playerInRange && CanSeePlayer()) 
+        {
         
+        }
     }
     bool CanSeePlayer()
     {
@@ -56,7 +59,7 @@ public class EnemyAI : MonoBehaviour, IDamage
                 {
                     facePlayer();
                 }
-                if (!isShooting)
+                if (!isShooting && shootPos != null)
                 {
                     StartCoroutine(shoot());
                 }

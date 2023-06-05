@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
 
 public class gameManager : MonoBehaviour
@@ -18,6 +19,7 @@ public class gameManager : MonoBehaviour
     [Header("----- Game Goal fields -----")]
     int enemiesRemaining;
     float timeRemaining;
+    
 
     bool isPaused;
     float timeScaleOrig;
@@ -27,14 +29,17 @@ public class gameManager : MonoBehaviour
         instance = this;
         timeScaleOrig = Time.timeScale;
         player = GameObject.FindGameObjectWithTag("Player");
-        playerScript = player.gameObject.GetComponent<PlayerControls>();
+        playerScript = player.GetComponent<PlayerControls>();
     }
 
     void Update()
     {
-        
     }
 
+    public int getEnemiesRemaining()
+    {
+        return enemiesRemaining;
+    }
     public void switchToSettings()
     {
         mainMenu.SetActive(false);
