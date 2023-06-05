@@ -10,7 +10,7 @@ public class TutorialTriggers : MonoBehaviour
     public GameObject secondUI;
     public GameObject firstTrigger;
     public GameObject secondTrigger;
-
+    
     void OnTriggerEnter(Collider other)
     { 
         if (gameObject.Equals(firstTrigger))
