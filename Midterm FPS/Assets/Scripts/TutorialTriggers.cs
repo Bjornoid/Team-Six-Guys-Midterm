@@ -10,11 +10,19 @@ public class TutorialTriggers : MonoBehaviour
     public GameObject firstUI;
     public GameObject secondUI;
     public GameObject thirdUI;
+    public GameObject fourthUI;
+    public GameObject fifthUI;
     public GameObject firstTrigger;
     public GameObject secondTrigger;
     public GameObject thirdTrigger;
     public GameObject fourthTrigger;
+    public GameObject fifthTrigger;
+    public GameObject sixthTrigger;
+    public GameObject seventhTrigger;
+    public Animator animator;
+    public GameObject platform;
     public List<GameObject> targets;
+    public GameObject key;
     
     void OnTriggerEnter(Collider other)
     {
@@ -37,12 +45,33 @@ public class TutorialTriggers : MonoBehaviour
         }
         else if (gameObject.Equals(fourthTrigger))
         {
+            thirdUI.SetActive(false);
+            fourthUI.SetActive(true);
             gameManager.instance.updateTargetCount(targets.Count);
             for (int i = 0; i < targets.Count; i++) 
             {
                 targets[i].SetActive(true);
             }
+            fourthTrigger.SetActive(false);
         }
+        else if (gameObject.Equals(fifthTrigger) && gameManager.instance.getTargetCount() <= 0) 
+        {
+            fifthTrigger.SetActive(false);
+            animator.Play("MovePlatform");
+        }
+        else if (gameObject.Equals(sixthTrigger))
+        {
+            sixthTrigger.SetActive(false);
+            fourthUI.SetActive(false);
+            fifthUI.SetActive(true);
+            Destroy(key);
+        }
+        else if (gameObject.Equals(seventhTrigger))
+        {
+            seventhTrigger.SetActive(false);
+            myDoor.Play("DoorOpen");
+        }
+        
     }
 }
  
