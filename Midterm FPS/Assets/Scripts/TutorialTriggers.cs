@@ -9,9 +9,12 @@ public class TutorialTriggers : MonoBehaviour
 
     public GameObject firstUI;
     public GameObject secondUI;
+    public GameObject thirdUI;
     public GameObject firstTrigger;
     public GameObject secondTrigger;
     public GameObject thirdTrigger;
+    public GameObject fourthTrigger;
+    public List<GameObject> targets;
     
     void OnTriggerEnter(Collider other)
     {
@@ -29,6 +32,16 @@ public class TutorialTriggers : MonoBehaviour
         {
             myDoor.Play("DoorClosed", 0, 0f);
             thirdTrigger.SetActive(false);
+            secondUI.SetActive(false);
+            thirdUI.SetActive(true);
+        }
+        else if (gameObject.Equals(fourthTrigger))
+        {
+            gameManager.instance.updateTargetCount(targets.Count);
+            for (int i = 0; i < targets.Count; i++) 
+            {
+                targets[i].SetActive(true);
+            }
         }
     }
 }
