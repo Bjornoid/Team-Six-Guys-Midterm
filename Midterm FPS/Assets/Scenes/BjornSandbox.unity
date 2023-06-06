@@ -912,8 +912,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5e40422a4ed5d40b9f5035662d03da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myDoor: {fileID: 0}
   firstUI: {fileID: 0}
   secondUI: {fileID: 129785267}
+  firstTrigger: {fileID: 0}
+  secondTrigger: {fileID: 0}
 --- !u!65 &129785273
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2391,8 +2394,16 @@ PrefabInstance:
       value: 2.38
       objectReference: {fileID: 0}
     - target: {fileID: 1969852852473305583, guid: 76829b65c9293b74a9cc27c8c504ab10, type: 3}
+      propertyPath: walkSpeed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1969852852473305583, guid: 76829b65c9293b74a9cc27c8c504ab10, type: 3}
       propertyPath: jumpHeight
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1969852852473305583, guid: 76829b65c9293b74a9cc27c8c504ab10, type: 3}
+      propertyPath: sprintSpeed
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1969852852473305583, guid: 76829b65c9293b74a9cc27c8c504ab10, type: 3}
       propertyPath: gravityValue
@@ -2607,8 +2618,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5e40422a4ed5d40b9f5035662d03da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myDoor: {fileID: 0}
   firstUI: {fileID: 1452666161}
   secondUI: {fileID: 0}
+  firstTrigger: {fileID: 0}
+  secondTrigger: {fileID: 0}
 --- !u!65 &520569074
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5197,8 +5211,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5e40422a4ed5d40b9f5035662d03da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myDoor: {fileID: 0}
   firstUI: {fileID: 1452666161}
   secondUI: {fileID: 1998204275}
+  firstTrigger: {fileID: 0}
+  secondTrigger: {fileID: 0}
 --- !u!65 &886484845
 BoxCollider:
   m_ObjectHideFlags: 0
