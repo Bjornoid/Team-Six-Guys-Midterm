@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1969852852473305581}
   - component: {fileID: 1969852852473305586}
   - component: {fileID: 1969852852473305587}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51,13 +51,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 1969852852473305587}
-  playerSpeed: 5
+  walkSpeed: 0
+  sprintSpeed: 0
   jumpHeight: 10
   gravityValue: 15
   jumpMax: 2
+  HP: 4
+  crouchSpeed: 0
+  crouchYScale: 0
   shootRate: 1
   shootDamage: 1
   shootDist: 25
+  movementState: 0
 --- !u!33 &1969852852473305580
 MeshFilter:
   m_ObjectHideFlags: 0

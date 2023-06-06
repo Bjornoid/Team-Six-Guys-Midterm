@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3890789156884124960}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.545, y: 1.161, z: 0.496}
+  m_LocalPosition: {x: 0.042, y: 1.161, z: 0.496}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -40,7 +40,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100062, guid: f227b5017a7c0184a96c2c26f1e4408d, type: 3}
       propertyPath: m_Name
-      value: Enemy (2)
+      value: Skeleton Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 100062, guid: f227b5017a7c0184a96c2c26f1e4408d, type: 3}
       propertyPath: m_Layer
@@ -340,7 +340,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400062, guid: f227b5017a7c0184a96c2c26f1e4408d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.87
+      value: -19.57
       objectReference: {fileID: 0}
     - target: {fileID: 400062, guid: f227b5017a7c0184a96c2c26f1e4408d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -348,7 +348,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400062, guid: f227b5017a7c0184a96c2c26f1e4408d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -23.45
+      value: -20.13
       objectReference: {fileID: 0}
     - target: {fileID: 400062, guid: f227b5017a7c0184a96c2c26f1e4408d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -416,7 +416,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 10
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!136 &1570576285
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -461,7 +461,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 3075957768159326970}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 1.52
+  m_Radius: 0.61
   m_Speed: 3.5
   m_Acceleration: 30
   avoidancePriority: 50
@@ -493,9 +493,9 @@ MonoBehaviour:
   animator: {fileID: 2634848231259235558}
   HP: 5
   playerFaceSpeed: 4
-  viewConeAngle: 90
+  viewConeAngle: 140
   shootRate: 1
-  bullet: {fileID: 0}
+  bullet: {fileID: 1340916387930666295, guid: 22ebf8e1796c69a4fac45959d2cdd22d, type: 3}
   playerInRange: 0
 --- !u!137 &3075957768170897284 stripped
 SkinnedMeshRenderer:

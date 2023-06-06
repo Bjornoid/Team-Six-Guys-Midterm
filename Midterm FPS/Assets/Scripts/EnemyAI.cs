@@ -38,7 +38,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     {
         if (playerInRange && CanSeePlayer()) 
         {
-        
+            
         }
     }
     bool CanSeePlayer()
@@ -55,12 +55,18 @@ public class EnemyAI : MonoBehaviour, IDamage
         {
             if (hit.collider.CompareTag("Player") && angleToPlayer <= viewConeAngle) // if player gets in range of enemy
             {
+      
                 agent.SetDestination(gameManager.instance.player.transform.position); // go towards the player
 
-                animator.Play("DS_onehand_walk");
+                if (agent.remainingDistance > agent.stoppingDistance)
+                {
+                    animator.Play("DS_onehand_walk");
+                }
                 if (agent.remainingDistance <= agent.stoppingDistance)
                 {
                     facePlayer();
+                    animator.Play("DS_onehand_attack_A");
+                    
                 }
                 if (!isShooting && shootPos != null)
                 {
@@ -105,7 +111,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     {
         Quaternion rotation = Quaternion.LookRotation(new Vector3(playerDirection.x, 0, playerDirection.z));
 
-        transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * playerFaceSpeed); 
+        transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * playerFaceSpeed);
     }
 
     public void takeDamage(int dmg)
