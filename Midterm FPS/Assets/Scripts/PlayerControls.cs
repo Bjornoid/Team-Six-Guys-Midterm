@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerControls
@@ -127,6 +128,11 @@ public class PlayerControls
             if (damageable != null)
             {
                 damageable.takeDamage(shootDamage);
+            }
+            else if(hit.collider.gameObject.CompareTag("Target"))
+            {
+                Destroy(hit.collider.gameObject);
+                gameManager.instance.updateTargetCount(-1);
             }
         }
 

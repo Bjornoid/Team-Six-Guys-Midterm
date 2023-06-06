@@ -18,6 +18,7 @@ public class gameManager : MonoBehaviour
 
     [Header("----- Game Goal fields -----")]
     int enemiesRemaining;
+    int targetsRemaining;
     float timeRemaining;
     
 
@@ -36,6 +37,10 @@ public class gameManager : MonoBehaviour
     {
     }
 
+    public int getTargetCount()
+    {
+        return targetsRemaining;
+    }
     public int getEnemiesRemaining()
     {
         return enemiesRemaining;
@@ -69,6 +74,10 @@ public class gameManager : MonoBehaviour
         activeMenu = null;
     }
 
+    public void updateTargetCount(int amount)
+    {
+        targetsRemaining += amount;
+    }
     public void UpdateGameGoal(int amount)
     {
         enemiesRemaining += amount;
