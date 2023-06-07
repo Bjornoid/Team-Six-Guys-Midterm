@@ -4,25 +4,21 @@ using UnityEngine;
 
 public class LeviTriggers : MonoBehaviour
 {
-    public List<GameObject> UIs;
     public List<GameObject> targets;
     public List<GameObject> triggers;
     public List<Animator> animator;
 
     void OnTriggerEnter(Collider other)
     {
-        if (gameObject.Equals(triggers[1]) && gameManager.instance.getEnemiesRemaining() <= 0)
+        if (gameObject.Equals(triggers[0]) && gameManager.instance.getEnemiesRemaining() <= 0)
         {
-            animator[0].Play("DoorOpen");
-            animator[3].Play("Rig_inspect_ground_loop");
-            triggers[1].SetActive(false);
+            animator[0].Play("DoorOpen", 0, 0.1f);
+            triggers[0].SetActive(false);
         }
-        else if (gameObject.Equals(triggers[2]))
+        else if (gameObject.Equals(triggers[1]))
         {
-            animator[0].Play("DoorClosed");
-            triggers[2].SetActive(false);
-            UIs[0].SetActive(false);
-            UIs[1].SetActive(true);
+            animator[0].Play("DoorClosed",0,0.0f);
+            triggers[1].SetActive(false);
         }
     }
 }
