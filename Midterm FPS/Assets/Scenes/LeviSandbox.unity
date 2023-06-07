@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 7379200}
   - component: {fileID: 7379199}
   - component: {fileID: 7379198}
+  - component: {fileID: 7379202}
   m_Layer: 0
   m_Name: CompletionTriggerOffSide
   m_TagString: Untagged
@@ -213,13 +214,31 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7379197}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26.21, y: 3.5917315, z: -60.854603}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 26.21, y: 3.14, z: -60.854603}
+  m_LocalScale: {x: 1, y: 3.475, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 171
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7379202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7379197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43c87b7dd5b72224d88299e7cb287281, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIs: []
+  targets: []
+  triggers:
+  - {fileID: 0}
+  - {fileID: 0}
+  animator: []
 --- !u!1001 &22125879
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1824,6 +1843,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43c87b7dd5b72224d88299e7cb287281, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UIs: []
+  targets: []
+  triggers:
+  - {fileID: 0}
+  animator: []
 --- !u!65 &332206158
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1895,7 +1919,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 332206156}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30.92, y: 3, z: -60.854603}
+  m_LocalPosition: {x: 29.8, y: 3, z: -60.854603}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3572,7 +3596,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5858084677927986115, guid: 0e3be0729f7ae9147a72dd57503a72e9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 28.72
+      value: 28.633
       objectReference: {fileID: 0}
     - target: {fileID: 5858084677927986115, guid: 0e3be0729f7ae9147a72dd57503a72e9, type: 3}
       propertyPath: m_LocalPosition.y
