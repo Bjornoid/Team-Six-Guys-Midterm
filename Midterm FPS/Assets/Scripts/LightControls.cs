@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class LightControls : MonoBehaviour
 {
-    [Header("----- Light Controls -----")]
     [SerializeField] float flickerDelay; // change to edit delay between flickers
-
     [Header("----- Flicker Delay Range")]
-    [Range(0, 20)][SerializeField] float rangeX;
-    [Range(0, 20)][SerializeField] float rangeY;
+    [Range(0f, 20f)][SerializeField] float rangeX;
+    [Range(0f, 20f)][SerializeField] float rangeY;
 
     bool isFlickering; // checks to see if light is flickering
 
@@ -28,9 +26,11 @@ public class LightControls : MonoBehaviour
 
         this.GetComponent<Light>().enabled = false; // turns off the light
 
-        flickerDelay = Random.Range(rangeX, rangeY);
+        flickerDelay = Random.Range(rangeX, rangeY); // random flicker
 
         yield return new WaitForSeconds(flickerDelay); // delay between flickers
+
+        flickerDelay = Random.Range(rangeX, rangeY); // random flicker (added two to make it more random)
 
         this.GetComponent<Light>().enabled = true; // turns on the light
 
