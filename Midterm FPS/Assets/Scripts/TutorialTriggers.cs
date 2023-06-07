@@ -23,6 +23,7 @@ public class TutorialTriggers : MonoBehaviour
         else if (gameObject.Equals(triggers[1]) && gameManager.instance.getEnemiesRemaining() <= 0)
         {
             animators[0].Play("DoorOpen", 0, 0f);
+            animators[3].Play("Rig_inspect_ground_loop");
             triggers[1].SetActive(false);
         }
         else if (gameObject.Equals(triggers[2]))
@@ -54,13 +55,9 @@ public class TutorialTriggers : MonoBehaviour
             UIs[0].SetActive(false);
             UIs[1].SetActive(true);
             Destroy(key);
-        }
-        else if (gameObject.Equals(triggers[6]))
-        {
-            triggers[6].SetActive(false);
             animators[2].Play("DoorOpen");
-        }
-        
+            animators[3].Play("Rig_jump_fwd");
+        } 
     }
 }
  
