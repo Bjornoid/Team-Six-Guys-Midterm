@@ -23,19 +23,23 @@ public class ButtonFunctions : MonoBehaviour
     public void floor1()
     {
         SceneManager.LoadScene("JohnSandbox");
+        gameManager.instance.stateUnPaused();
     }
 
     public void floor2()
     {
         SceneManager.LoadScene("LeviSandbox");
+        gameManager.instance.stateUnPaused();
     }
     public void floor3()
     {
         SceneManager.LoadScene("StevenSandbox");
+        gameManager.instance.stateUnPaused();
     }
     public void floor4()
     {
         SceneManager.LoadScene("ShaunSandbox");
+        gameManager.instance.stateUnPaused();
     }
 
     public void close()
