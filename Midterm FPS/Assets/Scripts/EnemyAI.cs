@@ -17,6 +17,9 @@ public class EnemyAI : MonoBehaviour, IDamage
     [SerializeField] int HP;
     [SerializeField] int playerFaceSpeed;
     [SerializeField] int viewConeAngle;
+    [SerializeField] int roamDist;
+    [SerializeField] int roamTimer;
+
 
     [Header("----- Weapon Stats -----")]
     [SerializeField] float shootRate;
@@ -26,11 +29,15 @@ public class EnemyAI : MonoBehaviour, IDamage
     public bool playerInRange; // checks to see if player is in range
     float angleToPlayer;
     bool isShooting; // checks to see if enemy is shooting
+    bool chosenDestination;
+    Vector3 startingPos;
+    float stoppingDistOrig;
 
     void Start()
-    {
+    { 
         animator.Play("DS_onehand_idle_A");
         gameManager.instance.UpdateGameGoal(1); // enemy exists
+        stoppingDistOrig = agent.stoppingDistance;
     }
 
     // Update is called once per frame
@@ -38,11 +45,39 @@ public class EnemyAI : MonoBehaviour, IDamage
     {
         if (playerInRange && CanSeePlayer()) 
         {
-            
+            StartCoroutine(Roam());
+        }
+        else if (agent.destination != gameManager.instance.player.transform.position) 
+        {
+            StartCoroutine(Roam());
+        } 
+    }
+
+    // Allows enemy to roam
+    IEnumerator Roam()
+    {
+        if (!chosenDestination && agent.remainingDistance < 0.05f)
+        {
+            chosenDestination = true;
+
+            agent.stoppingDistance = 0;
+
+            Vector3 randomPos = Random.insideUnitSphere * roamDist;
+            randomPos += startingPos;
+
+            NavMeshHit hit;
+            NavMesh.SamplePosition(randomPos, out hit, roamDist, 1);
+            yield return new WaitForSeconds(roamTimer);
+            chosenDestination = false;
+
+            agent.SetDestination(hit.position);
         }
     }
+
     bool CanSeePlayer()
     {
+        agent.stoppingDistance = stoppingDistOrig;
+
         playerDirection = gameManager.instance.player.transform.position - headPos.position; // two positions subtracted from one another gives direction
         angleToPlayer = Vector3.Angle(new Vector3(playerDirection.x, 0, playerDirection.z), transform.forward);
 
@@ -76,7 +111,7 @@ public class EnemyAI : MonoBehaviour, IDamage
                 return true;
             }
         }
-
+        agent.stoppingDistance = 0;
         return false;
     }
 
