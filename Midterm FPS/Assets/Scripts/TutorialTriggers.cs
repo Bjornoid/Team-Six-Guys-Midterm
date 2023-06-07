@@ -3,73 +3,62 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TutorialTriggers : MonoBehaviour
-{
-    [SerializeField] Animator myDoor = null;
-    //[SerializeField] Animator girl = null;
-
-    public GameObject firstUI;
-    public GameObject secondUI;
-    public GameObject thirdUI;
-    public GameObject fourthUI;
-    public GameObject fifthUI;
-    public GameObject firstTrigger;
-    public GameObject secondTrigger;
-    public GameObject thirdTrigger;
-    public GameObject fourthTrigger;
-    public GameObject fifthTrigger;
-    public GameObject sixthTrigger;
-    public GameObject seventhTrigger;
-    public Animator animator;
-    public GameObject platform;
+{ 
+    public List<GameObject> UIs;
     public List<GameObject> targets;
+    public List<GameObject> triggers;
+    public List<Animator> animators;
+
+    
     public GameObject key;
     
     void OnTriggerEnter(Collider other)
     {
-        if (gameObject.Equals(firstTrigger))
+        if (gameObject.Equals(triggers[0]))
         {
-            firstUI.SetActive(false);
-            secondUI.SetActive(true);
+            triggers[0].SetActive(false);
+            UIs[0].SetActive(false);
+            UIs[1].SetActive(true);
         }
-        else if (gameObject.Equals(secondTrigger) && gameManager.instance.getEnemiesRemaining() <= 0)
+        else if (gameObject.Equals(triggers[1]) && gameManager.instance.getEnemiesRemaining() <= 0)
         {
-            myDoor.Play("DoorOpen", 0, 0f);
-            secondTrigger.SetActive(false);
+            animators[0].Play("DoorOpen", 0, 0f);
+            triggers[1].SetActive(false);
         }
-        else if (gameObject.Equals(thirdTrigger))
+        else if (gameObject.Equals(triggers[2]))
         {
-            myDoor.Play("DoorClosed", 0, 0f);
-            thirdTrigger.SetActive(false);
-            secondUI.SetActive(false);
-            thirdUI.SetActive(true);
+            animators[0].Play("DoorClosed", 0, 0f);
+            triggers[2].SetActive(false);
+            UIs[0].SetActive(false);
+            UIs[1].SetActive(true);
         }
-        else if (gameObject.Equals(fourthTrigger))
+        else if (gameObject.Equals(triggers[3]))
         {
-            thirdUI.SetActive(false);
-            fourthUI.SetActive(true);
+            UIs[0].SetActive(false);
+            UIs[1].SetActive(true);
             gameManager.instance.updateTargetCount(targets.Count);
             for (int i = 0; i < targets.Count; i++) 
             {
                 targets[i].SetActive(true);
             }
-            fourthTrigger.SetActive(false);
+            triggers[3].SetActive(false);
         }
-        else if (gameObject.Equals(fifthTrigger) && gameManager.instance.getTargetCount() <= 0) 
+        else if (gameObject.Equals(triggers[4]) && gameManager.instance.getTargetCount() <= 0) 
         {
-            fifthTrigger.SetActive(false);
-            animator.Play("MovePlatform");
+            triggers[4].SetActive(false);
+            animators[1].Play("MovePlatform");
         }
-        else if (gameObject.Equals(sixthTrigger))
+        else if (gameObject.Equals(triggers[5]))
         {
-            sixthTrigger.SetActive(false);
-            fourthUI.SetActive(false);
-            fifthUI.SetActive(true);
+            triggers[5].SetActive(false);
+            UIs[0].SetActive(false);
+            UIs[1].SetActive(true);
             Destroy(key);
         }
-        else if (gameObject.Equals(seventhTrigger))
+        else if (gameObject.Equals(triggers[6]))
         {
-            seventhTrigger.SetActive(false);
-            myDoor.Play("DoorOpen");
+            triggers[6].SetActive(false);
+            animators[2].Play("DoorOpen");
         }
         
     }

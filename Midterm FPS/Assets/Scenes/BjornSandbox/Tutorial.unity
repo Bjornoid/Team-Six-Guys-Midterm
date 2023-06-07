@@ -1124,22 +1124,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5e40422a4ed5d40b9f5035662d03da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myDoor: {fileID: 0}
-  firstUI: {fileID: 0}
-  secondUI: {fileID: 129785267}
-  thirdUI: {fileID: 0}
-  fourthUI: {fileID: 0}
-  fifthUI: {fileID: 0}
-  firstTrigger: {fileID: 0}
-  secondTrigger: {fileID: 0}
-  thirdTrigger: {fileID: 0}
-  fourthTrigger: {fileID: 0}
-  fifthTrigger: {fileID: 0}
-  sixthTrigger: {fileID: 0}
-  seventhTrigger: {fileID: 0}
-  animator: {fileID: 0}
-  platform: {fileID: 0}
+  UIs: []
   targets: []
+  triggers: []
+  animators: []
   key: {fileID: 0}
 --- !u!65 &129785273
 BoxCollider:
@@ -1620,22 +1608,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5e40422a4ed5d40b9f5035662d03da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myDoor: {fileID: 1359679212}
-  firstUI: {fileID: 1452666161}
-  secondUI: {fileID: 1998204275}
-  thirdUI: {fileID: 0}
-  fourthUI: {fileID: 0}
-  fifthUI: {fileID: 0}
-  firstTrigger: {fileID: 886484843}
-  secondTrigger: {fileID: 162489424}
-  thirdTrigger: {fileID: 0}
-  fourthTrigger: {fileID: 0}
-  fifthTrigger: {fileID: 0}
-  sixthTrigger: {fileID: 0}
-  seventhTrigger: {fileID: 0}
-  animator: {fileID: 0}
-  platform: {fileID: 0}
+  UIs: []
   targets: []
+  triggers:
+  - {fileID: 0}
+  - {fileID: 162489424}
+  animators:
+  - {fileID: 1359679212}
   key: {fileID: 0}
 --- !u!65 &162489426
 BoxCollider:
@@ -4270,22 +4249,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5e40422a4ed5d40b9f5035662d03da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myDoor: {fileID: 0}
-  firstUI: {fileID: 1452666161}
-  secondUI: {fileID: 0}
-  thirdUI: {fileID: 0}
-  fourthUI: {fileID: 0}
-  fifthUI: {fileID: 0}
-  firstTrigger: {fileID: 0}
-  secondTrigger: {fileID: 0}
-  thirdTrigger: {fileID: 0}
-  fourthTrigger: {fileID: 0}
-  fifthTrigger: {fileID: 0}
-  sixthTrigger: {fileID: 0}
-  seventhTrigger: {fileID: 0}
-  animator: {fileID: 0}
-  platform: {fileID: 0}
+  UIs: []
   targets: []
+  triggers: []
+  animators: []
   key: {fileID: 0}
 --- !u!65 &520569074
 BoxCollider:
@@ -5765,22 +5732,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5e40422a4ed5d40b9f5035662d03da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myDoor: {fileID: 1359679212}
-  firstUI: {fileID: 1452666161}
-  secondUI: {fileID: 1998204275}
-  thirdUI: {fileID: 389394392}
-  fourthUI: {fileID: 0}
-  fifthUI: {fileID: 0}
-  firstTrigger: {fileID: 886484843}
-  secondTrigger: {fileID: 162489424}
-  thirdTrigger: {fileID: 636071803}
-  fourthTrigger: {fileID: 0}
-  fifthTrigger: {fileID: 0}
-  sixthTrigger: {fileID: 0}
-  seventhTrigger: {fileID: 0}
-  animator: {fileID: 0}
-  platform: {fileID: 0}
+  UIs:
+  - {fileID: 1998204275}
+  - {fileID: 389394392}
   targets: []
+  triggers:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 636071803}
+  animators:
+  - {fileID: 1359679212}
   key: {fileID: 0}
 --- !u!65 &636071805
 BoxCollider:
@@ -8229,22 +8190,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5e40422a4ed5d40b9f5035662d03da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myDoor: {fileID: 1359679212}
-  firstUI: {fileID: 1452666161}
-  secondUI: {fileID: 1998204275}
-  thirdUI: {fileID: 0}
-  fourthUI: {fileID: 0}
-  fifthUI: {fileID: 0}
-  firstTrigger: {fileID: 886484843}
-  secondTrigger: {fileID: 162489424}
-  thirdTrigger: {fileID: 0}
-  fourthTrigger: {fileID: 0}
-  fifthTrigger: {fileID: 0}
-  sixthTrigger: {fileID: 0}
-  seventhTrigger: {fileID: 0}
-  animator: {fileID: 0}
-  platform: {fileID: 0}
+  UIs:
+  - {fileID: 1452666161}
+  - {fileID: 1998204275}
   targets: []
+  triggers:
+  - {fileID: 886484843}
+  animators: []
   key: {fileID: 0}
 --- !u!65 &886484845
 BoxCollider:
@@ -9708,27 +9660,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5e40422a4ed5d40b9f5035662d03da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myDoor: {fileID: 1359679212}
-  firstUI: {fileID: 1452666161}
-  secondUI: {fileID: 1998204275}
-  thirdUI: {fileID: 389394392}
-  fourthUI: {fileID: 918885453}
-  fifthUI: {fileID: 0}
-  firstTrigger: {fileID: 886484843}
-  secondTrigger: {fileID: 162489424}
-  thirdTrigger: {fileID: 636071803}
-  fourthTrigger: {fileID: 1028778837}
-  fifthTrigger: {fileID: 0}
-  sixthTrigger: {fileID: 0}
-  seventhTrigger: {fileID: 0}
-  animator: {fileID: 0}
-  platform: {fileID: 0}
+  UIs:
+  - {fileID: 389394392}
+  - {fileID: 918885453}
   targets:
   - {fileID: 736798123}
   - {fileID: 1114765057}
   - {fileID: 918712910}
   - {fileID: 1406085125}
   - {fileID: 1186167472}
+  triggers:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1028778837}
+  animators: []
   key: {fileID: 0}
 --- !u!65 &1028778839
 BoxCollider:
@@ -12262,27 +12208,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5e40422a4ed5d40b9f5035662d03da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myDoor: {fileID: 1359679212}
-  firstUI: {fileID: 1452666161}
-  secondUI: {fileID: 1998204275}
-  thirdUI: {fileID: 389394392}
-  fourthUI: {fileID: 918885453}
-  fifthUI: {fileID: 1478179243}
-  firstTrigger: {fileID: 886484843}
-  secondTrigger: {fileID: 162489424}
-  thirdTrigger: {fileID: 636071803}
-  fourthTrigger: {fileID: 1028778837}
-  fifthTrigger: {fileID: 1984289369}
-  sixthTrigger: {fileID: 1801407170}
-  seventhTrigger: {fileID: 1313203615}
-  animator: {fileID: 2125509656}
-  platform: {fileID: 464736989}
+  UIs: []
   targets:
   - {fileID: 736798123}
   - {fileID: 1114765057}
   - {fileID: 918712910}
   - {fileID: 1406085125}
   - {fileID: 1186167472}
+  triggers: []
+  animators: []
   key: {fileID: 873162512}
 --- !u!65 &1313203617
 BoxCollider:
@@ -16771,27 +16705,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5e40422a4ed5d40b9f5035662d03da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myDoor: {fileID: 1359679212}
-  firstUI: {fileID: 1452666161}
-  secondUI: {fileID: 1998204275}
-  thirdUI: {fileID: 389394392}
-  fourthUI: {fileID: 918885453}
-  fifthUI: {fileID: 1478179243}
-  firstTrigger: {fileID: 886484843}
-  secondTrigger: {fileID: 162489424}
-  thirdTrigger: {fileID: 636071803}
-  fourthTrigger: {fileID: 1028778837}
-  fifthTrigger: {fileID: 1984289369}
-  sixthTrigger: {fileID: 1801407170}
-  seventhTrigger: {fileID: 0}
-  animator: {fileID: 464736995}
-  platform: {fileID: 464736989}
-  targets:
-  - {fileID: 736798123}
-  - {fileID: 1114765057}
-  - {fileID: 918712910}
-  - {fileID: 1406085125}
-  - {fileID: 1186167472}
+  UIs:
+  - {fileID: 918885453}
+  - {fileID: 1478179243}
+  targets: []
+  triggers:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1801407170}
+  animators: []
   key: {fileID: 873162512}
 --- !u!65 &1801407172
 BoxCollider:
@@ -18345,27 +18270,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5e40422a4ed5d40b9f5035662d03da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myDoor: {fileID: 1359679212}
-  firstUI: {fileID: 1452666161}
-  secondUI: {fileID: 1998204275}
-  thirdUI: {fileID: 389394392}
-  fourthUI: {fileID: 918885453}
-  fifthUI: {fileID: 0}
-  firstTrigger: {fileID: 886484843}
-  secondTrigger: {fileID: 162489424}
-  thirdTrigger: {fileID: 636071803}
-  fourthTrigger: {fileID: 1028778837}
-  fifthTrigger: {fileID: 1984289369}
-  sixthTrigger: {fileID: 0}
-  seventhTrigger: {fileID: 0}
-  animator: {fileID: 464736995}
-  platform: {fileID: 464736989}
-  targets:
-  - {fileID: 736798123}
-  - {fileID: 1114765057}
-  - {fileID: 918712910}
-  - {fileID: 1406085125}
-  - {fileID: 1186167472}
+  UIs: []
+  targets: []
+  triggers:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1984289369}
+  animators:
+  - {fileID: 0}
+  - {fileID: 464736995}
   key: {fileID: 0}
 --- !u!65 &1984289371
 BoxCollider:
