@@ -30,8 +30,6 @@ public class LightControls : MonoBehaviour
 
         yield return new WaitForSeconds(flickerDelay); // delay between flickers
 
-        flickerDelay = Random.Range(rangeX, rangeY); // random flicker (added two to make it more random)
-
         this.GetComponent<Light>().enabled = true; // turns on the light
 
         isFlickering = false;

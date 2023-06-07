@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class gameManager : MonoBehaviour
 {
@@ -15,6 +17,12 @@ public class gameManager : MonoBehaviour
     public GameObject activeMenu;
     public GameObject settingsMenu;
     public GameObject mainMenu;
+    public GameObject pauseMenu;
+    public GameObject winMenu;
+    public GameObject loseMenu;
+    public Image playerHPBar;
+    public GameObject playerFlashUI;
+    public TextMeshProUGUI enemiesRemainingText;
 
     [Header("----- Game Goal fields -----")]
     int enemiesRemaining;
@@ -81,6 +89,8 @@ public class gameManager : MonoBehaviour
     public void UpdateGameGoal(int amount)
     {
         enemiesRemaining += amount;
+
+        enemiesRemainingText.text = enemiesRemaining.ToString("F0");
 
         if (enemiesRemaining <= 0)
         {

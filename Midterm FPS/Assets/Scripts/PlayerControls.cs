@@ -28,6 +28,7 @@ public class PlayerControls
     private Vector3 playerVelocity; // gets player velocty
     private Vector3 move; // movement for fps 
     private int jumpTimes; // the amount of time the player has jumped
+    int playerHPOrig; // Original HP of player
     private bool groundedPlayer; // checks if player is on ground
     bool isShooting; // Checks if you are shooting
 
@@ -39,10 +40,47 @@ public class PlayerControls
         sprinting,
         jumping
     }
+    void Start()
+    {
+        playerHPOrig = HP; // Resets player's HP
+
+        startYScale = transform.localScale.y;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        stateHandler();
+        movement();
+
+        if (Input.GetButton("Shoot") && !isShooting)
+        {
+            StartCoroutine(shoot()); // start shooting
+        }
+    }
 
     public void takeDamage(int dmg)
     {
         HP -= dmg;
+        UpdatePlayerUI();
+
+        StartCoroutine(PlayerFlashDamage());
+
+        // if (HP <= 0) {}
+    }
+
+    public void UpdatePlayerUI()
+    {
+        gameManager.instance.playerHPBar.fillAmount = (float)HP / playerHPOrig; // Divide Curr by Original to get player HP
+    }
+
+    IEnumerator PlayerFlashDamage()
+    {
+        gameManager.instance.playerFlashUI.SetActive(true);
+
+        yield return new WaitForSeconds(0.1f);
+
+        gameManager.instance.playerFlashUI.SetActive(false);
     }
 
     private void stateHandler()
@@ -63,23 +101,6 @@ public class PlayerControls
             movementState = MovementState.jumping;
         }
 
-    }
-
-    void Start()
-    {
-        startYScale = transform.localScale.y;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        stateHandler();
-        movement();
-
-        if (Input.GetButton("Shoot") && !isShooting)
-        {
-            StartCoroutine(shoot()); // start shooting
-        }
     }
 
     void movement()
