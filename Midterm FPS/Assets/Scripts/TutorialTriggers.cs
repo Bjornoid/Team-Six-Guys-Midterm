@@ -9,7 +9,6 @@ public class TutorialTriggers : MonoBehaviour
     public List<GameObject> triggers;
     public List<Animator> animators;
 
-    
     public GameObject key;
     
     void OnTriggerEnter(Collider other)
@@ -57,7 +56,22 @@ public class TutorialTriggers : MonoBehaviour
             Destroy(key);
             animators[2].Play("DoorOpen");
             animators[3].Play("Rig_jump_fwd");
+            triggers[6].SetActive(true);
         } 
+        else if (gameObject.Equals(triggers[6]))
+        {
+            triggers[6].SetActive(false);
+            triggers[7].SetActive(true);
+            UIs[0].SetActive(false);
+            UIs[1].SetActive(true);
+        }
+        else if (gameObject.Equals(triggers[7]))
+        {
+            triggers[7].SetActive(false);
+            UIs[0].SetActive(false);
+            UIs[1].SetActive(true);
+            gameManager.instance.statePaused();
+        }
     }
 }
  
