@@ -6,7 +6,7 @@ public class doorController : MonoBehaviour
 {
     public GameObject openTrigger;
     public GameObject clsoeTrigger;
-    public Animator animation;
+    public new Animator animation;
 
 
     private void OnTriggerEnter(Collider other)
