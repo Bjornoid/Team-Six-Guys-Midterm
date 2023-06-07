@@ -18,6 +18,7 @@ public class gameManager : MonoBehaviour
     public GameObject settingsMenu;
     public GameObject mainMenu;
     public GameObject pauseMenu;
+    public GameObject playMenu;
     public GameObject winMenu;
     public GameObject loseMenu;
     public Image playerHPBar;
@@ -61,10 +62,16 @@ public class gameManager : MonoBehaviour
     
     public void switchToMain()
     {
+        playMenu.SetActive(false);
         settingsMenu.SetActive(false);
         mainMenu.SetActive(true);
     }
 
+    public void switchToLevelSelect()
+    {
+        mainMenu.SetActive(false);
+        playMenu.SetActive(true);
+    }
     public void statePaused()
     {
         Time.timeScale = 0;

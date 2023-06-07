@@ -22,20 +22,20 @@ public class ButtonFunctions : MonoBehaviour
 
     public void floor1()
     {
-
+        SceneManager.LoadScene("JohnSandbox");
     }
 
     public void floor2()
     {
-
+        SceneManager.LoadScene("LeviSandbox");
     }
     public void floor3()
     {
-
+        SceneManager.LoadScene("StevenSandbox");
     }
     public void floor4()
     {
-
+        SceneManager.LoadScene("ShaunSandbox");
     }
 
     public void close()
