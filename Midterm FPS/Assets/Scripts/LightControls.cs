@@ -4,21 +4,12 @@ using UnityEngine;
 
 public class LightControls : MonoBehaviour
 {
-    [SerializeField] float flickerDelay; // change to edit delay between flickers
+    [SerializeField] public float flickerDelay; // change to edit delay between flickers
     [Header("----- Flicker Delay Range -----")]
-    [Range(0f, 20f)][SerializeField] float rangeX;
-    [Range(0f, 20f)][SerializeField] float rangeY;
+    [Range(0f, 20f)][SerializeField] public float rangeX;
+    [Range(0f, 20f)][SerializeField] public float rangeY;
 
-    Light lightFlicker;
-    //Material materialFlicker;
     bool isFlickering; // checks to see if light is flickering
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        lightFlicker = GetComponent<Light>();
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -33,13 +24,13 @@ public class LightControls : MonoBehaviour
     {
         isFlickering = true;
 
-        lightFlicker.enabled = false; // turns off the light
+        this.GetComponent<Light>().enabled = false; // turns off the light
 
         flickerDelay = Random.Range(rangeX, rangeY); // random flicker
 
         yield return new WaitForSeconds(flickerDelay); // delay between flickers
 
-        lightFlicker.enabled = true; // turns on the light
+        this.GetComponent<Light>().enabled = true; // turns on the light
 
         isFlickering = false;
     }
