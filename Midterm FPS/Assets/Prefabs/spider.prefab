@@ -259,8 +259,8 @@ MonoBehaviour:
   viewConeAngle: 140
   roamDistance: 10
   roamTimer: 2
-  shootRate: 0
-  bullet: {fileID: 0}
+  shootRate: 2
+  bullet: {fileID: 1340916387930666295, guid: 22ebf8e1796c69a4fac45959d2cdd22d, type: 3}
   inRange: 0
   isShooting: 0
 --- !u!1 &6238086146351178790
