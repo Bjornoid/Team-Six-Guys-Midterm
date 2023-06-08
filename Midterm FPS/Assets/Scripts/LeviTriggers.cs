@@ -20,7 +20,7 @@ public class LeviTriggers : MonoBehaviour
             animator[1].Play("DoorClosed", 0, 0.0f);
             triggers[1].SetActive(false);
         }
-        if (gameObject.Equals(triggers[2]))
+       else if (gameObject.Equals(triggers[2]))
         {
             triggers[2].SetActive(false);
             Destroy(key);
