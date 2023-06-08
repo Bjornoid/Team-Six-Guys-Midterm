@@ -15,9 +15,9 @@ public class PlayerControls
     [Range(-10, 100)][SerializeField] float gravityValue; // gravity value for player
     [SerializeField] int jumpMax; // max amount of jump a player can have
     [SerializeField] int HP;
-    public float crouchSpeed;
-    public float crouchYScale;
-    private float startYScale;
+
+    public float crouchHeight;
+    private float playerHeight;
 
     [Header("----- Gun Settings -----")]
     [Range(0.1f, 3)][SerializeField] float shootRate;
@@ -44,7 +44,7 @@ public class PlayerControls
     {
         playerHPOrig = HP; // Resets player's HP
 
-        startYScale = transform.localScale.y;
+        playerHeight = controller.height;
     }
 
     // Update is called once per frame
@@ -52,6 +52,7 @@ public class PlayerControls
     {
         stateHandler();
         movement();
+        crouch();
 
         if (Input.GetButton("Shoot") && !isShooting)
         {
@@ -123,18 +124,21 @@ public class PlayerControls
 
             playerVelocity.y = jumpHeight;
         }
-        if (Input.GetButtonDown("LCTRL"))
-        {
-            transform.localScale = new Vector3(transform.localScale.x, crouchYScale, transform.localScale.z);
-            
-        }
-        if (Input.GetButtonUp("LCTRL"))
-        {
-            transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
-        }
 
         playerVelocity.y -= gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
+    }
+
+    void crouch()
+    {
+        if (Input.GetButtonDown("LCTRL"))
+        {
+            controller.height = crouchHeight;
+        }
+        else if (Input.GetButtonUp("LCTRL"))
+        {
+            controller.height = playerHeight;
+        }
     }
 
     IEnumerator shoot()
