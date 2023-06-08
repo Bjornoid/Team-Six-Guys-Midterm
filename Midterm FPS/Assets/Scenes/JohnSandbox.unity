@@ -36613,6 +36613,46 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 827043997, guid: a7a69bb90632feb419a72b2df87b715d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4507976
+      objectReference: {fileID: 0}
+    - target: {fileID: 827043997, guid: a7a69bb90632feb419a72b2df87b715d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.10017119
+      objectReference: {fileID: 0}
+    - target: {fileID: 827043997, guid: a7a69bb90632feb419a72b2df87b715d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.8497635
+      objectReference: {fileID: 0}
+    - target: {fileID: 827043997, guid: a7a69bb90632feb419a72b2df87b715d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.002
+      objectReference: {fileID: 0}
+    - target: {fileID: 827043997, guid: a7a69bb90632feb419a72b2df87b715d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 827043997, guid: a7a69bb90632feb419a72b2df87b715d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 827044001, guid: a7a69bb90632feb419a72b2df87b715d, type: 3}
+      propertyPath: rangeX
+      value: 0.00000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 827044001, guid: a7a69bb90632feb419a72b2df87b715d, type: 3}
+      propertyPath: rangeY
+      value: 0.00000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 995900097, guid: a7a69bb90632feb419a72b2df87b715d, type: 3}
+      propertyPath: rangeX
+      value: 0.00000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 995900097, guid: a7a69bb90632feb419a72b2df87b715d, type: 3}
+      propertyPath: rangeY
+      value: 0.00000002
+      objectReference: {fileID: 0}
     - target: {fileID: 3197813906292182070, guid: a7a69bb90632feb419a72b2df87b715d, type: 3}
       propertyPath: m_Name
       value: Ceiling Light (White)
@@ -43863,6 +43903,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: RedLight
       objectReference: {fileID: 0}
+    - target: {fileID: 5932013711736242388, guid: e1c4dc1dc894a5b4ca9168c94f28f0e5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a3d75d20bf5a52946be774b58bfbc0dc, type: 2}
     - target: {fileID: 5932013712748428387, guid: e1c4dc1dc894a5b4ca9168c94f28f0e5, type: 3}
       propertyPath: m_Range
       value: 10
