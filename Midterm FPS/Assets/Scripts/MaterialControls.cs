@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class MaterialControls : MonoBehaviour
 {
@@ -21,24 +23,43 @@ public class MaterialControls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!isFlickering)
+        if (!isFlickering && gameObject.CompareTag("RedLight"))
         {
             StartCoroutine(MaterialFlickerRed());
+        }
+        else if (!isFlickering && gameObject.CompareTag("Light"))
+        {
+            StartCoroutine(MaterialFlickerWhite());
         }
     }
 
     IEnumerator MaterialFlickerRed()
     {
-
         isFlickering = true;
 
-        materialFlicker.SetColor("_EmissionColor", Color.red); // turn off light 
+        materialFlicker.SetColor("_EmissionColor", Color.red); // turn on light 
 
         flickerDelay = Random.Range(rangeX, rangeY);
 
         yield return new WaitForSeconds(flickerDelay);
 
-        materialFlicker.SetColor("_EmissionColor", Color.black); // turn on light
+        materialFlicker.SetColor("_EmissionColor", Color.black); // turn off light
+
+        isFlickering = false;
+    }
+
+    IEnumerator MaterialFlickerWhite()
+    {
+
+        isFlickering = true;
+
+        materialFlicker.SetColor("_EmissionColor", Color.white); // turn on light 
+
+        flickerDelay = Random.Range(rangeX, rangeY);
+
+        yield return new WaitForSeconds(flickerDelay);
+
+        materialFlicker.SetColor("_EmissionColor", Color.black); // turn off light
 
         isFlickering = false;
     }
