@@ -15,9 +15,18 @@ public class ButtonFunctions : MonoBehaviour
         gameManager.instance.switchToLevelSelect();
     }
 
+    public void backToMainMenu()
+    {
+        SceneManager.LoadScene("Main Menu");
+        gameManager.instance.stateUnPaused();
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
+    }
+
     public void tutorial()
     {
         SceneManager.LoadScene("Tutorial");
+        gameManager.instance.stateUnPaused();
     }
 
     public void floor1()
@@ -47,6 +56,10 @@ public class ButtonFunctions : MonoBehaviour
         gameManager.instance.switchToMain();
     }
 
+    public void resume()
+    {
+        gameManager.instance.stateUnPaused();
+    }
 
    public void quit()
     {
