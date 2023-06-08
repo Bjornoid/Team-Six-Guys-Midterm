@@ -6,7 +6,7 @@ public class doorController : MonoBehaviour
 {
     public GameObject openTrigger;
     public GameObject clsoeTrigger;
-    public new Animator animation;
+    public Animator animator;
 
 
     private void OnTriggerEnter(Collider other)
@@ -14,13 +14,13 @@ public class doorController : MonoBehaviour
         if (gameObject.Equals(openTrigger))
         {
             openTrigger.SetActive(false);
-            animation.Play("DoorOpen", 0, 0f);
+            animator.Play("DoorOpen", 0, 0f);
 
         }
         else if (gameObject.Equals(clsoeTrigger))
         {
             clsoeTrigger.SetActive(false);
-            animation.Play("DoorClosed", 0, 0f);
+            animator.Play("DoorClosed", 0, 0f);
         }
     }
 }

@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -44,6 +43,12 @@ public class gameManager : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetButtonDown("Cancel") && activeMenu == null)
+        {
+            statePaused();
+            activeMenu = pauseMenu;
+            activeMenu.SetActive(true);
+        }
     }
 
     public int getTargetCount()
@@ -70,10 +75,12 @@ public class gameManager : MonoBehaviour
     public void switchToLevelSelect()
     {
         mainMenu.SetActive(false);
-        playMenu.SetActive(true);
+        activeMenu = playMenu;
+        activeMenu.SetActive(true);
     }
     public void statePaused()
     {
+        isPaused = !isPaused;
         Time.timeScale = 0;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
