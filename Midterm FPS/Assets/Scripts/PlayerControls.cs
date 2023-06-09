@@ -69,9 +69,11 @@ public class PlayerControls
 
         StartCoroutine(PlayerFlashDamage());
 
-        if (HP <= 0) 
+        if(HP<=0)
         {
             gameManager.instance.YouLose();
+
+            gameManager.instance.playerScript.SpawnPlayer();
         }
     }
 
