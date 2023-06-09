@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TutorialTriggers : MonoBehaviour
-{ 
+{
+    //List used so that the triggers know which trigger they are by index ------> Every Trigger needs to set itself in the right index
+    public List<GameObject> triggers;
+    //Lists that track the variables that the triggers need to use ------> Every Trigger only needs to know about the variables that it's changing
     public List<GameObject> UIs;
     public List<GameObject> targets;
-    public List<GameObject> triggers;
-    public List<Animator> animators;
+    public GameObject currDoorP;
 
     public GameObject key;
     
@@ -21,14 +23,14 @@ public class TutorialTriggers : MonoBehaviour
         }
         else if (gameObject.Equals(triggers[1]) && gameManager.instance.getEnemiesRemaining() <= 0)
         {
-            animators[0].Play("DoorOpen", 0, 0f);
-            animators[3].Play("Rig_inspect_ground_loop");
             triggers[1].SetActive(false);
+            DoorController.rotateDoor(currDoorP, 200);
+            
         }
         else if (gameObject.Equals(triggers[2]))
         {
-            animators[0].Play("DoorClosed", 0, 0f);
             triggers[2].SetActive(false);
+            DoorController.rotateDoor(currDoorP, 90);
             UIs[0].SetActive(false);
             UIs[1].SetActive(true);
         }
@@ -45,8 +47,7 @@ public class TutorialTriggers : MonoBehaviour
         }
         else if (gameObject.Equals(triggers[4]) && gameManager.instance.getTargetCount() <= 0) 
         {
-            triggers[4].SetActive(false);
-            animators[1].Play("MovePlatform");
+            triggers[4].SetActive(false);       
         }
         else if (gameObject.Equals(triggers[5]))
         {
@@ -54,8 +55,7 @@ public class TutorialTriggers : MonoBehaviour
             UIs[0].SetActive(false);
             UIs[1].SetActive(true);
             Destroy(key);
-            animators[2].Play("DoorOpen");
-            animators[3].Play("Rig_jump_fwd");
+            DoorController.rotateDoor(currDoorP, -110);
             triggers[6].SetActive(true);
         } 
         else if (gameObject.Equals(triggers[6]))
