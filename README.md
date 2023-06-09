@@ -1,2 +1,2 @@
-# Team  Guys Midterm
+# Team Six Guys Midterm
  FPS Game ProtoType
