@@ -11,7 +11,8 @@ public class EnemyAI : MonoBehaviour, IDamage
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Transform headPos;
     [SerializeField] Transform shootPos;
-    [SerializeField] Animator animator = null;
+    [SerializeField] Animator animator;
+    [SerializeField] Collider weaponCol;
 
     [Header("----- Enemy Stats -----")]
     [SerializeField] int HP;
@@ -19,11 +20,12 @@ public class EnemyAI : MonoBehaviour, IDamage
     [SerializeField] int viewConeAngle;
     [SerializeField] int roamDist;
     [SerializeField] int roamTimer;
-
+    [SerializeField] bool isMelee;
 
     [Header("----- Weapon Stats -----")]
     [SerializeField] float shootRate;
     [SerializeField] GameObject bullet;
+
 
     Vector3 playerDirection; // direction of the player
     public bool playerInRange; // checks to see if player is in range
@@ -43,6 +45,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     // Update is called once per frame
     void Update()
     {
+        animator.SetFloat("Speed", agent.velocity.normalized.magnitude);
         if (playerInRange && CanSeePlayer()) 
         {
             StartCoroutine(Roam());
@@ -100,12 +103,17 @@ public class EnemyAI : MonoBehaviour, IDamage
                 if (agent.remainingDistance <= agent.stoppingDistance)
                 {
                     facePlayer();
-                    //animator.Play("DS_onehand_attack_A");
-                    
+                    if (isMelee)
+                    {
+                        animator.SetTrigger("Swing");
+                    }
                 }
                 if (!isShooting && shootPos != null)
                 {
-                    StartCoroutine(shoot());
+                    if (!isMelee)
+                    {
+                        StartCoroutine(shoot());
+                    }
                 }
 
                 return true;
@@ -170,5 +178,15 @@ public class EnemyAI : MonoBehaviour, IDamage
         yield return new WaitForSeconds(0.1f);
 
         model.material.color = Color.white;
+    }
+
+    void weaponColOff()
+    {
+        weaponCol.enabled = false;
+    }
+
+    void weaponColOn()
+    {
+        weaponCol.enabled = true;
     }
 }
