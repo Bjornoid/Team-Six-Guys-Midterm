@@ -24,15 +24,16 @@ public class gameManager : MonoBehaviour
     public Image playerHPBar;
     public GameObject playerFlashUI;
     public TextMeshProUGUI enemiesRemainingText;
+    public TextMeshProUGUI mainTaskDescription;
+    public TextMeshProUGUI sideQuestDescription;
 
     [Header("----- Game Goal fields -----")]
     int enemiesRemaining;
     int targetsRemaining;
-    float timeRemaining;
-    
 
     bool isPaused;
     float timeScaleOrig;
+    bool beatLevel;
 
     void Awake()
     {
@@ -48,7 +49,7 @@ public class gameManager : MonoBehaviour
         {
             statePaused();
             activeMenu = pauseMenu;
-            activeMenu.SetActive(true);
+            activeMenu.SetActive(isPaused);
         }
     }
 
@@ -82,7 +83,6 @@ public class gameManager : MonoBehaviour
     public void statePaused()
     {
         isPaused = !isPaused;
-        activeMenu = pauseMenu;
         Time.timeScale = 0;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
@@ -108,10 +108,18 @@ public class gameManager : MonoBehaviour
 
         enemiesRemainingText.text = enemiesRemaining.ToString("F0");
 
-        if (enemiesRemaining <= 0)
+        if (enemiesRemaining <= 0 && beatLevel)
         {
-            // win condition
+            StartCoroutine(youWin());
         }
+    }
+
+    IEnumerator youWin()
+    {
+        yield return new WaitForSeconds(3);
+        activeMenu = winMenu;
+        activeMenu.SetActive(true);
+        statePaused();
     }
 
     public void YouLose()
@@ -119,5 +127,15 @@ public class gameManager : MonoBehaviour
         statePaused();
         activeMenu = loseMenu;
         activeMenu.SetActive(true);
+    }
+
+    public void setMainTask(string taskDescription)
+    {
+        mainTaskDescription.text = taskDescription;
+        
+    }
+    public void setSideQuest(string questDescription)
+    {
+        sideQuestDescription.text = questDescription;
     }
 }
