@@ -95,8 +95,11 @@ public class gameManager : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         isPaused = !isPaused;
-        activeMenu.SetActive(false);
-        activeMenu = null;
+        if (activeMenu != null)
+        {
+            activeMenu.SetActive(false);
+            activeMenu = null;
+        }
     }
 
     public void updateTargetCount(int amount)
