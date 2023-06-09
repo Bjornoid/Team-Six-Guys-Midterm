@@ -11,7 +11,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Transform headPos;
     [SerializeField] Transform shootPos;
-    [SerializeField] Animator animator;
+    [SerializeField] Animator animator = null;
 
     [Header("----- Enemy Stats -----")]
     [SerializeField] int HP;
@@ -35,7 +35,7 @@ public class EnemyAI : MonoBehaviour, IDamage
 
     void Start()
     { 
-        animator.Play("DS_onehand_idle_A");
+        //animator.Play("DS_onehand_idle_A");
         gameManager.instance.UpdateGameGoal(1); // enemy exists
         stoppingDistOrig = agent.stoppingDistance;
     }
@@ -95,12 +95,12 @@ public class EnemyAI : MonoBehaviour, IDamage
 
                 if (agent.remainingDistance > agent.stoppingDistance)
                 {
-                    animator.Play("DS_onehand_walk");
+                    //animator.Play("DS_onehand_walk");
                 }
                 if (agent.remainingDistance <= agent.stoppingDistance)
                 {
                     facePlayer();
-                    animator.Play("DS_onehand_attack_A");
+                    //animator.Play("DS_onehand_attack_A");
                     
                 }
                 if (!isShooting && shootPos != null)
