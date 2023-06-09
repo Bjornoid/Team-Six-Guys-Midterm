@@ -11,6 +11,7 @@ public class gameManager : MonoBehaviour
     [Header("----- Player fields -----")]
     public GameObject player;
     public PlayerControls playerScript;
+    public GameObject playerSpawnPosition;
 
     [Header("----- UI fields -----")]
     public GameObject activeMenu;
@@ -111,5 +112,12 @@ public class gameManager : MonoBehaviour
         {
             // win condition
         }
+    }
+
+    public void YouLose()
+    {
+        statePaused();
+        activeMenu = loseMenu;
+        activeMenu.SetActive(true);
     }
 }

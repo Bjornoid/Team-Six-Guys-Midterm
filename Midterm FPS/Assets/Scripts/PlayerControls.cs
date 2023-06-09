@@ -45,6 +45,8 @@ public class PlayerControls
         playerHPOrig = HP; // Resets player's HP
 
         playerHeight = controller.height;
+
+        SpawnPlayer();
     }
 
     // Update is called once per frame
@@ -164,5 +166,14 @@ public class PlayerControls
         yield return new WaitForSeconds(shootRate);
 
         isShooting = false;
+    }
+
+    public void SpawnPlayer()
+    {
+        controller.enabled = false;
+        transform.position = gameManager.instance.playerSpawnPosition.transform.position;
+        controller.enabled = true;
+        HP = playerHPOrig;
+        UpdatePlayerUI();
     }
 }
