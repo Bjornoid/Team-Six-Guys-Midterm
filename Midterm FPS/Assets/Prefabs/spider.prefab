@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 377987575}
   m_LocalRotation: {x: -0, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.00004196167, y: 2.8152988, z: 4.139023}
+  m_LocalPosition: {x: 0.00004196167, y: 0.71, z: 7.91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -178,7 +178,7 @@ Animator:
   m_GameObject: {fileID: 6238086146351178788}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: f5a9bd478ca094495a4520e37f57420d, type: 3}
-  m_Controller: {fileID: 9100000, guid: 9b2dbebbec9b1ff4f8e1631b1df0b9dc, type: 2}
+  m_Controller: {fileID: 9100000, guid: e526a2cee14fba243afed37219f4ec4d, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -254,12 +254,14 @@ MonoBehaviour:
   agent: {fileID: 6238086147665837422}
   headPos: {fileID: 1714719968}
   shootPos: {fileID: 377987576}
+  animator: {fileID: 6238086146343917120}
+  weaponCollider: {fileID: 0}
   HP: 3
   playerLookSpeed: 5
   viewConeAngle: 140
   roamDistance: 10
   roamTimer: 2
-  shootRate: 2
+  shootRate: 1
   bullet: {fileID: 1340916387930666295, guid: 22ebf8e1796c69a4fac45959d2cdd22d, type: 3}
   inRange: 0
   isShooting: 0
