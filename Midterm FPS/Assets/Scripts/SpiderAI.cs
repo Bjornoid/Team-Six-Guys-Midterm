@@ -12,6 +12,8 @@ public class SpiderAI : MonoBehaviour, IDamage
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Transform headPos;
     [SerializeField] Transform shootPos;
+    [SerializeField] Animator animator;
+    [SerializeField] Collider weaponCollider;
     [Header("----- Enemy Stats -----")]
     [SerializeField] int HP;
     [SerializeField] int playerLookSpeed;
@@ -40,14 +42,18 @@ public class SpiderAI : MonoBehaviour, IDamage
     // Update is called once per frame
     void Update()
     {
-        if (inRange && !canSeePlayer())
+        if (agent.isActiveAndEnabled)
         {
-            StartCoroutine(roam());
+            animator.SetFloat("Speed", agent.velocity.normalized.magnitude);
+            if (inRange && !canSeePlayer())
+            {
+                StartCoroutine(roam());
 
-        }
-        else if (agent.destination != gameManager.instance.player.transform.position)
-        {
-            StartCoroutine(roam());
+            }
+            else if (agent.destination != gameManager.instance.player.transform.position)
+            {
+                StartCoroutine(roam());
+            }
         }
     }
 
@@ -79,6 +85,7 @@ public class SpiderAI : MonoBehaviour, IDamage
             inRange = true;
         }
     }
+
     bool canSeePlayer()
     {
         agent.stoppingDistance = stoppingDistanceOrig;
@@ -114,9 +121,23 @@ public class SpiderAI : MonoBehaviour, IDamage
     IEnumerator shoot()
     {
         isShooting = true;
-        Instantiate(bullet, shootPos.position, transform.rotation);
+        animator.SetTrigger("Shoot");
+        CreateBullet();
         yield return new WaitForSeconds(shootRate);
         isShooting = false;
+    }
+    public void weaponColOn()
+    {
+        weaponCollider.enabled = true;
+    }
+    public void weaponColOff()
+    {
+        weaponCollider.enabled = false;
+    }
+
+    public void CreateBullet()
+    {
+        Instantiate(bullet, shootPos.position, transform.rotation);
     }
     void OnTriggerExit(Collider other)
     {
@@ -132,13 +153,21 @@ public class SpiderAI : MonoBehaviour, IDamage
     }
     public void takeDamage(int dmg)
     {
+        weaponColOff();
         HP -= dmg;
-        agent.SetDestination(gameManager.instance.player.transform.position);
-        StartCoroutine(flashColor());
         if (HP <= 0)
         {
+            StopAllCoroutines();
             gameManager.instance.UpdateGameGoal(-1);
-            Destroy(gameObject);
+            StopAllCoroutines();
+            animator.SetBool("Dead", true);
+            agent.enabled = false;
+            GetComponent<CapsuleCollider>().enabled = true;
+        }
+        else
+        {
+            agent.SetDestination(gameManager.instance.player.transform.position);
+            StartCoroutine(flashColor());
         }
     }
     IEnumerator flashColor()
