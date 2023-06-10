@@ -93,7 +93,7 @@ public class EnemyAI : MonoBehaviour, IDamage
         {
             if (hit.collider.CompareTag("Player") && angleToPlayer <= viewConeAngle) // if player gets in range of enemy
             {
-      
+                
                 agent.SetDestination(gameManager.instance.player.transform.position); // go towards the player
 
                 if (agent.remainingDistance > agent.stoppingDistance)

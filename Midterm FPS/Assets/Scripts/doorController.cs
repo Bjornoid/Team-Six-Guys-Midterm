@@ -15,13 +15,13 @@ public class DoorController : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        rotateDoor(_doorPivot, _doorPivot.transform.localRotation.y);
+        rotateDoor(_doorPivot, _doorPivot.transform.localRotation.y - (_doorRotation * 3));
     }
 
     public static void rotateDoor(GameObject doorPivot, float doorRotation)
     {
         Quaternion rotation = Quaternion.Euler(0, doorRotation, 0);
-        doorPivot.transform.rotation = rotation;
+        doorPivot.transform.localRotation = rotation;
     }
     
 }

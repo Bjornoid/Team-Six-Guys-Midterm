@@ -15,9 +15,14 @@ public class PlayerControls
     [Range(-10, 100)][SerializeField] float gravityValue; // gravity value for player
     [SerializeField] int jumpMax; // max amount of jump a player can have
     [SerializeField] int HP;
+    [SerializeField] float jetpackDuration;
 
     public float crouchHeight;
     private float playerHeight;
+    private float startingGravity;
+    private float jetpackTime;
+    public float jetpackRecharge;
+    private bool canJetpack;
 
     [Header("----- Gun Settings -----")]
     [Range(0.1f, 3)][SerializeField] float shootRate;
@@ -38,14 +43,16 @@ public class PlayerControls
     {
         walking, 
         sprinting,
-        jumping
+        jumping,
+        jetpacking
     }
     void Start()
     {
         playerHPOrig = HP; // Resets player's HP
-
+        controller.minMoveDistance = 0;
         playerHeight = controller.height;
-
+        startingGravity = gravityValue;
+        canJetpack = true;
         SpawnPlayer();
     }
 
@@ -96,18 +103,63 @@ public class PlayerControls
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer && Input.GetButton("LShift"))
         {
+            if (gravityValue != startingGravity )
+                gravityValue = startingGravity;
+            if (!canJetpack)
+            {
+                jetpackTime += Time.deltaTime;
+                if (jetpackTime >= jetpackRecharge)
+                {
+                    canJetpack = true;
+                    jetpackTime = 0;
+                }
+            }
             movementState = MovementState.sprinting;
             moveSpeed = sprintSpeed;
         }
         else if (groundedPlayer)
         {
+            if (gravityValue != startingGravity)
+                gravityValue = startingGravity;
+            if (!canJetpack)
+            {
+                jetpackTime += Time.deltaTime;
+                if (jetpackTime >= jetpackRecharge)
+                {
+                    canJetpack = true;
+                    jetpackTime = 0;
+                }
+            }
             movementState = MovementState.walking;
             moveSpeed = walkSpeed;
         }
+        else if (!groundedPlayer && canJetpack && Input.GetButton("Jump"))
+        {
+            jetpackTime += Time.deltaTime;
+            if (jetpackTime >= jetpackDuration)
+            {
+                canJetpack = false;
+                jetpackTime = 0;
+            }
+            movementState = MovementState.jetpacking;
+            gravityValue = -10;
+        }
         else 
         {
+            if (gravityValue != startingGravity)
+                gravityValue = startingGravity;
+            if (!canJetpack)
+            {
+                jetpackTime += Time.deltaTime;
+                if (jetpackTime >= jetpackRecharge)
+                {
+                    canJetpack = true;
+                    jetpackTime = 0;
+                }
+            }
             movementState = MovementState.jumping;
         }
+    
 
     }
 
