@@ -8,7 +8,10 @@ public class ZombieAI : MonoBehaviour, IDamage
     [Header("----- Zombie Components -----")]
     [SerializeField] Renderer model;
     [SerializeField] NavMeshAgent agent;
+    [SerializeField] Animator zombieAnim;
     [SerializeField] Transform headPos;
+    [SerializeField] Collider handCollider1;
+    [SerializeField] Collider handCollider2;
 
     [Header("----- Zombie Stats -----")]
     [Range(1,100)][SerializeField] int HP;
@@ -41,7 +44,9 @@ public class ZombieAI : MonoBehaviour, IDamage
     // Update is called once per frame
     void Update()
     {
-        if(agent.isActiveAndEnabled)
+        zombieAnim.SetFloat("Speed", agent.velocity.normalized.magnitude);
+
+        if (agent.isActiveAndEnabled)
         {
             //animation for walk
 
@@ -106,6 +111,7 @@ public class ZombieAI : MonoBehaviour, IDamage
                 if(!isShooting)
                 {
                     StartCoroutine(Shoot());
+                    zombieAnim.SetTrigger("Attack");
                 }
 
                 return true;
@@ -122,6 +128,17 @@ public class ZombieAI : MonoBehaviour, IDamage
         yield return new WaitForSeconds(shootRate);
 
         isShooting = false;
+    }
+    public void HandColOn()
+    {
+        handCollider1.enabled = true;
+        handCollider2.enabled = true;
+    }
+
+    public void andColOff()
+    {
+        handCollider1.enabled = false;
+        handCollider2.enabled = false;
     }
 
     void OnTriggerEnter(Collider other) //When player is in range of Zombie
@@ -157,7 +174,7 @@ public class ZombieAI : MonoBehaviour, IDamage
 
             gameManager.instance.UpdateGameGoal(-1); // Zombie dies
 
-            //animation
+            zombieAnim.SetBool("Dead", true);
 
             agent.enabled = false; // Stops the enemy from moving
 

@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 875091575}
+  - component: {fileID: 6944172035440356908}
   - component: {fileID: 875091576}
   m_Layer: 7
-  m_Name: LHandCollider
+  m_Name: RHandCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,13 +26,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 875091574}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.292, y: 0.018, z: 0.155}
-  m_LocalScale: {x: 0.36576092, y: 0.29395375, z: 0.2939564}
+  m_LocalPosition: {x: 0.03150493, y: -0.013869155, z: 0.030238993}
+  m_LocalScale: {x: 0.36576095, y: 0.29395378, z: 0.29395637}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1364214720599266206}
-  m_RootOrder: 1
+  m_Father: {fileID: 5562411505275428427}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6944172035440356908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875091574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d71fb1ae8630e744da0ee0aed52d374e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
 --- !u!136 &875091576
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -55,6 +69,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1535764360}
+  - component: {fileID: 1394814337083964445}
   - component: {fileID: 1535764361}
   m_Layer: 7
   m_Name: LHandCollider
@@ -78,6 +93,19 @@ Transform:
   m_Father: {fileID: 3930694670747024647}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1394814337083964445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1535764359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d71fb1ae8630e744da0ee0aed52d374e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
 --- !u!136 &1535764361
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -177,7 +205,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 4775335300550588959}
   agent: {fileID: 1393376389}
+  zombieAnim: {fileID: 6672838614710946233}
   headPos: {fileID: 8900329935084642813}
+  handCollider1: {fileID: 875091576}
+  handCollider2: {fileID: 1535764361}
   HP: 10
   playerFaceSpeed: 4
   viewConeAngle: 100
@@ -193,12 +224,12 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 85941289338964345}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 3ea946212e7416c4f8a3e7a404166265, type: 3}
-  m_Controller: {fileID: 9100000, guid: 7122db09428d8d149827cf7b2debf93a, type: 2}
+  m_Controller: {fileID: 9100000, guid: 797ca3a66b676104f9607f86568819b9, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -219,8 +250,8 @@ NavMeshAgent:
   m_Speed: 3.5
   m_Acceleration: 30
   avoidancePriority: 50
-  m_AngularSpeed: 500
-  m_StoppingDistance: 0
+  m_AngularSpeed: 600
+  m_StoppingDistance: 4
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 0
   m_AutoRepath: 1
@@ -249,8 +280,8 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 85941289338964345}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 0
+  m_IsTrigger: 0
+  m_Enabled: 1
   m_Radius: 0.47
   m_Height: 2.2
   m_Direction: 1
@@ -698,7 +729,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5562411505275428427}
-  - {fileID: 875091575}
   m_Father: {fileID: 7050303485710977195}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2048,6 +2078,7 @@ Transform:
   - {fileID: 4518348826773249047}
   - {fileID: 7949266187581518967}
   - {fileID: 139678830350342666}
+  - {fileID: 875091575}
   m_Father: {fileID: 1364214720599266206}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
