@@ -16,19 +16,21 @@ public class PlayerControls
     [SerializeField] int jumpMax; // max amount of jump a player can have
     [SerializeField] int HP;
     [SerializeField] float jetpackDuration;
-
     public float crouchHeight;
-    private float playerHeight;
-    private float startingGravity;
-    private float jetpackTime;
     public float jetpackRecharge;
-    private bool canJetpack;
+    public bool hasJetpack;
 
     [Header("----- Gun Settings -----")]
     [Range(0.1f, 3)][SerializeField] float shootRate;
     [Range(1, 10)][SerializeField] int shootDamage;
     [Range(25, 1000)][SerializeField] int shootDist;
 
+    
+
+    private float playerHeight;
+    private float startingGravity;
+    private float jetpackTime;
+    private bool canJetpack;
     private float moveSpeed;
     private Vector3 playerVelocity; // gets player velocty
     private Vector3 move; // movement for fps 
@@ -52,6 +54,7 @@ public class PlayerControls
         controller.minMoveDistance = 0;
         playerHeight = controller.height;
         startingGravity = gravityValue;
+        hasJetpack = false;
         canJetpack = true;
         SpawnPlayer();
     }
@@ -105,7 +108,7 @@ public class PlayerControls
         {
             if (gravityValue != startingGravity )
                 gravityValue = startingGravity;
-            if (!canJetpack)
+            if (hasJetpack && !canJetpack)
             {
                 jetpackTime += Time.deltaTime;
                 if (jetpackTime >= jetpackRecharge)
@@ -121,7 +124,7 @@ public class PlayerControls
         {
             if (gravityValue != startingGravity)
                 gravityValue = startingGravity;
-            if (!canJetpack)
+            if (hasJetpack && !canJetpack)
             {
                 jetpackTime += Time.deltaTime;
                 if (jetpackTime >= jetpackRecharge)
@@ -133,7 +136,7 @@ public class PlayerControls
             movementState = MovementState.walking;
             moveSpeed = walkSpeed;
         }
-        else if (!groundedPlayer && canJetpack && Input.GetButton("Jump"))
+        else if (!groundedPlayer && hasJetpack && canJetpack && Input.GetButton("Jump"))
         {
             jetpackTime += Time.deltaTime;
             if (jetpackTime >= jetpackDuration)
@@ -148,7 +151,7 @@ public class PlayerControls
         {
             if (gravityValue != startingGravity)
                 gravityValue = startingGravity;
-            if (!canJetpack)
+            if (hasJetpack && !canJetpack)
             {
                 jetpackTime += Time.deltaTime;
                 if (jetpackTime >= jetpackRecharge)
