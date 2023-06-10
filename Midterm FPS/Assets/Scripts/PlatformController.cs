@@ -24,6 +24,15 @@ public class PlatformController : MonoBehaviour
             yield return null;
         }
         _platform.transform.position = destination;
+
+        time = 0;
+        while (time < duration)
+        {
+            _platform.transform.position = Vector3.Lerp(destination, startPosition, time / duration);
+            time += Time.deltaTime;
+
+            yield return null;
+        }
     }
 
 }

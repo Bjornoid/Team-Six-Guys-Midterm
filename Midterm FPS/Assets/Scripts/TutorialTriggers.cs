@@ -91,7 +91,17 @@ public class TutorialTriggers : MonoBehaviour
 
             yield return null;
         }
+   
         platform.transform.position = destination;
+
+        time = 0;
+        while (time < duration)
+        {
+            platform.transform.position = Vector3.Lerp(destination, startPosition, time / duration);
+            time += Time.deltaTime;
+
+            yield return null;
+        }
     }
 }
  
