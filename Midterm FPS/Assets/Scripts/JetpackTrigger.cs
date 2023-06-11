@@ -12,6 +12,7 @@ public class JetpackTrigger : MonoBehaviour
         {
             gameManager.instance.playerScript.hasJetpack = true;
             jetpack.SetActive(false);
+            gameManager.instance.fuelUI.SetActive(true);
         }
     }
 }

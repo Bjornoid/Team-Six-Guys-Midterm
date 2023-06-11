@@ -22,6 +22,8 @@ public class gameManager : MonoBehaviour
     public GameObject winMenu;
     public GameObject loseMenu;
     public Image playerHPBar;
+    public Image fuelBar;
+    public GameObject fuelUI;
     public GameObject playerFlashUI;
     public TextMeshProUGUI enemiesRemainingText;
     public TextMeshProUGUI mainTaskDescription;
