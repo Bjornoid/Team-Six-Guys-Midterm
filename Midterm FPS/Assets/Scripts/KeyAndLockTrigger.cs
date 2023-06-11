@@ -8,12 +8,18 @@ public class KeyAndLockTrigger : MonoBehaviour
     public GameObject theKey;
     public GameObject theLock;
 
-    private void OnTriggerEnter(Collider other)
+    void Start()
+    {
+        gameManager.instance.updateLockCount(1);
+    }
+
+    void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             theKey.SetActive(false);
             theLock.SetActive(false);
+            gameManager.instance.updateLockCount(-1);
         }
     }
 }

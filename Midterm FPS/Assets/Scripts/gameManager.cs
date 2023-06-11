@@ -32,6 +32,7 @@ public class gameManager : MonoBehaviour
     [Header("----- Game Goal fields -----")]
     int enemiesRemaining;
     int targetsRemaining;
+    public int locksRemaining;
 
     bool isPaused;
     float timeScaleOrig;
@@ -63,6 +64,11 @@ public class gameManager : MonoBehaviour
     public int getEnemiesRemaining()
     {
         return enemiesRemaining;
+    }
+
+    public int getLocksRemaining()
+    {
+        return locksRemaining;
     }
     public void switchToSettings()
     {
@@ -104,10 +110,6 @@ public class gameManager : MonoBehaviour
         }
     }
 
-    public void updateTargetCount(int amount)
-    {
-        targetsRemaining += amount;
-    }
     public void UpdateGameGoal(int amount)
     {
         enemiesRemaining += amount;
@@ -118,6 +120,16 @@ public class gameManager : MonoBehaviour
         {
             StartCoroutine(youWin());
         }
+    }
+
+    public void updateTargetCount(int amount)
+    {
+        targetsRemaining += amount;
+    }
+
+    public void updateLockCount(int amount)
+    {
+        locksRemaining += amount;
     }
 
     IEnumerator youWin()
