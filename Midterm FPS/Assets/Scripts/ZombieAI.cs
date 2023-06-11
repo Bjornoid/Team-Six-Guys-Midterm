@@ -111,7 +111,6 @@ public class ZombieAI : MonoBehaviour, IDamage
                 if(!isShooting)
                 {
                     StartCoroutine(Shoot());
-                    zombieAnim.SetTrigger("Attack");
                 }
 
                 return true;
@@ -125,6 +124,8 @@ public class ZombieAI : MonoBehaviour, IDamage
     {
         isShooting = true;
 
+        zombieAnim.SetTrigger("Attack");
+
         yield return new WaitForSeconds(shootRate);
 
         isShooting = false;
@@ -135,7 +136,7 @@ public class ZombieAI : MonoBehaviour, IDamage
         handCollider2.enabled = true;
     }
 
-    public void andColOff()
+    public void HandColOff()
     {
         handCollider1.enabled = false;
         handCollider2.enabled = false;
@@ -167,6 +168,8 @@ public class ZombieAI : MonoBehaviour, IDamage
     public void takeDamage(int dmg)
     {
         HP -= dmg;
+
+        HandColOff();
 
         if (HP <= 0)
         {
