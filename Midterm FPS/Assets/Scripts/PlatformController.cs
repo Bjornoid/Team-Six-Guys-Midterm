@@ -17,7 +17,7 @@ public class PlatformController : MonoBehaviour
             {
                 StartCoroutine(lerpPosition(_destination, _duration));
             }
-            else
+            else if (!needsTargets)
                 StartCoroutine(lerpPosition(_destination, _duration));
         }
         
