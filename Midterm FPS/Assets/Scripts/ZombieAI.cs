@@ -8,7 +8,7 @@ public class ZombieAI : MonoBehaviour, IDamage
     [Header("----- Zombie Components -----")]
     [SerializeField] Renderer model;
     [SerializeField] NavMeshAgent agent;
-    [SerializeField] Animator zombieAnim;
+    [SerializeField] public Animator zombieAnim;
     [SerializeField] Transform headPos;
     [SerializeField] Collider handCollider1;
     [SerializeField] Collider handCollider2;
@@ -177,11 +177,17 @@ public class ZombieAI : MonoBehaviour, IDamage
 
             gameManager.instance.UpdateGameGoal(-1); // Zombie dies
 
-            zombieAnim.SetBool("Dead", true);
+            //zombieAnim.SetBool("Dead", true);
 
             agent.enabled = false; // Stops the enemy from moving
 
+            zombieAnim.ResetTrigger("Attack"); // zombie stops attacking when dead
+
+            GetComponent<Animator>().enabled = false;
+
             GetComponent<CapsuleCollider>().enabled = false; // Disables dmg collider
+
+            //navMesh.isStopped = true;
         }
         else
         {
