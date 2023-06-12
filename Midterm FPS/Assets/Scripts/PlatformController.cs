@@ -4,12 +4,23 @@ using UnityEngine;
 
 public class PlatformController : MonoBehaviour
 {
+    [Header("----- Platform Info -----")]
     public GameObject _platform;
     public Vector3 _destination;
     public float _duration;
+    public bool needsTargets;
     private void OnTriggerEnter(Collider other)
     {
-        StartCoroutine(lerpPosition(_destination, _duration));
+        if (other.CompareTag("Player"))
+        {
+            if (needsTargets && gameManager.instance.getTargetCount() <= 0)
+            {
+                StartCoroutine(lerpPosition(_destination, _duration));
+            }
+            else
+                StartCoroutine(lerpPosition(_destination, _duration));
+        }
+        
     }
 
     IEnumerator lerpPosition(Vector3 destination, float duration)
