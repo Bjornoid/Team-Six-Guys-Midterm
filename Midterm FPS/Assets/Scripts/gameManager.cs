@@ -32,7 +32,7 @@ public class gameManager : MonoBehaviour
     [Header("----- Game Goal fields -----")]
     int enemiesRemaining;
     int targetsRemaining;
-    public int locksRemaining;
+    int locksRemaining;
 
     bool isPaused;
     float timeScaleOrig;
