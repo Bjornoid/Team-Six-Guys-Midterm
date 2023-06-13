@@ -15,6 +15,7 @@ public class TargetTrigger : MonoBehaviour
                 t.SetActive(true);
             }
             gameManager.instance.updateTargetCount(targets.Count);
+            gameObject.SetActive(false);
         }
     }
 }
