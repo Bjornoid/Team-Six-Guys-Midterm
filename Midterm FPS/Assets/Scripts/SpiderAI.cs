@@ -121,7 +121,7 @@ public class SpiderAI : MonoBehaviour, IDamage
     IEnumerator shoot()
     {
         isShooting = true;
-        animator.SetTrigger("Shoot");
+        animator.SetTrigger("Attack");
         CreateBullet();
         yield return new WaitForSeconds(shootRate);
         isShooting = false;
@@ -153,16 +153,15 @@ public class SpiderAI : MonoBehaviour, IDamage
     }
     public void takeDamage(int dmg)
     {
-        weaponColOff();
         HP -= dmg;
         if (HP <= 0)
         {
             StopAllCoroutines();
             gameManager.instance.UpdateGameGoal(-1);
-            StopAllCoroutines();
             animator.SetBool("Dead", true);
             agent.enabled = false;
             GetComponent<CapsuleCollider>().enabled = true;
+            weaponColOff();
         }
         else
         {
