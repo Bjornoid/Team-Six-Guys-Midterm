@@ -55736,6 +55736,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 874975648, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 874975651, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 874975651, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 874975651, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 874975651, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 874975651, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 23.18518
+      objectReference: {fileID: 0}
+    - target: {fileID: 874975651, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 322
+      objectReference: {fileID: 0}
+    - target: {fileID: 874975651, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 43
+      objectReference: {fileID: 0}
     - target: {fileID: 586781860318768780, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
       propertyPath: playerSpawnPosition
       value: 
@@ -86664,6 +86696,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 874975648, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1824347197, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 586781860318768780, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
       propertyPath: playerSpawnPosition
       value: 
