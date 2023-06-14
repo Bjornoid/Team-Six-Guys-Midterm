@@ -13,7 +13,6 @@ public class SpiderAI : MonoBehaviour, IDamage
     [SerializeField] Transform headPos;
     [SerializeField] Transform shootPos;
     [SerializeField] Animator animator;
-    [SerializeField] Collider weaponCollider;
     [Header("----- Enemy Stats -----")]
     [SerializeField] int HP;
     [SerializeField] int playerLookSpeed;
@@ -126,14 +125,7 @@ public class SpiderAI : MonoBehaviour, IDamage
         yield return new WaitForSeconds(shootRate);
         isShooting = false;
     }
-    public void weaponColOn()
-    {
-        weaponCollider.enabled = true;
-    }
-    public void weaponColOff()
-    {
-        weaponCollider.enabled = false;
-    }
+
 
     public void CreateBullet()
     {
@@ -153,15 +145,16 @@ public class SpiderAI : MonoBehaviour, IDamage
     }
     public void takeDamage(int dmg)
     {
+
         HP -= dmg;
+
         if (HP <= 0)
         {
             StopAllCoroutines();
             gameManager.instance.UpdateGameGoal(-1);
             animator.SetBool("Dead", true);
             agent.enabled = false;
-            GetComponent<CapsuleCollider>().enabled = true;
-            weaponColOff();
+            GetComponent<CapsuleCollider>().enabled = false;
         }
         else
         {
