@@ -17,7 +17,6 @@ public class PlayerControls
     [SerializeField] int HP;
     [SerializeField] float jetpackDuration;
     public float crouchHeight;
-    public float jetpackRecharge;
     public bool hasJetpack;
 
     [Header("----- Gun Settings -----")]
@@ -112,7 +111,7 @@ public class PlayerControls
             if (jetpackTime > 0)
             {
                 jetpackTime -= Time.deltaTime;
-                gameManager.instance.fuelBar.fillAmount = jetpackDuration - jetpackTime / jetpackDuration;
+                gameManager.instance.fuelBar.fillAmount = jetpackDuration - jetpackTime/ jetpackDuration;
             }
             else
                 canJetpack = true;
