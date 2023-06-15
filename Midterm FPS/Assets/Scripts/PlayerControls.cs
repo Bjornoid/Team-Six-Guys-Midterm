@@ -108,16 +108,15 @@ public class PlayerControls
         {
             if (gravityValue != startingGravity )
                 gravityValue = startingGravity;
-            if (hasJetpack && !canJetpack)
+
+            if (jetpackTime > 0)
             {
-                jetpackTime += Time.deltaTime;
-                gameManager.instance.fuelBar.fillAmount = jetpackTime / jetpackRecharge;
-                if (jetpackTime >= jetpackRecharge)
-                {
-                    canJetpack = true;
-                    jetpackTime = 0;
-                }
+                jetpackTime -= Time.deltaTime;
+                gameManager.instance.fuelBar.fillAmount = jetpackDuration - jetpackTime / jetpackDuration;
             }
+            else
+                canJetpack = true;
+
             movementState = MovementState.sprinting;
             moveSpeed = sprintSpeed;
         }
@@ -125,16 +124,15 @@ public class PlayerControls
         {
             if (gravityValue != startingGravity)
                 gravityValue = startingGravity;
-            if (hasJetpack && !canJetpack)
+
+            if (jetpackTime > 0)
             {
-                jetpackTime += Time.deltaTime;
-                gameManager.instance.fuelBar.fillAmount = jetpackTime / jetpackRecharge;
-                if (jetpackTime >= jetpackRecharge)
-                {
-                    canJetpack = true;
-                    jetpackTime = 0;
-                }
+                jetpackTime -= Time.deltaTime;
+                gameManager.instance.fuelBar.fillAmount = jetpackDuration - jetpackTime / jetpackDuration;
             }
+            else
+                canJetpack = true;
+
             movementState = MovementState.walking;
             moveSpeed = walkSpeed;
         }
@@ -145,7 +143,7 @@ public class PlayerControls
             if (jetpackTime >= jetpackDuration)
             {
                 canJetpack = false;
-                jetpackTime = 0;
+                
             }
             movementState = MovementState.jetpacking;
             gravityValue = -10;
@@ -154,16 +152,7 @@ public class PlayerControls
         {
             if (gravityValue != startingGravity)
                 gravityValue = startingGravity;
-            if (hasJetpack && !canJetpack)
-            {
-                jetpackTime += Time.deltaTime;
-                gameManager.instance.fuelBar.fillAmount = jetpackTime / jetpackRecharge;
-                if (jetpackTime >= jetpackRecharge)
-                {
-                    canJetpack = true;
-                    jetpackTime = 0;
-                }
-            }
+            
             movementState = MovementState.jumping;
         }
     

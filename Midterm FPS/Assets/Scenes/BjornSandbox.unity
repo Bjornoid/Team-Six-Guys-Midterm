@@ -1674,6 +1674,7 @@ MonoBehaviour:
   _platform: {fileID: 1881039004}
   _destination: {x: -19.32, y: 5.33, z: -0.43}
   _duration: 5
+  needsTargets: 0
 --- !u!65 &891352279
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3568,6 +3569,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 874975648, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 874975651, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 874975651, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 874975651, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 874975651, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 874975651, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 23.18518
+      objectReference: {fileID: 0}
+    - target: {fileID: 874975651, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 343
+      objectReference: {fileID: 0}
+    - target: {fileID: 874975651, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 66
+      objectReference: {fileID: 0}
     - target: {fileID: 586781860318768780, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
       propertyPath: playerSpawnPosition
       value: 
