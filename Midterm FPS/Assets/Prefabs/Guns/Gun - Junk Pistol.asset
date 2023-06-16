@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f655938b25669c48abf4b93276f5f18, type: 3}
+  m_Name: Gun - Junk Pistol
+  m_EditorClassIdentifier: 
+  shootDist: 10
+  shootRate: 1
+  shootDamage: 12
+  model: {fileID: 3169397053919196022, guid: 5cbf494c6bfb0924c8b1972ac9cb7803, type: 3}
+  hitEffect: {fileID: 8745285878197055307, guid: dc9c80c2fefc55e41a1bd6094226ebf6, type: 3}
+  ammoCurr: 10
+  ammoMax: 10

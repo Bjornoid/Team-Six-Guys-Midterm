@@ -20,6 +20,9 @@ public class PlayerControls
     public bool hasJetpack;
 
     [Header("----- Gun Settings -----")]
+    [SerializeField] List<GunStats> gunList = new List<GunStats>(); // List of guns that the player can store
+    [SerializeField] GameObject gunModel; // model of the gun
+    [SerializeField] float zoomIn; // Zoom in for aiming down sights
     [Range(0.1f, 3)][SerializeField] float shootRate;
     [Range(1, 10)][SerializeField] int shootDamage;
     [Range(25, 1000)][SerializeField] int shootDist;
@@ -37,6 +40,7 @@ public class PlayerControls
     int playerHPOrig; // Original HP of player
     private bool groundedPlayer; // checks if player is on ground
     bool isShooting; // Checks if you are shooting
+    public int selectedGun; // current gun that is player has selected
 
     public MovementState movementState;
 
@@ -62,12 +66,21 @@ public class PlayerControls
     void Update()
     {
         stateHandler();
-        movement();
-        crouch();
-
-        if (Input.GetButton("Shoot") && !isShooting)
+        
+        if (gameManager.instance.activeMenu == null)
         {
-            StartCoroutine(shoot()); // start shooting
+            movement();
+            crouch();
+
+            if (gunList.Count > 0)
+            {
+                ChangeGun();
+
+                if (Input.GetButton("Shoot") && !isShooting)
+                {
+                    StartCoroutine(shoot()); // start shooting
+                }
+            }
         }
     }
 
@@ -197,27 +210,99 @@ public class PlayerControls
 
     IEnumerator shoot()
     {
-        isShooting = true;
-
-        RaycastHit hit;
-        if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
+        if (gunList[selectedGun].ammoCurr > 0) // if the ammo capacity is not 0
         {
-            IDamage damageable = hit.collider.GetComponent<IDamage>();
+            isShooting = true;
 
-            if (damageable != null)
+            gunList[selectedGun].ammoCurr--; // subtrats ammo from its mag or clip
+
+            RaycastHit hit;
+
+            if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
             {
-                damageable.takeDamage(shootDamage);
+                IDamage damageable = hit.collider.GetComponent<IDamage>();
+
+                if (damageable != null)
+                {
+                    damageable.takeDamage(shootDamage);
+                }
+
+                Instantiate(gunList[selectedGun].hitEffect, hit.point, Quaternion.identity); // Create the hit effect once it hits something at a certain rotation
             }
-            else if(hit.collider.gameObject.CompareTag("Target"))
-            {
-                Destroy(hit.collider.gameObject);
-                gameManager.instance.updateTargetCount(-1);
-            }
+
+            yield return new WaitForSeconds(shootRate);
+
+            isShooting = false;
         }
+    }
 
-        yield return new WaitForSeconds(shootRate);
+    public void GunPickup(GunStats _gunStat)
+    {
+        gunList.Add(_gunStat);
 
-        isShooting = false;
+        shootDamage = _gunStat.shootDamage;
+        shootDist = _gunStat.shootDist;
+        shootRate = _gunStat.shootRate;
+
+        gunModel.GetComponent<MeshFilter>().mesh = _gunStat.model.GetComponent<MeshFilter>().sharedMesh; // transfers gunStat mesh over to the gun stat on the player gun mesh
+        gunModel.GetComponent<MeshRenderer>().material = _gunStat.model.GetComponent<MeshRenderer>().sharedMaterial; // transfers material of gun over to the player gun material
+
+        selectedGun = gunList.Count - 1;
+
+        UpdatePlayerUI();
+    }
+
+    void ChangeGun()
+    {
+        if (Input.GetAxis("Mouse ScrollWheel") > 0 && selectedGun < gunList.Count - 1)
+        {
+            selectedGun++;
+            ChangeGunStats();
+        }
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0 && selectedGun > 0)
+        {
+            selectedGun--;
+            ChangeGunStats();
+        }
+        UpdatePlayerUI();
+    }
+
+    void ChangeGunStats()
+    {
+        shootDamage = gunList[selectedGun].shootDamage;
+        shootDist = gunList[selectedGun].shootDist;
+        shootRate = gunList[selectedGun].shootRate;
+
+        gunModel.GetComponent<MeshFilter>().mesh = gunList[selectedGun].model.GetComponent<MeshFilter>().sharedMesh;
+        gunModel.GetComponent<MeshRenderer>().material = gunList[selectedGun].model.GetComponent<MeshRenderer>().sharedMaterial;
+
+        UpdatePlayerUI();
+    }
+
+    public void PickupAmmo(int amount, GameObject obj)
+    {
+        if (gunList.Count > 0)
+        {
+            int ammoDif = gunList[selectedGun].ammoMax - gunList[selectedGun].ammoCurr;
+
+            if (gunList[selectedGun].ammoCurr > gunList[selectedGun].ammoMax)
+            {
+                gunList[selectedGun].ammoCurr = gunList[selectedGun].ammoMax;
+            }
+
+           AmmoPickup ammoPick = obj.GetComponent<AmmoPickup>();
+
+            ammoPick.ammoAmount -= amount;
+
+            if (ammoPick.ammoAmount <= 0)
+            {
+                Destroy(obj);
+            }
+
+            gunList[selectedGun].ammoCurr += ammoDif;
+
+            UpdatePlayerUI();
+        }
     }
 
     public void SpawnPlayer()
