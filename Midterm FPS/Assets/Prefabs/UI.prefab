@@ -192,10 +192,10 @@ RectTransform:
   m_Father: {fileID: 5749609704740858438}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -617, y: -1014}
-  m_SizeDelta: {x: 538, y: 23.185211}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 322, y: 43}
+  m_SizeDelta: {x: 538, y: 23.18518}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &874975650
 CanvasRenderer:
@@ -2950,7 +2950,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 934286463494146324}
         m_TargetAssemblyTypeName: ButtonFunctions, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: nextLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
