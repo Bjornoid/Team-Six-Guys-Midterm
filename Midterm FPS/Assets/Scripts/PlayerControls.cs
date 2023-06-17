@@ -110,7 +110,7 @@ public class PlayerControls
 
             if (jetpackTime > 0)
             {
-                jetpackTime -= Time.deltaTime;
+                jetpackTime -= Time.deltaTime / 2;
                 gameManager.instance.fuelBar.fillAmount = jetpackDuration - jetpackTime/ jetpackDuration;
             }
             else
@@ -126,7 +126,7 @@ public class PlayerControls
 
             if (jetpackTime > 0)
             {
-                jetpackTime -= Time.deltaTime;
+                jetpackTime -= Time.deltaTime / 2;
                 gameManager.instance.fuelBar.fillAmount = jetpackDuration - jetpackTime / jetpackDuration;
             }
             else
@@ -145,7 +145,7 @@ public class PlayerControls
                 
             }
             movementState = MovementState.jetpacking;
-            gravityValue = -10;
+            gravityValue = -8;
         }
         else 
         {
