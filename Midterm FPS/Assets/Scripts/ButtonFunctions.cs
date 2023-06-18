@@ -29,6 +29,12 @@ public class ButtonFunctions : MonoBehaviour
         gameManager.instance.stateUnPaused();
     }
 
+    public void nextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        gameManager.instance.stateUnPaused();
+    }
+
     public void floor1()
     {
         SceneManager.LoadScene("JohnSandbox");
