@@ -111,7 +111,7 @@ public class PlayerControls
             if (jetpackTime > 0)
             {
                 jetpackTime -= Time.deltaTime / 2;
-                gameManager.instance.fuelBar.fillAmount = jetpackDuration - jetpackTime/ jetpackDuration;
+                gameManager.instance.fuelBar.fillAmount = 1 - jetpackTime/ jetpackDuration;
             }
             else
                 canJetpack = true;
@@ -127,7 +127,7 @@ public class PlayerControls
             if (jetpackTime > 0)
             {
                 jetpackTime -= Time.deltaTime / 2;
-                gameManager.instance.fuelBar.fillAmount = jetpackDuration - jetpackTime / jetpackDuration;
+                gameManager.instance.fuelBar.fillAmount = 1 - jetpackTime / jetpackDuration;
             }
             else
                 canJetpack = true;
@@ -138,7 +138,7 @@ public class PlayerControls
         else if (!groundedPlayer && hasJetpack && canJetpack && Input.GetButton("Jump"))
         {
             jetpackTime += Time.deltaTime;
-            gameManager.instance.fuelBar.fillAmount = jetpackDuration - jetpackTime / jetpackDuration;
+            gameManager.instance.fuelBar.fillAmount = 1 - jetpackTime / jetpackDuration;
             if (jetpackTime >= jetpackDuration)
             {
                 canJetpack = false;
