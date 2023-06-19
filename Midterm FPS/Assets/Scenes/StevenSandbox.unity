@@ -463,6 +463,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ceiling Light (White)
       objectReference: {fileID: 0}
+    - target: {fileID: 3197813906292182071, guid: a7a69bb90632feb419a72b2df87b715d, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7a69bb90632feb419a72b2df87b715d, type: 3}
 --- !u!1001 &3829102
@@ -16760,11 +16764,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d0952d38b4ca244fa5f003c78ed7531, type: 3}
---- !u!1 &364406560 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1969852852473305584, guid: 76829b65c9293b74a9cc27c8c504ab10, type: 3}
-  m_PrefabInstance: {fileID: 516756294}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &365474411 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 7d0952d38b4ca244fa5f003c78ed7531, type: 3}
@@ -23523,6 +23522,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1668069910339250525, guid: 76829b65c9293b74a9cc27c8c504ab10, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1668069910339250525, guid: 76829b65c9293b74a9cc27c8c504ab10, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1668069910339250525, guid: 76829b65c9293b74a9cc27c8c504ab10, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1969852852473305582, guid: 76829b65c9293b74a9cc27c8c504ab10, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -34983,7 +34994,7 @@ PrefabInstance:
     - target: {fileID: 586781860318768780, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 364406560}
+      objectReference: {fileID: 0}
     - target: {fileID: 586781860318768780, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
       propertyPath: playerSpawnPosition
       value: 
@@ -51258,7 +51269,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7309477757102702193, guid: 9be796d162fa7834cbaf4d0cdfc7c31e, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7309477757102702193, guid: 9be796d162fa7834cbaf4d0cdfc7c31e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -65050,7 +65061,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1853514814854966028, guid: a748d920e6b7afe4097c6d5f695dff4c, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1853514814854966028, guid: a748d920e6b7afe4097c6d5f695dff4c, type: 3}
       propertyPath: m_LocalPosition.x
