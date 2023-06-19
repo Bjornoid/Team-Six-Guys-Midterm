@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1969852852473305582}
+  - component: {fileID: 5183803009006428087}
   - component: {fileID: 1969852852473305583}
   - component: {fileID: 1969852852473305580}
   - component: {fileID: 1969852852473305581}
@@ -38,6 +39,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5183803009006428087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1969852852473305584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45d1380acbfdc1247b08e43e903fec22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  voidObj: {fileID: 0}
+  bulletForce: 0
+  voidDuration: 0
 --- !u!114 &1969852852473305583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57,7 +73,9 @@ MonoBehaviour:
   gravityValue: 30
   jumpMax: 1
   HP: 4
+  jetpackDuration: 0
   crouchHeight: 0
+  hasJetpack: 0
   shootRate: 1
   shootDamage: 1
   shootDist: 25
@@ -254,6 +272,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1969852853937099877}
+  - component: {fileID: 3356056297892747413}
   - component: {fileID: 1969852853937099878}
   - component: {fileID: 1969852853937099879}
   - component: {fileID: 1969852853937099876}
@@ -279,6 +298,21 @@ Transform:
   m_Father: {fileID: 1969852852473305582}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3356056297892747413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1969852853937099882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45d1380acbfdc1247b08e43e903fec22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  voidObj: {fileID: 0}
+  bulletForce: 0
+  voidDuration: 0
 --- !u!33 &1969852853937099878
 MeshFilter:
   m_ObjectHideFlags: 0

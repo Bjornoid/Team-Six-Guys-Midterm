@@ -6,7 +6,7 @@ using UnityEngine;
 public class Void : MonoBehaviour
 {
     [SerializeField] GameObject voidHole;
-    [SerializeField] float attractionStrength;
+    [SerializeField] public float attractionStrength;
 
     List<GameObject> nearbyEnemies = new List<GameObject>();
 
