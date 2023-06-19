@@ -15,5 +15,10 @@ MonoBehaviour:
   shootDist: 15
   shootRate: 1
   shootDmg: 5
+  magAmmoCurr: 2
+  magAmmoMax: 2
+  reserveAmmoCurr: 10
+  reserveAmmoMax: 10
+  reloadTime: 1.5
   gunName: Shotty
   model: {fileID: 100000, guid: c06a9ebaeb6ba7a428d694c73b45ca26, type: 3}

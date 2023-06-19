@@ -15,5 +15,10 @@ MonoBehaviour:
   shootDist: 40
   shootRate: 0.5
   shootDmg: 1
+  magAmmoCurr: 0
+  magAmmoMax: 12
+  reserveAmmoCurr: 0
+  reserveAmmoMax: 48
+  reloadTime: 1
   gunName: Starting Pistol
   model: {fileID: 100000, guid: e102eedcf6ecfa6428dc8f1e7e605c2b, type: 3}
