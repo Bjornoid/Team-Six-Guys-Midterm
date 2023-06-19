@@ -10,13 +10,11 @@ public class VoidBullet : MonoBehaviour
     [SerializeField] int speed;
     [Range(0f, 10f)][SerializeField] float voidDuration;
     [SerializeField] Rigidbody rb;
-    [SerializeField] float stopTimer;
     [SerializeField] ParticleSystem particles;
     // Start is called before the first frame update
     void Start()
     {
         rb.velocity = transform.forward * speed;
-        StartCoroutine(StayStill());
     }
 
     // Update is called once per frame
@@ -48,11 +46,5 @@ public class VoidBullet : MonoBehaviour
 
         Destroy(_void);
     }
-
-    IEnumerator StayStill()
-    {
-        yield return new WaitForSeconds(stopTimer);
-
-        rb.velocity = transform.forward * 0;
-    }
 }
+
