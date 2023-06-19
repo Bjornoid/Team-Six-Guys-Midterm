@@ -24,7 +24,7 @@ public class Bullet : MonoBehaviour
         {
             damageable.takeDamage(damage);
         }
-
+        
         Destroy(gameObject);
     }
 }

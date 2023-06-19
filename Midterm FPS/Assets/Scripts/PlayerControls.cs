@@ -23,8 +23,11 @@ public class PlayerControls
     [Range(0.1f, 3)][SerializeField] float shootRate;
     [Range(1, 10)][SerializeField] int shootDamage;
     [Range(25, 1000)][SerializeField] int shootDist;
-
-    
+    [SerializeField] GameObject pistolModel;
+    [SerializeField] GameObject akModel;
+    [SerializeField] GameObject shottyModel;
+    [SerializeField] List<GunStats> gunList = new List<GunStats>();
+    [SerializeField] GunStats startingPistol;
 
     private float playerHeight;
     private float startingGravity;
@@ -37,6 +40,8 @@ public class PlayerControls
     int playerHPOrig; // Original HP of player
     private bool groundedPlayer; // checks if player is on ground
     bool isShooting; // Checks if you are shooting
+    int selectedGun;
+    GameObject gunModel;
 
     public MovementState movementState;
 
@@ -56,6 +61,7 @@ public class PlayerControls
         hasJetpack = false;
         canJetpack = true;
         SpawnPlayer();
+        gunPickup(startingPistol);
     }
 
     // Update is called once per frame
@@ -64,6 +70,11 @@ public class PlayerControls
         stateHandler();
         movement();
         crouch();
+        
+        if (gunList.Count > 1)
+        {
+            changeGun();
+        }
 
         if (Input.GetButton("Shoot") && !isShooting)
         {
@@ -229,4 +240,103 @@ public class PlayerControls
         UpdatePlayerUI();
     }
   
+    public void setGunModel(string name)
+    {
+        if (name.Equals("Starting Pistol"))
+        {
+            pistolModel.SetActive(true);
+            gunModel = pistolModel;
+            akModel.SetActive(false);
+            shottyModel.SetActive(false);
+        }
+        else if (name.Equals("Ak"))
+        {
+            akModel.SetActive(true);
+            gunModel = akModel;
+            pistolModel.SetActive(false);
+            shottyModel.SetActive(false);
+        }
+        else if (name.Equals("Shotty"))
+        {
+            shottyModel.SetActive(true);
+            gunModel = shottyModel;
+            akModel.SetActive(false);
+            pistolModel.SetActive(false);
+        }
+    }
+
+    public void gunPickup(GunStats gunStat)
+    {
+        gunList.Add(gunStat);
+        selectedGun = gunList.Count - 1;
+        setGunModel(gunStat.name);
+        shootDamage = gunStat.shootDmg;
+        shootDist = gunStat.shootDist;
+        shootRate = gunStat.shootRate;
+
+        gunModel.GetComponent<MeshFilter>().mesh = gunStat.model.GetComponent<MeshFilter>().sharedMesh;
+        gunModel.GetComponent<MeshRenderer>().material = gunStat.model.GetComponent<MeshRenderer>().sharedMaterial;
+
+        MeshFilter[] filters = gunStat.model.GetComponentsInChildren<MeshFilter>();
+        MeshRenderer[] rndrs = gunStat.model.GetComponentsInChildren<MeshRenderer>();
+
+        MeshFilter[] myfilters = gunModel.GetComponentsInChildren<MeshFilter>();
+        MeshRenderer[] myRndrs = gunModel.GetComponentsInChildren<MeshRenderer>();
+
+        for(int i = 0; i < filters.Length; i++)
+        {
+            myfilters[i].mesh = filters[i].sharedMesh;
+            myRndrs[i].material = rndrs[i].sharedMaterial;
+        }
+        for(int i = filters.Length; i < myfilters.Length; i++)
+        {
+            myfilters[i].mesh = null;
+            myRndrs[i].material = null;
+        }
+
+    }
+
+    void changeGun()
+    {
+        if (Input.GetAxis("Mouse ScrollWheel") > 0 && selectedGun < gunList.Count - 1)
+        {
+            selectedGun++;
+            setGunModel(gunList[selectedGun].name);
+            changeGunStats();
+        }
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0 && selectedGun > 0)
+        {
+            selectedGun--;
+            setGunModel(gunList[selectedGun].name);
+            changeGunStats();
+        }
+    }
+
+    void changeGunStats()
+    {
+        shootDamage = gunList[selectedGun].shootDmg;
+        shootDist = gunList[selectedGun].shootDist;
+        shootRate = gunList[selectedGun].shootRate;
+
+        gunModel.GetComponent<MeshFilter>().mesh = gunList[selectedGun].model.GetComponent<MeshFilter>().sharedMesh;
+        gunModel.GetComponent<MeshRenderer>().material = gunList[selectedGun].model.GetComponent<MeshRenderer>().sharedMaterial;
+
+        MeshFilter[] filters = gunList[selectedGun].model.GetComponentsInChildren<MeshFilter>();
+        MeshRenderer[] rndrs = gunList[selectedGun].model.GetComponentsInChildren<MeshRenderer>();
+
+        MeshFilter[] myfilters = gunModel.GetComponentsInChildren<MeshFilter>();
+        MeshRenderer[] myRndrs = gunModel.GetComponentsInChildren<MeshRenderer>();
+
+        for (int i = 0; i < filters.Length; i++)
+        {
+            myfilters[i].mesh = filters[i].sharedMesh;
+            myRndrs[i].material = rndrs[i].sharedMaterial;
+        }
+        for (int i = filters.Length; i < myfilters.Length; i++)
+        {
+            myfilters[i].mesh = null;
+            myRndrs[i].material = null;
+        }
+    }
+
 }
