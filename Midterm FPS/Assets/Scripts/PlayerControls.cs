@@ -269,11 +269,10 @@ public class PlayerControls
     {
         gunList.Add(gunStat);
         selectedGun = gunList.Count - 1;
-        setGunModel(gunStat.name);
         shootDamage = gunStat.shootDmg;
         shootDist = gunStat.shootDist;
         shootRate = gunStat.shootRate;
-
+        setGunModel(gunStat.name);
         gunModel.GetComponent<MeshFilter>().mesh = gunStat.model.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().material = gunStat.model.GetComponent<MeshRenderer>().sharedMaterial;
 
