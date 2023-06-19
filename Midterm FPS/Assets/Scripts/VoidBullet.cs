@@ -11,6 +11,9 @@ public class VoidBullet : MonoBehaviour
     [Range(0f, 10f)][SerializeField] float voidDuration;
     [SerializeField] Rigidbody rb;
     [SerializeField] ParticleSystem particles;
+    [SerializeField] float shootRate;
+
+    bool isShooting;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,9 +23,9 @@ public class VoidBullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && gameManager.instance.playerScript.hasWonderWeapon == true && !isShooting)
         {
-            ShootVoid();
+            StartCoroutine(Shoot());
         }
     }
 
@@ -32,10 +35,6 @@ public class VoidBullet : MonoBehaviour
         GameObject voidObject = Instantiate(voidObj, transform.position, transform.rotation);
         Rigidbody voidRb = voidObject.GetComponent<Rigidbody>();
 
-        if (voidRb != null)
-        {
-            voidRb.AddForce(transform.forward * bulletForce, ForceMode.Impulse);
-        }
 
         StartCoroutine(DestroyVoid(voidObject));
     }
@@ -45,6 +44,17 @@ public class VoidBullet : MonoBehaviour
         yield return new WaitForSeconds(voidDuration);
 
         Destroy(_void);
+    }
+
+    IEnumerator Shoot()
+    {
+        isShooting = true;
+
+        ShootVoid();
+
+        yield return new WaitForSeconds(shootRate);
+
+        isShooting = false;
     }
 }
 

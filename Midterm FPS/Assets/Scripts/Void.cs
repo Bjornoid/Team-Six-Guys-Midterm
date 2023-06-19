@@ -13,16 +13,7 @@ public class Void : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        foreach (GameObject enemy in nearbyEnemies)
-        {
-            if(enemy != null)
-            {
-                Vector3 voidDirection = voidHole.transform.position - enemy.transform.position;
-                Vector3 destination = enemy.transform.position + voidDirection.normalized * attractionStrength * Time.deltaTime;
-
-                enemy.transform.position = destination;
-            }
-        }
+        VoidSuck();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -37,8 +28,25 @@ public class Void : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
+            gameManager.instance.UpdateGameGoal(-1); // enemy dies
+
             nearbyEnemies.Remove(other.gameObject);
+
             Destroy(other.gameObject);
+        }
+    }
+
+    void VoidSuck()
+    {
+        foreach (GameObject enemy in nearbyEnemies)
+        {
+            if (enemy != null)
+            {
+                Vector3 voidDirection = voidHole.transform.position - enemy.transform.position;
+                Vector3 destination = enemy.transform.position + voidDirection.normalized * attractionStrength * Time.deltaTime;
+
+                enemy.transform.position = destination;
+            }
         }
     }
 }
