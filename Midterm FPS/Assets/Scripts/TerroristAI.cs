@@ -104,7 +104,7 @@ public class TerroristAI : MonoBehaviour, IDamage
                 {
                     facePlayer();
                 }
-                if (!isShooting)
+                if (!isShooting && shootPos != null)
                 {
                     StartCoroutine(shoot());
                 }
@@ -120,17 +120,12 @@ public class TerroristAI : MonoBehaviour, IDamage
     IEnumerator shoot()
     {
         isShooting = true;
-        //animator.SetTrigger("Shoot");
-        CreateBullet();
+        Instantiate(bullet, shootPos.position, transform.rotation);
         yield return new WaitForSeconds(shootRate);
         isShooting = false;
     }
 
 
-    public void CreateBullet()
-    {
-        Instantiate(bullet, shootPos.position, transform.rotation);
-    }
     void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -148,10 +143,9 @@ public class TerroristAI : MonoBehaviour, IDamage
 
         HP -= dmg;
         StartCoroutine(flashColor());
+        agent.SetDestination(gameManager.instance.player.transform.position);
         if (HP <= 0)
         {
-            HP -= dmg;
-            agent.SetDestination(gameManager.instance.player.transform.position);
           Destroy(gameObject);
        
         }
