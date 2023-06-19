@@ -397,7 +397,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1212532965116905652}
   - component: {fileID: 8110261521147883759}
-  m_Layer: 7
+  - component: {fileID: 11148967}
+  m_Layer: 8
   m_Name: RHandCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -412,8 +413,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1212532965116905653}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.044, y: -0.014, z: 0.03}
-  m_LocalScale: {x: 0.85983485, y: 0.015217588, z: 0.18163846}
+  m_LocalPosition: {x: -0.064, y: -0.014, z: 0.03}
+  m_LocalScale: {x: 0.63209224, y: 0.016159557, z: 0.30724156}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6765092209540366472}
@@ -432,6 +433,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+--- !u!136 &11148967
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1212532965116905653}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 0
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1212532965643368772
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,7 +457,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1212532965643368779}
   - component: {fileID: 254638584069661406}
-  m_Layer: 7
+  - component: {fileID: 11148966}
+  m_Layer: 8
   m_Name: LHandCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -457,8 +473,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1212532965643368772}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.062, y: -0.014, z: 0.069}
-  m_LocalScale: {x: 0.7157834, y: -0.045137133, z: 0.19783212}
+  m_LocalPosition: {x: 0.095, y: -0.036, z: 0.069}
+  m_LocalScale: {x: 0.747421, y: -0.047132194, z: 0.26313686}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2765044921239069636}
@@ -477,6 +493,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+--- !u!136 &11148966
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1212532965643368772}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 0
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1262783658885785651
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,8 +594,8 @@ MonoBehaviour:
   agent: {fileID: 1212532965768913478}
   zombieAnim: {fileID: 5497038152110266234}
   headPos: {fileID: 1187631933416835603}
-  handCollider1: {fileID: 0}
-  handCollider2: {fileID: 0}
+  handCollider1: {fileID: 11148967}
+  handCollider2: {fileID: 11148966}
   HP: 2
   playerFaceSpeed: 6
   viewConeAngle: 198
