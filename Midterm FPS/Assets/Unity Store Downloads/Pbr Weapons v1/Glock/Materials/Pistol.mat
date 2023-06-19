@@ -7,22 +7,14 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<<< HEAD:Midterm FPS/Assets/Materials/Void.mat
-  m_Name: Void
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ValidKeywords:
-  - _EMISSION
-  m_InvalidKeywords: []
-  m_LightmapFlags: 2
-========
-  m_Name: ak47
+  m_Name: Pistol
   m_Shader: {fileID: 45, guid: 0000000000000000f000000000000000, type: 0}
   m_ValidKeywords:
   - _NORMALMAP
   - _SPECGLOSSMAP
-  m_InvalidKeywords: []
+  m_InvalidKeywords:
+  - _METALLICGLOSSMAP
   m_LightmapFlags: 4
->>>>>>>> 50bbd21 (Gun System added):Midterm FPS/Assets/Unity Store Downloads/Pbr Weapons v1/Ak47/Materials/ak47.mat
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -32,7 +24,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 92c0cf81363c1204793f83264d3d90f1, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9440e0c07215a0d46a0c9057dfc57aa6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -52,46 +44,35 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-<<<<<<<< HEAD:Midterm FPS/Assets/Materials/Void.mat
-        m_Texture: {fileID: 0}
-========
-        m_Texture: {fileID: 2800000, guid: 01687b8aae3056c4abfbaf73e4b28aeb, type: 3}
->>>>>>>> 50bbd21 (Gun System added):Midterm FPS/Assets/Unity Store Downloads/Pbr Weapons v1/Ak47/Materials/ak47.mat
+        m_Texture: {fileID: 2800000, guid: 0232e4731911f7743a250a76811b4973, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 0625b38233ced1b46875fb1c1c2c666d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
-        m_Texture: {fileID: 2800000, guid: 17b8526100f86614cb8a4baf8ac10b2f, type: 3}
+        m_Texture: {fileID: 2800000, guid: acec550e75befa64b8ec591f47ce422d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-<<<<<<<< HEAD:Midterm FPS/Assets/Materials/Void.mat
-========
     - _SpecGlossMap:
-        m_Texture: {fileID: 2800000, guid: 3681f27394e0668449c3e81d9dc01c96, type: 3}
+        m_Texture: {fileID: 2800000, guid: fdf0d1e4f8558e145a9c871d3035400c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
->>>>>>>> 50bbd21 (Gun System added):Midterm FPS/Assets/Unity Store Downloads/Pbr Weapons v1/Ak47/Materials/ak47.mat
     m_Ints: []
     m_Floats:
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _GlossMapScale: 1
-<<<<<<<< HEAD:Midterm FPS/Assets/Materials/Void.mat
-    - _Glossiness: 0.739
-========
-    - _Glossiness: 0.5
->>>>>>>> 50bbd21 (Gun System added):Midterm FPS/Assets/Unity Store Downloads/Pbr Weapons v1/Ak47/Materials/ak47.mat
+    - _GlossMapScale: 0.93
+    - _Glossiness: 0
     - _GlossyReflections: 1
-    - _Metallic: 0.448
+    - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
@@ -101,12 +82,7 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-<<<<<<<< HEAD:Midterm FPS/Assets/Materials/Void.mat
-    - _Color: {r: 0.9025494, g: 0.33922213, b: 0.9339623, a: 1}
-    - _EmissionColor: {r: 0.67278564, g: 0, b: 0.7924528, a: 1}
-========
-    - _Color: {r: 0.7352941, g: 0.7352941, b: 0.7352941, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
->>>>>>>> 50bbd21 (Gun System added):Midterm FPS/Assets/Unity Store Downloads/Pbr Weapons v1/Ak47/Materials/ak47.mat
   m_BuildTextureStacks: []
