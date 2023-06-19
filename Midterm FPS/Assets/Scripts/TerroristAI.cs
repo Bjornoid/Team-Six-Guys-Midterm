@@ -12,7 +12,7 @@ public class TerroristAI : MonoBehaviour, IDamage
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Transform headPos;
     [SerializeField] Transform shootPos;
-    //[SerializeField] Animator animator;
+    [SerializeField] Animator animator;
     [Header("----- Enemy Stats -----")]
     [SerializeField] int HP;
     [SerializeField] int playerLookSpeed;
