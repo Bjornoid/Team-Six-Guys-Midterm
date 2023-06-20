@@ -9,6 +9,7 @@ public class PlayerControls
 {
     [Header("----- Player Settings -----")]
     [SerializeField] CharacterController controller;
+    [SerializeField] AudioSource aud;
     [Range(3, 100)][SerializeField] float walkSpeed; // player walk speed
     [Range(3, 100)][SerializeField] float sprintSpeed; // player sprint speed
     [Range(1, 100)][SerializeField] float jumpHeight; // jump height for player
@@ -31,6 +32,14 @@ public class PlayerControls
     [SerializeField] List<GunStats> gunList = new List<GunStats>();
     [SerializeField] GunStats startingPistol;
 
+    [Header("----- Audio -----")]
+    [SerializeField] AudioClip[] jumpSounds;
+    [SerializeField] [Range(0, 1)] float jumpVol;
+    [SerializeField] AudioClip[] stepSounds;
+    [SerializeField][Range(0, 1)] float stepVol;
+    [SerializeField] AudioClip[] damageSounds;
+    [SerializeField][Range(0, 1)] float damageVol;
+
     private float playerHeight;
     private float startingGravity;
     private float jetpackTime;
@@ -43,6 +52,7 @@ public class PlayerControls
     private bool groundedPlayer; // checks if player is on ground
     bool isShooting; // Checks if you are shooting
     bool isReloading;
+    bool stepsIsPlaying;
     int selectedGun;
     GameObject gunModel;
     public bool hasWonderWeapon;
@@ -73,26 +83,29 @@ public class PlayerControls
     void Update()
     {
         stateHandler();
-        movement();
-        crouch();
-        
-        if (gunList.Count > 0)
+        if (gameManager.instance.activeMenu == null)
         {
-            changeGun();
-            if (Input.GetButtonDown("Reload") && !isReloading && gunList[selectedGun].magAmmoCurr < gunList[selectedGun].magAmmoMax && gunList[selectedGun].reserveAmmoCurr > 0)
-            {
-                StartCoroutine(reload());
-            }
-        }
+            movement();
+            crouch();
 
-        if (Input.GetButton("Shoot") && !isShooting && !isReloading)
-        {
-            StartCoroutine(shoot()); // start shooting
+            if (gunList.Count > 0)
+            {
+                changeGun();
+                if (Input.GetButtonDown("Reload") && !isReloading && gunList[selectedGun].magAmmoCurr < gunList[selectedGun].magAmmoMax && gunList[selectedGun].reserveAmmoCurr > 0)
+                {
+                    StartCoroutine(reload());
+                }
+                if (Input.GetButton("Shoot") && !isShooting && !isReloading)
+                {
+                    StartCoroutine(shoot()); // start shooting
+                }
+            }
         }
     }
 
     public void takeDamage(int dmg)
     {
+        aud.PlayOneShot(damageSounds[UnityEngine.Random.Range(0, damageSounds.Length)], damageVol);
         HP -= dmg;
         UpdatePlayerUI();
 
@@ -186,11 +199,16 @@ public class PlayerControls
 
     void movement()
     {
-        if (groundedPlayer && playerVelocity.y < 0) // if we are on the ground
+        if (groundedPlayer) // if we are on the ground
         {
-            playerVelocity.y = 0f;
+            if (!stepsIsPlaying && move.normalized.magnitude > 0.5f)
+            {
+                StartCoroutine(playSteps());
+            }
 
             jumpTimes = 0;
+            if (playerVelocity.y < 0)
+                playerVelocity.y = 0f;
         }
 
         move = (transform.right * Input.GetAxis("Horizontal")) + (transform.forward * Input.GetAxis("Vertical"));
@@ -200,13 +218,31 @@ public class PlayerControls
         // Changes the height position of the player
         if (Input.GetButtonDown("Jump") && jumpTimes < jumpMax)
         {
-            jumpTimes++;
+            if (!hasJetpack)
+                aud.PlayOneShot(jumpSounds[UnityEngine.Random.Range(0, jumpSounds.Length)], jumpVol);
 
+            jumpTimes++;
             playerVelocity.y = jumpHeight;
         }
 
         playerVelocity.y -= gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
+
+        
+    }
+
+    IEnumerator playSteps()
+    {
+        stepsIsPlaying = true;
+
+        aud.PlayOneShot(stepSounds[UnityEngine.Random.Range(0, stepSounds.Length)], stepVol);
+
+        if (movementState == MovementState.walking)
+            yield return new WaitForSeconds(.5f);
+        else if (movementState == MovementState.sprinting)
+            yield return new WaitForSeconds(.3f);
+
+        stepsIsPlaying = false;
     }
 
     void crouch()
