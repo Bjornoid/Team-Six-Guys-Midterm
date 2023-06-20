@@ -13,9 +13,36 @@ public class Void : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        VoidSuck();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            nearbyEnemies.Add(other.gameObject);
+
+            VoidSuck();
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            gameManager.instance.UpdateGameGoal(-1); // enemy dies
+
+            nearbyEnemies.Remove(other.gameObject);
+
+            Destroy(other.gameObject);
+        }
+    }
+
+    void VoidSuck()
+    {
         foreach (GameObject enemy in nearbyEnemies)
         {
-            if(enemy != null)
+            if (enemy != null)
             {
                 Vector3 voidDirection = voidHole.transform.position - enemy.transform.position;
                 Vector3 destination = enemy.transform.position + voidDirection.normalized * attractionStrength * Time.deltaTime;
@@ -25,20 +52,13 @@ public class Void : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    IEnumerator Die()
     {
-        if (other.CompareTag("Enemy"))
+        foreach (GameObject enemy in nearbyEnemies)
         {
-            nearbyEnemies.Add(other.gameObject);
-        }
-    }
+            yield return new WaitForSeconds(2);
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Enemy"))
-        {
-            nearbyEnemies.Remove(other.gameObject);
-            Destroy(other.gameObject);
+            Destroy(enemy);
         }
     }
 }

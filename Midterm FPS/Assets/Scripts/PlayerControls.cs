@@ -43,7 +43,7 @@ public class PlayerControls
     bool isReloading;
     int selectedGun;
     GameObject gunModel;
-
+    public bool hasWonderWeapon;
     public MovementState movementState;
 
     public enum MovementState
