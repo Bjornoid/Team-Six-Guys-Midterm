@@ -413,8 +413,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1212532965116905653}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.064, y: -0.014, z: 0.03}
-  m_LocalScale: {x: 0.63209224, y: 0.016159557, z: 0.30724156}
+  m_LocalPosition: {x: -0.147, y: -0.013, z: 0.02}
+  m_LocalScale: {x: 0.921934, y: 0.020729478, z: 0.39412946}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6765092209540366472}
@@ -473,8 +473,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1212532965643368772}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.095, y: -0.036, z: 0.069}
-  m_LocalScale: {x: 0.747421, y: -0.047132194, z: 0.26313686}
+  m_LocalPosition: {x: 0.095, y: 0.018, z: 0.07}
+  m_LocalScale: {x: 0.91260105, y: -0.057548407, z: 0.3212901}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2765044921239069636}
@@ -555,7 +555,7 @@ GameObject:
   - component: {fileID: 1212532965232202205}
   m_Layer: 7
   m_Name: ZombieEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -633,12 +633,12 @@ NavMeshAgent:
   m_GameObject: {fileID: 1288763328226711482}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 1
+  m_Radius: 0.5
   m_Speed: 7
   m_Acceleration: 35
   avoidancePriority: 50
   m_AngularSpeed: 600
-  m_StoppingDistance: 1.89
+  m_StoppingDistance: 2.5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 0
   m_AutoRepath: 1

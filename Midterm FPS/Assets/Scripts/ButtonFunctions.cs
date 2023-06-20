@@ -57,6 +57,18 @@ public class ButtonFunctions : MonoBehaviour
         gameManager.instance.stateUnPaused();
     }
 
+    public void floor5()
+    {
+        SceneManager.LoadScene("BjornsLevel");
+        gameManager.instance.stateUnPaused();
+    }
+
+    public void floor6()
+    {
+        SceneManager.LoadScene("jamesSandbox");
+        gameManager.instance.stateUnPaused();
+    }
+
     public void close()
     {
         gameManager.instance.switchToMain();
