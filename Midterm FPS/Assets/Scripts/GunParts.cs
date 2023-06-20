@@ -5,8 +5,7 @@ using UnityEngine;
 public class GunParts : MonoBehaviour
 {
     public List<GameObject> gunList;
-    public GameObject Gun;
-    GameObject gunPart1;
+    [SerializeField] GameObject gunPart1;
     GameObject gunPart2;
     GameObject gunPart3;
 

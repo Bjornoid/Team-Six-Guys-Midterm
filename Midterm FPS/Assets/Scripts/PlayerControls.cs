@@ -27,6 +27,7 @@ public class PlayerControls
     [SerializeField] GameObject pistolModel;
     [SerializeField] GameObject akModel;
     [SerializeField] GameObject shottyModel;
+    [SerializeField] GameObject voidModel;
     [SerializeField] List<GunStats> gunList = new List<GunStats>();
     [SerializeField] GunStats startingPistol;
 
@@ -263,25 +264,44 @@ public class PlayerControls
     {
         if (name.Equals("Starting Pistol"))
         {
+            hasWonderWeapon = false;
+
             pistolModel.SetActive(true);
             gunModel = pistolModel;
             akModel.SetActive(false);
             shottyModel.SetActive(false);
+            voidModel.SetActive(false);
         }
         else if (name.Equals("Ak"))
         {
+            hasWonderWeapon = false;
+
             akModel.SetActive(true);
             gunModel = akModel;
             pistolModel.SetActive(false);
             shottyModel.SetActive(false);
+            voidModel.SetActive(false);
         }
         else if (name.Equals("Shotty"))
         {
+            hasWonderWeapon = false;
+
             shottyModel.SetActive(true);
             gunModel = shottyModel;
             akModel.SetActive(false);
             pistolModel.SetActive(false);
+            voidModel.SetActive(false);
         }   
+        else if (name.Equals("VoidGun"))
+        {
+            hasWonderWeapon = true;
+
+            voidModel.SetActive(true);
+            gunModel = voidModel;
+            akModel.SetActive(false);
+            pistolModel.SetActive(false);
+            shottyModel.SetActive(false);
+        }
     }
 
     public void gunPickup(GunStats gunStat)
