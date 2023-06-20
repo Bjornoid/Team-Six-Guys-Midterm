@@ -29,6 +29,7 @@ public class SpiderAI : MonoBehaviour, IDamage
     public bool isShooting;
     bool destinationChosen;
     float stoppingDistanceOrig;
+    public GameObject[] droppedItem;
     // Start is called before the first frame update
     void Start()
     {
@@ -155,6 +156,7 @@ public class SpiderAI : MonoBehaviour, IDamage
             animator.SetBool("Dead", true);
             agent.enabled = false;
             GetComponent<CapsuleCollider>().enabled = false;
+            ItemDrop();
         }
         else
         {
@@ -167,5 +169,13 @@ public class SpiderAI : MonoBehaviour, IDamage
         model.material.color = Color.red;
         yield return new WaitForSeconds(0.1f);
         model.material.color = Color.white;
+    }
+
+    private void ItemDrop()
+    {
+        for (int i = 0; i < droppedItem.Length;  i++)
+        {
+            Instantiate(droppedItem[i], transform.position, Quaternion.identity);
+        }
     }
 }
