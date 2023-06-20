@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class GunParts : MonoBehaviour
 {
-    public GameObject[] gunParts;
+    public List<GameObject> gunList;
     public GameObject Gun;
+    GameObject gunPart1;
+    GameObject gunPart2;
+    GameObject gunPart3;
+
+
+    int fullGun = 2;
 
     // Start is called before the first frame update
     void Start()
@@ -17,5 +23,24 @@ public class GunParts : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (gameObject.Equals(gunList[0]))
+        {
+            gunList.Add(gunPart1);
+            gunPart1.SetActive(false);
+        }
+        else if (gameObject.Equals(gunList[1]))
+        {
+            gunList.Add(gunPart2);
+            gunPart2.SetActive(false);
+        }
+        else if (gameObject.Equals(gunList[1]))
+        {
+            gunList.Add(gunPart3);
+            gunPart3.SetActive(false);
+        }
     }
 }
