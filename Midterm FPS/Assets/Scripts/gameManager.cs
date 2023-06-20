@@ -11,6 +11,7 @@ public class gameManager : MonoBehaviour
     [Header("----- Player fields -----")]
     public GameObject player;
     public PlayerControls playerScript;
+    public VoidBullet voidScript;
     public GameObject playerSpawnPosition;
 
     [Header("----- UI fields -----")]
