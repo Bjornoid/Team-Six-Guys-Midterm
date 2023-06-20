@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Ak
   m_EditorClassIdentifier: 
   shootDist: 750
-  shootRate: 0.15
+  shootRate: 0.2
   shootDmg: 1
   magAmmoCurr: 0
   magAmmoMax: 25
-  reserveAmmoCurr: 50
+  reserveAmmoCurr: 0
   reserveAmmoMax: 50
-  reloadTime: 2.5
+  reloadTime: 2
   gunName: Ak
   model: {fileID: 100000, guid: cc9754e10c7832e49b415a9bb12e73a2, type: 3}

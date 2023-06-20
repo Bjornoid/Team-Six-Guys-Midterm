@@ -41,9 +41,9 @@ public class TerroristAI : MonoBehaviour, IDamage
     // Update is called once per frame
     void Update()
     {
+        animator.SetFloat("Speed", agent.velocity.normalized.magnitude);
         if (agent.isActiveAndEnabled)
         {
-            //animator.SetFloat("Speed", agent.velocity.normalized.magnitude);
             if (inRange && !canSeePlayer())
             {
                 StartCoroutine(roam());

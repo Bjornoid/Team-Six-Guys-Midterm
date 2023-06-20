@@ -21,6 +21,8 @@ public class gameManager : MonoBehaviour
     public GameObject playMenu;
     public GameObject winMenu;
     public GameObject loseMenu;
+    public GameObject checkpointPopUp;
+    public GameObject checkpointPopUpTwo;
     public Image playerHPBar;
     public Image fuelBar;
     public GameObject fuelUI;

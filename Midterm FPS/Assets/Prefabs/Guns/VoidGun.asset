@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: VoidGun
   m_EditorClassIdentifier: 
   shootDist: 0
-  shootRate: 1
+  shootRate: 3
   shootDmg: 0
+  magAmmoCurr: 0
+  magAmmoMax: 0
+  reserveAmmoCurr: 0
+  reserveAmmoMax: 0
+  reloadTime: 0
   gunName: VoidGun
   model: {fileID: 8469958719210567576, guid: 1b138d81c6a689244b21290da790b836, type: 3}
