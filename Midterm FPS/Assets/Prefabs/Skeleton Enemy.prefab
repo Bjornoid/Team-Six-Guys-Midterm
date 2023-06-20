@@ -283,8 +283,8 @@ MonoBehaviour:
   HP: 5
   playerFaceSpeed: 4
   viewConeAngle: 140
-  roamDist: 0
-  roamTimer: 0
+  roamDist: 25
+  roamTimer: 3
   isMelee: 1
   shootRate: 0
   bullet: {fileID: 0}

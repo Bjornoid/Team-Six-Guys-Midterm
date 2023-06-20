@@ -51,14 +51,4 @@ public class Void : MonoBehaviour
             }
         }
     }
-
-    IEnumerator Die()
-    {
-        foreach (GameObject enemy in nearbyEnemies)
-        {
-            yield return new WaitForSeconds(2);
-
-            Destroy(enemy);
-        }
-    }
 }

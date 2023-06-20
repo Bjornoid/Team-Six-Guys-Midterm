@@ -45,15 +45,19 @@ public class EnemyAI : MonoBehaviour, IDamage
     // Update is called once per frame
     void Update()
     {
-        animator.SetFloat("Speed", agent.velocity.normalized.magnitude);
-        if (playerInRange && CanSeePlayer()) 
+        if (agent.isActiveAndEnabled)
         {
-            StartCoroutine(Roam());
+            animator.SetFloat("Speed", agent.velocity.normalized.magnitude);
+
+            if (playerInRange && !CanSeePlayer())
+            {
+                StartCoroutine(Roam());
+            }
+            else if (agent.destination != gameManager.instance.player.transform.position)
+            {
+                StartCoroutine(Roam());
+            }
         }
-        else if (agent.destination != gameManager.instance.player.transform.position) 
-        {
-            StartCoroutine(Roam());
-        } 
     }
 
     // Allows enemy to roam
@@ -65,13 +69,16 @@ public class EnemyAI : MonoBehaviour, IDamage
 
             agent.stoppingDistance = 0;
 
+            yield return new WaitForSeconds(roamTimer);
+            chosenDestination = false;
+
             Vector3 randomPos = Random.insideUnitSphere * roamDist;
             randomPos += startingPos;
 
             NavMeshHit hit;
             NavMesh.SamplePosition(randomPos, out hit, roamDist, 1);
-            yield return new WaitForSeconds(roamTimer);
-            chosenDestination = false;
+            
+            
 
             agent.SetDestination(hit.position);
         }
@@ -96,10 +103,6 @@ public class EnemyAI : MonoBehaviour, IDamage
                 
                 agent.SetDestination(gameManager.instance.player.transform.position); // go towards the player
 
-                if (agent.remainingDistance > agent.stoppingDistance)
-                {
-                    //animator.Play("DS_onehand_walk");
-                }
                 if (agent.remainingDistance <= agent.stoppingDistance)
                 {
                     facePlayer();

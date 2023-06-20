@@ -11,6 +11,7 @@ public class gameManager : MonoBehaviour
     [Header("----- Player fields -----")]
     public GameObject player;
     public PlayerControls playerScript;
+    public VoidBullet voidScript;
     public GameObject playerSpawnPosition;
 
     [Header("----- UI fields -----")]
@@ -22,6 +23,7 @@ public class gameManager : MonoBehaviour
     public GameObject winMenu;
     public GameObject loseMenu;
     public GameObject checkpointPopUp;
+    public GameObject checkpointPopUpTwo;
     public Image playerHPBar;
     public Image fuelBar;
     public GameObject fuelUI;
