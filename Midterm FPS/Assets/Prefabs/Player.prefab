@@ -1273,9 +1273,9 @@ MonoBehaviour:
   pistolModel: {fileID: 970816395}
   akModel: {fileID: 839495469702750849}
   shottyModel: {fileID: 1687361874160393528}
-  voidModel: {fileID: 729102072}
   gunList: []
   startingPistol: {fileID: 11400000, guid: ca4eb4c1ce27c214dba9c7070acff95a, type: 2}
+  hasWonderWeapon: 0
   movementState: 0
 --- !u!33 &1668069910339250512
 MeshFilter:
