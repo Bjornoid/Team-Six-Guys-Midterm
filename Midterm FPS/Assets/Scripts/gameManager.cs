@@ -27,7 +27,9 @@ public class gameManager : MonoBehaviour
     public GameObject playerFlashUI;
     public TextMeshProUGUI enemiesRemainingText;
     public TextMeshProUGUI mainTaskDescription;
-    public TextMeshProUGUI sideQuestDescription;
+    public TextMeshProUGUI sideQuestDescription; 
+    public TextMeshProUGUI ammoMaxText;
+    public TextMeshProUGUI ammoCurText;
 
     [Header("----- Game Goal fields -----")]
     int enemiesRemaining;

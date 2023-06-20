@@ -107,6 +107,12 @@ public class PlayerControls
     public void UpdatePlayerUI()
     {
         gameManager.instance.playerHPBar.fillAmount = (float)HP / playerHPOrig; // Divide Curr by Original to get player HP
+
+        if (gunList.Count > 0)
+        {
+            gameManager.instance.ammoCurText.text = gunList[selectedGun].magAmmoCurr.ToString("F0");
+            gameManager.instance.ammoMaxText.text = gunList[selectedGun].reserveAmmoCurr.ToString("F0");
+        }
     }
 
     IEnumerator PlayerFlashDamage()
@@ -219,6 +225,7 @@ public class PlayerControls
         {
             isShooting = true;
             gunList[selectedGun].magAmmoCurr--;
+            UpdatePlayerUI();
 
             RaycastHit hit;
             if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
@@ -303,7 +310,7 @@ public class PlayerControls
             myfilters[i].mesh = null;
             myRndrs[i].material = null;
         }
-
+        UpdatePlayerUI();
     }
 
     void changeGun()
@@ -320,6 +327,7 @@ public class PlayerControls
             setGunModel(gunList[selectedGun].name);
             changeGunStats();
         }
+        UpdatePlayerUI();
     }
 
     void changeGunStats()
@@ -369,7 +377,7 @@ public class PlayerControls
 
         
         isReloading = false;
-        
+        UpdatePlayerUI();
     }
 
     public void pickupAmmo()
@@ -379,6 +387,7 @@ public class PlayerControls
             gun.magAmmoCurr = gun.magAmmoMax;
             gun.reserveAmmoCurr = gun.reserveAmmoMax;
         }
+        UpdatePlayerUI();
     }
 
 }
