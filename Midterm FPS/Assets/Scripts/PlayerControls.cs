@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerControls
-    : MonoBehaviour, IDamage
+    : MonoBehaviour, IDamage, IAmmo
 {
     [Header("----- Player Settings -----")]
     [SerializeField] CharacterController controller;
@@ -40,9 +40,10 @@ public class PlayerControls
     int playerHPOrig; // Original HP of player
     private bool groundedPlayer; // checks if player is on ground
     bool isShooting; // Checks if you are shooting
+    bool isReloading;
     int selectedGun;
     GameObject gunModel;
-
+    public bool hasWonderWeapon;
     public MovementState movementState;
 
     public enum MovementState
@@ -62,6 +63,8 @@ public class PlayerControls
         canJetpack = true;
         SpawnPlayer();
         gunPickup(startingPistol);
+        gunList[0].magAmmoCurr = gunList[0].magAmmoMax;
+        gunList[0].reserveAmmoCurr = gunList[0].reserveAmmoMax;
     }
 
     // Update is called once per frame
@@ -71,12 +74,16 @@ public class PlayerControls
         movement();
         crouch();
         
-        if (gunList.Count > 1)
+        if (gunList.Count > 0)
         {
             changeGun();
+            if (Input.GetButtonDown("Reload") && !isReloading && gunList[selectedGun].magAmmoCurr < gunList[selectedGun].magAmmoMax && gunList[selectedGun].reserveAmmoCurr > 0)
+            {
+                StartCoroutine(reload());
+            }
         }
 
-        if (Input.GetButton("Shoot") && !isShooting)
+        if (Input.GetButton("Shoot") && !isShooting && !isReloading)
         {
             StartCoroutine(shoot()); // start shooting
         }
@@ -100,6 +107,12 @@ public class PlayerControls
     public void UpdatePlayerUI()
     {
         gameManager.instance.playerHPBar.fillAmount = (float)HP / playerHPOrig; // Divide Curr by Original to get player HP
+
+        if (gunList.Count > 0)
+        {
+            gameManager.instance.ammoCurText.text = gunList[selectedGun].magAmmoCurr.ToString("F0");
+            gameManager.instance.ammoMaxText.text = gunList[selectedGun].reserveAmmoCurr.ToString("F0");
+        }
     }
 
     IEnumerator PlayerFlashDamage()
@@ -208,27 +221,32 @@ public class PlayerControls
 
     IEnumerator shoot()
     {
-        isShooting = true;
-
-        RaycastHit hit;
-        if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
+        if (gunList[selectedGun].magAmmoCurr > 0)
         {
-            IDamage damageable = hit.collider.GetComponent<IDamage>();
+            isShooting = true;
+            gunList[selectedGun].magAmmoCurr--;
+            UpdatePlayerUI();
 
-            if (damageable != null)
+            RaycastHit hit;
+            if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
             {
-                damageable.takeDamage(shootDamage);
-            }
-            else if(hit.collider.gameObject.CompareTag("Target"))
-            {
-                Destroy(hit.collider.gameObject);
-                gameManager.instance.updateTargetCount(-1);
-            }
-        }
+                IDamage damageable = hit.collider.GetComponent<IDamage>();
 
-        yield return new WaitForSeconds(shootRate);
+                if (damageable != null)
+                {
+                    damageable.takeDamage(shootDamage);
+                }
+                else if (hit.collider.gameObject.CompareTag("Target"))
+                {
+                    Destroy(hit.collider.gameObject);
+                    gameManager.instance.updateTargetCount(-1);
+                }
+            }
 
-        isShooting = false;
+            yield return new WaitForSeconds(shootRate);
+
+            isShooting = false;
+        } 
     }
 
     public void SpawnPlayer()
@@ -292,7 +310,7 @@ public class PlayerControls
             myfilters[i].mesh = null;
             myRndrs[i].material = null;
         }
-
+        UpdatePlayerUI();
     }
 
     void changeGun()
@@ -309,6 +327,7 @@ public class PlayerControls
             setGunModel(gunList[selectedGun].name);
             changeGunStats();
         }
+        UpdatePlayerUI();
     }
 
     void changeGunStats()
@@ -336,6 +355,39 @@ public class PlayerControls
             myfilters[i].mesh = null;
             myRndrs[i].material = null;
         }
+    }
+
+    IEnumerator reload()
+    {
+       
+        isReloading = true;
+        yield return new WaitForSeconds(gunList[selectedGun].reloadTime);
+
+        int ammoMissing = gunList[selectedGun].magAmmoMax - gunList[selectedGun].magAmmoCurr;
+        if (ammoMissing < gunList[selectedGun].reserveAmmoCurr)
+        {
+            gunList[selectedGun].reserveAmmoCurr -= ammoMissing;
+            gunList[selectedGun].magAmmoCurr += ammoMissing;
+        }
+        else
+        {
+            gunList[selectedGun].magAmmoCurr += gunList[selectedGun].reserveAmmoCurr;
+            gunList[selectedGun].reserveAmmoCurr = 0;
+        }
+
+        
+        isReloading = false;
+        UpdatePlayerUI();
+    }
+
+    public void pickupAmmo()
+    {
+        foreach(GunStats gun in gunList)
+        {
+            gun.magAmmoCurr = gun.magAmmoMax;
+            gun.reserveAmmoCurr = gun.reserveAmmoMax;
+        }
+        UpdatePlayerUI();
     }
 
 }

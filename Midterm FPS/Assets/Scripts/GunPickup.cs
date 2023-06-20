@@ -8,7 +8,8 @@ public class GunPickup : MonoBehaviour
 
     void Start()
     {
-        
+        gun.magAmmoCurr = gun.magAmmoMax;
+        gun.reserveAmmoCurr = gun.reserveAmmoMax;
     }
 
     private void OnTriggerEnter(Collider other)
