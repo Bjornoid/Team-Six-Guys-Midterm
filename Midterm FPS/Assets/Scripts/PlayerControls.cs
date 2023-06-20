@@ -280,7 +280,7 @@ public class PlayerControls
             gunModel = shottyModel;
             akModel.SetActive(false);
             pistolModel.SetActive(false);
-        }
+        }   
     }
 
     public void gunPickup(GunStats gunStat)
