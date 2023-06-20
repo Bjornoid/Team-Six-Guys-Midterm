@@ -49,7 +49,7 @@ public class PlayerControls
 
     public enum MovementState
     {
-        walking, 
+        walking,
         sprinting,
         jumping,
         jetpacking
@@ -74,7 +74,7 @@ public class PlayerControls
         stateHandler();
         movement();
         crouch();
-        
+
         if (gunList.Count > 0)
         {
             changeGun();
@@ -97,7 +97,7 @@ public class PlayerControls
 
         StartCoroutine(PlayerFlashDamage());
 
-        if(HP<=0)
+        if (HP <= 0)
         {
             gameManager.instance.YouLose();
 
@@ -130,13 +130,13 @@ public class PlayerControls
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer && Input.GetButton("LShift"))
         {
-            if (gravityValue != startingGravity )
+            if (gravityValue != startingGravity)
                 gravityValue = startingGravity;
 
             if (jetpackTime > 0)
             {
                 jetpackTime -= Time.deltaTime / 2;
-                gameManager.instance.fuelBar.fillAmount = 1 - jetpackTime/ jetpackDuration;
+                gameManager.instance.fuelBar.fillAmount = 1 - jetpackTime / jetpackDuration;
             }
             else
                 canJetpack = true;
@@ -167,19 +167,19 @@ public class PlayerControls
             if (jetpackTime >= jetpackDuration)
             {
                 canJetpack = false;
-                
+
             }
             movementState = MovementState.jetpacking;
             gravityValue = -8;
         }
-        else 
+        else
         {
             if (gravityValue != startingGravity)
                 gravityValue = startingGravity;
-            
+
             movementState = MovementState.jumping;
         }
-    
+
 
     }
 
@@ -247,7 +247,7 @@ public class PlayerControls
             yield return new WaitForSeconds(shootRate);
 
             isShooting = false;
-        } 
+        }
     }
 
     public void SpawnPlayer()
@@ -258,7 +258,7 @@ public class PlayerControls
         HP = playerHPOrig;
         UpdatePlayerUI();
     }
-  
+
     public void setGunModel(string name)
     {
         if (name.Equals("Starting Pistol"))
@@ -281,7 +281,7 @@ public class PlayerControls
             gunModel = shottyModel;
             akModel.SetActive(false);
             pistolModel.SetActive(false);
-        }   
+        }
     }
 
     public void gunPickup(GunStats gunStat)
@@ -301,12 +301,12 @@ public class PlayerControls
         MeshFilter[] myfilters = gunModel.GetComponentsInChildren<MeshFilter>();
         MeshRenderer[] myRndrs = gunModel.GetComponentsInChildren<MeshRenderer>();
 
-        for(int i = 0; i < filters.Length; i++)
+        for (int i = 0; i < filters.Length; i++)
         {
             myfilters[i].mesh = filters[i].sharedMesh;
             myRndrs[i].material = rndrs[i].sharedMaterial;
         }
-        for(int i = filters.Length; i < myfilters.Length; i++)
+        for (int i = filters.Length; i < myfilters.Length; i++)
         {
             myfilters[i].mesh = null;
             myRndrs[i].material = null;
@@ -360,7 +360,7 @@ public class PlayerControls
 
     IEnumerator reload()
     {
-       
+
         isReloading = true;
         yield return new WaitForSeconds(gunList[selectedGun].reloadTime);
 
@@ -376,26 +376,28 @@ public class PlayerControls
             gunList[selectedGun].reserveAmmoCurr = 0;
         }
 
-        
+
         isReloading = false;
         UpdatePlayerUI();
     }
 
     public void pickupAmmo()
     {
-        foreach(GunStats gun in gunList)
+        foreach (GunStats gun in gunList)
         {
             gun.magAmmoCurr = gun.magAmmoMax;
             gun.reserveAmmoCurr = gun.reserveAmmoMax;
         }
         UpdatePlayerUI();
     }
-public void medKit()
+    public void medKit()
     {
-        if(HP != 0)
+        if (HP != 0 & playerHPOrig != HP)
+
         {
             Destroy(medPack);
             HP = playerHPOrig;
         }
     }
 }
+        
