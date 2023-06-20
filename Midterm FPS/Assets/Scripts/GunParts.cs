@@ -27,20 +27,23 @@ public class GunParts : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (gameObject.Equals(triggers[0]))
+        if (other.CompareTag("Player"))
         {
-            gunList.Add(gunPart1);
-            gunPart1.SetActive(false);
-        }
-        else if (gameObject.Equals(triggers[1]))
-        {
-            gunList.Add(gunPart2);
-            gunPart2.SetActive(false);
-        }
-        else if (gameObject.Equals(triggers[2]))
-        {
-            gunList.Add(gunPart3);
-            gunPart3.SetActive(false);
+            if (gameObject.Equals(triggers[0]))
+            {
+                gunList.Add(gunPart1);
+                gunPart1.SetActive(false);
+            }
+            else if (gameObject.Equals(triggers[1]))
+            {
+                gunList.Add(gunPart2);
+                gunPart2.SetActive(false);
+            }
+            else if (gameObject.Equals(triggers[2]))
+            {
+                gunList.Add(gunPart3);
+                gunPart3.SetActive(false);
+            }
         }
     }
 }
