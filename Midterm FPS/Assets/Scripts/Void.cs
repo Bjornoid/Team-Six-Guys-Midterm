@@ -21,6 +21,8 @@ public class Void : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             nearbyEnemies.Add(other.gameObject);
+
+            VoidSuck();
         }
     }
 
@@ -47,6 +49,16 @@ public class Void : MonoBehaviour
 
                 enemy.transform.position = destination;
             }
+        }
+    }
+
+    IEnumerator Die()
+    {
+        foreach (GameObject enemy in nearbyEnemies)
+        {
+            yield return new WaitForSeconds(2);
+
+            Destroy(enemy);
         }
     }
 }

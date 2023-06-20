@@ -35,6 +35,10 @@ public class VoidBullet : MonoBehaviour
         GameObject voidObject = Instantiate(voidObj, transform.position, transform.rotation);
         Rigidbody voidRb = voidObject.GetComponent<Rigidbody>();
 
+       if (voidRb != null)
+       {
+           voidRb.AddForce(transform.forward * bulletForce, ForceMode.Impulse);
+       }
 
         StartCoroutine(DestroyVoid(voidObject));
     }
