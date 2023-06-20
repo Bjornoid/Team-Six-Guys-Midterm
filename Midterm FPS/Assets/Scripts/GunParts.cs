@@ -5,12 +5,12 @@ using UnityEngine;
 public class GunParts : MonoBehaviour
 {
     public List<GameObject> gunList;
-    public GameObject Gun;
-    GameObject gunPart1;
+    public List<GameObject> triggers;
+    [SerializeField] GameObject gunPart1;
     GameObject gunPart2;
     GameObject gunPart3;
 
-
+    
     int fullGun = 2;
 
     // Start is called before the first frame update
@@ -27,17 +27,17 @@ public class GunParts : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (gameObject.Equals(gunList[0]))
+        if (gameObject.Equals(triggers[0]))
         {
             gunList.Add(gunPart1);
             gunPart1.SetActive(false);
         }
-        else if (gameObject.Equals(gunList[1]))
+        else if (gameObject.Equals(triggers[1]))
         {
             gunList.Add(gunPart2);
             gunPart2.SetActive(false);
         }
-        else if (gameObject.Equals(gunList[1]))
+        else if (gameObject.Equals(triggers[2]))
         {
             gunList.Add(gunPart3);
             gunPart3.SetActive(false);
