@@ -19,7 +19,7 @@ public class StevenCheckpoint : MonoBehaviour
     {
         model.material.color = Color.red;
         gameManager.instance.checkpointPopUp.SetActive(true);
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(6.0f);
         model.material.color = Color.white;
         gameManager.instance.checkpointPopUp.SetActive(false);
 
