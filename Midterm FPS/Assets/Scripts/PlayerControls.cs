@@ -16,6 +16,7 @@ public class PlayerControls
     [SerializeField] int jumpMax; // max amount of jump a player can have
     [SerializeField] int HP;
     [SerializeField] float jetpackDuration;
+    [SerializeField] GameObject medPack;
     public float crouchHeight;
     public bool hasJetpack;
 
@@ -387,6 +388,11 @@ public class PlayerControls
             gun.magAmmoCurr = gun.magAmmoMax;
             gun.reserveAmmoCurr = gun.reserveAmmoMax;
         }
+        UpdatePlayerUI();
+    }
+    public void medKit()
+    {
+        HP = playerHPOrig;
         UpdatePlayerUI();
     }
 
