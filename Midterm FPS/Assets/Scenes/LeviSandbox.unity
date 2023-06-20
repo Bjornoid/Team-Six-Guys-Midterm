@@ -224,7 +224,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43c87b7dd5b72224d88299e7cb287281, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targets: []
   triggers:
   - {fileID: 0}
   - {fileID: 7379197}
@@ -2570,7 +2569,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43c87b7dd5b72224d88299e7cb287281, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targets: []
   triggers:
   - {fileID: 332206156}
   - {fileID: 0}
@@ -14630,6 +14628,14 @@ PrefabInstance:
     - target: {fileID: 3104227792756032808, guid: ca2b20a3af759d04b968874a6be8481c, type: 3}
       propertyPath: m_Name
       value: Soldier Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3104227792756032809, guid: ca2b20a3af759d04b968874a6be8481c, type: 3}
+      propertyPath: m_Radius
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3104227792756032813, guid: ca2b20a3af759d04b968874a6be8481c, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca2b20a3af759d04b968874a6be8481c, type: 3}

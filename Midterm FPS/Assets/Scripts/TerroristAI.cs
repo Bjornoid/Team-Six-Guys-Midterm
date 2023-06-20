@@ -119,6 +119,7 @@ public class TerroristAI : MonoBehaviour, IDamage
     IEnumerator shoot()
     {
         isShooting = true;
+        animator.SetTrigger("Shoot");
         Instantiate(bullet, shootPos.position, transform.rotation);
         yield return new WaitForSeconds(shootRate);
         isShooting = false;

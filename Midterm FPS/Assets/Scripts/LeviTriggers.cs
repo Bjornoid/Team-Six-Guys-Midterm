@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class LeviTriggers : MonoBehaviour
 {
-    public List<GameObject> targets;
     public List<GameObject> triggers;
     public List<Animator> animator;
     public GameObject key;
