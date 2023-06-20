@@ -15,11 +15,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Tutorial/Jetpack Tutorial.unity
     guid: d7c2567ed8cd93a49bb87214326d4ddd
   - enabled: 1
+    path: Assets/Scenes/BjornsLevel.unity
+    guid: 51416081b6b48df40b4525400a6dea18
+  - enabled: 1
     path: Assets/Scenes/JohnSandbox.unity
     guid: 977f4d3f7b69cd3468971086edd5fd70
-  - enabled: 1
-    path: Assets/Scenes/LeviSandbox.unity
-    guid: 5abd7278bb51b74458d2da9ff3d6eae5
   - enabled: 1
     path: Assets/Scenes/StevenSandbox.unity
     guid: 2c27aaf44cd47a44a999228909db153d
@@ -27,8 +27,8 @@ EditorBuildSettings:
     path: Assets/Scenes/ShaunSandbox.unity
     guid: 0c4b02a9f2b508e4c9ea35a602b953fc
   - enabled: 1
-    path: Assets/Scenes/BjornsLevel.unity
-    guid: 51416081b6b48df40b4525400a6dea18
+    path: Assets/Scenes/LeviSandbox.unity
+    guid: 5abd7278bb51b74458d2da9ff3d6eae5
   - enabled: 1
     path: Assets/Scenes/JamesSandbox.unity
     guid: 12da7d660a23190459c79a602babdcbf

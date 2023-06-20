@@ -37,13 +37,13 @@ public class ButtonFunctions : MonoBehaviour
 
     public void floor1()
     {
-        SceneManager.LoadScene("JohnSandbox");
+        SceneManager.LoadScene("BjornsLevel");
         gameManager.instance.stateUnPaused();
     }
 
     public void floor2()
     {
-        SceneManager.LoadScene("LeviSandbox");
+        SceneManager.LoadScene("JohnSandbox");
         gameManager.instance.stateUnPaused();
     }
     public void floor3()
@@ -59,7 +59,7 @@ public class ButtonFunctions : MonoBehaviour
 
     public void floor5()
     {
-        SceneManager.LoadScene("BjornsLevel");
+        SceneManager.LoadScene("LeviSandbox");
         gameManager.instance.stateUnPaused();
     }
 
