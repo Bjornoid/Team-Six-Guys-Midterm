@@ -39,6 +39,8 @@ public class PlayerControls
     [SerializeField][Range(0, 1)] float stepVol;
     [SerializeField] AudioClip[] damageSounds;
     [SerializeField][Range(0, 1)] float damageVol;
+    [SerializeField] AudioClip[] jetpackSounds;
+    [SerializeField][Range(0, 1)] float jetpackVol;
 
     private float playerHeight;
     private float startingGravity;
@@ -220,6 +222,10 @@ public class PlayerControls
         {
             if (!hasJetpack)
                 aud.PlayOneShot(jumpSounds[UnityEngine.Random.Range(0, jumpSounds.Length)], jumpVol);
+            else
+            {
+                aud.PlayOneShot(jetpackSounds[0], jetpackVol);
+            }
 
             jumpTimes++;
             playerVelocity.y = jumpHeight;
