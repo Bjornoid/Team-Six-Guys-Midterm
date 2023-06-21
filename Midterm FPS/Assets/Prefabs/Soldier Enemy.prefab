@@ -184,12 +184,12 @@ MonoBehaviour:
   headPos: {fileID: 3104227793132403400}
   shootPos: {fileID: 3104227793646273675}
   animator: {fileID: 3104227792763434644}
-  HP: 5
-  playerLookSpeed: 110
-  viewConeAngle: 110
+  HP: 6
+  playerLookSpeed: 120
+  viewConeAngle: 190
   roamDistance: 3
-  roamTimer: 2
-  shootRate: 0.5
+  roamTimer: 1
+  shootRate: 0.3
   bullet: {fileID: 5206894172017754366, guid: 9df591070fda82144b7450f1eaef3991, type: 3}
   inRange: 0
   isShooting: 0
@@ -224,7 +224,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -261,7 +261,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 8
+  m_Radius: 16
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3104227792756032810
 GameObject:
