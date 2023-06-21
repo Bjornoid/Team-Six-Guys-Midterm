@@ -29,8 +29,10 @@ public class ZombieAI : MonoBehaviour, IDamage
     public bool playerInRange;
     float angleToPlayer;
     float stoppingDistOrig;
+    float timeBeforeDelete;
     bool isShooting;
     bool destinationChosen; // Checks to see if the enemy has chosen a location to roam
+    bool isDead;
 
     void Start()
     {
@@ -201,5 +203,12 @@ public class ZombieAI : MonoBehaviour, IDamage
         yield return new WaitForSeconds(0.1f);
 
         model.material.color = Color.white;
+    }
+
+    IEnumerator TimeToDelete()
+    {
+        isDead = true;
+
+        yield return new WaitForSeconds(timeBeforeDelete);
     }
 }

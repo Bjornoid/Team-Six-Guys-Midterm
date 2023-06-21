@@ -15,9 +15,9 @@ MonoBehaviour:
   shootDist: 40
   shootRate: 0.5
   shootDmg: 1
-  magAmmoCurr: 12
+  magAmmoCurr: 3
   magAmmoMax: 12
-  reserveAmmoCurr: 48
+  reserveAmmoCurr: 41
   reserveAmmoMax: 48
   reloadTime: 1
   reloadSound: {fileID: 8300000, guid: 3fd4ab6baace32841afbf192589379eb, type: 3}
