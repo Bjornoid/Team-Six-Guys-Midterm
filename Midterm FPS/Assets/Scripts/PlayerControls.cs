@@ -425,7 +425,7 @@ public class PlayerControls
     {
        
         isReloading = true;
-        aud.PlayOneShot(gunList[selectedGun].reloadSound, gunList[selectedGun].soundVol);
+        aud.PlayOneShot(gunList[selectedGun].reloadSound, .7f);
 
         yield return new WaitForSeconds(gunList[selectedGun].reloadTime);
 
