@@ -268,6 +268,7 @@ public class PlayerControls
         if (gunList[selectedGun].magAmmoCurr > 0)
         {
             isShooting = true;
+            aud.PlayOneShot(gunList[selectedGun].shotSound, gunList[selectedGun].soundVol);
             gunList[selectedGun].magAmmoCurr--;
             UpdatePlayerUI();
             
@@ -424,6 +425,8 @@ public class PlayerControls
     {
        
         isReloading = true;
+        aud.PlayOneShot(gunList[selectedGun].reloadSound, gunList[selectedGun].soundVol);
+
         yield return new WaitForSeconds(gunList[selectedGun].reloadTime);
 
         int ammoMissing = gunList[selectedGun].magAmmoMax - gunList[selectedGun].magAmmoCurr;

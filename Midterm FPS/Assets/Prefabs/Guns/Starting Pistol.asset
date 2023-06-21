@@ -15,10 +15,13 @@ MonoBehaviour:
   shootDist: 40
   shootRate: 0.5
   shootDmg: 1
-  magAmmoCurr: 0
+  magAmmoCurr: 12
   magAmmoMax: 12
-  reserveAmmoCurr: 0
+  reserveAmmoCurr: 48
   reserveAmmoMax: 48
   reloadTime: 1
+  reloadSound: {fileID: 8300000, guid: 1b090ece1bfe40348b459c5ce850198a, type: 3}
+  shotSound: {fileID: 8300000, guid: 8f9b233224ecd524a9465e7390fed26f, type: 3}
+  soundVol: 0.7
   gunName: Starting Pistol
   model: {fileID: 100000, guid: e102eedcf6ecfa6428dc8f1e7e605c2b, type: 3}
