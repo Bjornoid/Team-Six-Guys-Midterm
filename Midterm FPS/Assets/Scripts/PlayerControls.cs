@@ -41,6 +41,10 @@ public class PlayerControls
     [SerializeField][Range(0, 1)] float damageVol;
     [SerializeField] AudioClip[] jetpackSounds;
     [SerializeField][Range(0, 1)] float jetpackVol;
+    [SerializeField] AudioClip[] medkitSounds;
+    [SerializeField][Range(0, 1)] float medkitVol;
+    [SerializeField] AudioClip[] ammoPickupSounds;
+    [SerializeField][Range(0, 1)] float ammoVol;
 
     private float playerHeight;
     private float startingGravity;
@@ -286,6 +290,7 @@ public class PlayerControls
                     Destroy(hit.collider.gameObject);
                     gameManager.instance.updateTargetCount(-1);
                 }
+                Instantiate(gunList[selectedGun].hitEffect, hit.point, Quaternion.identity);
             }
 
             yield return new WaitForSeconds(shootRate);
@@ -448,6 +453,7 @@ public class PlayerControls
 
     public void pickupAmmo()
     {
+        aud.PlayOneShot(ammoPickupSounds[0], ammoVol);
         foreach(GunStats gun in gunList)
         {
             gun.magAmmoCurr = gun.magAmmoMax;
@@ -457,8 +463,9 @@ public class PlayerControls
     }
 public void medKit()
     {
-        if(HP != 0)
+        if(HP != playerHPOrig)
         {
+            aud.PlayOneShot(medkitSounds[0], medkitVol);
             Destroy(medPack);
             HP = playerHPOrig;
         }

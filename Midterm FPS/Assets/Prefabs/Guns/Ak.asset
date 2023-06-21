@@ -15,14 +15,18 @@ MonoBehaviour:
   shootDist: 750
   shootRate: 0.2
   shootDmg: 1
-  magAmmoCurr: 13
+  magAmmoCurr: 25
   magAmmoMax: 25
-  reserveAmmoCurr: 50
+  reserveAmmoCurr: 20
   reserveAmmoMax: 50
   reloadTime: 2
-  reloadSound: {fileID: 8300000, guid: 1b090ece1bfe40348b459c5ce850198a, type: 3}
+  reloadSound: {fileID: 8300000, guid: 5f4ad43e6fbb8b644b3867b94c038d48, type: 3}
   shotSound: {fileID: 8300000, guid: 5faad7c781db0e0478f45ad901f84ede, type: 3}
   soundVol: 0.3
   gunName: Ak
   model: {fileID: 100000, guid: cc9754e10c7832e49b415a9bb12e73a2, type: 3}
+<<<<<<< HEAD
   hitEffect: {fileID: 4717938224859827385, guid: 05f869838cb19ec488016c01d24ee063, type: 3}
+=======
+  hitEffect: {fileID: 0}
+>>>>>>> e9eb326 (health and ammo pickup sounds)

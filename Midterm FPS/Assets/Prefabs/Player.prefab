@@ -1306,6 +1306,9 @@ MonoBehaviour:
   jetpackSounds:
   - {fileID: 8300000, guid: 06fe2cd0a0223d144a8ebeb4c53bd884, type: 3}
   jetpackVol: 0.5
+  medkitSounds:
+  - {fileID: 8300000, guid: 40ec7704cb778f34983dbaf21c352b23, type: 3}
+  medkitVol: 0.5
   hasWonderWeapon: 0
   movementState: 0
 --- !u!33 &1668069910339250512
