@@ -45,6 +45,8 @@ public class PlayerControls
     [SerializeField][Range(0, 1)] float medkitVol;
     [SerializeField] AudioClip[] ammoPickupSounds;
     [SerializeField][Range(0, 1)] float ammoVol;
+    [SerializeField] AudioClip[] keySounds;
+    [SerializeField][Range(0, 1)] float keyVol;
 
     private float playerHeight;
     private float startingGravity;
@@ -461,7 +463,7 @@ public class PlayerControls
         }
         UpdatePlayerUI();
     }
-public void medKit()
+    public void medKit()
     {
         if(HP != playerHPOrig)
         {
@@ -469,5 +471,10 @@ public void medKit()
             Destroy(medPack);
             HP = playerHPOrig;
         }
+    }
+
+    public void pickupKey()
+    {
+        aud.PlayOneShot(keySounds[0], keyVol);
     }
 }
