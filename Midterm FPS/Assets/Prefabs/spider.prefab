@@ -256,7 +256,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 3
-  m_Speed: 5
+  m_Speed: 8
   m_Acceleration: 30
   avoidancePriority: 50
   m_AngularSpeed: 600
@@ -318,7 +318,7 @@ MonoBehaviour:
   roamDistance: 10
   roamTimer: 2
   shootRate: 1
-  bullet: {fileID: 1340916387930666295, guid: 22ebf8e1796c69a4fac45959d2cdd22d, type: 3}
+  bullet: {fileID: 4827986096082674542, guid: e504a3780ca48e847a00861a5c33ec8c, type: 3}
   inRange: 0
   isShooting: 0
   droppedItem: []
