@@ -201,7 +201,7 @@ GameObject:
   - component: {fileID: 2001892515}
   m_Layer: 7
   m_Name: spider
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -321,6 +321,7 @@ MonoBehaviour:
   bullet: {fileID: 1340916387930666295, guid: 22ebf8e1796c69a4fac45959d2cdd22d, type: 3}
   inRange: 0
   isShooting: 0
+  droppedItem: []
 --- !u!1 &6238086146351178790
 GameObject:
   m_ObjectHideFlags: 0

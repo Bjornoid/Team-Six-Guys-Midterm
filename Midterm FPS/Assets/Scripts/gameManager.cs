@@ -13,6 +13,7 @@ public class gameManager : MonoBehaviour
     public PlayerControls playerScript;
     public VoidBullet voidScript;
     public GameObject playerSpawnPosition;
+    public List<GameObject> partList;
 
     [Header("----- UI fields -----")]
     public GameObject activeMenu;

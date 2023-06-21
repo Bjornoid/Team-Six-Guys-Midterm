@@ -22,5 +22,5 @@ public class GunStats : ScriptableObject
     public string gunName;
 
     public GameObject model;
-    public GameObject hitEffect;
+    public ParticleSystem hitEffect;
 }
