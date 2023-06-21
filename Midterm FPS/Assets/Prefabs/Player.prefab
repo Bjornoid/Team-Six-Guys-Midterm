@@ -1303,6 +1303,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: bf04f00c0385c5842ac27c9c99f8a629, type: 3}
   - {fileID: 8300000, guid: cc044bfe96fe25447b65e4d89266d448, type: 3}
   damageVol: 0.5
+  jetpackSounds:
+  - {fileID: 8300000, guid: 06fe2cd0a0223d144a8ebeb4c53bd884, type: 3}
+  jetpackVol: 0.5
   hasWonderWeapon: 0
   movementState: 0
 --- !u!33 &1668069910339250512
