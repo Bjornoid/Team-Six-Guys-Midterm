@@ -1312,6 +1312,9 @@ MonoBehaviour:
   ammoPickupSounds:
   - {fileID: 8300000, guid: dcdac29ecb1636c4c9b98632d6d473df, type: 3}
   ammoVol: 0.5
+  keySounds:
+  - {fileID: 8300000, guid: 38c977e313efd274b8638086d1035040, type: 3}
+  keyVol: 0.8
   hasWonderWeapon: 0
   movementState: 0
 --- !u!33 &1668069910339250512

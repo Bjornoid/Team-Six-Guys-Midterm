@@ -17,6 +17,7 @@ public class KeyAndLockTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            gameManager.instance.playerScript.pickupKey();
             theKey.SetActive(false);
             theLock.SetActive(false);
             gameManager.instance.updateLockCount(-1);
