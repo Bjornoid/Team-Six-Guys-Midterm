@@ -41,19 +41,17 @@ public class TerroristAI : MonoBehaviour, IDamage
     void Update()
     {
         animator.SetFloat("Speed", agent.velocity.normalized.magnitude);
-        if (agent.isActiveAndEnabled)
+        if (inRange && !canSeePlayer())
         {
-            if (inRange && !canSeePlayer())
-            {
-                StartCoroutine(roam());
+            StartCoroutine(roam());
 
-            }
-            else if (agent.destination != gameManager.instance.player.transform.position)
-            {
-                StartCoroutine(roam());
-            }
+        }
+        else if (agent.destination != gameManager.instance.player.transform.position)
+        {
+            StartCoroutine(roam());
         }
     }
+    
 
     IEnumerator roam()
     {
