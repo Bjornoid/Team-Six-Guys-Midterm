@@ -32,7 +32,6 @@ public class TerroristAI : MonoBehaviour, IDamage
     // Start is called before the first frame update
     void Start()
     {
-        gameManager.instance.UpdateGameGoal(1);
         startingPos = transform.position;
         stoppingDistanceOrig = agent.stoppingDistance;
 
@@ -42,19 +41,17 @@ public class TerroristAI : MonoBehaviour, IDamage
     void Update()
     {
         animator.SetFloat("Speed", agent.velocity.normalized.magnitude);
-        if (agent.isActiveAndEnabled)
+        if (inRange && !canSeePlayer())
         {
-            if (inRange && !canSeePlayer())
-            {
-                StartCoroutine(roam());
+            StartCoroutine(roam());
 
-            }
-            else if (agent.destination != gameManager.instance.player.transform.position)
-            {
-                StartCoroutine(roam());
-            }
+        }
+        else if (agent.destination != gameManager.instance.player.transform.position)
+        {
+            StartCoroutine(roam());
         }
     }
+    
 
     IEnumerator roam()
     {
@@ -120,6 +117,7 @@ public class TerroristAI : MonoBehaviour, IDamage
     IEnumerator shoot()
     {
         isShooting = true;
+        animator.SetTrigger("Shoot");
         Instantiate(bullet, shootPos.position, transform.rotation);
         yield return new WaitForSeconds(shootRate);
         isShooting = false;
@@ -146,8 +144,8 @@ public class TerroristAI : MonoBehaviour, IDamage
         agent.SetDestination(gameManager.instance.player.transform.position);
         if (HP <= 0)
         {
-          Destroy(gameObject);
-       
+            Destroy(gameObject);
+            gameManager.instance.UpdateGameGoal(-1);
         }
         IEnumerator flashColor()
         {

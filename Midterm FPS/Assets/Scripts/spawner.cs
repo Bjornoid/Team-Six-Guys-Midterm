@@ -14,7 +14,7 @@ public class spawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameManager.instance.UpdateGameGoal(numToSpawn);
     }
 
     private void OnTriggerEnter(Collider other)

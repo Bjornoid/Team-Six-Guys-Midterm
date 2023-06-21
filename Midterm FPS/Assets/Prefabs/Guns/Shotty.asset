@@ -17,8 +17,11 @@ MonoBehaviour:
   shootDmg: 5
   magAmmoCurr: 2
   magAmmoMax: 2
-  reserveAmmoCurr: 10
+  reserveAmmoCurr: 8
   reserveAmmoMax: 10
   reloadTime: 1.5
+  reloadSound: {fileID: 8300000, guid: 1b090ece1bfe40348b459c5ce850198a, type: 3}
+  shotSound: {fileID: 8300000, guid: 46b71d2e4e2d38c46873d7b8a4cb9e8d, type: 3}
+  soundVol: 1
   gunName: Shotty
   model: {fileID: 6582111394949262537, guid: efa94bb09b5b08047954edf1b15b9a44, type: 3}
