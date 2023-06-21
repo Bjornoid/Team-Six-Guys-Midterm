@@ -34,10 +34,7 @@ public class ZombieAI : MonoBehaviour, IDamage
 
     void Start()
     {
-        gameManager.instance.UpdateGameGoal(1); // enemy exits
-
         startingPosition = transform.position;
-
         stoppingDistOrig = agent.stoppingDistance;
     }
 

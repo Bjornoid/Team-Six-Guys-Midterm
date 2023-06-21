@@ -32,7 +32,6 @@ public class TerroristAI : MonoBehaviour, IDamage
     // Start is called before the first frame update
     void Start()
     {
-        gameManager.instance.UpdateGameGoal(1);
         startingPos = transform.position;
         stoppingDistanceOrig = agent.stoppingDistance;
 
@@ -146,8 +145,8 @@ public class TerroristAI : MonoBehaviour, IDamage
         agent.SetDestination(gameManager.instance.player.transform.position);
         if (HP <= 0)
         {
-          Destroy(gameObject);
-       
+            Destroy(gameObject);
+            gameManager.instance.UpdateGameGoal(-1);
         }
         IEnumerator flashColor()
         {

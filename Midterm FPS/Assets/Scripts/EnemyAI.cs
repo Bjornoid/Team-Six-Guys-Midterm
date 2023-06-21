@@ -37,8 +37,6 @@ public class EnemyAI : MonoBehaviour, IDamage
 
     void Start()
     { 
-        //animator.Play("DS_onehand_idle_A");
-        gameManager.instance.UpdateGameGoal(1); // enemy exists
         stoppingDistOrig = agent.stoppingDistance;
     }
 

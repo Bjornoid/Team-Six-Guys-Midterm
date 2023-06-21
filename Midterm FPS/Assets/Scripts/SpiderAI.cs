@@ -33,10 +33,8 @@ public class SpiderAI : MonoBehaviour, IDamage
     // Start is called before the first frame update
     void Start()
     {
-        gameManager.instance.UpdateGameGoal(1);
         startingPos = transform.position;
         stoppingDistanceOrig = agent.stoppingDistance;
-
     }
 
     // Update is called once per frame
