@@ -25,8 +25,4 @@ MonoBehaviour:
   soundVol: 0.3
   gunName: Ak
   model: {fileID: 100000, guid: cc9754e10c7832e49b415a9bb12e73a2, type: 3}
-<<<<<<< HEAD
-  hitEffect: {fileID: 4717938224859827385, guid: 05f869838cb19ec488016c01d24ee063, type: 3}
-=======
   hitEffect: {fileID: 0}
->>>>>>> e9eb326 (health and ammo pickup sounds)
