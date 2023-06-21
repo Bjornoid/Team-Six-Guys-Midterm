@@ -15,10 +15,14 @@ MonoBehaviour:
   shootDist: 0
   shootRate: 4
   shootDmg: 0
-  magAmmoCurr: 0
+  magAmmoCurr: 3
   magAmmoMax: 4
-  reserveAmmoCurr: 22
+  reserveAmmoCurr: 20
   reserveAmmoMax: 24
   reloadTime: 6
+  reloadSound: {fileID: 8300000, guid: e0a6a2c1b2e46154983cd2ee4db7784d, type: 3}
+  shotSound: {fileID: 8300000, guid: 84f7457e8db23724ca1f251d73e20d0a, type: 3}
+  soundVol: 1
   gunName: VoidGun
   model: {fileID: 8469958719210567576, guid: 1b138d81c6a689244b21290da790b836, type: 3}
+  hitEffect: {fileID: 0}
