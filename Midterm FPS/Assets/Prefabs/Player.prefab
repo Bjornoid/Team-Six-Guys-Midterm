@@ -1265,7 +1265,7 @@ MonoBehaviour:
   jumpHeight: 9
   gravityValue: 30
   jumpMax: 1
-  HP: 100
+  HP: 25
   jetpackDuration: 0.5
   medPack: {fileID: 0}
   crouchHeight: 0.6
@@ -1308,7 +1308,10 @@ MonoBehaviour:
   jetpackVol: 0.5
   medkitSounds:
   - {fileID: 8300000, guid: 40ec7704cb778f34983dbaf21c352b23, type: 3}
-  medkitVol: 0.5
+  medkitVol: 0.8
+  ammoPickupSounds:
+  - {fileID: 8300000, guid: dcdac29ecb1636c4c9b98632d6d473df, type: 3}
+  ammoVol: 0.5
   hasWonderWeapon: 0
   movementState: 0
 --- !u!33 &1668069910339250512
