@@ -19,6 +19,8 @@ public class SpiderAI : MonoBehaviour, IDamage
     [SerializeField] int viewConeAngle;
     [SerializeField] int roamDistance;
     [SerializeField] int roamTimer;
+    [SerializeField] float timeBeforeDelete;
+
     [Header("----- Weapon Stats -----")]
     [SerializeField] float shootRate;
     [SerializeField] GameObject bullet;
@@ -155,6 +157,7 @@ public class SpiderAI : MonoBehaviour, IDamage
             agent.enabled = false;
             GetComponent<CapsuleCollider>().enabled = false;
             ItemDrop();
+            StartCoroutine(TimeToDelete());
         }
         else
         {
@@ -175,5 +178,11 @@ public class SpiderAI : MonoBehaviour, IDamage
         {
             Instantiate(droppedItem[i], transform.position, Quaternion.identity);
         }
+    }
+    IEnumerator TimeToDelete()
+    {
+        yield return new WaitForSeconds(timeBeforeDelete);
+
+        Destroy(gameObject);
     }
 }

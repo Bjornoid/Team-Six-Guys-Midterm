@@ -317,6 +317,7 @@ MonoBehaviour:
   viewConeAngle: 140
   roamDistance: 10
   roamTimer: 2
+  timeBeforeDelete: 3
   shootRate: 1
   bullet: {fileID: 4827986096082674542, guid: e504a3780ca48e847a00861a5c33ec8c, type: 3}
   inRange: 0

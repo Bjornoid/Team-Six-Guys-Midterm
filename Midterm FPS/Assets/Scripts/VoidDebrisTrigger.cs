@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class VoidDebrisTrigger : MonoBehaviour
 {
-    GameObject debris;
+    [SerializeField] GameObject debris;
 
     private void OnTriggerEnter(Collider other)
     {

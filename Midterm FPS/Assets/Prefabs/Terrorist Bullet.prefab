@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0dab419f1a734244bed62a7edc74292, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 3
   speed: 25
   destroyTimer: 3
   rb: {fileID: 5206894172017754360}
@@ -214,8 +214,8 @@ TrailRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 1
-        value: 0.021430448
+        time: 0.60087967
+        value: 0.021278381
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -261,5 +261,5 @@ TrailRenderer:
     shadowBias: 0.5
     generateLightingData: 0
   m_MinVertexDistance: 0.1
-  m_Autodestruct: 0
+  m_Autodestruct: 1
   m_Emitting: 1
