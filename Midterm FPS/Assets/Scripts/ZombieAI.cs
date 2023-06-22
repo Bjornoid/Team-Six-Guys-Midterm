@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -14,7 +15,7 @@ public class ZombieAI : MonoBehaviour, IDamage
     [SerializeField] Collider handCollider2;
 
     [Header("----- Zombie Stats -----")]
-    [Range(1,100)][SerializeField] int HP;
+    [Range(1, 100)][SerializeField] int HP;
     [Range(1, 10)][SerializeField] int playerFaceSpeed; // How fast the Zombie faces towards the player
     [Range(1, 360)][SerializeField] int viewConeAngle;
     [Range(1, 100)][SerializeField] int roamDist; // how far the enemy will roam
@@ -23,6 +24,8 @@ public class ZombieAI : MonoBehaviour, IDamage
 
     [Header("----- Damage Stats -----")]
     [SerializeField] float shootRate;
+
+    [SerializeField] float timeBeforeDelete;
 
     Vector3 playerDirection; // Direction of the player
     Vector3 startingPosition; // Starting position of the enemy
@@ -174,7 +177,7 @@ public class ZombieAI : MonoBehaviour, IDamage
 
             gameManager.instance.UpdateGameGoal(-1); // Zombie dies
 
-            //zombieAnim.SetBool("Dead", true);
+            zombieAnim.SetBool("Dead", true);
 
             agent.enabled = false; // Stops the enemy from moving
 
@@ -184,7 +187,7 @@ public class ZombieAI : MonoBehaviour, IDamage
 
             GetComponent<CapsuleCollider>().enabled = false; // Disables dmg collider
 
-            //navMesh.isStopped = true;
+            StartCoroutine(TimeToDelete());
         }
         else
         {
@@ -201,5 +204,12 @@ public class ZombieAI : MonoBehaviour, IDamage
         yield return new WaitForSeconds(0.1f);
 
         model.material.color = Color.white;
+    }
+
+    IEnumerator TimeToDelete()
+    {
+        yield return new WaitForSeconds(timeBeforeDelete);
+
+        Destroy(gameObject);
     }
 }

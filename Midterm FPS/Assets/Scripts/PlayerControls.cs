@@ -61,6 +61,7 @@ public class PlayerControls
     bool isShooting; // Checks if you are shooting
     bool isReloading;
     bool stepsIsPlaying;
+    public bool ammoPickedUp;
     int selectedGun;
     GameObject gunModel;
     public bool hasWonderWeapon;
@@ -455,6 +456,7 @@ public class PlayerControls
 
     public void pickupAmmo()
     {
+        ammoPickedUp = true;
         aud.PlayOneShot(ammoPickupSounds[0], ammoVol);
         foreach(GunStats gun in gunList)
         {

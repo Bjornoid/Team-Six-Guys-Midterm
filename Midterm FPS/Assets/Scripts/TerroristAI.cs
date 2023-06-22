@@ -19,6 +19,7 @@ public class TerroristAI : MonoBehaviour, IDamage
     [SerializeField] int viewConeAngle;
     [SerializeField] int roamDistance;
     [SerializeField] int roamTimer;
+    [SerializeField] float timeBeforeDelete;
     [Header("----- Weapon Stats -----")]
     [SerializeField] float shootRate;
     [SerializeField] GameObject bullet;
@@ -29,6 +30,8 @@ public class TerroristAI : MonoBehaviour, IDamage
     public bool isShooting;
     bool destinationChosen;
     float stoppingDistanceOrig;
+    bool isDead;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,22 +43,25 @@ public class TerroristAI : MonoBehaviour, IDamage
     // Update is called once per frame
     void Update()
     {
-        animator.SetFloat("Speed", agent.velocity.normalized.magnitude);
-        if (inRange && !canSeePlayer())
+        if (!isDead)
         {
-            StartCoroutine(roam());
+            animator.SetFloat("Speed", agent.velocity.normalized.magnitude);
+            if (inRange && !canSeePlayer())
+            {
+                StartCoroutine(roam());
 
-        }
-        else if (agent.destination != gameManager.instance.player.transform.position)
-        {
-            StartCoroutine(roam());
+            }
+            else if (agent.destination != gameManager.instance.player.transform.position)
+            {
+                StartCoroutine(roam());
+            }
         }
     }
     
 
     IEnumerator roam()
     {
-        if (!destinationChosen & agent.remainingDistance < 0.05)
+        if (!destinationChosen & agent.remainingDistance < 0.05 && !isDead)
         {
             destinationChosen = true;
 
@@ -97,7 +103,7 @@ public class TerroristAI : MonoBehaviour, IDamage
             if (hit.collider.CompareTag("Player") && angleToPlayer <= viewConeAngle)
             {
                 agent.SetDestination(gameManager.instance.player.transform.position);
-                if (agent.remainingDistance <= agent.stoppingDistance)
+                if (agent.remainingDistance <= agent.stoppingDistance && !isDead)
                 {
                     facePlayer();
                 }
@@ -116,6 +122,7 @@ public class TerroristAI : MonoBehaviour, IDamage
 
     IEnumerator shoot()
     {
+
         isShooting = true;
         animator.SetTrigger("Shoot");
         Instantiate(bullet, shootPos.position, transform.rotation);
@@ -144,8 +151,26 @@ public class TerroristAI : MonoBehaviour, IDamage
         agent.SetDestination(gameManager.instance.player.transform.position);
         if (HP <= 0)
         {
-            Destroy(gameObject);
-            gameManager.instance.UpdateGameGoal(-1);
+            isDead = true;
+
+            StopAllCoroutines(); // Stop flash and shoot
+
+            gameManager.instance.UpdateGameGoal(-1); // Zombie dies
+
+            animator.SetBool("Dead", true);
+
+            agent.enabled = false; // Stops the enemy from moving
+
+            animator.ResetTrigger("Attack"); // zombie stops attacking when dead
+
+            GetComponent<Animator>().enabled = false;
+
+            GetComponent<CapsuleCollider>().enabled = false; // Disables dmg collider
+
+            gameObject.GetComponent<NavMeshAgent>().enabled = false;
+
+            StartCoroutine(TimeToDelete());
+             
         }
         IEnumerator flashColor()
         {
@@ -153,5 +178,11 @@ public class TerroristAI : MonoBehaviour, IDamage
             yield return new WaitForSeconds(0.1f);
             model.material.color = Color.white;
         }
+    }
+    IEnumerator TimeToDelete()
+    {
+        yield return new WaitForSeconds(timeBeforeDelete);
+
+        Destroy(gameObject);
     }
 }

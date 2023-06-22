@@ -16,6 +16,7 @@ public class VoidBullet : MonoBehaviour
 
     int voidAmmo = 4;
     int magCap = 24;
+    int magOrig;
     int ammoOrig;
     bool isShooting;
     bool isReloading;
@@ -24,12 +25,15 @@ public class VoidBullet : MonoBehaviour
     void Start()
     {
         ammoOrig = voidAmmo;
+        magOrig = magCap;
+
         rb.velocity = transform.forward * speed;
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         if (Input.GetMouseButtonDown(0) && gameManager.instance.playerScript.hasWonderWeapon == true && !isShooting && voidAmmo > 0 && magCap > 0)
         {
             StartCoroutine(Shoot());
@@ -37,6 +41,10 @@ public class VoidBullet : MonoBehaviour
         if(Input.GetButtonDown("Reload") && !isReloading && voidAmmo <= 3)
         {
             StartCoroutine(ReloadVoid());
+        }
+        if (gameManager.instance.playerScript.ammoPickedUp == true)
+        {
+            magCap = magOrig;
         }
     }
 
