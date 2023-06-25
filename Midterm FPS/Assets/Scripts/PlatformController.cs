@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlatformController : MonoBehaviour
@@ -13,6 +14,7 @@ public class PlatformController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            gameManager.instance.player.transform.SetParent(_platform.transform);
             if (needsTargets && gameManager.instance.getTargetCount() <= 0)
             {
                 StartCoroutine(lerpPosition(_destination, _duration));
@@ -21,6 +23,14 @@ public class PlatformController : MonoBehaviour
                 StartCoroutine(lerpPosition(_destination, _duration));
         }
         
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            gameManager.instance.player.transform.SetParent(null);
+        }
     }
 
     IEnumerator lerpPosition(Vector3 destination, float duration)

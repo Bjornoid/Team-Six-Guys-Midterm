@@ -4106,7 +4106,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
 --- !u!1001 &367227662
 PrefabInstance:
@@ -4439,8 +4439,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: '->Shoot all the targets to activate the platform
 
-    -> Hop on the platform
-    and keep yourself from falling off '
+    -> Ride the platform
+    to the key'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8035,7 +8035,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &691587889 stripped
 Transform:
@@ -9108,7 +9108,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8794699938328864096, guid: 82bc3cc0e6b5d7e4e801327deed57696, type: 3}
       propertyPath: m_RootOrder
-      value: 23
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 8794699938328864096, guid: 82bc3cc0e6b5d7e4e801327deed57696, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14956,7 +14956,7 @@ Transform:
   m_Children:
   - {fileID: 264465863}
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1400223596
 PrefabInstance:
@@ -18688,7 +18688,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &1741743982
 PrefabInstance:
@@ -19747,7 +19747,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
 --- !u!4 &1801981353 stripped
 Transform:
@@ -21012,7 +21012,7 @@ Transform:
   m_Children:
   - {fileID: 1211299550}
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1942887453
 PrefabInstance:
@@ -21609,12 +21609,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1984289369}
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: -20.12, y: 4.7, z: 17.494}
-  m_LocalScale: {x: 1.9793738, y: 3.055133, z: 2.0517967}
+  m_LocalPosition: {x: -0.005364529, y: 4.759818, z: -0.013545817}
+  m_LocalScale: {x: 0.5362325, y: 0.8194487, z: 6.4251165}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_Father: {fileID: 464736994}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
 --- !u!4 &1984870911 stripped
 Transform:
@@ -21962,7 +21962,7 @@ Transform:
   - {fileID: 821631682}
   - {fileID: 1853570539}
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1991581824
 PrefabInstance:
@@ -22087,7 +22087,7 @@ Transform:
   m_Children:
   - {fileID: 1651575035}
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1995409892 stripped
 Transform:
@@ -23286,6 +23286,7 @@ MonoBehaviour:
   playerScript: {fileID: 0}
   voidScript: {fileID: 0}
   playerSpawnPosition: {fileID: 223216673}
+  partList: []
   activeMenu: {fileID: 0}
   settingsMenu: {fileID: 0}
   mainMenu: {fileID: 0}

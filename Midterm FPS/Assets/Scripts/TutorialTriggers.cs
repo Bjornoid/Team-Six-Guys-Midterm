@@ -54,6 +54,7 @@ public class TutorialTriggers : MonoBehaviour
             }
             else if (gameObject.Equals(triggers[4]) && gameManager.instance.getTargetCount() <= 0)
             {
+                gameManager.instance.player.transform.SetParent(platform.transform);
                 StartCoroutine(lerpPosition(_destination.position, 5));
             }
             else if (gameObject.Equals(triggers[5]))
@@ -80,6 +81,18 @@ public class TutorialTriggers : MonoBehaviour
                 UIs[1].SetActive(true);
                 gameManager.instance.statePaused();
             }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            if (gameObject.Equals(triggers[0])) 
+            { 
+            }
+            else if (gameObject.Equals(triggers[4]))
+                gameManager.instance.player.transform.SetParent(null);
         }
     }
 
