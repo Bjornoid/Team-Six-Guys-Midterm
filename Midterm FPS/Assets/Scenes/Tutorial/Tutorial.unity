@@ -19243,9 +19243,9 @@ RectTransform:
   m_Father: {fileID: 5749609703629443883}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -617, y: -1014}
+  m_AnchorMin: {x: 0.18, y: 0.04438156}
+  m_AnchorMax: {x: 0.18, y: 0.04438156}
+  m_AnchoredPosition: {x: 0, y: 10}
   m_SizeDelta: {x: 538, y: 23.185211}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1776838863
@@ -23286,6 +23286,7 @@ MonoBehaviour:
   playerScript: {fileID: 0}
   voidScript: {fileID: 0}
   playerSpawnPosition: {fileID: 223216673}
+  partList: []
   activeMenu: {fileID: 0}
   settingsMenu: {fileID: 0}
   mainMenu: {fileID: 0}
@@ -27790,7 +27791,7 @@ MonoBehaviour:
   - {fileID: 2196952092036361652}
   numToSpawn: 1
   timeBetweenSpawns: 0.5
-  spawnObj: {fileID: 3104227792756032808, guid: ca2b20a3af759d04b968874a6be8481c, type: 3}
+  spawnObj: {fileID: 5243948586796081221, guid: 37a37f201f80f924b9939cd32db42520, type: 3}
 --- !u!222 &8958562397165894886
 CanvasRenderer:
   m_ObjectHideFlags: 0
