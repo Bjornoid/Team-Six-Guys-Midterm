@@ -15,7 +15,7 @@ MonoBehaviour:
   shootDist: 750
   shootRate: 0.2
   shootDmg: 1
-  magAmmoCurr: 0
+  magAmmoCurr: 25
   magAmmoMax: 25
   reserveAmmoCurr: 50
   reserveAmmoMax: 50
@@ -24,5 +24,5 @@ MonoBehaviour:
   shotSound: {fileID: 8300000, guid: 5faad7c781db0e0478f45ad901f84ede, type: 3}
   soundVol: 0.3
   gunName: Ak
-  model: {fileID: 100000, guid: cc9754e10c7832e49b415a9bb12e73a2, type: 3}
+  model: {fileID: 7580660034271548002, guid: c3efaf8df1e52464697ca8dd154ad413, type: 3}
   hitEffect: {fileID: 4717938224859827385, guid: 05f869838cb19ec488016c01d24ee063, type: 3}

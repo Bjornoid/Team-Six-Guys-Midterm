@@ -22,4 +22,4 @@ public class GunPickup : MonoBehaviour
         }
     }
 
-}
+} 
