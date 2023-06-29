@@ -29,6 +29,7 @@ public class PlayerControls
     [SerializeField] GameObject akModel;
     [SerializeField] GameObject shottyModel;
     [SerializeField] GameObject voidModel;
+    [SerializeField] GameObject waveModel;
     [SerializeField] List<GunStats> gunList = new List<GunStats>();
     [SerializeField] GunStats startingPistol;
 
@@ -322,6 +323,7 @@ public class PlayerControls
             akModel.SetActive(false);
             shottyModel.SetActive(false);
             voidModel.SetActive(false);
+            waveModel.SetActive(false);
         }
         else if (name.Equals("Ak"))
         {
@@ -332,6 +334,7 @@ public class PlayerControls
             pistolModel.SetActive(false);
             shottyModel.SetActive(false);
             voidModel.SetActive(false);
+            waveModel.SetActive(false);
         }
         else if (name.Equals("Shotty"))
         {
@@ -342,6 +345,7 @@ public class PlayerControls
             akModel.SetActive(false);
             pistolModel.SetActive(false);
             voidModel.SetActive(false);
+            waveModel.SetActive(false);
         }   
         else if (name.Equals("VoidGun"))
         {
@@ -352,6 +356,18 @@ public class PlayerControls
             akModel.SetActive(false);
             pistolModel.SetActive(false);
             shottyModel.SetActive(false);
+            waveModel.SetActive(false);
+        }
+        else if (name.Equals("Wave Blast"))
+        {
+            hasWonderWeapon = false;
+
+            waveModel.SetActive(true);
+            gunModel = waveModel;
+            akModel.SetActive(false);
+            pistolModel.SetActive(false);
+            shottyModel.SetActive(false);
+            voidModel.SetActive (false);
         }
     }
 
@@ -362,6 +378,7 @@ public class PlayerControls
         shootDamage = gunStat.shootDmg;
         shootDist = gunStat.shootDist;
         shootRate = gunStat.shootRate;
+        setGunModel(gunStat.name);
         setGunModel(gunStat.name);
         gunModel.GetComponent<MeshFilter>().mesh = gunStat.model.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().material = gunStat.model.GetComponent<MeshRenderer>().sharedMaterial;
