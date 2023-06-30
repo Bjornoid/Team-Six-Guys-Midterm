@@ -69,6 +69,26 @@ public class ButtonFunctions : MonoBehaviour
         gameManager.instance.stateUnPaused();
     }
 
+    public void Apply()
+    {
+
+    }
+
+    public void Back()
+    {
+        
+    }
+
+    public void Audio()
+    {
+        gameManager.instance.SwitchToAudio();
+    }
+
+    public void General()
+    {
+        gameManager.instance.SwitchToGeneral();
+    }
+
     public void close()
     {
         gameManager.instance.switchToMain();
