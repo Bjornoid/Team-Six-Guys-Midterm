@@ -8,6 +8,7 @@ public class ZombieAI : MonoBehaviour, IDamage
 {
     [Header("----- Zombie Components -----")]
     [SerializeField] Renderer model;
+    [SerializeField] Transform target;
     [SerializeField] NavMeshAgent agent;
     [SerializeField] public Animator zombieAnim;
     [SerializeField] Transform headPos;
@@ -37,6 +38,8 @@ public class ZombieAI : MonoBehaviour, IDamage
 
     void Start()
     {
+        target = gameManager.instance.player.transform;
+
         startingPosition = transform.position;
         stoppingDistOrig = agent.stoppingDistance;
     }
@@ -50,14 +53,16 @@ public class ZombieAI : MonoBehaviour, IDamage
         {
             //animation for walk
 
-            if (playerInRange && !CanSeePlayer()) // if player is in range and Zombie CANNOT see player
-            {
-                StartCoroutine(Roam());
-            }
-            else if (agent.destination != gameManager.instance.player.transform.position) // if enemy destination is NOT the player
-            {
-                StartCoroutine(Roam());
-            }
+            CanSeePlayer();
+
+            //if (playerInRange && !CanSeePlayer()) // if player is in range and Zombie CANNOT see player
+            //{
+            //    StartCoroutine(Roam());
+            //}
+            //else if (agent.destination != gameManager.instance.player.transform.position) // if enemy destination is NOT the player
+            //{
+            //    StartCoroutine(Roam());
+            //}
         }
     }
 
@@ -85,40 +90,45 @@ public class ZombieAI : MonoBehaviour, IDamage
         }
     }
 
-    bool CanSeePlayer()
-    {
-        agent.stoppingDistance = stoppingDistOrig;
+  bool CanSeePlayer()
+  {
+      agent.stoppingDistance = stoppingDistOrig;
+  
+      playerDirection = gameManager.instance.player.transform.position - headPos.position; // two positions subtracted from one another gives direction
+  
+      angleToPlayer = Vector3.Angle(new Vector3(playerDirection.x, 0, playerDirection.z), transform.forward);
+  
+      Debug.DrawRay(headPos.position, playerDirection); // draws a straight line from Zombie to player (for debugging)
+      Debug.Log(angleToPlayer); // spits a number into console
+  
+      RaycastHit hit;
+  
+      if (Physics.Raycast(headPos.position, playerDirection, out hit))
+      {
+  
+              agent.SetDestination(gameManager.instance.player.transform.position); // Zombie goes towards player
+           
+  
+              float distanceToTarget = Vector3.Distance(target.position, transform.position);
+  
+              if (agent.remainingDistance <= agent.stoppingDistance)
+              {
+                  FacePlayer();
+              }
+              if (!isShooting && distanceToTarget <= agent.stoppingDistance)
+              {
+  
+                  StartCoroutine(Shoot());
+              }
+  
+              return true;
+          
+          
+          agent.stoppingDistance = 0; // If Zombie cannot see player, set stopping distance to 0
+      }
+      return false;
+  }
 
-        playerDirection = gameManager.instance.player.transform.position - headPos.position; // two positions subtracted from one another gives direction
-
-        angleToPlayer = Vector3.Angle(new Vector3(playerDirection.x, 0, playerDirection.z), transform.forward);
-
-        Debug.DrawRay(headPos.position, playerDirection); // draws a straight line from Zombie to player (for debugging)
-        Debug.Log(angleToPlayer); // spits a number into console
-
-        RaycastHit hit;
-
-        if(Physics.Raycast(headPos.position, playerDirection, out hit))
-        {
-            if (hit.collider.CompareTag("Player") && angleToPlayer <= viewConeAngle)
-            {
-                agent.SetDestination(gameManager.instance.player.transform.position); // Zombie goes towards player
-
-                if (agent.remainingDistance <= agent.stoppingDistance)
-                {
-                    FacePlayer();
-                }
-                if(!isShooting)
-                {
-                    StartCoroutine(Shoot());
-                }
-
-                return true;
-            }
-            agent.stoppingDistance = 0; // If Zombie cannot see player, set stopping distance to 0
-        }   
-        return false;
-    }
 
     IEnumerator Shoot()
     {
