@@ -24,6 +24,14 @@ public class SpiderSpawner : MonoBehaviour, IDamage
             playerInRange= true;
         }
     }
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInRange= false;
+        }
+
+    }
 
     // Update is called once per frame
     void Update()
