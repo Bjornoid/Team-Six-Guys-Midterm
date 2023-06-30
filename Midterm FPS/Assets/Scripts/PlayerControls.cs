@@ -48,6 +48,16 @@ public class PlayerControls
     [SerializeField] AudioClip[] keySounds;
     [SerializeField][Range(0, 1)] float keyVol;
 
+    [Header("----- Throwable Object -----")]
+    public Transform cam;
+    public Transform throwPoint;
+    public GameObject throwable;
+    [Range(0, 10)] public int totalThrows;
+    [Range(0, 3)] public float coolDown; 
+    public KeyCode throwKey = KeyCode.F;
+    public float force;
+    public float upwardForce;
+
     private float playerHeight;
     private float startingGravity;
     private float jetpackTime;
@@ -61,6 +71,7 @@ public class PlayerControls
     bool isShooting; // Checks if you are shooting
     bool isReloading;
     bool stepsIsPlaying;
+    bool readyToThrow;
     public bool ammoPickedUp;
     int selectedGun;
     GameObject gunModel;
@@ -82,6 +93,7 @@ public class PlayerControls
         startingGravity = gravityValue;
         hasJetpack = false;
         canJetpack = true;
+        readyToThrow = true;
         SpawnPlayer();
         gunPickup(startingPistol);
         gunList[0].magAmmoCurr = gunList[0].magAmmoMax;
@@ -109,6 +121,11 @@ public class PlayerControls
                     StartCoroutine(shoot()); // start shooting
                 }
             }
+        }
+
+        if (Input.GetKeyDown(throwKey) && readyToThrow && totalThrows > 0)
+        {
+            Throw();
         }
     }
 
@@ -478,5 +495,36 @@ public class PlayerControls
     public void pickupKey()
     {
         aud.PlayOneShot(keySounds[0], keyVol);
+    }
+
+    private void Throw()
+    {
+        readyToThrow = false;
+
+        GameObject bomb = Instantiate(throwable, throwPoint.position, cam.rotation);
+
+        Rigidbody rb = bomb.GetComponent<Rigidbody>();
+
+        Vector3 dir = cam.transform.forward;
+
+        RaycastHit hit;
+
+        if(Physics.Raycast(cam.position, cam.forward, out hit, 420f))
+        {
+            dir = (hit.point - throwPoint.position).normalized;
+        }
+
+        Vector3 amountOfForce = dir * force + transform.up * upwardForce;
+
+        rb.AddForce(amountOfForce, ForceMode.Impulse);
+
+        totalThrows--;
+
+        Invoke(nameof(ResetThrow), coolDown);
+    }
+
+    private void ResetThrow()
+    {
+        readyToThrow = true;
     }
 }
