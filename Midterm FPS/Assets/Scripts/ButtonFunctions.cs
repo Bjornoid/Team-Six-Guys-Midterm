@@ -1,18 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class ButtonFunctions : MonoBehaviour
 {
+    public GameObject levelSelectFirstButton;
+    public GameObject settingsFirstButton;
+  
     public void settings()
     {
         gameManager.instance.switchToSettings();
+        gameManager.instance.eventSystem.SetSelectedGameObject(settingsFirstButton);
     }
 
     public void play()
     {
         gameManager.instance.switchToLevelSelect();
+        gameManager.instance.eventSystem.SetSelectedGameObject(levelSelectFirstButton);
     }
 
     public void backToMainMenu()
@@ -72,6 +78,7 @@ public class ButtonFunctions : MonoBehaviour
     public void close()
     {
         gameManager.instance.switchToMain();
+        gameManager.instance.eventSystem.SetSelectedGameObject(gameManager.instance.eventSystem.firstSelectedGameObject);
     }
 
     public void resume()

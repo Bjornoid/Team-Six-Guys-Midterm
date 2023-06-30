@@ -11,6 +11,7 @@ public class EndOfLevel : MonoBehaviour
             gameManager.instance.statePaused();
             gameManager.instance.activeMenu = gameManager.instance.winMenu;
             gameManager.instance.activeMenu.SetActive(true);
+            gameManager.instance.eventSystem.SetSelectedGameObject(gameManager.instance.winFirstButton);
         }
     }
 }

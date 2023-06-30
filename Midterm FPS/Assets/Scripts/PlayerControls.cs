@@ -320,8 +320,10 @@ public class PlayerControls
                     {
                         Vector3 enemyDir = enemy.transform.position - transform.position;
                         float angleToEnemy = Vector3.Angle(new Vector3(enemyDir.x, 0, enemyDir.z), transform.forward);
-                        if (Vector3.Distance(enemy.transform.position, transform.position) < 5 && angleToEnemy <= 100)
+                        if (Vector3.Distance(enemy.transform.position, transform.position) < shootDist && angleToEnemy <= 100)
                         {
+                            
+
                             enemy.GetComponent<IDamage>().takeDamage(shootDamage);
                         }
                     }
