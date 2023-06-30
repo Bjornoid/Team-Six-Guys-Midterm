@@ -540,6 +540,13 @@ public class PlayerControls
         aud.PlayOneShot(keySounds[0], keyVol);
     }
 
+    public void pickupFuel()
+    {
+        jetpackTime = 0;
+        gameManager.instance.fuelBar.fillAmount = 1;
+        canJetpack = true;
+    }
+
     void Throw()
     {
         GameObject bomb = Instantiate(projectile, transform.position, transform.rotation);

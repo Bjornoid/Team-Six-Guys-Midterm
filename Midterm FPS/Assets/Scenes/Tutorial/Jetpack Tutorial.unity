@@ -3103,7 +3103,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "You can acquire a jetpack on some levels.\n      *Pickup Jetpack*\n   
+  m_text: "You can acquire jetboots in each level.\n      *Pickup Jetboots*\n   
     *Hold Space to Use*"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4666,63 +4666,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9204d3f7ea851a4d946268580d6f567, type: 3}
---- !u!1001 &2047813712
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 6147818185596187123, guid: a4149b4f5451e8244ba15f3e238a9315, type: 3}
-      propertyPath: m_RootOrder
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6147818185596187123, guid: a4149b4f5451e8244ba15f3e238a9315, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6147818185596187123, guid: a4149b4f5451e8244ba15f3e238a9315, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.71
-      objectReference: {fileID: 0}
-    - target: {fileID: 6147818185596187123, guid: a4149b4f5451e8244ba15f3e238a9315, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.74
-      objectReference: {fileID: 0}
-    - target: {fileID: 6147818185596187123, guid: a4149b4f5451e8244ba15f3e238a9315, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6147818185596187123, guid: a4149b4f5451e8244ba15f3e238a9315, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6147818185596187123, guid: a4149b4f5451e8244ba15f3e238a9315, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6147818185596187123, guid: a4149b4f5451e8244ba15f3e238a9315, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6147818185596187123, guid: a4149b4f5451e8244ba15f3e238a9315, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6147818185596187123, guid: a4149b4f5451e8244ba15f3e238a9315, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6147818185596187123, guid: a4149b4f5451e8244ba15f3e238a9315, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6147818185596187127, guid: a4149b4f5451e8244ba15f3e238a9315, type: 3}
-      propertyPath: m_Name
-      value: Jetpack
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a4149b4f5451e8244ba15f3e238a9315, type: 3}
 --- !u!1001 &2098787860
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5196,6 +5139,67 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1001 &2037439665722490673
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1390261255, guid: a4149b4f5451e8244ba15f3e238a9315, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4.0730124
+      objectReference: {fileID: 0}
+    - target: {fileID: 6147818185596187123, guid: a4149b4f5451e8244ba15f3e238a9315, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6147818185596187123, guid: a4149b4f5451e8244ba15f3e238a9315, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 6147818185596187123, guid: a4149b4f5451e8244ba15f3e238a9315, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.127
+      objectReference: {fileID: 0}
+    - target: {fileID: 6147818185596187123, guid: a4149b4f5451e8244ba15f3e238a9315, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6147818185596187123, guid: a4149b4f5451e8244ba15f3e238a9315, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6147818185596187123, guid: a4149b4f5451e8244ba15f3e238a9315, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6147818185596187123, guid: a4149b4f5451e8244ba15f3e238a9315, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6147818185596187123, guid: a4149b4f5451e8244ba15f3e238a9315, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6147818185596187123, guid: a4149b4f5451e8244ba15f3e238a9315, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6147818185596187123, guid: a4149b4f5451e8244ba15f3e238a9315, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6147818185596187123, guid: a4149b4f5451e8244ba15f3e238a9315, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6147818185596187127, guid: a4149b4f5451e8244ba15f3e238a9315, type: 3}
+      propertyPath: m_Name
+      value: jetboot
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a4149b4f5451e8244ba15f3e238a9315, type: 3}
 --- !u!224 &2333574922774233713
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6730,7 +6734,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Learn how to use the jetpack and reach the end Elevator
+  m_text: Learn how to use the jetboots and reach the end Elevator
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
