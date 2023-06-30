@@ -2,16 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpiderSpawner : MonoBehaviour, IDamage
+public class ZombieSpawner : MonoBehaviour
 {
-    [SerializeField] Renderer model;
     [SerializeField] Transform[] spawnPos;
     [SerializeField] float spawnSpeed;
     [SerializeField] int numSpawned;
     [SerializeField] GameObject spawnEntity;
-    [SerializeField] int hp;
     bool isSpawning;
     bool playerInRange;
+    int numDestroyedEnemies;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,52 +20,48 @@ public class SpiderSpawner : MonoBehaviour, IDamage
     {
         if (other.CompareTag("Player"))
         {
-            playerInRange= true;
+            playerInRange = true;
         }
     }
     public void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            playerInRange= false;
+            playerInRange = false;
+            DestroyAllEntities();
         }
-
     }
+
+    void DestroyAllEntities()
+    {
+        GameObject[] entities = GameObject.FindGameObjectsWithTag("Enemy"); // Replace "Enemy" with the appropriate tag for the entities you want to destroy
+
+        foreach (GameObject entity in entities)
+        {
+            Destroy(entity);
+            numDestroyedEnemies++;
+        }
+        gameManager.instance.UpdateGameGoal(-numDestroyedEnemies);
+        numDestroyedEnemies = 0;
+    }
+
 
     // Update is called once per frame
     void Update()
     {
-    if(playerInRange && !isSpawning) 
+        if (playerInRange && !isSpawning)
         {
             StartCoroutine(spawnContinous());
         }
     }
     IEnumerator spawnContinous()
     {
-        isSpawning= true;
+        isSpawning = true;
         gameManager.instance.UpdateGameGoal(1);
-        Instantiate(spawnEntity, spawnPos[Random.Range(0,spawnPos.Length)].position, transform.rotation);
+        Instantiate(spawnEntity, spawnPos[Random.Range(0, spawnPos.Length)].position, transform.rotation);
         numSpawned++;
         yield return new WaitForSeconds(spawnSpeed);
-        isSpawning= false;
-    }
-    public void takeDamage(int dmg)
-    {
-        hp -= dmg;
-        if (hp <= 0)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            StartCoroutine(flashColor());
-        }
-        IEnumerator flashColor()
-        {
-            model.material.color = Color.blue;
-            yield return new WaitForSeconds(0.1f);
-            model.material.color = Color.white;
-        }
+        isSpawning = false;
     }
    
 }
