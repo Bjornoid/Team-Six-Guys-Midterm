@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 365570515}
   - component: {fileID: 365570517}
   - component: {fileID: 365570516}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 552350916}
   - component: {fileID: 552350918}
   - component: {fileID: 552350917}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 729102073}
   - component: {fileID: 729102075}
   - component: {fileID: 729102074}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GunPos(Void)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   - component: {fileID: 970816396}
   - component: {fileID: 970816398}
   - component: {fileID: 970816397}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GunPos(Pistol)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -348,7 +348,7 @@ GameObject:
   - component: {fileID: 1153973294}
   - component: {fileID: 1153973296}
   - component: {fileID: 1153973295}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Munition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -451,6 +451,81 @@ Transform:
   m_Father: {fileID: 1668069908981406651}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1348476186
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1348476187}
+  - component: {fileID: 1348476188}
+  m_Layer: 0
+  m_Name: weaponRenderer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1348476187
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1348476186}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1668069908981406651}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &1348476188
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1348476186}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 3
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.01
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 512
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 0
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
 --- !u!1 &1696592518
 GameObject:
   m_ObjectHideFlags: 0
@@ -462,7 +537,7 @@ GameObject:
   - component: {fileID: 1696592519}
   - component: {fileID: 1696592521}
   - component: {fileID: 1696592520}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -543,7 +618,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1909957793}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: wave effect pos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -576,7 +651,7 @@ GameObject:
   - component: {fileID: 2062291698}
   - component: {fileID: 2062291700}
   - component: {fileID: 2062291699}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Magazine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -659,7 +734,7 @@ GameObject:
   - component: {fileID: 839495469702397601}
   - component: {fileID: 839495469701627521}
   - component: {fileID: 839495469700496449}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GunPos(Ak)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -746,7 +821,7 @@ GameObject:
   - component: {fileID: 839495469702397603}
   - component: {fileID: 839495469701627523}
   - component: {fileID: 839495469700496451}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LevelSwitcher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -829,7 +904,7 @@ GameObject:
   - component: {fileID: 839495469702397605}
   - component: {fileID: 839495469701627525}
   - component: {fileID: 839495469700496453}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Magazine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -912,7 +987,7 @@ GameObject:
   - component: {fileID: 839495469702397607}
   - component: {fileID: 839495469701627527}
   - component: {fileID: 839495469700496455}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Pull
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -995,7 +1070,7 @@ GameObject:
   - component: {fileID: 839495469702397609}
   - component: {fileID: 839495469701627529}
   - component: {fileID: 839495469700496457}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1104,6 +1179,7 @@ Transform:
   - {fileID: 729102073}
   - {fileID: 1242530366}
   - {fileID: 5010645991688739551}
+  - {fileID: 1348476187}
   m_Father: {fileID: 1668069910339250525}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1154,7 +1230,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 503
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1576,7 +1652,7 @@ GameObject:
   - component: {fileID: 1687361874160091416}
   - component: {fileID: 1687361874161418552}
   - component: {fileID: 1687361874162385912}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GunPos(Shotty)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1661,7 +1737,7 @@ GameObject:
   - component: {fileID: 1687361874160091418}
   - component: {fileID: 1687361874161418554}
   - component: {fileID: 1687361874162385914}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Magazine(rotate)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1744,7 +1820,7 @@ GameObject:
   - component: {fileID: 1687361874160091420}
   - component: {fileID: 1687361874161418556}
   - component: {fileID: 1687361874162385916}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1827,7 +1903,7 @@ GameObject:
   - component: {fileID: 5010645991688739537}
   - component: {fileID: 5010645991689542385}
   - component: {fileID: 5010645991690508337}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: weapon .001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1910,7 +1986,7 @@ GameObject:
   - component: {fileID: 5010645991688739539}
   - component: {fileID: 5010645991689542387}
   - component: {fileID: 5010645991690508339}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: weapon .002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1993,7 +2069,7 @@ GameObject:
   - component: {fileID: 5010645991688739545}
   - component: {fileID: 5010645991689542393}
   - component: {fileID: 5010645991690508345}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Plane.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2076,7 +2152,7 @@ GameObject:
   - component: {fileID: 5010645991688739547}
   - component: {fileID: 5010645991689542395}
   - component: {fileID: 5010645991690508347}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Plane.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2159,7 +2235,7 @@ GameObject:
   - component: {fileID: 5010645991688739549}
   - component: {fileID: 5010645991689542397}
   - component: {fileID: 5010645991690508349}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Plane.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2242,7 +2318,7 @@ GameObject:
   - component: {fileID: 5010645991688739551}
   - component: {fileID: 5010645991689542399}
   - component: {fileID: 5010645991690508351}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GunPos(Wave)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
