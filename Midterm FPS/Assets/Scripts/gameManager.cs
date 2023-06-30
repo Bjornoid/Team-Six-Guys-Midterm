@@ -23,6 +23,8 @@ public class gameManager : MonoBehaviour
     public GameObject mainMenu;
     public GameObject pauseMenu;
     public GameObject playMenu;
+    public GameObject volume;
+    public GameObject general;
     public GameObject winMenu;
     public GameObject loseMenu;
     public GameObject loseFirstButton;
@@ -99,6 +101,23 @@ public class gameManager : MonoBehaviour
         activeMenu = playMenu;
         activeMenu.SetActive(true);
     }
+
+    public void SwitchToAudio()
+    {
+        mainMenu.SetActive(false);
+        settingsMenu.SetActive(false);
+        general.SetActive(false);
+        volume.SetActive(true);
+    }
+
+    public void SwitchToGeneral()
+    {
+        mainMenu.SetActive(false);
+        settingsMenu.SetActive(false);
+        volume.SetActive(false);
+        general.SetActive(true);
+    }
+
     public void statePaused()
     {
         isPaused = !isPaused;
