@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ZombieSpawner : MonoBehaviour
@@ -8,9 +9,11 @@ public class ZombieSpawner : MonoBehaviour
     [SerializeField] float spawnSpeed;
     [SerializeField] int numSpawned;
     [SerializeField] GameObject spawnEntity;
+    [SerializeField] int maxSpawned;
     bool isSpawning;
     bool playerInRange;
-    int numDestroyedEnemies;
+    private int numDestroyedEnemies;
+    private int currentSpawned;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,13 +46,14 @@ public class ZombieSpawner : MonoBehaviour
         }
         gameManager.instance.UpdateGameGoal(-numDestroyedEnemies);
         numDestroyedEnemies = 0;
+        currentSpawned= 0;
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        if (playerInRange && !isSpawning)
+        if (playerInRange && !isSpawning && gameManager.instance.getEnemiesRemaining() < maxSpawned)
         {
             StartCoroutine(spawnContinous());
         }
@@ -60,6 +64,7 @@ public class ZombieSpawner : MonoBehaviour
         gameManager.instance.UpdateGameGoal(1);
         Instantiate(spawnEntity, spawnPos[Random.Range(0, spawnPos.Length)].position, transform.rotation);
         numSpawned++;
+        currentSpawned++;
         yield return new WaitForSeconds(spawnSpeed);
         isSpawning = false;
     }
