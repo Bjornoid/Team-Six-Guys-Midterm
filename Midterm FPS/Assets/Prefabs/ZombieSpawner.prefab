@@ -51,6 +51,7 @@ MonoBehaviour:
   spawnSpeed: 4
   numSpawned: 0
   spawnEntity: {fileID: 1288763328226711482, guid: de57dbb9564b7654db580f2cf36f0314, type: 3}
+  maxSpawned: 5
 --- !u!135 &8499090620630269743
 SphereCollider:
   m_ObjectHideFlags: 0
