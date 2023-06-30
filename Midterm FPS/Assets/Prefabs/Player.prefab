@@ -534,6 +534,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &1909957792
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1909957793}
+  m_Layer: 0
+  m_Name: wave effect pos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1909957793
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1909957792}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.5, y: 9.5, z: 12.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5010645991688739551}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2062291697
 GameObject:
   m_ObjectHideFlags: 0
@@ -1296,7 +1327,7 @@ MonoBehaviour:
   walkSpeed: 6
   sprintSpeed: 8
   jumpHeight: 9
-  gravityValue: 10.4
+  gravityValue: 25
   jumpMax: 1
   HP: 25
   jetpackDuration: 0.5
@@ -1311,6 +1342,8 @@ MonoBehaviour:
   shottyModel: {fileID: 1687361874160393528}
   voidModel: {fileID: 729102072}
   waveModel: {fileID: 5010645991688242943}
+  waveBlast: {fileID: 4543116927540168680, guid: cbf9301f57dd96a4aa98a53371c026f0, type: 3}
+  wavePos: {fileID: 1909957793}
   gunList: []
   startingPistol: {fileID: 11400000, guid: ca4eb4c1ce27c214dba9c7070acff95a, type: 2}
   jumpSounds:
@@ -2224,7 +2257,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5010645991688242943}
   m_LocalRotation: {x: -0, y: -0.010019958, z: -0, w: 0.9999499}
-  m_LocalPosition: {x: 0.41699955, y: -0.47299993, z: 1.1809998}
+  m_LocalPosition: {x: 0.415, y: -0.47299993, z: 1.263}
   m_LocalScale: {x: 0.049999993, y: 0.05, z: 0.049999993}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2233,6 +2266,7 @@ Transform:
   - {fileID: 5010645991688739549}
   - {fileID: 5010645991688739537}
   - {fileID: 5010645991688739539}
+  - {fileID: 1909957793}
   m_Father: {fileID: 1668069908981406651}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: -91.148, z: 0}
