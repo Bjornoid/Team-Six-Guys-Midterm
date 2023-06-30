@@ -46,6 +46,7 @@ public class Void : MonoBehaviour
             {
                 Vector3 voidDirection = voidHole.transform.position - enemy.transform.position;
                 Vector3 destination = enemy.transform.position + voidDirection.normalized * attractionStrength * Time.deltaTime;
+                Vector3 faceBomb = destination - enemy.transform.position;
 
                 enemy.transform.position = destination;
             }

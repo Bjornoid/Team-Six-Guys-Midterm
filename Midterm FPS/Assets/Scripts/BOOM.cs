@@ -9,7 +9,7 @@ public class BOOM : MonoBehaviour
     [Range(0, 420)] public float explosionForce;
     float countDown;
 
-    //public GameObject explosionEffect;
+    public GameObject explosionEffect;
 
     bool hasExploded = false;
 
@@ -29,7 +29,7 @@ public class BOOM : MonoBehaviour
     }
     void Explode()
     {
-        //Instantiate(explosionEffect, transform.position, transform.rotation);
+        Instantiate(explosionEffect, transform.position, transform.rotation);
 
         Collider[] collidersToDestroy = Physics.OverlapSphere(transform.position, blastRadius);
 
