@@ -44,6 +44,7 @@ public class SpiderSpawner : MonoBehaviour, IDamage
     IEnumerator spawnContinous()
     {
         isSpawning= true;
+        gameManager.instance.UpdateGameGoal(1);
         Instantiate(spawnEntity, spawnPos[Random.Range(0,spawnPos.Length)].position, transform.rotation);
         numSpawned++;
         yield return new WaitForSeconds(spawnSpeed);
