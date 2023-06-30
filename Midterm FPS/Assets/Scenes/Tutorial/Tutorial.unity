@@ -3328,7 +3328,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 264465863}
-  - component: {fileID: 264465864}
   m_Layer: 0
   m_Name: spawnPos
   m_TagString: Untagged
@@ -3351,19 +3350,6 @@ Transform:
   m_Father: {fileID: 1395502401}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &264465864
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 264465862}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &268242968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13635,7 +13621,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1211299550}
-  - component: {fileID: 1211299551}
   m_Layer: 0
   m_Name: spawnPos
   m_TagString: Untagged
@@ -13658,19 +13643,6 @@ Transform:
   m_Father: {fileID: 1942376018}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1211299551
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1211299549}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1212642718
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17660,7 +17632,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1651575035}
-  - component: {fileID: 1651575036}
   m_Layer: 0
   m_Name: spawnPos
   m_TagString: Untagged
@@ -17683,19 +17654,6 @@ Transform:
   m_Father: {fileID: 1992877755}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1651575036
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1651575034}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1652504161
 GameObject:
   m_ObjectHideFlags: 0
@@ -23304,6 +23262,7 @@ MonoBehaviour:
   voidScript: {fileID: 0}
   playerSpawnPosition: {fileID: 223216673}
   partList: []
+  eventSystem: {fileID: 0}
   activeMenu: {fileID: 0}
   settingsMenu: {fileID: 0}
   mainMenu: {fileID: 0}
@@ -23311,6 +23270,8 @@ MonoBehaviour:
   playMenu: {fileID: 0}
   winMenu: {fileID: 5795631941222204414}
   loseMenu: {fileID: 4249726673030495588}
+  loseFirstButton: {fileID: 0}
+  winFirstButton: {fileID: 0}
   checkpointPopUp: {fileID: 0}
   checkpointPopUpTwo: {fileID: 0}
   playerHPBar: {fileID: 1036424375}
@@ -23334,6 +23295,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aa8d4ed39125b14ebe63436ce6afe07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelSelectFirstButton: {fileID: 0}
+  settingsFirstButton: {fileID: 0}
 --- !u!1 &973616694715709882
 GameObject:
   m_ObjectHideFlags: 0
