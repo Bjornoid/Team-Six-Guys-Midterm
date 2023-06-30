@@ -165,32 +165,32 @@ public class PlayerControls
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer && Input.GetButton("LShift"))
         {
-            if (gravityValue != startingGravity )
-                gravityValue = startingGravity;
+            if (playerVelocity.y > 0)
+                playerVelocity.y = 0f;
 
             if (jetpackTime > 0)
             {
                 jetpackTime -= Time.deltaTime / 2;
                 gameManager.instance.fuelBar.fillAmount = 1 - jetpackTime/ jetpackDuration;
-            }
-            else
                 canJetpack = true;
+            }
+
 
             movementState = MovementState.sprinting;
             moveSpeed = sprintSpeed;
         }
         else if (groundedPlayer)
         {
-            if (gravityValue != startingGravity)
-                gravityValue = startingGravity;
+            if (playerVelocity.y > 0)
+                playerVelocity.y = 0f;
 
             if (jetpackTime > 0)
             {
                 jetpackTime -= Time.deltaTime / 2;
                 gameManager.instance.fuelBar.fillAmount = 1 - jetpackTime / jetpackDuration;
-            }
-            else
                 canJetpack = true;
+            }
+            
 
             movementState = MovementState.walking;
             moveSpeed = walkSpeed;
@@ -205,13 +205,23 @@ public class PlayerControls
                 
             }
             movementState = MovementState.jetpacking;
-            gravityValue = -8;
+            if (playerVelocity.y < 0)
+                playerVelocity.y = 1f;
+
+            playerVelocity.y += .1f;
+
         }
         else 
         {
-            if (gravityValue != startingGravity)
-                gravityValue = startingGravity;
-            
+            if (playerVelocity.y > 0)
+            {
+                if (playerVelocity.y < .2f)
+                    playerVelocity.y = 0;
+                else
+                    playerVelocity.y -= .2f;
+
+            }
+
             movementState = MovementState.jumping;
         }
     

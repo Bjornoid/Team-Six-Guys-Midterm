@@ -1406,7 +1406,7 @@ MonoBehaviour:
   gravityValue: 25
   jumpMax: 1
   HP: 25
-  jetpackDuration: 0.5
+  jetpackDuration: 1
   medPack: {fileID: 0}
   crouchHeight: 0.6
   hasJetpack: 0
