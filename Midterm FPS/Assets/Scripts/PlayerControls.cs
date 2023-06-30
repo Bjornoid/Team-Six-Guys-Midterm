@@ -206,7 +206,7 @@ public class PlayerControls
             }
             movementState = MovementState.jetpacking;
             if (playerVelocity.y < 0)
-                playerVelocity.y = 1f;
+                playerVelocity.y = 3f;
 
             playerVelocity.y += .1f;
 
