@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9325592d2f3788c458a41f6b7e09a780, type: 3}
   m_Name: Wave Blast
   m_EditorClassIdentifier: 
-  shootDist: 30
+  shootDist: 8
   shootRate: 3
   shootDmg: 1000
-  magAmmoCurr: 3
+  magAmmoCurr: 1
   magAmmoMax: 3
-  reserveAmmoCurr: 15
+  reserveAmmoCurr: 13
   reserveAmmoMax: 15
   reloadTime: 2
   reloadSound: {fileID: 8300000, guid: 5f4ad43e6fbb8b644b3867b94c038d48, type: 3}

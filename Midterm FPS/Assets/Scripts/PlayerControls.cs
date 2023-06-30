@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PlayerControls
     : MonoBehaviour, IDamage, IAmmo
@@ -30,6 +31,8 @@ public class PlayerControls
     [SerializeField] GameObject shottyModel;
     [SerializeField] GameObject voidModel;
     [SerializeField] GameObject waveModel;
+    [SerializeField] ParticleSystem waveBlast;
+    [SerializeField] Transform wavePos;
     [SerializeField] List<GunStats> gunList = new List<GunStats>();
     [SerializeField] GunStats startingPistol;
 
@@ -162,32 +165,32 @@ public class PlayerControls
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer && Input.GetButton("LShift"))
         {
-            if (gravityValue != startingGravity )
-                gravityValue = startingGravity;
+            if (playerVelocity.y > 0)
+                playerVelocity.y = 0f;
 
             if (jetpackTime > 0)
             {
                 jetpackTime -= Time.deltaTime / 2;
                 gameManager.instance.fuelBar.fillAmount = 1 - jetpackTime/ jetpackDuration;
-            }
-            else
                 canJetpack = true;
+            }
+
 
             movementState = MovementState.sprinting;
             moveSpeed = sprintSpeed;
         }
         else if (groundedPlayer)
         {
-            if (gravityValue != startingGravity)
-                gravityValue = startingGravity;
+            if (playerVelocity.y > 0)
+                playerVelocity.y = 0f;
 
             if (jetpackTime > 0)
             {
                 jetpackTime -= Time.deltaTime / 2;
                 gameManager.instance.fuelBar.fillAmount = 1 - jetpackTime / jetpackDuration;
-            }
-            else
                 canJetpack = true;
+            }
+            
 
             movementState = MovementState.walking;
             moveSpeed = walkSpeed;
@@ -202,13 +205,23 @@ public class PlayerControls
                 
             }
             movementState = MovementState.jetpacking;
-            gravityValue = -8;
+            if (playerVelocity.y < 0)
+                playerVelocity.y = 1f;
+
+            playerVelocity.y += .1f;
+
         }
         else 
         {
-            if (gravityValue != startingGravity)
-                gravityValue = startingGravity;
-            
+            if (playerVelocity.y > 0)
+            {
+                if (playerVelocity.y < .2f)
+                    playerVelocity.y = 0;
+                else
+                    playerVelocity.y -= .2f;
+
+            }
+
             movementState = MovementState.jumping;
         }
     
@@ -287,22 +300,44 @@ public class PlayerControls
             aud.PlayOneShot(gunList[selectedGun].shotSound, gunList[selectedGun].soundVol);
             gunList[selectedGun].magAmmoCurr--;
             UpdatePlayerUI();
-            
-            RaycastHit hit;
-            if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
-            {
-                IDamage damageable = hit.collider.GetComponent<IDamage>();
 
-                if (damageable != null)
+            if (!hasWonderWeapon)
+            {
+                RaycastHit hit;
+                if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
                 {
-                    damageable.takeDamage(shootDamage);
+                    IDamage damageable = hit.collider.GetComponent<IDamage>();
+
+                    if (damageable != null)
+                    {
+                        damageable.takeDamage(shootDamage);
+                    }
+                    else if (hit.collider.gameObject.CompareTag("Target"))
+                    {
+                        Destroy(hit.collider.gameObject);
+                        gameManager.instance.updateTargetCount(-1);
+                    }
+                    Instantiate(gunList[selectedGun].hitEffect, hit.point, Quaternion.identity);
                 }
-                else if (hit.collider.gameObject.CompareTag("Target"))
+            }
+            else
+            {
+                if (gunList[selectedGun].name.Equals("Wave Blast"))
                 {
-                    Destroy(hit.collider.gameObject);
-                    gameManager.instance.updateTargetCount(-1);
+                    Instantiate(waveBlast, wavePos.position, transform.rotation);
+                    GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+                    foreach (GameObject enemy in enemies)
+                    {
+                        Vector3 enemyDir = enemy.transform.position - transform.position;
+                        float angleToEnemy = Vector3.Angle(new Vector3(enemyDir.x, 0, enemyDir.z), transform.forward);
+                        if (Vector3.Distance(enemy.transform.position, transform.position) < shootDist && angleToEnemy <= 100)
+                        {
+                            
+
+                            enemy.GetComponent<IDamage>().takeDamage(shootDamage);
+                        }
+                    }
                 }
-                Instantiate(gunList[selectedGun].hitEffect, hit.point, Quaternion.identity);
             }
 
             yield return new WaitForSeconds(shootRate);
@@ -368,7 +403,7 @@ public class PlayerControls
         }
         else if (name.Equals("Wave Blast"))
         {
-            hasWonderWeapon = false;
+            hasWonderWeapon = true;
 
             waveModel.SetActive(true);
             gunModel = waveModel;

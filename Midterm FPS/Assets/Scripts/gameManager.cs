@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class gameManager : MonoBehaviour
@@ -14,6 +15,7 @@ public class gameManager : MonoBehaviour
     public VoidBullet voidScript;
     public GameObject playerSpawnPosition;
     public List<GameObject> partList;
+    public EventSystem eventSystem;
 
     [Header("----- UI fields -----")]
     public GameObject activeMenu;
@@ -23,6 +25,8 @@ public class gameManager : MonoBehaviour
     public GameObject playMenu;
     public GameObject winMenu;
     public GameObject loseMenu;
+    public GameObject loseFirstButton;
+    public GameObject winFirstButton;
     public GameObject checkpointPopUp;
     public GameObject checkpointPopUpTwo;
     public Image playerHPBar;
@@ -55,7 +59,7 @@ public class gameManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Cancel") && activeMenu == null)
+        if (Input.GetButtonDown("Cancel") && activeMenu == null && pauseMenu != null)
         {
             statePaused();
             activeMenu = pauseMenu;
@@ -144,6 +148,7 @@ public class gameManager : MonoBehaviour
         activeMenu = winMenu;
         activeMenu.SetActive(true);
         statePaused();
+        eventSystem.SetSelectedGameObject(winFirstButton);
     }
 
     public void YouLose()
@@ -151,6 +156,7 @@ public class gameManager : MonoBehaviour
         statePaused();
         activeMenu = loseMenu;
         activeMenu.SetActive(true);
+        eventSystem.SetSelectedGameObject(loseFirstButton);
     }
 
     public void setMainTask(string taskDescription)
