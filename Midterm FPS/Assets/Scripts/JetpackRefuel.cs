@@ -9,7 +9,7 @@ public class JetpackRefuel : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             gameManager.instance.playerScript.pickupFuel();
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }
