@@ -48,10 +48,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPos:
   - {fileID: 8499090621776628196}
-  spawnSpeed: 4
+  spawnSpeed: 2
   numSpawned: 0
-  spawnEntity: {fileID: 1288763328226711482, guid: de57dbb9564b7654db580f2cf36f0314, type: 3}
-  maxSpawned: 5
+  spawnEntity: {fileID: 6153654709696198003, guid: 28c74b17da261f7429171da136db9ee1, type: 3}
+  maxSpawned: 10
 --- !u!135 &8499090620630269743
 SphereCollider:
   m_ObjectHideFlags: 0
