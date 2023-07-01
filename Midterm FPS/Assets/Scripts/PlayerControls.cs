@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class PlayerControls
-    : MonoBehaviour, IDamage, IAmmo
+    : MonoBehaviour, IDamage, IAmmo, ISlow
 {
     [Header("----- Player Settings -----")]
     [SerializeField] CharacterController controller;
@@ -552,5 +552,11 @@ public class PlayerControls
         GameObject bomb = Instantiate(projectile, transform.position, transform.rotation);
         Rigidbody rb = bomb.GetComponent<Rigidbody>();
         rb.AddForce(transform.forward * throwForce, ForceMode.VelocityChange);
+    }
+
+    public void slow(float percent)
+    {
+        walkSpeed *= percent;
+        sprintSpeed *= percent;
     }
 }
