@@ -112,7 +112,7 @@ public class PlayerControls
                 {
                     StartCoroutine(reload());
                 }
-                if (Input.GetButton("Shoot") && !isShooting && !isReloading)
+                if (Input.GetButton("Shoot") && !isShooting && !isReloading && gameManager.instance.canPause)
                 {
                     StartCoroutine(shoot()); // start shooting
                 }
