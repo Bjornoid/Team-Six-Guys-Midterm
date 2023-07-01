@@ -4,11 +4,11 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class ZombieAI : MonoBehaviour, IDamage, ISlow
+
+public class zombieRoamingAI : MonoBehaviour, IDamage, ISlow
 {
     [Header("----- Zombie Components -----")]
     [SerializeField] Renderer model;
-    [SerializeField] Transform target;
     [SerializeField] NavMeshAgent agent;
     [SerializeField] public Animator zombieAnim;
     [SerializeField] Transform headPos;
@@ -16,11 +16,10 @@ public class ZombieAI : MonoBehaviour, IDamage, ISlow
     [SerializeField] Collider handCollider2;
 
     [Header("----- Zombie Stats -----")]
-    [Range(1, 100)][SerializeField] int HP;
-    [Range(1, 10)][SerializeField] int playerFaceSpeed; // How fast the Zombie faces towards the player
-    [Range(1, 360)][SerializeField] int viewConeAngle;
-    [Range(1, 100)][SerializeField] int roamDist; // how far the enemy will roam
-    [Range(1, 10)][SerializeField] int roamTimer; // amount of time the enemy takes to move from one positon to another while roaming
+    [Range(1, 100)] [SerializeField] int HP;
+    [Range(1, 10)] [SerializeField] int playerFaceSpeed; // How fast the Zombie faces towards the player
+    [Range(1, 100)] [SerializeField] int roamDist; // how far the enemy will roam
+    [Range(1, 10)] [SerializeField] int roamTimer; // amount of time the enemy takes to move from one positon to another while roaming
     // Start is called before the first frame update
 
     [Header("----- Damage Stats -----")]
@@ -38,8 +37,6 @@ public class ZombieAI : MonoBehaviour, IDamage, ISlow
 
     void Start()
     {
-        target = gameManager.instance.player.transform;
-
         startingPosition = transform.position;
         stoppingDistOrig = agent.stoppingDistance;
     }
@@ -47,22 +44,32 @@ public class ZombieAI : MonoBehaviour, IDamage, ISlow
     // Update is called once per frame
     void Update()
     {
+        playerDirection = gameManager.instance.player.transform.position - headPos.position; // two positions subtracted from one another gives direction
         zombieAnim.SetFloat("Speed", agent.velocity.normalized.magnitude);
 
         if (agent.isActiveAndEnabled)
         {
             //animation for walk
 
-            CanSeePlayer();
+            if (playerInRange) // if player is in range and Zombie CANNOT see player
+            {
+                agent.stoppingDistance = stoppingDistOrig;
+                agent.SetDestination(gameManager.instance.player.transform.position); // Zombie goes towards player
 
-            //if (playerInRange && !CanSeePlayer()) // if player is in range and Zombie CANNOT see player
-            //{
-            //    StartCoroutine(Roam());
-            //}
-            //else if (agent.destination != gameManager.instance.player.transform.position) // if enemy destination is NOT the player
-            //{
-            //    StartCoroutine(Roam());
-            //}
+                if (agent.remainingDistance <= agent.stoppingDistance)
+                {
+                    FacePlayer();
+                }
+                if (!isShooting)
+                {
+                    StartCoroutine(Shoot());
+                }
+            }
+            else if (agent.destination != gameManager.instance.player.transform.position) // if enemy destination is NOT the player
+            {
+                agent.stoppingDistance = 0;
+                StartCoroutine(Roam());
+            }
         }
     }
 
@@ -89,46 +96,6 @@ public class ZombieAI : MonoBehaviour, IDamage, ISlow
             agent.SetDestination(hit.position); // Sends Zombie to random position
         }
     }
-
-  bool CanSeePlayer()
-  {
-      agent.stoppingDistance = stoppingDistOrig;
-  
-      playerDirection = gameManager.instance.player.transform.position - headPos.position; // two positions subtracted from one another gives direction
-  
-      angleToPlayer = Vector3.Angle(new Vector3(playerDirection.x, 0, playerDirection.z), transform.forward);
-  
-      Debug.DrawRay(headPos.position, playerDirection); // draws a straight line from Zombie to player (for debugging)
-      Debug.Log(angleToPlayer); // spits a number into console
-  
-      RaycastHit hit;
-  
-      if (Physics.Raycast(headPos.position, playerDirection, out hit))
-      {
-  
-              agent.SetDestination(gameManager.instance.player.transform.position); // Zombie goes towards player
-           
-  
-              float distanceToTarget = Vector3.Distance(target.position, transform.position);
-  
-              if (agent.remainingDistance <= agent.stoppingDistance)
-              {
-                  FacePlayer();
-              }
-              if (!isShooting && distanceToTarget <= agent.stoppingDistance)
-              {
-  
-                  StartCoroutine(Shoot());
-              }
-  
-              return true;
-          
-          
-          agent.stoppingDistance = 0; // If Zombie cannot see player, set stopping distance to 0
-      }
-      return false;
-  }
-
 
     IEnumerator Shoot()
     {
@@ -157,14 +124,6 @@ public class ZombieAI : MonoBehaviour, IDamage, ISlow
         if (other.CompareTag("Player"))
         {
             playerInRange = true;
-        }
-    }
-   
-    void OnTriggerExit(Collider other) // When the player is outside range of Zombie
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerInRange = false;
         }
     }
 
