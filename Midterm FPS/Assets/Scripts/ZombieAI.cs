@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class ZombieAI : MonoBehaviour, IDamage
+public class ZombieAI : MonoBehaviour, IDamage, ISlow
 {
     [Header("----- Zombie Components -----")]
     [SerializeField] Renderer model;
@@ -221,5 +221,10 @@ public class ZombieAI : MonoBehaviour, IDamage
         yield return new WaitForSeconds(timeBeforeDelete);
 
         Destroy(gameObject);
+    }
+
+    public void slow(float percent)
+    {
+        agent.speed *= percent;
     }
 }

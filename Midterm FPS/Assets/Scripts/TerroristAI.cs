@@ -5,7 +5,7 @@ using UnityEngine.AI;
 using Unity.VisualScripting;
 using System.Net.Mail;
 
-public class TerroristAI : MonoBehaviour, IDamage
+public class TerroristAI : MonoBehaviour, IDamage, ISlow
 {
     [Header("----- Components -----")]
     [SerializeField] Renderer model;
@@ -184,5 +184,10 @@ public class TerroristAI : MonoBehaviour, IDamage
         yield return new WaitForSeconds(timeBeforeDelete);
 
         Destroy(gameObject);
+    }
+
+    public void slow(float percent)
+    {
+        agent.speed *= percent;
     }
 }
