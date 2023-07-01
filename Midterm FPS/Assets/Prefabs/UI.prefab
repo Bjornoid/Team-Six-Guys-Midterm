@@ -2394,6 +2394,8 @@ MonoBehaviour:
   mainMenu: {fileID: 0}
   pauseMenu: {fileID: 412322759}
   playMenu: {fileID: 0}
+  volume: {fileID: 0}
+  general: {fileID: 0}
   winMenu: {fileID: 5795631940605999763}
   loseMenu: {fileID: 4249726674594382857}
   loseFirstButton: {fileID: 6679387800303354305}
