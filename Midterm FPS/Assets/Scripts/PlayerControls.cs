@@ -21,6 +21,7 @@ public class PlayerControls
     [SerializeField] GameObject medPack;
     public float crouchHeight;
     public bool hasJetpack;
+    public bool canPause;
 
     [Header("----- Gun Settings -----")]
     [Range(0.1f, 3)][SerializeField] float shootRate;

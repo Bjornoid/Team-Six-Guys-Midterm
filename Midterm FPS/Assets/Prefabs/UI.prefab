@@ -2330,6 +2330,7 @@ GameObject:
   - component: {fileID: 5749609704740858438}
   - component: {fileID: 586781860318768780}
   - component: {fileID: 934286463494146324}
+  - component: {fileID: 6030643448686927794}
   - component: {fileID: 5749609704740858437}
   - component: {fileID: 5749609704740858436}
   - component: {fileID: 5749609704740858555}
@@ -2400,6 +2401,8 @@ MonoBehaviour:
   loseMenu: {fileID: 4249726674594382857}
   loseFirstButton: {fileID: 6679387800303354305}
   winFirstButton: {fileID: 5795631941078294398}
+  audioFirstButton: {fileID: 0}
+  generalFirstButton: {fileID: 0}
   checkpointPopUp: {fileID: 0}
   checkpointPopUpTwo: {fileID: 0}
   playerHPBar: {fileID: 1611263450}
@@ -2425,6 +2428,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelSelectFirstButton: {fileID: 0}
   settingsFirstButton: {fileID: 0}
+--- !u!114 &6030643448686927794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5749609704740858554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 641f79d0c972c804fab7bbe1c15bcb40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetPos: {x: 0, y: 0, z: 0}
+  UI: {fileID: 0}
+  duration: 0
 --- !u!223 &5749609704740858437
 Canvas:
   m_ObjectHideFlags: 0

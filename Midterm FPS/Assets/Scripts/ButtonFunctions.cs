@@ -101,6 +101,14 @@ public class ButtonFunctions : MonoBehaviour
         gameManager.instance.eventSystem.SetSelectedGameObject(gameManager.instance.eventSystem.firstSelectedGameObject);
     }
 
+    public void closeUI()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Time.timeScale = gameManager.instance.timeScaleOrig;
+        gameManager.instance.canPause = true;
+    }
+
     public void resume()
     {
         gameManager.instance.stateUnPaused();

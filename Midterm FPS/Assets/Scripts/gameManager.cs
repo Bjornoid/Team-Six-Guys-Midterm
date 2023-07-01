@@ -49,7 +49,8 @@ public class gameManager : MonoBehaviour
     int locksRemaining;
 
     bool isPaused;
-    float timeScaleOrig;
+    public float timeScaleOrig;
+    public bool canPause;
     bool beatLevel;
 
     void Awake()
@@ -59,11 +60,12 @@ public class gameManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerScript = player.GetComponent<PlayerControls>();
         playerSpawnPosition = GameObject.FindGameObjectWithTag("Player Spawn Position");
+        canPause = true;
     }
 
     void Update()
     {
-        if (Input.GetButtonDown("Cancel") && activeMenu == null && pauseMenu != null)
+        if (Input.GetButtonDown("Cancel") && activeMenu == null && pauseMenu != null && canPause)
         {
             statePaused();
             activeMenu = pauseMenu;
