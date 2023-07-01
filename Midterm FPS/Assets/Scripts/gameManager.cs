@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class gameManager : MonoBehaviour
@@ -65,7 +66,7 @@ public class gameManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Cancel") && activeMenu == null && pauseMenu != null && canPause)
+        if (Input.GetButtonDown("Cancel") && activeMenu == null && pauseMenu != null && canPause && SceneManager.GetActiveScene().name != "Main Menu")
         {
             statePaused();
             activeMenu = pauseMenu;
