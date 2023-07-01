@@ -21,7 +21,6 @@ public class PlayerControls
     [SerializeField] GameObject medPack;
     public float crouchHeight;
     public bool hasJetpack;
-    public bool canPause;
 
     [Header("----- Gun Settings -----")]
     [Range(0.1f, 3)][SerializeField] float shootRate;
@@ -113,7 +112,7 @@ public class PlayerControls
                 {
                     StartCoroutine(reload());
                 }
-                if (Input.GetButton("Shoot") && !isShooting && !isReloading)
+                if (Input.GetButton("Shoot") && !isShooting && !isReloading && gameManager.instance.canPause)
                 {
                     StartCoroutine(shoot()); // start shooting
                 }
