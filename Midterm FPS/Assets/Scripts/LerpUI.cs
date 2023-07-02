@@ -10,10 +10,13 @@ public class LerpUI : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        gameManager.instance.canPause = false;
-        StartCoroutine(lerpUI());
-        Cursor.lockState = CursorLockMode.Confined;
-        Cursor.visible = true;
+        if (other.CompareTag("Player"))
+        {
+            gameManager.instance.canPause = false;
+            StartCoroutine(lerpUI());
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
+        }
     }
 
     IEnumerator lerpUI()

@@ -135,8 +135,8 @@ public class PlayerControls
         if(HP<=0)
         {
             gameManager.instance.YouLose();
-
-            gameManager.instance.playerScript.SpawnPlayer();
+            SpiderSpawner.playerNotInRange();
+            SpawnPlayer();
         }
     }
 
