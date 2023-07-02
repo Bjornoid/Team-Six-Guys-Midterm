@@ -31,8 +31,11 @@ public class PlayerControls
     [SerializeField] GameObject shottyModel;
     [SerializeField] GameObject voidModel;
     [SerializeField] GameObject waveModel;
+    [SerializeField] GameObject annihilatorModel;
     [SerializeField] ParticleSystem waveBlast;
     [SerializeField] Transform wavePos;
+    [SerializeField] ParticleSystem flame;
+    [SerializeField] Transform flamePos;
     [SerializeField] List<GunStats> gunList = new List<GunStats>();
     [SerializeField] GunStats startingPistol;
 
@@ -338,6 +341,20 @@ public class PlayerControls
                         }
                     }
                 }
+                else if(gunList[selectedGun].name.Equals("Scorched Annihilator"))
+                {
+                    Instantiate(flame, flamePos.position, transform.rotation);
+                    GameObject[] enemy = GameObject.FindGameObjectsWithTag("Enemy");
+                    foreach(GameObject enemies in enemy)
+                    {
+                        Vector3 foeDir = enemies.transform.position - transform.position;
+                        float angleToFoe = Vector3.Angle(new Vector3(foeDir.x, 0, foeDir.z), transform.forward);
+                        if(Vector3.Distance(enemies.transform.position, transform.position)< shootDist && angleToFoe <=100)
+                        {
+                            enemies.GetComponent<IDamage>().takeDamage(shootDamage);
+                        }
+                    }
+                }
             }
 
             yield return new WaitForSeconds(shootRate);
@@ -367,6 +384,7 @@ public class PlayerControls
             shottyModel.SetActive(false);
             voidModel.SetActive(false);
             waveModel.SetActive(false);
+            annihilatorModel.SetActive(false);
         }
         else if (name.Equals("Ak"))
         {
@@ -378,6 +396,7 @@ public class PlayerControls
             shottyModel.SetActive(false);
             voidModel.SetActive(false);
             waveModel.SetActive(false);
+            annihilatorModel.SetActive(false);
         }
         else if (name.Equals("Shotty"))
         {
@@ -400,6 +419,7 @@ public class PlayerControls
             pistolModel.SetActive(false);
             shottyModel.SetActive(false);
             waveModel.SetActive(false);
+            annihilatorModel.SetActive(false);
         }
         else if (name.Equals("Wave Blast"))
         {
@@ -411,6 +431,19 @@ public class PlayerControls
             pistolModel.SetActive(false);
             shottyModel.SetActive(false);
             voidModel.SetActive (false);
+            annihilatorModel.SetActive(false);
+        }
+        else if(name.Equals("Scorched Annihilator"))
+        {
+            hasWonderWeapon = true;
+
+            annihilatorModel.SetActive(true);
+            gunModel = annihilatorModel;
+            waveModel.SetActive(false); 
+            akModel.SetActive(false);
+            pistolModel.SetActive(false);
+            shottyModel.SetActive(false);
+            voidModel.SetActive(false);
         }
     }
 

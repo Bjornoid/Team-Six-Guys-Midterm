@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9325592d2f3788c458a41f6b7e09a780, type: 3}
+  m_Name: Scorched Annihilator
+  m_EditorClassIdentifier: 
+  shootDist: 0
+  shootRate: 0
+  shootDmg: 0
+  magAmmoCurr: 0
+  magAmmoMax: 0
+  reserveAmmoCurr: 0
+  reserveAmmoMax: 0
+  reloadTime: 0
+  reloadSound: {fileID: 0}
+  shotSound: {fileID: 0}
+  soundVol: 0
+  gunName: 
+  model: {fileID: 0}
+  hitEffect: {fileID: 0}
