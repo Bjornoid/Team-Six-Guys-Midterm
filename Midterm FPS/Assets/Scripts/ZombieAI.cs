@@ -106,7 +106,6 @@ public class ZombieAI : MonoBehaviour, IDamage, ISlow
       if (Physics.Raycast(headPos.position, playerDirection, out hit))
       {
               agent.SetDestination(gameManager.instance.player.transform.position); // Zombie goes towards player
-            agent.SetDestination(target.position);
   
               float distanceToTarget = Vector3.Distance(target.position, transform.position);
   
@@ -121,11 +120,10 @@ public class ZombieAI : MonoBehaviour, IDamage, ISlow
               }
   
               return true;
-          
-          
-          agent.stoppingDistance = 0; // If Zombie cannot see player, set stopping distance to 0
       }
-      return false;
+        agent.stoppingDistance = 0; // If Zombie cannot see player, set stopping distance to 0
+
+        return false;
   }
 
 
