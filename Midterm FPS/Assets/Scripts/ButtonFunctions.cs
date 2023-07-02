@@ -129,5 +129,6 @@ public class ButtonFunctions : MonoBehaviour
     {
         gameManager.instance.stateUnPaused();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SpiderSpawner.playerNotInRange();
     }
 }
