@@ -8690,7 +8690,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 934286463494146324}
         m_TargetAssemblyTypeName: ButtonFunctions, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: nextLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
