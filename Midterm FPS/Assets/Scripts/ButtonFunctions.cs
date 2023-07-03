@@ -73,16 +73,11 @@ public class ButtonFunctions : MonoBehaviour
     {
         SceneManager.LoadScene("jamesSandbox");
         gameManager.instance.stateUnPaused();
-    }
-
-    public void Apply()
-    {
-
-    }
+    } 
 
     public void Back()
     {
-        
+        gameManager.instance.switchToSettings();
     }
 
     public void Audio()
