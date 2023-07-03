@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1309577902024066071}
   - component: {fileID: 1309577902025393207}
   - component: {fileID: 1309577902026491639}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: weapon .001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 1309577902025393213}
   - component: {fileID: 1309577902026491645}
   - component: {fileID: 1309577902025393212}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: waveblastpart2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

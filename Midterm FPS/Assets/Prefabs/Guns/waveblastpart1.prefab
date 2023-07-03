@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8077586868903192692}
   - component: {fileID: 8077586868903995476}
   - component: {fileID: 8077586868904962708}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: weapon .002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 8077586868903192698}
   - component: {fileID: 8077586868903995482}
   - component: {fileID: 8077586868904962714}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Plane.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 8077586868903192696}
   - component: {fileID: 8077586868904962718}
   - component: {fileID: 8077586868903192703}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: waveblastpart1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5153780082981799910}
   - component: {fileID: 490700971996087087}
   - component: {fileID: 5626175527466740934}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cylinder (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 2108826744584988124}
   - component: {fileID: 2002923439954694911}
   - component: {fileID: 847442988212966985}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cylinder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 8667455150359916363}
   - component: {fileID: 3553568789713119638}
   - component: {fileID: 3229331432407645813}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ScorchedPart1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
