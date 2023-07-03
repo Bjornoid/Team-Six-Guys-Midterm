@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Scorched Annihilator
   m_EditorClassIdentifier: 
   shootDist: 7
-  shootRate: 5
+  shootRate: 0.2
   shootDmg: 500
-  magAmmoCurr: 1
-  magAmmoMax: 2
+  magAmmoCurr: 0
+  magAmmoMax: 200
   reserveAmmoCurr: 0
-  reserveAmmoMax: 2
-  reloadTime: 2
+  reserveAmmoMax: 200
+  reloadTime: 0.2
   reloadSound: {fileID: 8300000, guid: 5f4ad43e6fbb8b644b3867b94c038d48, type: 3}
   shotSound: {fileID: 8300000, guid: 82fe54d1130c3bf42822dcd90e930709, type: 3}
   soundVol: 2

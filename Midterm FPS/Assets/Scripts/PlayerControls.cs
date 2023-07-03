@@ -127,9 +127,10 @@ public class PlayerControls
         }
     }
 
-    public void takeDamage(int dmg)
+    public void takeDamage(int dmg) 
     {
-        aud.PlayOneShot(damageSounds[UnityEngine.Random.Range(0, damageSounds.Length)], damageVol);
+        gameManager.instance.audioManager.PlaySFXArray(gameManager.instance.audioManager.playerHurt);
+       // aud.PlayOneShot(damageSounds[UnityEngine.Random.Range(0, damageSounds.Length)], damageVol);
         HP -= dmg;
         UpdatePlayerUI();
 
@@ -253,10 +254,12 @@ public class PlayerControls
         if (Input.GetButtonDown("Jump") && jumpTimes < jumpMax)
         {
             if (!hasJetpack)
-                aud.PlayOneShot(jumpSounds[UnityEngine.Random.Range(0, jumpSounds.Length)], jumpVol);
+                gameManager.instance.audioManager.PlaySFXArray(gameManager.instance.audioManager.playerjump);
+            //aud.PlayOneShot(jumpSounds[UnityEngine.Random.Range(0, jumpSounds.Length)], jumpVol);
             else
             {
-                aud.PlayOneShot(jetpackSounds[0], jetpackVol);
+                //aud.PlayOneShot(jetpackSounds[0], jetpackVol);
+                gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.jetPack);
             }
 
             jumpTimes++;
@@ -273,7 +276,9 @@ public class PlayerControls
     {
         stepsIsPlaying = true;
 
-        aud.PlayOneShot(stepSounds[UnityEngine.Random.Range(0, stepSounds.Length)], stepVol);
+        //aud.PlayOneShot(stepSounds[UnityEngine.Random.Range(0, stepSounds.Length)], stepVol);
+
+        gameManager.instance.audioManager.PlaySFXArray(gameManager.instance.audioManager.steps);
 
         if (movementState == MovementState.walking)
             yield return new WaitForSeconds(.5f);
@@ -300,7 +305,8 @@ public class PlayerControls
         if (gunList[selectedGun].magAmmoCurr > 0)
         {
             isShooting = true;
-            aud.PlayOneShot(gunList[selectedGun].shotSound, gunList[selectedGun].soundVol);
+            // aud.PlayOneShot(gunList[selectedGun].shotSound, gunList[selectedGun].soundVol);
+            gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.gunShot);
             gunList[selectedGun].magAmmoCurr--;
             UpdatePlayerUI();
 
@@ -526,7 +532,9 @@ public class PlayerControls
     {
        
         isReloading = true;
-        aud.PlayOneShot(gunList[selectedGun].reloadSound, .7f);
+        // aud.PlayOneShot(gunList[selectedGun].reloadSound, .7f);
+
+        gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.gunReload);
 
         yield return new WaitForSeconds(gunList[selectedGun].reloadTime);
 
@@ -550,8 +558,11 @@ public class PlayerControls
     public void pickupAmmo()
     {
         ammoPickedUp = true;
-        aud.PlayOneShot(ammoPickupSounds[0], ammoVol);
-        foreach(GunStats gun in gunList)
+        // aud.PlayOneShot(ammoPickupSounds[0], ammoVol);
+
+        gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.ammoPickup);
+
+        foreach (GunStats gun in gunList)
         {
             gun.magAmmoCurr = gun.magAmmoMax;
             gun.reserveAmmoCurr = gun.reserveAmmoMax;
@@ -560,14 +571,18 @@ public class PlayerControls
     }
     public void medKit()
     {
-        aud.PlayOneShot(medkitSounds[0], medkitVol);
+        //aud.PlayOneShot(medkitSounds[0], medkitVol);
+
+        gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.medKit);
+
         Destroy(medPack);
         HP = playerHPOrig;
     }
 
     public void pickupKey()
     {
-        aud.PlayOneShot(keySounds[0], keyVol);
+        //aud.PlayOneShot(keySounds[0], keyVol);
+        gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.keys);
     }
 
     public void pickupFuel()
