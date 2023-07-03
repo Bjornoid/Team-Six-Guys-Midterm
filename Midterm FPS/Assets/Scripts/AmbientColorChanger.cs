@@ -7,17 +7,30 @@ using UnityEngine;
 
 public class AmbientColorChanger : MonoBehaviour
 {
+    [Header("Fill in if changing")]
     [SerializeField] Color ambientColor;
-    [SerializeField] GameObject dirLight;
+    [Header("Check if setting back")]
     [SerializeField] bool setToOrig;
+
+    [Header("Other")]
+    [SerializeField] GameObject dirLight;
     [SerializeField] float lerpTime;
 
+    private Color origColor;
+
+    private void Start()
+    {
+        origColor = gameManager.instance.ambientColorOrig;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            StartCoroutine(LerpColor());
+            if (!setToOrig)
+                StartCoroutine(LerpColor());
+            else
+                StartCoroutine(LerpBack());
         }
     }
 
@@ -32,32 +45,32 @@ public class AmbientColorChanger : MonoBehaviour
     IEnumerator LerpColor()
     {
         float time = 0;
+        Color starting = RenderSettings.ambientLight;
         while (time < lerpTime) 
         {
-            if (!setToOrig)
-            {
-                dirLight.GetComponent<Light>().color = Color.Lerp(gameManager.instance.ambientColorOrig, ambientColor, time / lerpTime);
-                RenderSettings.ambientLight = Color.Lerp(gameManager.instance.ambientColorOrig, ambientColor, time / lerpTime);
-                time += Time.deltaTime;
-                yield return null;
-            }
-            else
-            {
-                dirLight.GetComponent<Light>().color = Color.Lerp(ambientColor, gameManager.instance.ambientColorOrig, time / lerpTime);
-                RenderSettings.ambientLight = Color.Lerp(ambientColor, gameManager.instance.ambientColorOrig, time / lerpTime);
-                time += Time.deltaTime;
-                yield return null;
-            }
+            dirLight.GetComponent<Light>().color = Color.Lerp(starting, ambientColor, time / lerpTime);
+            RenderSettings.ambientLight = Color.Lerp(starting, ambientColor, time / lerpTime);
+            time += Time.deltaTime;
+            yield return null;
         }
-        if (!setToOrig)
+       
+        RenderSettings.ambientLight = ambientColor;
+        dirLight.GetComponent<Light>().color = ambientColor;
+    }
+
+    IEnumerator LerpBack()
+    {
+        float time = 0;
+        Color starting = RenderSettings.ambientLight;
+        while (time < lerpTime)
         {
-            RenderSettings.ambientLight = ambientColor;
-            dirLight.GetComponent<Light>().color = ambientColor;
+            dirLight.GetComponent<Light>().color = Color.Lerp(starting, gameManager.instance.ambientColorOrig, time / lerpTime);
+            RenderSettings.ambientLight = Color.Lerp(starting, gameManager.instance.ambientColorOrig, time / lerpTime);
+            time += Time.deltaTime;
+            yield return null;
         }
-        else
-        {
-            RenderSettings.ambientLight = gameManager.instance.ambientColorOrig;
-            dirLight.GetComponent<Light>().color = gameManager.instance.ambientColorOrig;
-        }
+
+        RenderSettings.ambientLight = gameManager.instance.ambientColorOrig;
+        dirLight.GetComponent<Light>().color = gameManager.instance.ambientColorOrig;
     }
 }
