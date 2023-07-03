@@ -560,12 +560,9 @@ public class PlayerControls
     }
     public void medKit()
     {
-        if(HP != playerHPOrig)
-        {
-            aud.PlayOneShot(medkitSounds[0], medkitVol);
-            Destroy(medPack);
-            HP = playerHPOrig;
-        }
+        aud.PlayOneShot(medkitSounds[0], medkitVol);
+        Destroy(medPack);
+        HP = playerHPOrig;
     }
 
     public void pickupKey()
