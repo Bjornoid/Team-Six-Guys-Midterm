@@ -60,6 +60,7 @@ public class gameManager : MonoBehaviour
     public float timeScaleOrig;
     public bool canPause;
     bool beatLevel;
+    [Header("----- Lighting/Color -----")]
     public Color ambientColorOrig;
 
     void Awake()
