@@ -205,6 +205,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 984155718938237265}
+  - component: {fileID: 1322022776204584325}
   - component: {fileID: 8667455150359916363}
   - component: {fileID: 3553568789713119638}
   - component: {fileID: 3229331432407645813}
@@ -232,6 +233,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &1322022776204584325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8849466996717927965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23e82b918936e5844a458506af02922d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gunPart: {fileID: 8849466996717927965}
+  gunBuilt: {fileID: 0}
 --- !u!33 &8667455150359916363
 MeshFilter:
   m_ObjectHideFlags: 0

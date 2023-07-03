@@ -11,8 +11,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip backgroundMusic;
     public AudioClip[] steps;
     public AudioClip ammoPickup;
-    public AudioClip burstFire;
     public AudioClip current;
+    public AudioClip burst;
     public AudioClip gunCock;
     public AudioClip hit;
     public AudioClip keys;
@@ -20,30 +20,18 @@ public class AudioManager : MonoBehaviour
     public AudioClip medKit;
     public AudioClip pistol;
     public AudioClip shotty;
-    public AudioClip smg;
     public AudioClip sniper;
     public AudioClip startUP;
     public AudioClip voidEater;
-    public AudioClip akReload;
-    public AudioClip doorOpen;
-    public AudioClip explosion;
     public AudioClip gunClick;
-    public AudioClip gunReload;
-    public AudioClip gunShot;
     public AudioClip jetPack;
     public AudioClip laser;
-    public AudioClip pistolReload;
     public AudioClip[] playerHurt;
     public AudioClip[] playerjump;
-    public AudioClip ricochet;
-    public AudioClip robotHurt;
-    public AudioClip robotHit;
+    public AudioClip pistolReload;
     public AudioClip shottyReload;
-    public AudioClip spaceStation;
-    public AudioClip spawned;
-    public AudioClip UIButtonPopUp;
-    public AudioClip UIHPGive;
-    public AudioClip voiceHeadShot;
+    public AudioClip akReload;
+
 
     private void Start()
     {

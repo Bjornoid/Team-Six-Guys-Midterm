@@ -305,8 +305,27 @@ public class PlayerControls
         if (gunList[selectedGun].magAmmoCurr > 0)
         {
             isShooting = true;
-            // aud.PlayOneShot(gunList[selectedGun].shotSound, gunList[selectedGun].soundVol);
-            gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.gunShot);
+            if (gunList[selectedGun].name == "Starting Pistol")
+            {
+                gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.pistol);
+            }
+            else if (gunList[selectedGun].name == "Ak")
+            {
+                gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.sniper);
+            }
+            else if (gunList[selectedGun].name == "Shotty")
+            {
+                gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.shotty);
+            }
+            else if (gunList[selectedGun].name == "Wave Blast")
+            {
+                gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.current);
+            }
+            else if (gunList[selectedGun].name == "Scorched Annihilator")
+            {
+                gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.burst);
+            }
+
             gunList[selectedGun].magAmmoCurr--;
             UpdatePlayerUI();
 
@@ -532,9 +551,27 @@ public class PlayerControls
     {
        
         isReloading = true;
-        // aud.PlayOneShot(gunList[selectedGun].reloadSound, .7f);
 
-        gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.gunReload);
+        if (gunList[selectedGun].name == "Starting Pistol")
+        {
+            gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.pistolReload);
+        }
+        else if (gunList[selectedGun].name == "Ak")
+        {
+            gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.akReload);
+        }
+        else if (gunList[selectedGun].name == "Shotty")
+        {
+            gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.shottyReload);
+        }
+        else if (gunList[selectedGun].name == "Wave Blast")
+        {
+            gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.akReload);
+        }
+        else if (gunList[selectedGun].name == "Scorched Annihilator")
+        {
+            gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.akReload);
+        }
 
         yield return new WaitForSeconds(gunList[selectedGun].reloadTime);
 

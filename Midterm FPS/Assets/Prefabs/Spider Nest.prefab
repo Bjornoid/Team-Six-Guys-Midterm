@@ -20,7 +20,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4362632021769636319
 Transform:
   m_ObjectHideFlags: 0
@@ -52,7 +52,7 @@ MonoBehaviour:
   model: {fileID: 4362632021769636306}
   spawnPos:
   - {fileID: 4362632022177543884}
-  spawnSpeed: 1
+  spawnSpeed: 5
   numSpawned: 0
   spawnEntity: {fileID: 6238086146351178788, guid: 642b38fcb7f1c414994600aa573cdc83, type: 3}
   hp: 3
@@ -84,7 +84,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 00b9af36352aab7428989e90e9e84e16, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
