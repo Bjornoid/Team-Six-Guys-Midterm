@@ -31,7 +31,7 @@ public class ButtonFunctions : MonoBehaviour
 
     public void tutorial()
     {
-        SceneManager.LoadScene("Tutorial");
+        SceneManager.LoadScene("New Tutorial");
         gameManager.instance.stateUnPaused();
     }
 
@@ -43,35 +43,23 @@ public class ButtonFunctions : MonoBehaviour
 
     public void floor1()
     {
-        SceneManager.LoadScene("BjornsLevel");
+        SceneManager.LoadScene("B & J Level");
         gameManager.instance.stateUnPaused();
     }
 
     public void floor2()
     {
-        SceneManager.LoadScene("JohnSandbox");
+        SceneManager.LoadScene("S & J Level");
         gameManager.instance.stateUnPaused();
     }
     public void floor3()
     {
-        SceneManager.LoadScene("StevenSandbox");
+        SceneManager.LoadScene("L & S Level");
         gameManager.instance.stateUnPaused();
     }
     public void floor4()
     {
         SceneManager.LoadScene("ShaunSandbox");
-        gameManager.instance.stateUnPaused();
-    }
-
-    public void floor5()
-    {
-        SceneManager.LoadScene("LeviSandbox");
-        gameManager.instance.stateUnPaused();
-    }
-
-    public void floor6()
-    {
-        SceneManager.LoadScene("jamesSandbox");
         gameManager.instance.stateUnPaused();
     }
 

@@ -18575,7 +18575,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1853514814854966028, guid: a748d920e6b7afe4097c6d5f695dff4c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -88.95
+      value: 1.6
       objectReference: {fileID: 0}
     - target: {fileID: 1853514814854966028, guid: a748d920e6b7afe4097c6d5f695dff4c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -21830,7 +21830,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6cc9ad56307cc64f882edf1aa0bcd4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ambientColor: {r: 0.46226418, g: 0.06759523, b: 0.20163369, a: 0}
+  ambientColor: {r: 0.3882353, g: 0.0627451, b: 0.4627451, a: 0}
   dirLight: {fileID: 1090566895}
   setToOrig: 1
   lerpTime: 0.25
@@ -29382,10 +29382,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6cc9ad56307cc64f882edf1aa0bcd4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ambientColor: {r: 0.46226418, g: 0.06759523, b: 0.20163369, a: 0}
+  ambientColor: {r: 0.38725275, g: 0.06323426, b: 0.46226418, a: 0}
   dirLight: {fileID: 1090566895}
   setToOrig: 0
-  lerpTime: 0.25
+  lerpTime: 0.4
 --- !u!65 &1723924536
 BoxCollider:
   m_ObjectHideFlags: 0
