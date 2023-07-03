@@ -109,14 +109,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 45189550734790503}
+  - component: {fileID: 8535066201176357360}
   - component: {fileID: 45189550742282467}
   - component: {fileID: 45189551512669133}
   - component: {fileID: 6211213636166386183}
   - component: {fileID: 6211213636166386182}
-  - component: {fileID: 6211213636166386176}
   m_Layer: 7
   m_Name: Boss Spider
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,8 +129,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 45189550734889607}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -44.69764, y: 2.63, z: -5.800162}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalPosition: {x: 86.3, y: 0, z: -70.9517}
+  m_LocalScale: {x: 3.15165, y: 3.15165, z: 3.15165}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 45189550734790451}
@@ -140,6 +140,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8535066201176357360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45189550734889607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3d930c4260db74a8dce3e8e27d52f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  model: {fileID: 45189550746394147}
+  agent: {fileID: 45189551512669133}
+  headPos: {fileID: 6211213636416076355}
+  shootPos: {fileID: 6211213635177504145}
+  animator: {fileID: 45189550742282467}
+  spider: {fileID: 0}
+  phase2Destination: {x: 7.93, y: 3.13, z: -64.99}
+  spiderNest: {fileID: 4362632021769636309, guid: bd1cb49c42f83ae46b90ee142aff174c, type: 3}
+  spiderNestDestination: {x: 0.17, y: 1.59, z: -38.81}
+  HP: 5
+  playerLookSpeed: 10
+  viewConeAngle: 100
+  roamDistance: 5
+  roamTimer: 5
+  timeBeforeDelete: 2
+  shootRate: 0
+  bullet: {fileID: 0}
+  inRange: 0
+  isShooting: 0
+  droppedItem: []
 --- !u!95 &45189550742282467
 Animator:
   serializedVersion: 5
@@ -171,7 +203,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 3
-  m_Speed: 5
+  m_Speed: 8
   m_Acceleration: 30
   avoidancePriority: 50
   m_AngularSpeed: 600
@@ -210,34 +242,6 @@ CapsuleCollider:
   m_Height: 3
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &6211213636166386176
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 45189550734889607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb9972f2bc5ff2a448907c190105a67c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  model: {fileID: 45189550746394147}
-  agent: {fileID: 45189551512669133}
-  headPos: {fileID: 6211213636416076355}
-  shootPos: {fileID: 6211213635177504145}
-  animator: {fileID: 45189550742282467}
-  HP: 420
-  playerLookSpeed: 5
-  viewConeAngle: 140
-  roamDistance: 10
-  roamTimer: 2
-  shootRate: 0.5
-  bullet: {fileID: 1340916387930666295, guid: 22ebf8e1796c69a4fac45959d2cdd22d, type: 3}
-  inRange: 0
-  isShooting: 0
-  droppedItem:
-  - {fileID: 0}
 --- !u!1 &45189550734889609
 GameObject:
   m_ObjectHideFlags: 0
