@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9325592d2f3788c458a41f6b7e09a780, type: 3}
   m_Name: Scorched Annihilator
   m_EditorClassIdentifier: 
-  shootDist: 0
-  shootRate: 0
-  shootDmg: 0
-  magAmmoCurr: 0
-  magAmmoMax: 0
+  shootDist: 7
+  shootRate: 5
+  shootDmg: 500
+  magAmmoCurr: 1
+  magAmmoMax: 2
   reserveAmmoCurr: 0
-  reserveAmmoMax: 0
-  reloadTime: 0
-  reloadSound: {fileID: 0}
-  shotSound: {fileID: 0}
-  soundVol: 0
-  gunName: 
-  model: {fileID: 0}
-  hitEffect: {fileID: 0}
+  reserveAmmoMax: 2
+  reloadTime: 2
+  reloadSound: {fileID: 8300000, guid: 5f4ad43e6fbb8b644b3867b94c038d48, type: 3}
+  shotSound: {fileID: 8300000, guid: 82fe54d1130c3bf42822dcd90e930709, type: 3}
+  soundVol: 2
+  gunName: Scorched Annihilator
+  model: {fileID: 5895434084938097898, guid: b63892a228c600544be7c2090efa0592, type: 3}
+  hitEffect: {fileID: 2882763600047587151, guid: 51fa7eb19b62edc4d9807c238e0495b0, type: 3}

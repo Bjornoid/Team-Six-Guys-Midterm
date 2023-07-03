@@ -83,6 +83,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &370819415
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 370819416}
+  m_Layer: 0
+  m_Name: FlamePos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &370819416
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 370819415}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.002, y: 0.373, z: -0.114}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2836303306478511388}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &552350915
 GameObject:
   m_ObjectHideFlags: 0
@@ -1419,9 +1450,11 @@ MonoBehaviour:
   shottyModel: {fileID: 1687361874160393528}
   voidModel: {fileID: 729102072}
   waveModel: {fileID: 5010645991688242943}
-  annihilatorModel: {fileID: 0}
+  annihilatorModel: {fileID: 2836303306478680380}
   waveBlast: {fileID: 4543116927540168680, guid: cbf9301f57dd96a4aa98a53371c026f0, type: 3}
   wavePos: {fileID: 1909957793}
+  flame: {fileID: 2882763600047587151, guid: 51fa7eb19b62edc4d9807c238e0495b0, type: 3}
+  flamePos: {fileID: 370819416}
   gunList: []
   startingPistol: {fileID: 11400000, guid: ca4eb4c1ce27c214dba9c7070acff95a, type: 2}
   jumpSounds:
@@ -2405,21 +2438,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1668069908981406651}
     m_Modifications:
+    - target: {fileID: 5895434084935907882, guid: b63892a228c600544be7c2090efa0592, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5895434084935907882, guid: b63892a228c600544be7c2090efa0592, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5895434084937677002, guid: b63892a228c600544be7c2090efa0592, type: 3}
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5895434084937677002, guid: b63892a228c600544be7c2090efa0592, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 95.174
+      value: 0.186
       objectReference: {fileID: 0}
     - target: {fileID: 5895434084937677002, guid: b63892a228c600544be7c2090efa0592, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.298
+      value: -0.236
       objectReference: {fileID: 0}
     - target: {fileID: 5895434084937677002, guid: b63892a228c600544be7c2090efa0592, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -76.164
+      value: 0.916
       objectReference: {fileID: 0}
     - target: {fileID: 5895434084937677002, guid: b63892a228c600544be7c2090efa0592, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2451,12 +2492,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5895434084938097898, guid: b63892a228c600544be7c2090efa0592, type: 3}
       propertyPath: m_Name
-      value: Scorched Annihilator
+      value: Gun Pos(Scorched Annihilator)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5895434084934809834, guid: b63892a228c600544be7c2090efa0592, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b63892a228c600544be7c2090efa0592, type: 3}
 --- !u!4 &2836303306478511388 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5895434084937677002, guid: b63892a228c600544be7c2090efa0592, type: 3}
   m_PrefabInstance: {fileID: 8542300196021362134}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2836303306478680380 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5895434084938097898, guid: b63892a228c600544be7c2090efa0592, type: 3}
+  m_PrefabInstance: {fileID: 8542300196021362134}
+  m_PrefabAsset: {fileID: 0}
+--- !u!33 &520978268
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2836303306478680380}
+  m_Mesh: {fileID: 0}
