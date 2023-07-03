@@ -11,8 +11,8 @@ public class SpiderSpawner : MonoBehaviour, IDamage
     [SerializeField] GameObject spawnEntity;
     [SerializeField] int hp;
     bool isSpawning;
-    bool playerInRange;
-    // Start is called before the first frame update
+    static bool playerInRange;
+
     void Start()
     {
         gameManager.instance.UpdateGameGoal(numSpawned);
@@ -67,6 +67,11 @@ public class SpiderSpawner : MonoBehaviour, IDamage
             yield return new WaitForSeconds(0.1f);
             model.material.color = Color.white;
         }
+    }
+
+    public static void playerNotInRange()
+    {
+        playerInRange = false;
     }
    
 }

@@ -10,7 +10,8 @@ public class Checkpoint : MonoBehaviour
         if (other.CompareTag("Player") && gameManager.instance.playerSpawnPosition.transform.position != transform.position)
         {
             gameManager.instance.playerSpawnPosition.transform.position = transform.position;
-            StartCoroutine(flashColor());
+            if (model != null)
+                StartCoroutine(flashColor());
         }
     }
     IEnumerator flashColor()

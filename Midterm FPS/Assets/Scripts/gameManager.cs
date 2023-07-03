@@ -53,11 +53,13 @@ public class gameManager : MonoBehaviour
     public float timeScaleOrig;
     public bool canPause;
     bool beatLevel;
+    public Color ambientColorOrig;
 
     void Awake()
     {
         instance = this;
         timeScaleOrig = Time.timeScale;
+        ambientColorOrig = RenderSettings.ambientLight;
         player = GameObject.FindGameObjectWithTag("Player");
         playerScript = player.GetComponent<PlayerControls>();
         playerSpawnPosition = GameObject.FindGameObjectWithTag("Player Spawn Position");
