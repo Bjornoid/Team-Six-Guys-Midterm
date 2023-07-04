@@ -8,7 +8,7 @@ public class StunGrenade : MonoBehaviour
     [SerializeField] Vector3 effectOffset;
 
     [Header("Explosion settings")]
-    [SerializeField] float explosionDelay = 2.5f;
+    [SerializeField] float explosionDelay = 1.5f;
     [SerializeField] float explosionRadius = 10f;
 
     [Header("Audio Effects")]
