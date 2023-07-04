@@ -140,7 +140,6 @@ public class PlayerControls
         {
             gameManager.instance.YouLose();
             SpiderSpawner.playerNotInRange();
-            SpawnPlayer();
         }
     }
 

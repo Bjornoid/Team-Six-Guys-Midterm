@@ -114,7 +114,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6907044154508643029
 Transform:
   m_ObjectHideFlags: 0
@@ -161,8 +161,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.53
-  m_Center: {x: -0.89, y: -0.15, z: -0.12}
+  m_Radius: 0.68
+  m_Center: {x: -0.83, y: -0.15, z: -0.12}
 --- !u!1 &6907044154514760455
 GameObject:
   m_ObjectHideFlags: 0
