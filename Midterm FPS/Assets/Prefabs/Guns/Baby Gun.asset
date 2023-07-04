@@ -23,6 +23,6 @@ MonoBehaviour:
   reloadSound: {fileID: 0}
   shotSound: {fileID: 0}
   soundVol: 0
-  gunName: 
-  model: {fileID: 0}
-  hitEffect: {fileID: 0}
+  gunName: Baby Gun
+  model: {fileID: 6556893208304303333, guid: 05a65d5f3d49bae4c88c133ba30b9413, type: 3}
+  hitEffect: {fileID: 4717938224859827385, guid: 05f869838cb19ec488016c01d24ee063, type: 3}

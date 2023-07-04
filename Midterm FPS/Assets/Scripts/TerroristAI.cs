@@ -31,6 +31,7 @@ public class TerroristAI : MonoBehaviour, IDamage, ISlow
     bool destinationChosen;
     float stoppingDistanceOrig;
     bool isDead;
+    bool isStun;
 
     // Start is called before the first frame update
     void Start()
@@ -190,4 +191,21 @@ public class TerroristAI : MonoBehaviour, IDamage, ISlow
     {
         agent.speed *= percent;
     }
+
+    public void getStunned()
+    {
+        if (!isStun)
+            StartCoroutine(stunFor(3.5f));
+    }
+
+    IEnumerator stunFor(float time)
+    {
+        isStun = true;
+
+        agent.enabled = false;
+        yield return new WaitForSeconds(time);
+        agent.enabled = true;
+        isStun = false;
+    }
+
 }

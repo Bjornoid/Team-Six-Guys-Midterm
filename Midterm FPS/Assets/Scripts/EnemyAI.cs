@@ -34,6 +34,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     bool chosenDestination;
     Vector3 startingPos;
     float stoppingDistOrig;
+    bool isStun;
 
     void Start()
     { 
@@ -189,5 +190,21 @@ public class EnemyAI : MonoBehaviour, IDamage
     void weaponColOn()
     {
         weaponCol.enabled = true;
+    }
+
+    public void getStunned()
+    {
+        if (!isStun)
+            StartCoroutine(stunFor(3.5f));
+    }
+
+    IEnumerator stunFor(float time)
+    {
+        isStun = true;
+
+        agent.enabled = false;
+        yield return new WaitForSeconds(time);
+        agent.enabled = true;
+        isStun = false;
     }
 }

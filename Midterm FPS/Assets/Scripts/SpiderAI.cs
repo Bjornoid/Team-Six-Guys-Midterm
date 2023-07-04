@@ -28,6 +28,7 @@ public class SpiderAI : MonoBehaviour, IDamage
     Vector3 playerDir;
     public bool inRange;
     float angleToPlayer;
+    bool isStun;
     public bool isShooting;
     bool destinationChosen;
     float stoppingDistanceOrig;
@@ -184,5 +185,21 @@ public class SpiderAI : MonoBehaviour, IDamage
         yield return new WaitForSeconds(timeBeforeDelete);
 
         Destroy(gameObject);
+    }
+
+    public void getStunned()
+    {
+        if (!isStun)
+            StartCoroutine(stunFor(3.5f));
+    }
+
+    IEnumerator stunFor(float time)
+    {
+        isStun = true;
+
+        agent.enabled = false;
+        yield return new WaitForSeconds(time);
+        agent.enabled = true;
+        isStun = false;
     }
 }

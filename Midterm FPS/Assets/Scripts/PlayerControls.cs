@@ -1,9 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class PlayerControls
     : MonoBehaviour, IDamage, IAmmo, ISlow
@@ -32,6 +30,7 @@ public class PlayerControls
     [SerializeField] GameObject voidModel;
     [SerializeField] GameObject waveModel;
     [SerializeField] GameObject annihilatorModel;
+    [SerializeField] GameObject babyModel;
     [SerializeField] ParticleSystem waveBlast;
     [SerializeField] Transform wavePos;
     [SerializeField] ParticleSystem flame;
@@ -77,6 +76,7 @@ public class PlayerControls
     GameObject gunModel;
     public bool hasWonderWeapon;
     public MovementState movementState;
+    bool isStun;
 
     public enum MovementState
     {
@@ -121,10 +121,10 @@ public class PlayerControls
                 }
             }
         }
-        if (Input.GetButtonDown("F"))
-        {
-            Throw();
-        }
+        //if (Input.GetButtonDown("Throw"))
+        //{
+        //    Throw();
+        //}
     }
 
     public void takeDamage(int dmg) 
@@ -409,6 +409,7 @@ public class PlayerControls
             voidModel.SetActive(false);
             waveModel.SetActive(false);
             annihilatorModel.SetActive(false);
+            babyModel.SetActive(false);
         }
         else if (name.Equals("Ak"))
         {
@@ -421,6 +422,7 @@ public class PlayerControls
             voidModel.SetActive(false);
             waveModel.SetActive(false);
             annihilatorModel.SetActive(false);
+            babyModel.SetActive(false);
         }
         else if (name.Equals("Shotty"))
         {
@@ -432,6 +434,7 @@ public class PlayerControls
             pistolModel.SetActive(false);
             voidModel.SetActive(false);
             waveModel.SetActive(false);
+            babyModel.SetActive(false);
         }   
         else if (name.Equals("VoidGun"))
         {
@@ -444,6 +447,7 @@ public class PlayerControls
             shottyModel.SetActive(false);
             waveModel.SetActive(false);
             annihilatorModel.SetActive(false);
+            babyModel.SetActive(false);
         }
         else if (name.Equals("Wave Blast"))
         {
@@ -456,6 +460,7 @@ public class PlayerControls
             shottyModel.SetActive(false);
             voidModel.SetActive (false);
             annihilatorModel.SetActive(false);
+            babyModel.SetActive(false);
         }
         else if(name.Equals("Scorched Annihilator"))
         {
@@ -468,6 +473,20 @@ public class PlayerControls
             pistolModel.SetActive(false);
             shottyModel.SetActive(false);
             voidModel.SetActive(false);
+            babyModel.SetActive(false);
+        }
+        else if (name.Equals("Baby Gun"))
+        {
+            hasWonderWeapon = true;
+
+            babyModel.SetActive(true);
+            gunModel = babyModel;
+            waveModel.SetActive(false);
+            akModel.SetActive(false);
+            pistolModel.SetActive(false);
+            shottyModel.SetActive(false);
+            voidModel.SetActive(false);
+            annihilatorModel.SetActive(false);
         }
     }
 
@@ -639,5 +658,10 @@ public class PlayerControls
     {
         walkSpeed *= percent;
         sprintSpeed *= percent;
+    }
+
+    public void getStunned()
+    {
+        //player doesn't stun theirself
     }
 }

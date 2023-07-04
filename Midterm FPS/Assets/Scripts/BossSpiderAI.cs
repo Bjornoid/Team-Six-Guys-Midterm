@@ -36,6 +36,7 @@ public class BossSpiderAI : MonoBehaviour, IDamage
     float stoppingDistanceOrig;
     public GameObject[] droppedItem;
     bool phase2;
+    bool isStun;
     // Start is called before the first frame update
     void Start()
     {
@@ -211,5 +212,10 @@ public class BossSpiderAI : MonoBehaviour, IDamage
         yield return new WaitForSeconds(timeBeforeDelete);
 
         Destroy(gameObject);
+    }
+
+    public void getStunned()
+    {
+        //could play a sound effect laughing cuz you can't stun this bag mf
     }
 }

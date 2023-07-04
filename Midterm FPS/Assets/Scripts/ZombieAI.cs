@@ -34,6 +34,7 @@ public class ZombieAI : MonoBehaviour, IDamage, ISlow
     float angleToPlayer;
     float stoppingDistOrig;
     bool isShooting;
+    bool isStun;
     bool destinationChosen; // Checks to see if the enemy has chosen a location to roam
 
     void Start()
@@ -223,5 +224,21 @@ public class ZombieAI : MonoBehaviour, IDamage, ISlow
     public void slow(float percent)
     {
         agent.speed *= percent;
+    }
+
+   public void getStunned()
+    {
+        if (!isStun)
+            StartCoroutine(stunFor(3.5f));
+    }
+
+    IEnumerator stunFor(float time)
+    {
+        isStun = true;
+
+        agent.enabled = false;
+        yield return new WaitForSeconds(time);
+        agent.enabled = true;
+        isStun = false;
     }
 }
