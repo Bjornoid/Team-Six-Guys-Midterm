@@ -662,6 +662,6 @@ public class PlayerControls
 
     public void getStunned()
     {
-
+        //player doesn't stun theirself
     }
 }

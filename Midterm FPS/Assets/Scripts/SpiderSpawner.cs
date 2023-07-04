@@ -77,6 +77,18 @@ public class SpiderSpawner : MonoBehaviour, IDamage
 
     public void getStunned()
     {
+        if (!isStun)
+            StartCoroutine(stunFor(7));
+    }
 
+    IEnumerator stunFor(float time)
+    {
+        isStun = true;
+        spawnSpeed *= .25f;
+        
+        yield return new WaitForSeconds(time);
+
+        spawnSpeed *= 4;
+        isStun = false;
     }
 }
