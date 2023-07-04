@@ -185,4 +185,16 @@ public class SpiderAI : MonoBehaviour, IDamage
 
         Destroy(gameObject);
     }
+
+    public IEnumerator getStunned()
+    {
+        float original = agent.stoppingDistance;
+        agent.stoppingDistance = agent.remainingDistance;
+        agent.speed *= .5f;
+
+        yield return new WaitForSeconds(6);
+        agent.stoppingDistance = original;
+        agent.speed *= 2;
+        
+    }
 }

@@ -122,10 +122,10 @@ public class PlayerControls
                 }
             }
         }
-        if (Input.GetButtonDown("F"))
-        {
-            Throw();
-        }
+        //if (Input.GetButtonDown("Throw"))
+        //{
+        //    Throw();
+        //}
     }
 
     public void takeDamage(int dmg) 
@@ -659,5 +659,12 @@ public class PlayerControls
     {
         walkSpeed *= percent;
         sprintSpeed *= percent;
+    }
+
+    public IEnumerator getStunned()
+    {
+        slow(.5f);
+        yield return new WaitForSeconds(6);
+        slow(2);
     }
 }

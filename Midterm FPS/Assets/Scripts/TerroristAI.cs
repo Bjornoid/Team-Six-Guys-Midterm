@@ -190,4 +190,16 @@ public class TerroristAI : MonoBehaviour, IDamage, ISlow
     {
         agent.speed *= percent;
     }
+
+    public IEnumerator getStunned()
+    {
+        float original = agent.stoppingDistance;
+        agent.stoppingDistance = agent.remainingDistance;
+        agent.speed *= .5f;
+
+        yield return new WaitForSeconds(6);
+
+        agent.speed *= 2;
+        agent.stoppingDistance = original;
+    }
 }

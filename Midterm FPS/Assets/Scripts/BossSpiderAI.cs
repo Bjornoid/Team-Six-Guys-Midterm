@@ -212,4 +212,11 @@ public class BossSpiderAI : MonoBehaviour, IDamage
 
         Destroy(gameObject);
     }
+
+    public IEnumerator getStunned()
+    {
+        //nothing lol
+        //maybe play a laughing noise like haha bitch you can't stun my big ass
+        yield return null;
+    }
 }

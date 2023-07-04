@@ -73,5 +73,12 @@ public class SpiderSpawner : MonoBehaviour, IDamage
     {
         playerInRange = false;
     }
-   
+
+    public IEnumerator getStunned()
+    {
+        spawnSpeed *= .5f;
+        yield return new WaitForSeconds(6);
+        spawnSpeed *= 2;
+    }
+
 }
