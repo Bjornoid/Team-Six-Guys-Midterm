@@ -34,6 +34,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     bool chosenDestination;
     Vector3 startingPos;
     float stoppingDistOrig;
+    bool isStun;
 
     void Start()
     { 
@@ -191,14 +192,8 @@ public class EnemyAI : MonoBehaviour, IDamage
         weaponCol.enabled = true;
     }
 
-    public IEnumerator getStunned()
+    public void getStunned()
     {
-        agent.stoppingDistance = agent.remainingDistance;
-        agent.speed *= .5f;
 
-        yield return new WaitForSeconds(6);
-
-        agent.speed *= 2;
-        agent.stoppingDistance = stoppingDistOrig;
     }
 }

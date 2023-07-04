@@ -12,6 +12,7 @@ public class SpiderSpawner : MonoBehaviour, IDamage
     [SerializeField] int hp;
     bool isSpawning;
     static bool playerInRange;
+    bool isStun;
 
     void Start()
     {
@@ -74,11 +75,8 @@ public class SpiderSpawner : MonoBehaviour, IDamage
         playerInRange = false;
     }
 
-    public IEnumerator getStunned()
+    public void getStunned()
     {
-        spawnSpeed *= .5f;
-        yield return new WaitForSeconds(6);
-        spawnSpeed *= 2;
-    }
 
+    }
 }

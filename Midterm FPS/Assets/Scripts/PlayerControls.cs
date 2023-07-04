@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO.IsolatedStorage;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
@@ -78,6 +79,7 @@ public class PlayerControls
     GameObject gunModel;
     public bool hasWonderWeapon;
     public MovementState movementState;
+    bool isStun;
 
     public enum MovementState
     {
@@ -661,10 +663,8 @@ public class PlayerControls
         sprintSpeed *= percent;
     }
 
-    public IEnumerator getStunned()
+    public void getStunned()
     {
-        slow(.5f);
-        yield return new WaitForSeconds(6);
-        slow(2);
+
     }
 }

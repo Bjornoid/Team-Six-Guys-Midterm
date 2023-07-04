@@ -8,8 +8,8 @@ public class StunGrenade : MonoBehaviour
     [SerializeField] Vector3 effectOffset;
 
     [Header("Explosion settings")]
-    [SerializeField] float explosionDelay = 3.5f;
-    [SerializeField] float explosionRadius = 5f;
+    [SerializeField] float explosionDelay = 2.5f;
+    [SerializeField] float explosionRadius = 10f;
 
     [Header("Audio Effects")]
     float countdown;
@@ -42,22 +42,10 @@ public class StunGrenade : MonoBehaviour
         //play sound
 
         //affect nearby enemies/player if too close
-        stun();
 
 
         Destroy(gameObject);
     }
 
-    void stun()
-    {
-        Collider[] idmgs = Physics.OverlapSphere(transform.position, explosionRadius);
-        foreach (Collider c in idmgs) 
-        {
-            IDamage dmgable = c.GetComponentInParent<IDamage>();
-            if (dmgable != null)
-            {
-                dmgable.getStunned();
-            }
-        }
-    }
+ 
 }
