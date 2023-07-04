@@ -42,10 +42,23 @@ public class StunGrenade : MonoBehaviour
         //play sound
 
         //affect nearby enemies/player if too close
+        stun();
 
 
         Destroy(gameObject);
     }
 
+
+    void stun()
+    {
+        Collider[] cs = Physics.OverlapSphere(transform.position, explosionRadius);
+        foreach(Collider c in cs) 
+        { 
+            IDamage dmg = c.GetComponentInParent<IDamage>();
+
+            if (dmg != null)
+                dmg.getStunned();
+        }
+    }
  
 }

@@ -1,10 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.IO.IsolatedStorage;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class PlayerControls
     : MonoBehaviour, IDamage, IAmmo, ISlow
@@ -665,6 +662,6 @@ public class PlayerControls
 
     public void getStunned()
     {
-
+        //player doesn't stun theirself
     }
 }
