@@ -31,6 +31,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip pistolReload;
     public AudioClip shottyReload;
     public AudioClip akReload;
+    public AudioClip flamethrower;
 
 
     private void Start()

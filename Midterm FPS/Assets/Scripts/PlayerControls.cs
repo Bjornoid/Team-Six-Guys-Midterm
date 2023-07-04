@@ -322,7 +322,7 @@ public class PlayerControls
             }
             else if (gunList[selectedGun].name == "Scorched Annihilator")
             {
-                gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.burst);
+                gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.flamethrower);
             }
 
             gunList[selectedGun].magAmmoCurr--;

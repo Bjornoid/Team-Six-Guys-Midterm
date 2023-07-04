@@ -113,6 +113,23 @@ public class gameManager : MonoBehaviour
     {
         return locksRemaining;
     }
+
+    public void SwitchToPause()
+    {
+        pauseMenu.SetActive(true);
+        settingsMenu.SetActive(false);
+        general.SetActive(false);
+        volume.SetActive(false);
+    }
+
+    public void SwitchToSettingsInGame()
+    {
+        settingsMenu.SetActive(true);
+        general.SetActive(false);
+        volume.SetActive(false);
+        pauseMenu.SetActive(false);
+    }
+
     public void switchToSettings()
     {
         mainMenu.SetActive(false);
@@ -142,6 +159,20 @@ public class gameManager : MonoBehaviour
         general.SetActive(false);
         volume.SetActive(true);
         eventSystem.SetSelectedGameObject(audioFirstButton);
+    }
+
+    public void SwitchToGeneralInGame()
+    {
+        settingsMenu.SetActive(false);
+        volume.SetActive(false);
+        general.SetActive(true);
+    }
+
+    public void SwitchToAudioInGame()
+    {
+        settingsMenu.SetActive(false);
+        general.SetActive(false);   
+        volume.SetActive(true);
     }
 
     public void SwitchToGeneral()

@@ -63,9 +63,29 @@ public class ButtonFunctions : MonoBehaviour
         gameManager.instance.stateUnPaused();
     }
 
+    public void BackToSettings()
+    {
+        gameManager.instance.SwitchToPause();
+    }
+
+    public void InGameAudio()
+    {
+        gameManager.instance.SwitchToAudioInGame();
+    }
+
+    public void InGameGeneral()
+    {
+        gameManager.instance.SwitchToGeneralInGame();
+    }
+
     public void Back()
     {
         gameManager.instance.switchToSettings();
+    }
+
+    public void BackInGame()
+    {
+        gameManager.instance.SwitchToSettingsInGame();
     }
 
     public void Audio()
@@ -100,6 +120,11 @@ public class ButtonFunctions : MonoBehaviour
    public void quit()
     {
         Application.Quit();
+    }
+
+    public void SettingsInGame()
+    {
+        gameManager.instance.SwitchToSettingsInGame();
     }
 
     public void RespawnPlayer()
