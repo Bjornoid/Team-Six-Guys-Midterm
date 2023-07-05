@@ -99,11 +99,11 @@ GameObject:
   - component: {fileID: 1184585793106717827}
   m_Layer: 0
   m_Name: Scorched Annihilator
-  m_TagString: Untagged
+  m_TagString: Scorched Annihilator
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5895434084937677002
 Transform:
   m_ObjectHideFlags: 0
