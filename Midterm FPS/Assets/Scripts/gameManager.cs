@@ -260,6 +260,11 @@ public class gameManager : MonoBehaviour
         sideQuestDescription.text = questDescription;
     }
 
+    public void playButtonSelect()
+    {
+        audioManager.PlaySFX(audioManager.buttonSelect);
+    }
+
     public void SetMusicVolume()
     {
         float volume = musicSlider.value;
