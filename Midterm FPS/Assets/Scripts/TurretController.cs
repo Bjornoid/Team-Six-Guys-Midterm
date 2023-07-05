@@ -15,6 +15,7 @@ public class TurretController : MonoBehaviour
     public float projectileSpeed;
     public float fireRate;
     public float nextFire;
+    private bool isShooting;
 
     // Start is called before the first frame update
     void Start()
@@ -32,33 +33,23 @@ public class TurretController : MonoBehaviour
             playerDir = Player.transform.position - Head.position;
             Quaternion rot = Quaternion.LookRotation(new Vector3(playerDir.x, 0, playerDir.z));
             Head.rotation = Quaternion.Lerp(Head.rotation, rot, Time.deltaTime * playerFaceSpeed);
-
-            if (Time.time >= nextFire)
+            if (!isShooting)
             {
-                nextFire = Time.time + 1f / fireRate;
-                Shoot();
-
+                StartCoroutine(Shoot());
             }
         }
     }
 
-    void Shoot()
+    IEnumerator Shoot()
     {
+        isShooting = true;
         GameObject clone = Instantiate(projectile, ShootPos.position, Head.rotation);
         clone.GetComponent<Rigidbody>().AddForce(Head.forward * projectileSpeed);
+        yield return new WaitForSeconds(fireRate);
+        isShooting = false;
+
         Destroy(clone, 2);
-    }
 
-    void removeFuel()
-    {
-        //gameManager.instance.playerScript.emptyFuel();
-    }
-
-  
-    public void emptyFuel()
-    {
-        //jetpackTime = 1;
-        gameManager.instance.fuelBar.fillAmount = 0;
     }
 }
 
