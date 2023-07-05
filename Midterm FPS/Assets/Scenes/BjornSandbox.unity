@@ -10317,6 +10317,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monkey Bomb
       objectReference: {fileID: 0}
+    - target: {fileID: 2937503524583885357, guid: a87444448f9b4c14eb464af40262b113, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2940511228738545621, guid: a87444448f9b4c14eb464af40262b113, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -10360,10 +10364,6 @@ PrefabInstance:
     - target: {fileID: 2940511228738545621, guid: a87444448f9b4c14eb464af40262b113, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2995967125763751583, guid: a87444448f9b4c14eb464af40262b113, type: 3}
-      propertyPath: m_Controller
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a87444448f9b4c14eb464af40262b113, type: 3}
@@ -11078,6 +11078,10 @@ PrefabInstance:
     - target: {fileID: 8863406915567573360, guid: 95518e1ed492dab48987cd453df47401, type: 3}
       propertyPath: m_Name
       value: end level trigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 8863406915567573360, guid: 95518e1ed492dab48987cd453df47401, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95518e1ed492dab48987cd453df47401, type: 3}

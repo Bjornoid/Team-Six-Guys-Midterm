@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 
-public class zombieRoamingAI : MonoBehaviour, IDamage, ISlow
+public class zombieRoamingAI : MonoBehaviour, IDamage, ISlow, IDistract
 {
     [Header("----- Zombie Components -----")]
     [SerializeField] Renderer model;
@@ -35,6 +35,7 @@ public class zombieRoamingAI : MonoBehaviour, IDamage, ISlow
     bool isShooting;
     bool destinationChosen; // Checks to see if the enemy has chosen a location to roam
     bool isStun;
+    bool isDistracted;
 
     void Start()
     {
@@ -48,7 +49,7 @@ public class zombieRoamingAI : MonoBehaviour, IDamage, ISlow
         playerDirection = gameManager.instance.player.transform.position - headPos.position; // two positions subtracted from one another gives direction
         zombieAnim.SetFloat("Speed", agent.velocity.normalized.magnitude);
 
-        if (agent.isActiveAndEnabled)
+        if (agent.isActiveAndEnabled && !isDistracted)
         {
             //animation for walk
 
@@ -202,5 +203,10 @@ public class zombieRoamingAI : MonoBehaviour, IDamage, ISlow
         yield return new WaitForSeconds(time);
         agent.enabled = true;
         isStun = false;
+    }
+
+    public void getDistracted()
+    {
+        isDistracted = true;
     }
 }

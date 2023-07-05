@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyAI : MonoBehaviour, IDamage
+public class EnemyAI : MonoBehaviour, IDamage, IDistract
 {
     [Header("----- Enemy Components -----")]
     // Start is called before the first frame update
@@ -35,6 +35,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     Vector3 startingPos;
     float stoppingDistOrig;
     bool isStun;
+    bool isDistracted;
 
     void Start()
     { 
@@ -44,7 +45,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     // Update is called once per frame
     void Update()
     {
-        if (agent.isActiveAndEnabled)
+        if (agent.isActiveAndEnabled && !isDistracted)
         {
             animator.SetFloat("Speed", agent.velocity.normalized.magnitude);
 
@@ -206,5 +207,10 @@ public class EnemyAI : MonoBehaviour, IDamage
         yield return new WaitForSeconds(time);
         agent.enabled = true;
         isStun = false;
+    }
+
+    public void getDistracted()
+    {
+        isDistracted = true;
     }
 }
