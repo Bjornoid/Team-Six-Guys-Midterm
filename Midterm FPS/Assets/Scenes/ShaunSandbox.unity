@@ -128,6 +128,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4337563624218842, guid: e72f1a178c825f84bac03b6f867c7dcf, type: 3}
   m_PrefabInstance: {fileID: 1239669664}
   m_PrefabAsset: {fileID: 0}
+--- !u!224 &5061240 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 383087118, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+  m_PrefabInstance: {fileID: 2056038455}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5165165 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4461152295751554, guid: 5ad9ed5263f46ab4dbf19b48295add63, type: 3}
@@ -770,6 +775,10 @@ PrefabInstance:
     - target: {fileID: 5895434084938097898, guid: b63892a228c600544be7c2090efa0592, type: 3}
       propertyPath: m_Name
       value: Scorched Annihilator
+      objectReference: {fileID: 0}
+    - target: {fileID: 5895434084938097898, guid: b63892a228c600544be7c2090efa0592, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5895434084938097898, guid: b63892a228c600544be7c2090efa0592, type: 3}
       propertyPath: m_TagString
@@ -13468,6 +13477,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.123
       objectReference: {fileID: 0}
+    - target: {fileID: 616886419, guid: 76829b65c9293b74a9cc27c8c504ab10, type: 3}
+      propertyPath: minimapOverlay
+      value: 
+      objectReference: {fileID: 5061240}
     - target: {fileID: 1668069910339250516, guid: 76829b65c9293b74a9cc27c8c504ab10, type: 3}
       propertyPath: m_Name
       value: Player
@@ -20931,6 +20944,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wave Blaster
       objectReference: {fileID: 0}
+    - target: {fileID: 2551959069666780371, guid: f4e917cf1b8d7874f8aee74d336980b0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2551959069666883827, guid: f4e917cf1b8d7874f8aee74d336980b0, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -20945,7 +20962,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2551959069666883827, guid: f4e917cf1b8d7874f8aee74d336980b0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -76.49257
+      value: -74.912
       objectReference: {fileID: 0}
     - target: {fileID: 2551959069666883827, guid: f4e917cf1b8d7874f8aee74d336980b0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -21057,14 +21074,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 412322759, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1270942031, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -97.9
-      objectReference: {fileID: 0}
     - target: {fileID: 5749609704740858438, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
       propertyPath: m_Pivot.x
       value: 0
