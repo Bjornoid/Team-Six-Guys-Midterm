@@ -18,6 +18,8 @@ public class gameManager : MonoBehaviour
     public GameObject playerSpawnPosition;
     public List<GameObject> partList;
     public EventSystem eventSystem;
+    public GameObject stunGrenade;
+    public GameObject monkeyBomb;
 
     [Header("----- UI fields -----")]
     public GameObject activeMenu;

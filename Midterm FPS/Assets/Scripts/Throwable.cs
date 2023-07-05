@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Throwable : MonoBehaviour
 {
-    [Header("----- Throwable Obj -----")]
-    [SerializeField] GameObject objToThrow;
-
     [Header("----- Throw Force -----")]
     [SerializeField] float throwForce = 10f;
     [SerializeField] float maxForce = 20f;
@@ -16,32 +13,48 @@ public class Throwable : MonoBehaviour
     [SerializeField] Vector3 throwDir = new Vector3(0, 1, 0);
     [SerializeField] LineRenderer trajectoryLine;
 
+
     Camera mainCamera;
+    GameObject objToThrow;
 
     bool isCharging = false;
     float chargeTime = 0f;
+    public int throwTimes;
+    public int thrown;
 
     void Start()
     {
+        thrown = 0;
+        throwTimes = 5;
+        objToThrow = gameManager.instance.stunGrenade;
         mainCamera = Camera.main;
+    }
+
+    public void setObjToThrow(GameObject obj)
+    {
+        objToThrow = obj;
     }
 
     void Update()
     {
-        if (Input.GetButtonDown("Throw"))
+        if (objToThrow != null && thrown < throwTimes)
         {
-            //start throwing
-            startThrowing();
-        }
-        if (isCharging)
-        {
-            //charge throw
-            chargeThrow();
-        }
-        if (Input.GetButtonUp("Throw"))
-        {
-            //release throw
-            releaseThrow();
+            if (Input.GetButtonDown("Throw"))
+            {
+                //start throwing
+                startThrowing();
+            }
+            if (isCharging)
+            {
+                //charge throw
+                chargeThrow();
+            }
+            if (Input.GetButtonUp("Throw"))
+            {
+                //release throw
+                releaseThrow();
+                thrown++;
+            }
         }
     }
 
@@ -91,7 +104,7 @@ public class Throwable : MonoBehaviour
     {
         Vector3[] points = new Vector3[100];
         trajectoryLine.positionCount = points.Length;
-        for (int i = 0; i < points.Length; i++) 
+        for (int i = 0; i < points.Length; i++)
         {
             float time = i * 0.1f;
             points[i] = origin + speed * time + 0.5f * Physics.gravity * time * time;

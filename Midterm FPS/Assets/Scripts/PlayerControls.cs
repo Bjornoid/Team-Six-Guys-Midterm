@@ -647,13 +647,6 @@ public class PlayerControls
         canJetpack = true;
     }
 
-    void Throw()
-    {
-        GameObject bomb = Instantiate(projectile, transform.position, transform.rotation);
-        Rigidbody rb = bomb.GetComponent<Rigidbody>();
-        rb.AddForce(transform.forward * throwForce, ForceMode.VelocityChange);
-    }
-
     public void slow(float percent)
     {
         walkSpeed *= percent;

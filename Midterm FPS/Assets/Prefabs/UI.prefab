@@ -7569,6 +7569,8 @@ MonoBehaviour:
   playerSpawnPosition: {fileID: 0}
   partList: []
   eventSystem: {fileID: 5749609704815568816}
+  stunGrenade: {fileID: 7948184851341702654, guid: 7f7f91f3e279b154f8b32c02d03c8fbe, type: 3}
+  monkeyBomb: {fileID: 2937503524583885357, guid: a87444448f9b4c14eb464af40262b113, type: 3}
   activeMenu: {fileID: 0}
   settingsMenu: {fileID: 0}
   mainMenu: {fileID: 0}
