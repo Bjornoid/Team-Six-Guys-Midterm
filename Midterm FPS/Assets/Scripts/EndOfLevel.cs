@@ -6,7 +6,7 @@ public class EndOfLevel : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && gameManager.instance.getEnemiesRemaining() <= 0)
+        if (other.CompareTag("Player"))
         {
             gameManager.instance.statePaused();
             gameManager.instance.activeMenu = gameManager.instance.winMenu;

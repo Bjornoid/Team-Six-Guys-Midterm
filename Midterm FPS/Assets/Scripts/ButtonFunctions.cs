@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class ButtonFunctions : MonoBehaviour
@@ -13,12 +14,14 @@ public class ButtonFunctions : MonoBehaviour
     {
         gameManager.instance.switchToSettings();
         gameManager.instance.eventSystem.SetSelectedGameObject(settingsFirstButton);
+        gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.buttonPress);
     }
 
     public void play()
     {
         gameManager.instance.switchToLevelSelect();
         gameManager.instance.eventSystem.SetSelectedGameObject(levelSelectFirstButton);
+        gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.buttonPress);
     }
 
     public void backToMainMenu()
@@ -27,62 +30,103 @@ public class ButtonFunctions : MonoBehaviour
         gameManager.instance.stateUnPaused();
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
+        gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.buttonPress);
     }
 
     public void tutorial()
     {
         SceneManager.LoadScene("New Tutorial");
         gameManager.instance.stateUnPaused();
+        gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.buttonPress);
     }
 
     public void nextLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        int nextLevel = SceneManager.GetActiveScene().buildIndex + 1;
+        SceneManager.LoadScene(nextLevel);
         gameManager.instance.stateUnPaused();
+
+        if (nextLevel > PlayerPrefs.GetInt("levelAt"))
+        {
+            PlayerPrefs.SetInt("levelAt", nextLevel);
+        }
+        gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.buttonPress);
     }
 
     public void floor1()
     {
         SceneManager.LoadScene("B & J Level");
         gameManager.instance.stateUnPaused();
+        gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.buttonPress);
     }
 
     public void floor2()
     {
         SceneManager.LoadScene("Level 2");
         gameManager.instance.stateUnPaused();
+        gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.buttonPress);
     }
     public void floor3()
     {
         SceneManager.LoadScene("L & S Level");
         gameManager.instance.stateUnPaused();
+        gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.buttonPress);
     }
     public void floor4()
     {
         SceneManager.LoadScene("ShaunSandbox");
         gameManager.instance.stateUnPaused();
+        gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.buttonPress);
+    }
+
+    public void BackToSettings()
+    {
+        gameManager.instance.SwitchToPause();
+        gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.buttonPress);
+    }
+
+    public void InGameAudio()
+    {
+        gameManager.instance.SwitchToAudioInGame();
+        gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.buttonPress);
+    }
+
+    public void InGameGeneral()
+    {
+        gameManager.instance.SwitchToGeneralInGame();
+        gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.buttonPress);
     }
 
     public void Back()
     {
         gameManager.instance.switchToSettings();
+        gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.buttonPress);
+    }
+
+    public void BackInGame()
+    {
+        gameManager.instance.SwitchToSettingsInGame();
+        gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.buttonPress);
     }
 
     public void Audio()
     {
         gameManager.instance.SwitchToAudio();
+        gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.buttonPress);
     }
 
     public void General()
     {
         gameManager.instance.SwitchToGeneral();
+        gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.buttonPress);
     }
 
     public void close()
     {
         gameManager.instance.switchToMain();
         gameManager.instance.eventSystem.SetSelectedGameObject(gameManager.instance.eventSystem.firstSelectedGameObject);
-    }
+        gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.buttonPress);
+    } 
 
     public void closeUI()
     {
@@ -90,22 +134,32 @@ public class ButtonFunctions : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = gameManager.instance.timeScaleOrig;
         gameManager.instance.canPause = true;
+        gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.buttonPress);
     }
 
     public void resume()
     {
         gameManager.instance.stateUnPaused();
+        gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.buttonPress);
     }
 
    public void quit()
     {
         Application.Quit();
+        gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.buttonPress); 
+    }
+
+    public void SettingsInGame()
+    {
+        gameManager.instance.SwitchToSettingsInGame();
+        gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.buttonPress);
     }
 
     public void RespawnPlayer()
     {
         gameManager.instance.stateUnPaused();
         gameManager.instance.playerScript.SpawnPlayer();
+        gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.buttonPress);
     }
 
     public void Restart()
@@ -114,5 +168,6 @@ public class ButtonFunctions : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         SpiderSpawner.playerNotInRange();
         gameManager.instance.playerScript.SpawnPlayer();
+        gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.buttonPress);
     }
 }

@@ -189,7 +189,7 @@ public class BossSpiderAI : MonoBehaviour, IDamage
 
     public void getStunned()
     {
-
+        //could play a sound effect laughing cuz you can't stun this bag mf
     }
 
     void biteColOn()

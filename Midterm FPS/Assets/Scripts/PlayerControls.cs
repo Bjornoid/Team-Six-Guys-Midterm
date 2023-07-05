@@ -36,7 +36,9 @@ public class PlayerControls
     [SerializeField] ParticleSystem flame;
     [SerializeField] Transform flamePos;
     [SerializeField] List<GunStats> gunList = new List<GunStats>();
-    [SerializeField] GunStats startingPistol;
+    [SerializeField] GunStats startingPistol;  
+    //[SerializeField][Range(3, 7)] float coolDownTimer;
+    //[SerializeField] float timeTilCoolDown;  
 
     [Header("----- Audio -----")]
     [SerializeField] AudioClip[] jumpSounds;
@@ -76,7 +78,8 @@ public class PlayerControls
     GameObject gunModel;
     public bool hasWonderWeapon;
     public MovementState movementState;
-    bool isStun;
+    bool isStun; 
+    //bool isCoolingDown; 
 
     public enum MovementState
     {
@@ -120,6 +123,15 @@ public class PlayerControls
                     StartCoroutine(shoot()); // start shooting
                 }
             }
+
+            //if(Input.GetMouseButtonDown(0) && gameManager.instance.playerScript.hasWonderWeapon == true && !isShooting && timeTilCoolDown > 0 && gunList[selectedGun].name == "Scorched Annihilator")
+            //{
+            //    StartCoroutine(shoot());
+            //}
+            //if (coolDownTimer <= 0)
+            //{
+            //    StartCoroutine(CoolDown());
+            //}
         }
         //if (Input.GetButtonDown("Throw"))
         //{
@@ -322,7 +334,7 @@ public class PlayerControls
             }
             else if (gunList[selectedGun].name == "Scorched Annihilator")
             {
-                gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.burst);
+                gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.flamethrower);
             }
 
             gunList[selectedGun].magAmmoCurr--;
@@ -358,9 +370,7 @@ public class PlayerControls
                         Vector3 enemyDir = enemy.transform.position - transform.position;
                         float angleToEnemy = Vector3.Angle(new Vector3(enemyDir.x, 0, enemyDir.z), transform.forward);
                         if (Vector3.Distance(enemy.transform.position, transform.position) < shootDist && angleToEnemy <= 100)
-                        {
-                            
-
+                        { 
                             enemy.GetComponent<IDamage>().takeDamage(shootDamage);
                         }
                     }
@@ -378,6 +388,7 @@ public class PlayerControls
                             enemies.GetComponent<IDamage>().takeDamage(shootDamage);
                         }
                     }
+                    //timeTilCoolDown--;
                 }
             }
 
@@ -647,13 +658,6 @@ public class PlayerControls
         canJetpack = true;
     }
 
-    void Throw()
-    {
-        GameObject bomb = Instantiate(projectile, transform.position, transform.rotation);
-        Rigidbody rb = bomb.GetComponent<Rigidbody>();
-        rb.AddForce(transform.forward * throwForce, ForceMode.VelocityChange);
-    }
-
     public void slow(float percent)
     {
         walkSpeed *= percent;
@@ -662,6 +666,19 @@ public class PlayerControls
 
     public void getStunned()
     {
-
+        //player doesn't stun theirself
     }
+    public void emptyFuel()
+    {
+        jetpackTime = 1;
+        gameManager.instance.fuelBar.fillAmount = 0;
+    }
+
+    //IEnumerator CoolDown()
+    //{
+    //    isCoolingDown = true;
+    //    shootRate = 0;
+    //    yield return new WaitForSeconds(coolDownTimer);
+    //    isCoolingDown = false;
+    //}
 }

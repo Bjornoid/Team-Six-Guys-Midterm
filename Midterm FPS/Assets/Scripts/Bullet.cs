@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] int damage;
     [SerializeField] int speed;
     [SerializeField] int destroyTimer;
+    [SerializeField] bool isTurret;
 
     [SerializeField] Rigidbody rb;
 
@@ -18,13 +19,21 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        IDamage damageable = other.GetComponent<IDamage>();
-
-        if (damageable != null)
+        if (!isTurret)
         {
-            damageable.takeDamage(damage);
+            IDamage damageable = other.GetComponent<IDamage>();
+
+            if (damageable != null)
+            {
+                damageable.takeDamage(damage);
+            }
+            
         }
-        
+        else
+        {
+            gameManager.instance.playerScript.emptyFuel();
+        }
+
         Destroy(gameObject);
     }
 }

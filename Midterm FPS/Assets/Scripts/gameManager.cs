@@ -18,6 +18,8 @@ public class gameManager : MonoBehaviour
     public GameObject playerSpawnPosition;
     public List<GameObject> partList;
     public EventSystem eventSystem;
+    public GameObject stunGrenade;
+    public GameObject monkeyBomb;
 
     [Header("----- UI fields -----")]
     public GameObject activeMenu;
@@ -44,6 +46,7 @@ public class gameManager : MonoBehaviour
     public TextMeshProUGUI sideQuestDescription; 
     public TextMeshProUGUI ammoMaxText;
     public TextMeshProUGUI ammoCurText;
+    public Button[] lvlButtons;
 
     [Header("----- Game Goal fields -----")]
     int enemiesRemaining;
@@ -88,6 +91,7 @@ public class gameManager : MonoBehaviour
         }
 
         SetMusicVolume();
+        handleLevelUnlocks();
     }
 
     void Update()
@@ -113,6 +117,23 @@ public class gameManager : MonoBehaviour
     {
         return locksRemaining;
     }
+
+    public void SwitchToPause()
+    {
+        pauseMenu.SetActive(true);
+        settingsMenu.SetActive(false);
+        general.SetActive(false);
+        volume.SetActive(false);
+    }
+
+    public void SwitchToSettingsInGame()
+    {
+        settingsMenu.SetActive(true);
+        general.SetActive(false);
+        volume.SetActive(false);
+        pauseMenu.SetActive(false);
+    }
+
     public void switchToSettings()
     {
         mainMenu.SetActive(false);
@@ -140,6 +161,22 @@ public class gameManager : MonoBehaviour
         mainMenu.SetActive(false);
         settingsMenu.SetActive(false);
         general.SetActive(false);
+        volume.SetActive(true);
+        eventSystem.SetSelectedGameObject(audioFirstButton);
+    }
+
+    public void SwitchToGeneralInGame()
+    {
+        settingsMenu.SetActive(false);
+        volume.SetActive(false);
+        general.SetActive(true);
+        eventSystem.SetSelectedGameObject(generalFirstButton);
+    }
+
+    public void SwitchToAudioInGame()
+    {
+        settingsMenu.SetActive(false);
+        general.SetActive(false);   
         volume.SetActive(true);
         eventSystem.SetSelectedGameObject(audioFirstButton);
     }
@@ -223,6 +260,11 @@ public class gameManager : MonoBehaviour
         sideQuestDescription.text = questDescription;
     }
 
+    public void playButtonSelect()
+    {
+        audioManager.PlaySFX(audioManager.buttonSelect);
+    }
+
     public void SetMusicVolume()
     {
         float volume = musicSlider.value;
@@ -243,5 +285,16 @@ public class gameManager : MonoBehaviour
         SFXSlider.value = PlayerPrefs.GetFloat("SFXVolume");
         SetMusicVolume();
         SetSFXVolume();
+    }
+
+    void handleLevelUnlocks()
+    {
+        int levelAt = PlayerPrefs.GetInt("levelAt", 1);
+
+        for (int i = 0; i < lvlButtons.Length; i++) 
+        {
+            if (i + 1 > levelAt)
+                lvlButtons[i].interactable = false;
+        }
     }
 }

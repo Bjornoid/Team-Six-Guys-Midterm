@@ -5,7 +5,7 @@ using UnityEngine.AI;
 using Unity.VisualScripting;
 using System.Net.Mail;
 
-public class TerroristAI : MonoBehaviour, IDamage, ISlow
+public class TerroristAI : MonoBehaviour, IDamage, ISlow, IDistract
 {
     [Header("----- Components -----")]
     [SerializeField] Renderer model;
@@ -32,6 +32,7 @@ public class TerroristAI : MonoBehaviour, IDamage, ISlow
     float stoppingDistanceOrig;
     bool isDead;
     bool isStun;
+    bool isDistracted;
 
     // Start is called before the first frame update
     void Start()
@@ -44,7 +45,7 @@ public class TerroristAI : MonoBehaviour, IDamage, ISlow
     // Update is called once per frame
     void Update()
     {
-        if (!isDead)
+        if (!isDead && !isDistracted)
         {
             animator.SetFloat("Speed", agent.velocity.normalized.magnitude);
             if (inRange && !canSeePlayer())
@@ -149,7 +150,8 @@ public class TerroristAI : MonoBehaviour, IDamage, ISlow
 
         HP -= dmg;
         StartCoroutine(flashColor());
-        agent.SetDestination(gameManager.instance.player.transform.position);
+        if (agent.isActiveAndEnabled)
+            agent.SetDestination(gameManager.instance.player.transform.position);
         if (HP <= 0)
         {
             isDead = true;
@@ -194,7 +196,23 @@ public class TerroristAI : MonoBehaviour, IDamage, ISlow
 
     public void getStunned()
     {
+        if (!isStun)
+            StartCoroutine(stunFor(3.5f));
+    }
 
+    IEnumerator stunFor(float time)
+    {
+        isStun = true;
+
+        agent.enabled = false;
+        yield return new WaitForSeconds(time);
+        agent.enabled = true;
+        isStun = false;
+    }
+
+    public void getDistracted()
+    {
+        isDistracted = true;
     }
 
 }

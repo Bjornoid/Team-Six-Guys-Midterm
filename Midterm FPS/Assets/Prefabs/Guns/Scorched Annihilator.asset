@@ -15,13 +15,13 @@ MonoBehaviour:
   shootDist: 7
   shootRate: 0.2
   shootDmg: 500
-  magAmmoCurr: 0
+  magAmmoCurr: 199
   magAmmoMax: 200
-  reserveAmmoCurr: 0
+  reserveAmmoCurr: 200
   reserveAmmoMax: 200
   reloadTime: 0.2
-  reloadSound: {fileID: 8300000, guid: 5f4ad43e6fbb8b644b3867b94c038d48, type: 3}
-  shotSound: {fileID: 8300000, guid: 82fe54d1130c3bf42822dcd90e930709, type: 3}
+  reloadSound: {fileID: 8300000, guid: 1b090ece1bfe40348b459c5ce850198a, type: 3}
+  shotSound: {fileID: 8300000, guid: 5fd53e92d655db840a65e04a10252b5a, type: 3}
   soundVol: 2
   gunName: Scorched Annihilator
   model: {fileID: 5895434084938097898, guid: b63892a228c600544be7c2090efa0592, type: 3}
