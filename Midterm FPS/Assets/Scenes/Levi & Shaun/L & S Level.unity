@@ -97,8 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 8b8744c27519bca41a6a863574524f0b, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 904e439ec378c5d42b5513b3555a1b58, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -52379,6 +52379,7 @@ MonoBehaviour:
   sideQuestDescription: {fileID: 5795631940305506319}
   ammoMaxText: {fileID: 417890196}
   ammoCurText: {fileID: 2023423196}
+  lvlButtons: []
   audioManager: {fileID: 1222241103}
   audioMixer: {fileID: 24100000, guid: 0898781b4ab44e344921d93a70e4d1f3, type: 2}
   musicSlider: {fileID: 990822936}
