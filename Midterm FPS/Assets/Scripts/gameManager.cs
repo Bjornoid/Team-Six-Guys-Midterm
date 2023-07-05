@@ -46,6 +46,7 @@ public class gameManager : MonoBehaviour
     public TextMeshProUGUI sideQuestDescription; 
     public TextMeshProUGUI ammoMaxText;
     public TextMeshProUGUI ammoCurText;
+    public Button[] lvlButtons;
 
     [Header("----- Game Goal fields -----")]
     int enemiesRemaining;
@@ -90,6 +91,7 @@ public class gameManager : MonoBehaviour
         }
 
         SetMusicVolume();
+        handleLevelUnlocks();
     }
 
     void Update()
@@ -276,5 +278,16 @@ public class gameManager : MonoBehaviour
         SFXSlider.value = PlayerPrefs.GetFloat("SFXVolume");
         SetMusicVolume();
         SetSFXVolume();
+    }
+
+    void handleLevelUnlocks()
+    {
+        int levelAt = PlayerPrefs.GetInt("levelAt", 1);
+
+        for (int i = 0; i < lvlButtons.Length; i++) 
+        {
+            if (i + 1 > levelAt)
+                lvlButtons[i].interactable = false;
+        }
     }
 }
