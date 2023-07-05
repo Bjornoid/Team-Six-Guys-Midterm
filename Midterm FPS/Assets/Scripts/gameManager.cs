@@ -170,6 +170,7 @@ public class gameManager : MonoBehaviour
         settingsMenu.SetActive(false);
         volume.SetActive(false);
         general.SetActive(true);
+        eventSystem.SetSelectedGameObject(generalFirstButton);
     }
 
     public void SwitchToAudioInGame()
@@ -177,6 +178,7 @@ public class gameManager : MonoBehaviour
         settingsMenu.SetActive(false);
         general.SetActive(false);   
         volume.SetActive(true);
+        eventSystem.SetSelectedGameObject(audioFirstButton);
     }
 
     public void SwitchToGeneral()
