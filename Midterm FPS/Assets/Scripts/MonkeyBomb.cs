@@ -9,7 +9,7 @@ public class MonkeyBomb : MonoBehaviour
     [SerializeField] Vector3 effectOffset;
 
     [Header("Explosion settings")]
-    [SerializeField] float explosionDelay = 6f;
+    [SerializeField] float explosionDelay = 4.5f;
     [SerializeField] float explosionRadius = 10f;
 
     [Header("Audio Effects")]
@@ -54,8 +54,9 @@ public class MonkeyBomb : MonoBehaviour
     {
         foreach (GameObject enemy in enemies)
         {
-            if (enemy.GetComponent<NavMeshAgent>() != null)
-                enemy.GetComponent<NavMeshAgent>().SetDestination(gameObject.transform.position);
+            if (enemy != null && enemy.TryGetComponent<NavMeshAgent>(out var a)) 
+                if (a.isActiveAndEnabled)
+                    a.SetDestination(gameObject.transform.position);
         }
     }
 

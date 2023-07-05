@@ -3196,6 +3196,8 @@ MonoBehaviour:
   playerSpawnPosition: {fileID: 0}
   partList: []
   eventSystem: {fileID: 265536233}
+  stunGrenade: {fileID: 0}
+  monkeyBomb: {fileID: 0}
   activeMenu: {fileID: 0}
   settingsMenu: {fileID: 1590961336}
   mainMenu: {fileID: 1162456785}
@@ -3220,6 +3222,12 @@ MonoBehaviour:
   sideQuestDescription: {fileID: 0}
   ammoMaxText: {fileID: 0}
   ammoCurText: {fileID: 0}
+  lvlButtons:
+  - {fileID: 852084256}
+  - {fileID: 1349398141}
+  - {fileID: 1549820217}
+  - {fileID: 1602694916}
+  - {fileID: 458946828}
   audioManager: {fileID: 0}
   audioMixer: {fileID: 24100000, guid: 0898781b4ab44e344921d93a70e4d1f3, type: 2}
   musicSlider: {fileID: 532282}
