@@ -668,6 +668,12 @@ public class PlayerControls
     {
         //player doesn't stun theirself
     }
+    public void emptyFuel()
+    {
+        jetpackTime = 1;
+        gameManager.instance.fuelBar.fillAmount = 0;
+    }
+
     //IEnumerator CoolDown()
     //{
     //    isCoolingDown = true;
