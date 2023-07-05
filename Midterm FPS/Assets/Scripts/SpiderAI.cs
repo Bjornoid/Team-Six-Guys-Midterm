@@ -5,7 +5,7 @@ using UnityEngine.AI;
 using Unity.VisualScripting;
 using System.Net.Mail;
 
-public class SpiderAI : MonoBehaviour, IDamage
+public class SpiderAI : MonoBehaviour, IDamage, IDistract
 {
     [Header("----- Components -----")]
     [SerializeField] Renderer model;
@@ -29,6 +29,7 @@ public class SpiderAI : MonoBehaviour, IDamage
     public bool inRange;
     float angleToPlayer;
     bool isStun;
+    bool isDistracted;
     public bool isShooting;
     bool destinationChosen;
     float stoppingDistanceOrig;
@@ -43,7 +44,7 @@ public class SpiderAI : MonoBehaviour, IDamage
     // Update is called once per frame
     void Update()
     {
-        if (agent.isActiveAndEnabled)
+        if (agent.isActiveAndEnabled && !isDistracted)
         {
             animator.SetFloat("Speed", agent.velocity.normalized.magnitude);
             if (inRange && !canSeePlayer())
@@ -201,5 +202,10 @@ public class SpiderAI : MonoBehaviour, IDamage
         yield return new WaitForSeconds(time);
         agent.enabled = true;
         isStun = false;
+    }
+
+    public void getDistracted()
+    {
+        isDistracted = true;
     }
 }

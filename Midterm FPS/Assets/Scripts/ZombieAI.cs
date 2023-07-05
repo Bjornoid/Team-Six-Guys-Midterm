@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class ZombieAI : MonoBehaviour, IDamage, ISlow
+public class ZombieAI : MonoBehaviour, IDamage, ISlow, IDistract
 {
     [Header("----- Zombie Components -----")]
     [SerializeField] Renderer model;
@@ -35,6 +35,7 @@ public class ZombieAI : MonoBehaviour, IDamage, ISlow
     float stoppingDistOrig;
     bool isShooting;
     bool isStun;
+    bool isDistract;
     bool destinationChosen; // Checks to see if the enemy has chosen a location to roam
 
     void Start()
@@ -54,7 +55,10 @@ public class ZombieAI : MonoBehaviour, IDamage, ISlow
         {
             //animation for walk
 
-            CanSeePlayer();
+            if (!isDistract)
+                CanSeePlayer();
+
+
 
             //if (playerInRange && !CanSeePlayer()) // if player is in range and Zombie CANNOT see player
             //{
@@ -240,5 +244,10 @@ public class ZombieAI : MonoBehaviour, IDamage, ISlow
         yield return new WaitForSeconds(time);
         agent.enabled = true;
         isStun = false;
+    }
+
+    public void getDistracted()
+    {
+        isDistract = true;
     }
 }
