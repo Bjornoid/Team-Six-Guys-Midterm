@@ -1887,7 +1887,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scorched Annihilator
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1899960441326673439, guid: b63892a228c600544be7c2090efa0592, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b63892a228c600544be7c2090efa0592, type: 3}
 --- !u!222 &76431928
 CanvasRenderer:
