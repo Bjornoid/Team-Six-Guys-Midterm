@@ -34,6 +34,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip flamethrower;
     public AudioClip popUp;
     public AudioClip buttonPress;
+    public AudioClip buttonSelect;
 
 
     private void Start()
