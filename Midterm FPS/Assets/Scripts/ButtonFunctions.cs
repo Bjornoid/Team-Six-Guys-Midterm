@@ -74,7 +74,7 @@ public class ButtonFunctions : MonoBehaviour
     }
     public void floor4()
     {
-        SceneManager.LoadScene("ShaunSandbox");
+        SceneManager.LoadScene("Boss Level");
         gameManager.instance.stateUnPaused();
         gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.buttonPress);
     }
