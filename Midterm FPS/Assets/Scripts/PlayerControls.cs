@@ -185,7 +185,7 @@ public class PlayerControls
 
             if (jetpackTime > 0)
             {
-                jetpackTime -= Time.deltaTime / 2;
+                jetpackTime -= Time.deltaTime;
                 gameManager.instance.fuelBar.fillAmount = 1 - jetpackTime/ jetpackDuration;
                 canJetpack = true;
             }
@@ -201,7 +201,7 @@ public class PlayerControls
 
             if (jetpackTime > 0)
             {
-                jetpackTime -= Time.deltaTime / 2;
+                jetpackTime -= Time.deltaTime;
                 gameManager.instance.fuelBar.fillAmount = 1 - jetpackTime / jetpackDuration;
                 canJetpack = true;
             }
@@ -223,20 +223,15 @@ public class PlayerControls
             if (playerVelocity.y < 0)
                 playerVelocity.y = 3f;
 
-            playerVelocity.y += .1f;
+            playerVelocity.y += .1f * Time.deltaTime;
 
         }
         else 
         {
-            if (playerVelocity.y > 0)
+            if (hasJetpack)
             {
-                if (playerVelocity.y < .2f)
-                    playerVelocity.y = 0;
-                else
-                    playerVelocity.y -= .2f;
-
+                playerVelocity.y -= gravityValue * Time.deltaTime;
             }
-
             movementState = MovementState.jumping;
         }
     
@@ -276,11 +271,10 @@ public class PlayerControls
             jumpTimes++;
             playerVelocity.y = jumpHeight;
         }
-
-        playerVelocity.y -= gravityValue * Time.deltaTime;
+        if (!hasJetpack)
+            playerVelocity.y -= gravityValue * Time.deltaTime;
+     
         controller.Move(playerVelocity * Time.deltaTime);
-
-        
     }
 
     IEnumerator playSteps()
