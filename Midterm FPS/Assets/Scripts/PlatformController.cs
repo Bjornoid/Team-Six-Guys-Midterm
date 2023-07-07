@@ -10,7 +10,7 @@ public class PlatformController : MonoBehaviour
     public Vector3 _destination;
     public float _duration;
     public bool needsTargets;
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
