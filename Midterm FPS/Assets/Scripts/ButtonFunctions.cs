@@ -33,6 +33,43 @@ public class ButtonFunctions : MonoBehaviour
         gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.buttonPress);
     }
 
+    public void newGame()
+    {
+        if (PlayerPrefs.GetInt("levelAt") > 2)
+        {
+            gameManager.instance.confirmDialog.SetActive(true);
+            
+            foreach (Button b in gameManager.instance.mainMenuBtns)
+            {
+                b.interactable = false;
+            }
+        }
+        else
+            play();
+    }
+
+    public void resetGame()
+    {
+        PlayerPrefs.SetInt("levelAt", 2);
+        gameManager.instance.handleLevelUnlocks();
+
+        foreach (Button b in gameManager.instance.mainMenuBtns)
+        {
+            b.interactable = true;
+        }
+        gameManager.instance.confirmDialog.SetActive(false);
+        gameManager.instance.loadGame.SetActive(false);
+    }
+
+    public void cancel()
+    {
+        foreach (Button b in gameManager.instance.mainMenuBtns)
+        {
+            b.interactable = true;
+        }
+        gameManager.instance.confirmDialog.SetActive(false);
+    }
+
     public void tutorial()
     {
         SceneManager.LoadScene("New Tutorial");
@@ -145,8 +182,8 @@ public class ButtonFunctions : MonoBehaviour
 
    public void quit()
     {
+        gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.buttonPress);
         Application.Quit();
-        gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.buttonPress); 
     }
 
     public void SettingsInGame()
