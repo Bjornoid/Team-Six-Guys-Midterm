@@ -28738,6 +28738,10 @@ PrefabInstance:
       value: Boss Spider
       objectReference: {fileID: 0}
     - target: {fileID: 45189550734889607, guid: 3b0225570315ffb48b144ec92c68c410, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 45189550734889607, guid: 3b0225570315ffb48b144ec92c68c410, type: 3}
       propertyPath: m_TagString
       value: SpiderBoss
       objectReference: {fileID: 0}

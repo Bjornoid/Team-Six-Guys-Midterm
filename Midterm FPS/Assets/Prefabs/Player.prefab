@@ -1514,7 +1514,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 110
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -1697,7 +1697,7 @@ MonoBehaviour:
   aud: {fileID: 1668069910460935705}
   walkSpeed: 6
   sprintSpeed: 8
-  jumpHeight: 12
+  jumpHeight: 8.5
   gravityValue: 25
   jumpMax: 1
   HP: 25

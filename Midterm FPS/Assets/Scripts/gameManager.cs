@@ -27,6 +27,8 @@ public class gameManager : MonoBehaviour
     public GameObject mainMenu;
     public GameObject pauseMenu;
     public GameObject playMenu;
+    public GameObject loadGame;
+    public GameObject confirmDialog;
     public GameObject volume;
     public GameObject general;
     public GameObject winMenu;
@@ -47,6 +49,7 @@ public class gameManager : MonoBehaviour
     public TextMeshProUGUI ammoMaxText;
     public TextMeshProUGUI ammoCurText;
     public Button[] lvlButtons;
+    public Button[] mainMenuBtns;
 
     [Header("----- Game Goal fields -----")]
     int enemiesRemaining;
@@ -91,7 +94,8 @@ public class gameManager : MonoBehaviour
         }
 
         SetMusicVolume();
-        handleLevelUnlocks();
+        if (SceneManager.GetActiveScene().name == "Main Menu")
+            handleLevelUnlocks();
     }
 
     void Update()
@@ -287,14 +291,19 @@ public class gameManager : MonoBehaviour
         SetSFXVolume();
     }
 
-    void handleLevelUnlocks()
+    public void handleLevelUnlocks()
     {
-        int levelAt = PlayerPrefs.GetInt("levelAt", 1);
+        int levelAt = PlayerPrefs.GetInt("levelAt", 2);
 
         for (int i = 0; i < lvlButtons.Length; i++) 
         {
             if (i + 1 > levelAt)
                 lvlButtons[i].interactable = false;
+        }
+        if (levelAt > 2)
+        {
+            loadGame.SetActive(true);
+            eventSystem.SetSelectedGameObject(loadGame);
         }
     }
 }
