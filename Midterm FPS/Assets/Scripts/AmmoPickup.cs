@@ -4,18 +4,17 @@ using UnityEngine;
 
 public class AmmoPickup : MonoBehaviour
 {
-    
-
-    void Start()
+    public void pickup()
     {
-        
+        gameManager.instance.playerScript.pickupAmmo();
+        Destroy(gameObject);
+        Throwable item = gameManager.instance.player.GetComponent<Throwable>();
+        item.thrown = 0;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         IAmmo hasAmmo = other.GetComponent<IAmmo>();
-        Throwable item = gameManager.instance.player.GetComponent<Throwable>();
-        item.thrown = 0;
         if (hasAmmo != null) 
         {
             hasAmmo.pickupAmmo();
