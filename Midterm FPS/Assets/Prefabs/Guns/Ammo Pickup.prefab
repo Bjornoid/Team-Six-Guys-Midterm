@@ -351,7 +351,6 @@ GameObject:
   - component: {fileID: 5436029737205991328}
   - component: {fileID: 5428732139081045324}
   - component: {fileID: 5436029737205991334}
-  - component: {fileID: 5436029737205991335}
   m_Layer: 0
   m_Name: Ammo Pickup
   m_TagString: Untagged
@@ -372,6 +371,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1589544219}
+  - {fileID: 7057706590689522964}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -437,16 +437,73 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 238aba236fd1e4c459d197eeb8601448, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!135 &5436029737205991335
-SphereCollider:
+--- !u!1001 &5360455647450414766
+PrefabInstance:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5405109982168999406}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2.09
-  m_Center: {x: -0.03418815, y: -0.026575685, z: 0.000009834766}
+  m_Modification:
+    m_TransformParent: {fileID: 5410974389611777376}
+    m_Modifications:
+    - target: {fileID: 3140742606351223738, guid: 78f5409af6d6d124cbada9494dbb59c0, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3140742606351223738, guid: 78f5409af6d6d124cbada9494dbb59c0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3140742606351223738, guid: 78f5409af6d6d124cbada9494dbb59c0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3140742606351223738, guid: 78f5409af6d6d124cbada9494dbb59c0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3140742606351223738, guid: 78f5409af6d6d124cbada9494dbb59c0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3140742606351223738, guid: 78f5409af6d6d124cbada9494dbb59c0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3140742606351223738, guid: 78f5409af6d6d124cbada9494dbb59c0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3140742606351223738, guid: 78f5409af6d6d124cbada9494dbb59c0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3140742606351223738, guid: 78f5409af6d6d124cbada9494dbb59c0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3140742606351223738, guid: 78f5409af6d6d124cbada9494dbb59c0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3140742606351223738, guid: 78f5409af6d6d124cbada9494dbb59c0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219600912722792396, guid: 78f5409af6d6d124cbada9494dbb59c0, type: 3}
+      propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5436029737205991334}
+    - target: {fileID: 5219600912722792396, guid: 78f5409af6d6d124cbada9494dbb59c0, type: 3}
+      propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: pickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130560314472220257, guid: 78f5409af6d6d124cbada9494dbb59c0, type: 3}
+      propertyPath: m_Name
+      value: pickupCollider
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 78f5409af6d6d124cbada9494dbb59c0, type: 3}
+--- !u!4 &7057706590689522964 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3140742606351223738, guid: 78f5409af6d6d124cbada9494dbb59c0, type: 3}
+  m_PrefabInstance: {fileID: 5360455647450414766}
+  m_PrefabAsset: {fileID: 0}

@@ -21,6 +21,7 @@ public class pickupObject : MonoBehaviour
         {
             if (Input.GetButtonDown("Pickup"))
             {
+                gameManager.instance.pickupPrompt.SetActive(false);
                 action.Invoke();
             }
         }
