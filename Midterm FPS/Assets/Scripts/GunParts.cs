@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GunParts : MonoBehaviour
+public class GunParts : MonoBehaviour, IPickup
 {
     [SerializeField] GameObject gunPart;
     [SerializeField] GameObject gunBuilt;
