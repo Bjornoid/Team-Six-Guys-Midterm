@@ -500,6 +500,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: pickupCollider
       objectReference: {fileID: 0}
+    - target: {fileID: 7070393797768990174, guid: 78f5409af6d6d124cbada9494dbb59c0, type: 3}
+      propertyPath: m_Size.x
+      value: 8.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7070393797768990174, guid: 78f5409af6d6d124cbada9494dbb59c0, type: 3}
+      propertyPath: m_Size.y
+      value: 6.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 7070393797768990174, guid: 78f5409af6d6d124cbada9494dbb59c0, type: 3}
+      propertyPath: m_Size.z
+      value: 7.48
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78f5409af6d6d124cbada9494dbb59c0, type: 3}
 --- !u!4 &7057706590689522964 stripped
