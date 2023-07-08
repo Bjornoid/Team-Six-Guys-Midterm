@@ -168,9 +168,23 @@ public class EnemyAI : MonoBehaviour, IDamage, IDistract
 
         if (HP <= 0)
         {
+            StopAllCoroutines();
+
+            animator.SetBool("Dead", true);
+
+            agent.enabled = false;
+
+            animator.ResetTrigger("Attack");
+
             gameManager.instance.UpdateGameGoal(-1); // enemy dies
 
-            Destroy(gameObject); // destroy the object 
+            GetComponent<Animator>().enabled = false;
+
+            GetComponent<CapsuleCollider>().enabled = false; // Disables dmg collider
+
+            gameObject.GetComponent<NavMeshAgent>().enabled = false;
+
+            Destroy(gameObject, 2f); // destroy the object 
         }
     }
 
