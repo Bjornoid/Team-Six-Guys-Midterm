@@ -303,6 +303,7 @@ public class gameManager : MonoBehaviour
         if (levelAt > 2)
         {
             loadGame.SetActive(true);
+            eventSystem.SetSelectedGameObject(loadGame);
         }
     }
 }

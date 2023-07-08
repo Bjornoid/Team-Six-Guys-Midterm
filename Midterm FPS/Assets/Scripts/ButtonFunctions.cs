@@ -161,7 +161,11 @@ public class ButtonFunctions : MonoBehaviour
     public void close()
     {
         gameManager.instance.switchToMain();
-        gameManager.instance.eventSystem.SetSelectedGameObject(gameManager.instance.eventSystem.firstSelectedGameObject);
+        if (PlayerPrefs.GetInt("levelAt") <= 2)
+            gameManager.instance.eventSystem.SetSelectedGameObject(gameManager.instance.eventSystem.firstSelectedGameObject);
+        else
+            gameManager.instance.eventSystem.SetSelectedGameObject(gameManager.instance.loadGame);
+
         gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.buttonPress);
     } 
 
