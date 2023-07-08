@@ -39,13 +39,14 @@ public class gameManager : MonoBehaviour
     public GameObject generalFirstButton;
     public GameObject checkpointPopUp;
     public GameObject checkpointPopUpTwo;
+    public GameObject pickupPrompt;
     public Image playerHPBar;
     public Image fuelBar;
     public GameObject fuelUI;
     public GameObject playerFlashUI;
     public TextMeshProUGUI enemiesRemainingText;
     public TextMeshProUGUI mainTaskDescription;
-    public TextMeshProUGUI sideQuestDescription; 
+    public TextMeshProUGUI sideQuestDescription;
     public TextMeshProUGUI ammoMaxText;
     public TextMeshProUGUI ammoCurText;
     public Button[] lvlButtons;
