@@ -51,6 +51,7 @@ public class ButtonFunctions : MonoBehaviour
     public void resetGame()
     {
         PlayerPrefs.SetInt("levelAt", 2);
+        PlayerPrefs.SetInt("deaths", 0);
         gameManager.instance.handleLevelUnlocks();
 
         foreach (Button b in gameManager.instance.mainMenuBtns)
