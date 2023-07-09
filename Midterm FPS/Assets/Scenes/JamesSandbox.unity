@@ -510,22 +510,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76829b65c9293b74a9cc27c8c504ab10, type: 3}
---- !u!1 &974947358 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1711836235, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
-  m_PrefabInstance: {fileID: 1358689979}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &974947359 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1711836236, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
-  m_PrefabInstance: {fileID: 1358689979}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 974947358}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &999168473
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -601,10 +585,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5219600912305598964, guid: f33b56cc24231774da3d72455f3d9435, type: 3}
-      propertyPath: interactPrompt
-      value: 
-      objectReference: {fileID: 974947359}
     - target: {fileID: 5219600912305598964, guid: f33b56cc24231774da3d72455f3d9435, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -784,10 +764,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 32847795997241222, guid: 9574397c7d631aa4f8063c417b10f476, type: 3}
-      propertyPath: interactPrompt
-      value: 
-      objectReference: {fileID: 974947359}
     - target: {fileID: 5641095625468793360, guid: 9574397c7d631aa4f8063c417b10f476, type: 3}
       propertyPath: m_Name
       value: Chain
@@ -845,18 +821,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1711836235, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
-      propertyPath: m_Name
-      value: Interact Prompt
-      objectReference: {fileID: 0}
-    - target: {fileID: 586781860318768780, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
-      propertyPath: interactPrompt
-      value: 
-      objectReference: {fileID: 974947358}
-    - target: {fileID: 586781860318768780, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
-      propertyPath: interactPromptText
-      value: 
-      objectReference: {fileID: 974947359}
     - target: {fileID: 5749609704740858438, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
       propertyPath: m_Pivot.x
       value: 0

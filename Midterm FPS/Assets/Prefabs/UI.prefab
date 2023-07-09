@@ -5947,7 +5947,7 @@ GameObject:
   - component: {fileID: 1711836237}
   - component: {fileID: 1711836236}
   m_Layer: 5
-  m_Name: Pickup Prompt
+  m_Name: Interact Prompt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8175,7 +8175,7 @@ MonoBehaviour:
   generalFirstButton: {fileID: 0}
   checkpointPopUp: {fileID: 0}
   checkpointPopUpTwo: {fileID: 0}
-  pickupPrompt: {fileID: 1711836235}
+  interactPrompt: {fileID: 1711836235}
   playerHPBar: {fileID: 1611263450}
   fuelBar: {fileID: 1824347200}
   fuelUI: {fileID: 874975648}
@@ -8183,6 +8183,7 @@ MonoBehaviour:
   enemiesRemainingText: {fileID: 1603451588}
   mainTaskDescription: {fileID: 5795631940849837856}
   sideQuestDescription: {fileID: 5795631941228531382}
+  interactPromptText: {fileID: 1711836236}
   ammoMaxText: {fileID: 1408016685}
   ammoCurText: {fileID: 866001509}
   lvlButtons: []
