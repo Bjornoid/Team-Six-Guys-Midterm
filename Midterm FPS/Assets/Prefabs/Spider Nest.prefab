@@ -52,7 +52,7 @@ MonoBehaviour:
   model: {fileID: 4362632021769636306}
   spawnPos:
   - {fileID: 4362632022177543884}
-  spawnSpeed: 5
+  spawnSpeed: 2.5
   numSpawned: 0
   spawnEntity: {fileID: 6238086146351178788, guid: 642b38fcb7f1c414994600aa573cdc83, type: 3}
   hp: 3
