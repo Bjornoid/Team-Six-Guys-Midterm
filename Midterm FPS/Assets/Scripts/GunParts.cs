@@ -18,4 +18,9 @@ public class GunParts : MonoBehaviour, IPickup
             gunBuilt.SetActive(true);
         }
     }
+
+    public void delete()
+    {
+        Destroy(gameObject);
+    }
 }

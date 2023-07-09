@@ -14,26 +14,31 @@ public class TurretController : MonoBehaviour
     public float fireRate;
     public float nextFire;
     private bool isShooting;
+    bool isOn;
 
     // Start is called before the first frame update
     void Start()
     {
+        isOn = true;
         Player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // Update is called once per frame
     void Update()
     {
-        dist = Vector3.Distance(Player.position, Head.position);
-
-        if (dist <= maxDist)
+        if (isOn)
         {
-            playerDir = Player.transform.position - Head.position;
-            Quaternion rot = Quaternion.LookRotation(new Vector3(playerDir.x, 0, playerDir.z));
-            Head.rotation = Quaternion.Lerp(Head.rotation, rot, Time.deltaTime * playerFaceSpeed);
-            if (!isShooting)
+            dist = Vector3.Distance(Player.position, Head.position);
+
+            if (dist <= maxDist)
             {
-                StartCoroutine(Shoot());
+                playerDir = Player.transform.position - Head.position;
+                Quaternion rot = Quaternion.LookRotation(new Vector3(playerDir.x, 0, playerDir.z));
+                Head.rotation = Quaternion.Lerp(Head.rotation, rot, Time.deltaTime * playerFaceSpeed);
+                if (!isShooting)
+                {
+                    StartCoroutine(Shoot());
+                }
             }
         }
     }
@@ -48,6 +53,11 @@ public class TurretController : MonoBehaviour
 
         Destroy(clone, 2);
 
+    }
+
+    public void turnOff()
+    {
+        isOn = false;
     }
 }
 

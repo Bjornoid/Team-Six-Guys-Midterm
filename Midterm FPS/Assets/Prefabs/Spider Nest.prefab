@@ -52,7 +52,7 @@ MonoBehaviour:
   model: {fileID: 4362632021769636306}
   spawnPos:
   - {fileID: 4362632022177543884}
-  spawnSpeed: 5
+  spawnSpeed: 2.5
   numSpawned: 0
   spawnEntity: {fileID: 6238086146351178788, guid: 642b38fcb7f1c414994600aa573cdc83, type: 3}
   hp: 3
@@ -142,7 +142,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4362632022177543884}
-  - component: {fileID: 4362632022177543883}
   m_Layer: 7
   m_Name: Spiderspawner
   m_TagString: Untagged
@@ -165,16 +164,3 @@ Transform:
   m_Father: {fileID: 4362632021769636319}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &4362632022177543883
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4362632022177543885}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}

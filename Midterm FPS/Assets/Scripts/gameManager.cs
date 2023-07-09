@@ -271,6 +271,11 @@ public class gameManager : MonoBehaviour
         audioManager.PlaySFX(audioManager.buttonSelect);
     }
 
+    public void playButtonPress()
+    {
+        audioManager.PlaySFX(audioManager.buttonPress);
+    }
+
     public void SetMusicVolume()
     {
         float volume = musicSlider.value;
