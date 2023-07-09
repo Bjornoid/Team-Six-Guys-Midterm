@@ -7,14 +7,12 @@ using UnityEngine.Events;
 public class interactObject : MonoBehaviour
 {
     bool inRange;
-    [SerializeField] TextMeshProUGUI interactPrompt;
     [SerializeField] string promptText;
     [SerializeField] UnityEvent action;
     
     // Start is called before the first frame update
     void Start()
     {
-        interactPrompt.text = promptText;
     }
 
     // Update is called once per frame
@@ -34,6 +32,7 @@ public class interactObject : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            gameManager.instance.interactPromptText.text = promptText;
             inRange = true;
             gameManager.instance.interactPrompt.SetActive(true);
         }

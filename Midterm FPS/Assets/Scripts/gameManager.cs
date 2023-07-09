@@ -47,6 +47,7 @@ public class gameManager : MonoBehaviour
     public TextMeshProUGUI enemiesRemainingText;
     public TextMeshProUGUI mainTaskDescription;
     public TextMeshProUGUI sideQuestDescription;
+    public TextMeshProUGUI interactPromptText;
     public TextMeshProUGUI ammoMaxText;
     public TextMeshProUGUI ammoCurText;
     public Button[] lvlButtons;
