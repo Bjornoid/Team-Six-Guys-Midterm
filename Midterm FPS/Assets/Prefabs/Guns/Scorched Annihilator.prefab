@@ -93,7 +93,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5895434084937677002}
-  - component: {fileID: 1899960441326673439}
   - component: {fileID: 2949953593394639426}
   - component: {fileID: 5895434084934809834}
   - component: {fileID: 5895434084935907882}
@@ -121,28 +120,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 361.51}
---- !u!114 &1899960441326673439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5895434084938097898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2221be0c4e49644f9753ca0da0709b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flameObj: {fileID: 0}
-  damage: 0
-  dist: 0
-  rateOfFire: 0
-  coolDownTimer: 0
-  timeTilCoolDown: 0
-  rb: {fileID: 0}
-  flame: {fileID: 0}
-  flameForce: 0
-  speed: 0
 --- !u!114 &2949953593394639426
 MonoBehaviour:
   m_ObjectHideFlags: 0
