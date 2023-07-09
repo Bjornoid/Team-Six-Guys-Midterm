@@ -9,9 +9,9 @@ public class LockedDoorTrigger : MonoBehaviour
 
     public float rotation;
 
-    private void OnTriggerEnter(Collider other)
+    public void tryOpen()
     {
-        if (other.CompareTag("Player") && gameManager.instance.getLocksRemaining() <= 0)
+        if (gameManager.instance.getLocksRemaining() <= 0)
         {
             if(lockedDoor == null)
             {

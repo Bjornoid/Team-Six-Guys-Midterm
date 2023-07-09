@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7070393797768990174}
   - component: {fileID: 5219600912722792396}
   m_Layer: 0
-  m_Name: pickupCollider
+  m_Name: interactCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58,6 +58,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9367ded6871fb3b4ca8799fe25849220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactPrompt: {fileID: 0}
+  promptText: Press 'E' to pickup
   action:
     m_PersistentCalls:
       m_Calls:
