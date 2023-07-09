@@ -1,17 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events; 
 
-public class pickupObject : MonoBehaviour
+public class interactObject : MonoBehaviour
 {
     bool inRange;
+    [SerializeField] string promptText;
     [SerializeField] UnityEvent action;
     
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -19,9 +20,9 @@ public class pickupObject : MonoBehaviour
     {
         if (inRange)
         {
-            if (Input.GetButtonDown("Pickup"))
+            if (Input.GetButtonDown("Interact"))
             {
-                gameManager.instance.pickupPrompt.SetActive(false);
+                gameManager.instance.interactPrompt.SetActive(false);
                 action.Invoke();
             }
         }
@@ -31,8 +32,9 @@ public class pickupObject : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            gameManager.instance.interactPromptText.text = promptText;
             inRange = true;
-            gameManager.instance.pickupPrompt.SetActive(true);
+            gameManager.instance.interactPrompt.SetActive(true);
         }
     }
 
@@ -41,7 +43,7 @@ public class pickupObject : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             inRange = false;
-            gameManager.instance.pickupPrompt.SetActive(false);
+            gameManager.instance.interactPrompt.SetActive(false);
         }
     }
 }

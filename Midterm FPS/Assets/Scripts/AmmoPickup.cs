@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AmmoPickup : MonoBehaviour
+public class AmmoPickup : MonoBehaviour, IPickup
 {
     public void pickup()
     {

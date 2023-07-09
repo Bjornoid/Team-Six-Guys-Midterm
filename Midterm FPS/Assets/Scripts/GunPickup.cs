@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GunPickup : MonoBehaviour
+public class GunPickup : MonoBehaviour, IPickup
 {
     [SerializeField] GunStats gun;
 
@@ -12,14 +12,11 @@ public class GunPickup : MonoBehaviour
         gun.reserveAmmoCurr = gun.reserveAmmoMax;
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void pickup()
     {
-        if(other.CompareTag("Player"))
-        {
-            gameManager.instance.playerScript.setGunModel(gun.name);
-            gameManager.instance.playerScript.gunPickup(gun);
-            Destroy(gameObject);
-        }
+        gameManager.instance.playerScript.setGunModel(gun.name);
+        gameManager.instance.playerScript.gunPickup(gun);
+        Destroy(gameObject);
     }
 
 } 

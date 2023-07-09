@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KeyAndLockTrigger : MonoBehaviour
+public class KeyAndLockTrigger : MonoBehaviour, IPickup
 {
     [Header("----- Game Objects -----")]
     public GameObject theKey;
@@ -12,15 +12,12 @@ public class KeyAndLockTrigger : MonoBehaviour
     {
         gameManager.instance.updateLockCount(1);
     }
-
-    void OnTriggerEnter(Collider other)
+    
+    public void pickup()
     {
-        if (other.CompareTag("Player"))
-        {
-            gameManager.instance.playerScript.pickupKey();
-            theKey.SetActive(false);
-            theLock.SetActive(false);
-            gameManager.instance.updateLockCount(-1);
-        }
+        gameManager.instance.playerScript.pickupKey();
+        theKey.SetActive(false);
+        theLock.SetActive(false);
+        gameManager.instance.updateLockCount(-1);
     }
 }

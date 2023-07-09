@@ -39,7 +39,7 @@ public class gameManager : MonoBehaviour
     public GameObject generalFirstButton;
     public GameObject checkpointPopUp;
     public GameObject checkpointPopUpTwo;
-    public GameObject pickupPrompt;
+    public GameObject interactPrompt;
     public Image playerHPBar;
     public Image fuelBar;
     public GameObject fuelUI;
@@ -47,6 +47,7 @@ public class gameManager : MonoBehaviour
     public TextMeshProUGUI enemiesRemainingText;
     public TextMeshProUGUI mainTaskDescription;
     public TextMeshProUGUI sideQuestDescription;
+    public TextMeshProUGUI interactPromptText;
     public TextMeshProUGUI ammoMaxText;
     public TextMeshProUGUI ammoCurText;
     public Button[] lvlButtons;
@@ -306,5 +307,14 @@ public class gameManager : MonoBehaviour
             loadGame.SetActive(true);
             eventSystem.SetSelectedGameObject(loadGame);
         }
+    }
+
+    public void endLevel()
+    {
+        Throwable item = gameManager.instance.player.GetComponent<Throwable>();
+        item.setObjToThrow(gameManager.instance.monkeyBomb);
+        item.throwTimes = 3;
+        item.thrown = 0;
+        Destroy(gameObject);
     }
 }

@@ -2,17 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JetpackTrigger : MonoBehaviour
+public class JetpackTrigger : MonoBehaviour, IPickup
 {
-    public GameObject jetpack;
-
-    private void OnTriggerEnter(Collider other)
+    public void pickup()
     {
-        if (other.CompareTag("Player"))
-        {
-            gameManager.instance.playerScript.hasJetpack = true;
-            jetpack.SetActive(false);
-            gameManager.instance.fuelUI.SetActive(true);
-        }
+        gameManager.instance.playerScript.hasJetpack = true;
+        gameObject.SetActive(false);
+        gameManager.instance.fuelUI.SetActive(true);
     }
 }
