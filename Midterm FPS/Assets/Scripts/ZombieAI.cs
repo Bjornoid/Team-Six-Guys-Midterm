@@ -59,7 +59,11 @@ public class ZombieAI : MonoBehaviour, IDamage, ISlow, IDistract
             if (!isDistract)
                 CanSeePlayer();
 
-
+            if (isShrunk)
+            {
+                if (Vector3.Distance(transform.position, gameManager.instance.player.transform.position) < 2)
+                    takeDamage(20);
+            }
 
             //if (playerInRange && !CanSeePlayer()) // if player is in range and Zombie CANNOT see player
             //{
@@ -263,23 +267,12 @@ public class ZombieAI : MonoBehaviour, IDamage, ISlow, IDistract
         isShrunk = true;
         int hpBefore = HP;
         HP = 1;
-    
+        
         transform.localScale *= .5f;
         yield return new WaitForSeconds(time);
         transform.localScale *= 2;
         HP = hpBefore / 2;
 
         isShrunk = false;
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (isShrunk)
-        {
-            if (collision.collider.CompareTag("Player"))
-            {
-                takeDamage(20);
-            }
-        }
     }
 }

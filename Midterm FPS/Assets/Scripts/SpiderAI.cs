@@ -47,6 +47,11 @@ public class SpiderAI : MonoBehaviour, IDamage, IDistract
     {
         if (agent.isActiveAndEnabled && !isDistracted)
         {
+            if (isShrunk)
+            {
+                if (Vector3.Distance(transform.position, gameManager.instance.player.transform.position) < 2)
+                    takeDamage(20);
+            }
             animator.SetFloat("Speed", agent.velocity.normalized.magnitude);
             if (inRange && !canSeePlayer())
             {
@@ -177,7 +182,7 @@ public class SpiderAI : MonoBehaviour, IDamage, IDistract
 
     private void ItemDrop()
     {
-        for (int i = 0; i < droppedItem.Length;  i++)
+        for (int i = 0; i < droppedItem.Length; i++)
         {
             Instantiate(droppedItem[i], transform.position, Quaternion.identity);
         }
@@ -221,18 +226,11 @@ public class SpiderAI : MonoBehaviour, IDamage, IDistract
         isShrunk = true;
         int hpBefore = HP;
         HP = 1;
-        Collider[] cs = Physics.OverlapCapsule(transform.position, headPos.position, 1);
-        foreach (Collider c in cs)
-        {
-            if (c.CompareTag("Player"))
-            {
-                takeDamage(hpBefore);
-            }
-        }
+
         transform.localScale *= .5f;
         yield return new WaitForSeconds(time);
         transform.localScale *= 2;
-        HP = hpBefore;
+        HP = hpBefore / 2;
 
         isShrunk = false;
     }

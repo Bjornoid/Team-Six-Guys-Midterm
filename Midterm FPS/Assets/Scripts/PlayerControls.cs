@@ -37,6 +37,8 @@ public class PlayerControls
     [SerializeField] Transform wavePos;
     [SerializeField] ParticleSystem flame;
     [SerializeField] Transform flamePos;
+    [SerializeField] ParticleSystem babyBlast;
+    [SerializeField] Transform babyBlastPos;
     [SerializeField] List<GunStats> gunList = new List<GunStats>();
     [SerializeField] GunStats startingPistol;  
     //[SerializeField][Range(3, 7)] float coolDownTimer;
@@ -339,7 +341,7 @@ public class PlayerControls
             }
             else if (gunList[selectedGun].name == "Baby Gun")
             {
-
+                gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.voidEater);
             }
 
             gunList[selectedGun].magAmmoCurr--;
@@ -368,7 +370,8 @@ public class PlayerControls
             {
                 if (gunList[selectedGun].name.Equals("Wave Blast"))
                 {
-                    Instantiate(waveBlast, wavePos.position, transform.rotation);
+                    ParticleSystem effect = Instantiate(waveBlast, wavePos.position, transform.rotation);
+                    Destroy(effect, 5);
                     GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
                     GameObject debris = GameObject.FindGameObjectWithTag("Debris");
                     if (Vector3.Distance(debris.transform.position, transform.position) < shootDist)
@@ -378,20 +381,20 @@ public class PlayerControls
                         Vector3 enemyDir = enemy.transform.position - transform.position;
                         float angleToEnemy = Vector3.Angle(new Vector3(enemyDir.x, 0, enemyDir.z), transform.forward);
                         if (Vector3.Distance(enemy.transform.position, transform.position) < shootDist && angleToEnemy <= 100)
-                        { 
+                        {
                             enemy.GetComponent<IDamage>().takeDamage(shootDamage);
                         }
                     }
                 }
-                else if(gunList[selectedGun].name.Equals("Scorched Annihilator"))
+                else if (gunList[selectedGun].name.Equals("Scorched Annihilator"))
                 {
                     Instantiate(flame, flamePos.position, transform.rotation);
                     GameObject[] enemy = GameObject.FindGameObjectsWithTag("Enemy");
-                    foreach(GameObject enemies in enemy)
+                    foreach (GameObject enemies in enemy)
                     {
                         Vector3 foeDir = enemies.transform.position - transform.position;
                         float angleToFoe = Vector3.Angle(new Vector3(foeDir.x, 0, foeDir.z), transform.forward);
-                        if(Vector3.Distance(enemies.transform.position, transform.position)< shootDist && angleToFoe <=100)
+                        if (Vector3.Distance(enemies.transform.position, transform.position) < shootDist && angleToFoe <= 100)
                         {
                             enemies.GetComponent<IDamage>().takeDamage(shootDamage);
                         }
@@ -400,6 +403,8 @@ public class PlayerControls
                 }
                 else if (gunList[selectedGun].name.Equals("Baby Gun"))
                 {
+                    ParticleSystem effect = Instantiate(babyBlast, babyBlastPos.position, transform.rotation);
+                    Destroy(effect, 5);
                     GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
                     foreach (GameObject enemy in enemies)
                     {
@@ -408,7 +413,7 @@ public class PlayerControls
                         if (Vector3.Distance(enemy.transform.position, transform.position) < shootDist && angleToEnemy <= 10)
                         {
                             IDistract d = enemy.GetComponent<IDistract>();
-                            if (d != null) 
+                            if (d != null)
                             {
                                 d.getShrunk();
                             }
@@ -420,7 +425,14 @@ public class PlayerControls
             yield return new WaitForSeconds(shootRate);
 
             isShooting = false;
-        } 
+        }
+        else
+        {
+            isShooting = true;
+            gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.gunClick);
+            yield return new WaitForSeconds(shootRate);
+            isShooting = false;
+        }
     }
 
     public void SpawnPlayer()

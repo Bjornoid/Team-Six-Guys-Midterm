@@ -53,7 +53,11 @@ public class zombieRoamingAI : MonoBehaviour, IDamage, ISlow, IDistract
         if (agent.isActiveAndEnabled && !isDistracted)
         {
             //animation for walk
-
+            if (isShrunk)
+            {
+                if (Vector3.Distance(transform.position, gameManager.instance.player.transform.position) < 2)
+                    takeDamage(20);
+            }
             if (playerInRange) // if player is in range and Zombie CANNOT see player
             {
                 agent.stoppingDistance = stoppingDistOrig;
@@ -222,14 +226,7 @@ public class zombieRoamingAI : MonoBehaviour, IDamage, ISlow, IDistract
         isShrunk = true;
         int hpBefore = HP;
         HP = 1;
-        Collider[] cs = Physics.OverlapCapsule(transform.position, headPos.position, 1);
-        foreach(Collider c in cs)
-        {
-            if (c.CompareTag("Player"))
-            {
-                takeDamage(hpBefore);
-            }
-        }
+
         transform.localScale *= .5f;
         yield return new WaitForSeconds(time);
         transform.localScale *= 2;
