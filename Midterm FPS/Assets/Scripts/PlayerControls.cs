@@ -540,6 +540,7 @@ public class PlayerControls
 
     public void gunPickup(GunStats gunStat)
     {
+        gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.gunCock);
         gunList.Add(gunStat);
         selectedGun = gunList.Count - 1;
         shootDamage = gunStat.shootDmg;
@@ -575,6 +576,7 @@ public class PlayerControls
         {
             selectedGun++;
             setGunModel(gunList[selectedGun].name);
+            gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.gunCock);
             changeGunStats();
         }
         else if (Input.GetAxis("Mouse ScrollWheel") < 0 && selectedGun > 0)
@@ -582,6 +584,7 @@ public class PlayerControls
             selectedGun--;
             setGunModel(gunList[selectedGun].name);
             changeGunStats();
+            gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.gunCock);
         }
         UpdatePlayerUI();
     }

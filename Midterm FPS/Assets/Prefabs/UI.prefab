@@ -402,6 +402,8 @@ MonoBehaviour:
   popUp: {fileID: 8300000, guid: d79d6a7f1b12c1646ae4d622a86c8c06, type: 3}
   buttonPress: {fileID: 8300000, guid: f8edeaeda7147f1499407409d6c30b4d, type: 3}
   buttonSelect: {fileID: 8300000, guid: d79d6a7f1b12c1646ae4d622a86c8c06, type: 3}
+  monkeyBomb: {fileID: 8300000, guid: 4423bb489e5b8e249a33b0d29e98424c, type: 3}
+  stunGrenade: {fileID: 8300000, guid: c2f4f8f15062a584ebf166447ee0cc53, type: 3}
 --- !u!1 &70759495
 GameObject:
   m_ObjectHideFlags: 0
@@ -12153,7 +12155,6 @@ MonoBehaviour:
   winMenu: {fileID: 5795631940605999763}
   loseMenu: {fileID: 4249726674594382857}
   loseFirstButton: {fileID: 6679387800303354305}
-  winFirstButton: {fileID: 5795631941078294398}
   audioFirstButton: {fileID: 0}
   generalFirstButton: {fileID: 0}
   checkpointPopUp: {fileID: 0}
@@ -12167,6 +12168,7 @@ MonoBehaviour:
   mainTaskDescription: {fileID: 5795631940849837856}
   sideQuestDescription: {fileID: 5795631941228531382}
   interactPromptText: {fileID: 1711836236}
+  amountOfDeathsText: {fileID: 0}
   ammoMaxText: {fileID: 1408016685}
   ammoCurText: {fileID: 866001509}
   lvlButtons: []

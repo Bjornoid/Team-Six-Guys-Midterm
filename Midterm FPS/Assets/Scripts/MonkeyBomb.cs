@@ -8,11 +8,13 @@ public class MonkeyBomb : MonoBehaviour
     [SerializeField] GameObject landingEffect;
     [SerializeField] Vector3 effectOffset;
 
-    [Header("Explosion settings")]
-    [SerializeField] float explosionDelay = 4.5f;
+    [Header("----- Explosion settings -----")]
+    [SerializeField] float explosionDelay = 8f;
     [SerializeField] float explosionRadius = 10f;
+    [SerializeField] Animator animator;
 
-    [Header("Audio Effects")]
+    [Header("----- Audio -----")]
+    [SerializeField] AudioSource aud;
 
     float countdown;
     bool hasExploded;
@@ -20,6 +22,8 @@ public class MonkeyBomb : MonoBehaviour
 
     private void Start()
     {
+        //animator.enabled = false;
+        gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.monkeyBomb, aud);
         countdown = explosionDelay;
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject enemy in enemies) 
@@ -45,6 +49,11 @@ public class MonkeyBomb : MonoBehaviour
                 explode();
                 hasExploded = true;
             }
+            else if (countdown <= countdown / 2)
+            {
+                //animator.Play("anim_open");
+
+            }
             else
                 distractEnemies();
         }
@@ -52,11 +61,16 @@ public class MonkeyBomb : MonoBehaviour
 
     void distractEnemies()
     {
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject enemy in enemies)
         {
-            if (enemy != null && enemy.TryGetComponent<NavMeshAgent>(out var a)) 
-                if (a.isActiveAndEnabled)
-                    a.SetDestination(gameObject.transform.position);
+            IDistract distract = enemy.GetComponent<IDistract>();
+
+            if (distract != null)
+            {
+                distract.getDistracted();
+                enemy.GetComponent<NavMeshAgent>().stoppingDistance = Random.Range(4, explosionRadius / 2);
+            }
         }
     }
 
@@ -67,11 +81,10 @@ public class MonkeyBomb : MonoBehaviour
         Destroy(explosionEffect, 4f);
 
         //play sound
-
         //kill enemies close enough to monkey bomb
         kill();
 
-        Destroy(gameObject);
+        Destroy(gameObject, .7f);
     }
 
     void kill()

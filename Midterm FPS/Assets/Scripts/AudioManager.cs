@@ -35,6 +35,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip popUp;
     public AudioClip buttonPress;
     public AudioClip buttonSelect;
+    public AudioClip monkeyBomb;
+    public AudioClip stunGrenade;
 
 
     private void Start()
@@ -46,6 +48,11 @@ public class AudioManager : MonoBehaviour
     public void PlaySFX(AudioClip clip) 
     { 
         sfx.PlayOneShot(clip); 
+    }
+
+    public void PlaySFX(AudioClip clip, AudioSource source)
+    {
+        source.PlayOneShot(clip);
     }
 
     public void PlaySFXArray(AudioClip[] clips) 
