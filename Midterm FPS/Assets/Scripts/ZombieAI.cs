@@ -36,6 +36,7 @@ public class ZombieAI : MonoBehaviour, IDamage, ISlow, IDistract
     bool isShooting;
     bool isStun;
     bool isDistract;
+    bool isShrunk;
     bool destinationChosen; // Checks to see if the enemy has chosen a location to roam
 
     void Start()
@@ -249,5 +250,36 @@ public class ZombieAI : MonoBehaviour, IDamage, ISlow, IDistract
     public void getDistracted()
     {
         isDistract = true;
+    }
+
+    public void getShrunk()
+    {
+        if (!isShrunk)
+            StartCoroutine(shrinkFor(5));
+    }
+
+    IEnumerator shrinkFor(float time)
+    {
+        isShrunk = true;
+        int hpBefore = HP;
+        HP = 1;
+    
+        transform.localScale *= .5f;
+        yield return new WaitForSeconds(time);
+        transform.localScale *= 2;
+        HP = hpBefore / 2;
+
+        isShrunk = false;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (isShrunk)
+        {
+            if (collision.collider.CompareTag("Player"))
+            {
+                takeDamage(20);
+            }
+        }
     }
 }

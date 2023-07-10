@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class PlayerControls
     : MonoBehaviour, IDamage, IAmmo, ISlow
@@ -336,6 +337,10 @@ public class PlayerControls
             {
                 gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.flamethrower);
             }
+            else if (gunList[selectedGun].name == "Baby Gun")
+            {
+
+            }
 
             gunList[selectedGun].magAmmoCurr--;
             UpdatePlayerUI();
@@ -365,6 +370,9 @@ public class PlayerControls
                 {
                     Instantiate(waveBlast, wavePos.position, transform.rotation);
                     GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+                    GameObject debris = GameObject.FindGameObjectWithTag("Debris");
+                    if (Vector3.Distance(debris.transform.position, transform.position) < shootDist)
+                        Destroy(debris);
                     foreach (GameObject enemy in enemies)
                     {
                         Vector3 enemyDir = enemy.transform.position - transform.position;
@@ -389,6 +397,23 @@ public class PlayerControls
                         }
                     }
                     //timeTilCoolDown--;
+                }
+                else if (gunList[selectedGun].name.Equals("Baby Gun"))
+                {
+                    GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+                    foreach (GameObject enemy in enemies)
+                    {
+                        Vector3 enemyDir = enemy.transform.position - transform.position;
+                        float angleToEnemy = Vector3.Angle(new Vector3(enemyDir.x, 0, enemyDir.z), transform.forward);
+                        if (Vector3.Distance(enemy.transform.position, transform.position) < shootDist && angleToEnemy <= 10)
+                        {
+                            IDistract d = enemy.GetComponent<IDistract>();
+                            if (d != null) 
+                            {
+                                d.getShrunk();
+                            }
+                        }
+                    }
                 }
             }
 
@@ -600,6 +625,10 @@ public class PlayerControls
         else if (gunList[selectedGun].name == "Scorched Annihilator")
         {
             gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.akReload);
+        }
+        else if (gunList[selectedGun].name == "Baby Gun")
+        {
+            gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.shottyReload);
         }
 
         yield return new WaitForSeconds(gunList[selectedGun].reloadTime);

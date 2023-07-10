@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9325592d2f3788c458a41f6b7e09a780, type: 3}
   m_Name: Baby Gun
   m_EditorClassIdentifier: 
-  shootDist: 100
+  shootDist: 12
   shootRate: 1
   shootDmg: 0
-  magAmmoCurr: 0
-  magAmmoMax: 0
-  reserveAmmoCurr: 0
-  reserveAmmoMax: 0
-  reloadTime: 0
+  magAmmoCurr: 3
+  magAmmoMax: 4
+  reserveAmmoCurr: 20
+  reserveAmmoMax: 20
+  reloadTime: 1.5
   reloadSound: {fileID: 0}
   shotSound: {fileID: 0}
   soundVol: 0

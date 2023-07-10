@@ -33,6 +33,7 @@ public class TerroristAI : MonoBehaviour, IDamage, ISlow, IDistract
     bool isDead;
     bool isStun;
     bool isDistracted;
+    bool isShrunk;
 
     // Start is called before the first frame update
     void Start()
@@ -215,4 +216,30 @@ public class TerroristAI : MonoBehaviour, IDamage, ISlow, IDistract
         isDistracted = true;
     }
 
+    public void getShrunk()
+    {
+        if (!isShrunk)
+            StartCoroutine(shrinkFor(5));
+    }
+
+    IEnumerator shrinkFor(float time)
+    {
+        isShrunk = true;
+        int hpBefore = HP;
+        HP = 1;
+        Collider[] cs = Physics.OverlapCapsule(transform.position, headPos.position, 1);
+        foreach (Collider c in cs)
+        {
+            if (c.CompareTag("Player"))
+            {
+                takeDamage(hpBefore);
+            }
+        }
+        transform.localScale *= .5f;
+        yield return new WaitForSeconds(time);
+        transform.localScale *= 2;
+        HP = hpBefore;
+
+        isShrunk = false;
+    }
 }

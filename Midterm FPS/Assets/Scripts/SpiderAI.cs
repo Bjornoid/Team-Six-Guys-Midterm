@@ -30,6 +30,7 @@ public class SpiderAI : MonoBehaviour, IDamage, IDistract
     float angleToPlayer;
     bool isStun;
     bool isDistracted;
+    bool isShrunk;
     public bool isShooting;
     bool destinationChosen;
     float stoppingDistanceOrig;
@@ -207,5 +208,32 @@ public class SpiderAI : MonoBehaviour, IDamage, IDistract
     public void getDistracted()
     {
         isDistracted = true;
+    }
+
+    public void getShrunk()
+    {
+        if (!isShrunk)
+            StartCoroutine(shrinkFor(5));
+    }
+
+    IEnumerator shrinkFor(float time)
+    {
+        isShrunk = true;
+        int hpBefore = HP;
+        HP = 1;
+        Collider[] cs = Physics.OverlapCapsule(transform.position, headPos.position, 1);
+        foreach (Collider c in cs)
+        {
+            if (c.CompareTag("Player"))
+            {
+                takeDamage(hpBefore);
+            }
+        }
+        transform.localScale *= .5f;
+        yield return new WaitForSeconds(time);
+        transform.localScale *= 2;
+        HP = hpBefore;
+
+        isShrunk = false;
     }
 }
