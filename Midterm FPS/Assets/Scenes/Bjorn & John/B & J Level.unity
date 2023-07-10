@@ -14714,6 +14714,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cee8087cb8927346a26c4d40c81bd41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menu: {fileID: 0}
+  needsPower: 0
 --- !u!4 &883471333
 Transform:
   m_ObjectHideFlags: 0
@@ -18137,6 +18139,10 @@ PrefabInstance:
     - target: {fileID: 8794699938328864095, guid: 82bc3cc0e6b5d7e4e801327deed57696, type: 3}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8794699938328864095, guid: 82bc3cc0e6b5d7e4e801327deed57696, type: 3}
+      propertyPath: m_TagString
+      value: Debris
       objectReference: {fileID: 0}
     - target: {fileID: 8794699938328864095, guid: 82bc3cc0e6b5d7e4e801327deed57696, type: 3}
       propertyPath: m_StaticEditorFlags
