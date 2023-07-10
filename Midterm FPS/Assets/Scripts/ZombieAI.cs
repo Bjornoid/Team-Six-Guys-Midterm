@@ -61,7 +61,7 @@ public class ZombieAI : MonoBehaviour, IDamage, ISlow, IDistract
 
             if (isShrunk)
             {
-                if (Vector3.Distance(transform.position, gameManager.instance.player.transform.position) < 2)
+                if (Vector3.Distance(transform.position, gameManager.instance.player.transform.position) < 2.3)
                     takeDamage(20);
             }
 
@@ -259,7 +259,7 @@ public class ZombieAI : MonoBehaviour, IDamage, ISlow, IDistract
     public void getShrunk()
     {
         if (!isShrunk)
-            StartCoroutine(shrinkFor(5));
+            StartCoroutine(shrinkFor(8));
     }
 
     IEnumerator shrinkFor(float time)
