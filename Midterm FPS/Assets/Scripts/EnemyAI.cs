@@ -26,6 +26,9 @@ public class EnemyAI : MonoBehaviour, IDamage, IDistract
     [SerializeField] float shootRate;
     [SerializeField] GameObject bullet;
 
+    [Header("----- Audio -----")]
+    [SerializeField] AudioSource aud;
+
 
     Vector3 playerDirection; // direction of the player
     public bool playerInRange; // checks to see if player is in range
@@ -115,6 +118,8 @@ public class EnemyAI : MonoBehaviour, IDamage, IDistract
                     if (isMelee)
                     {
                         animator.SetTrigger("Swing");
+
+
                     }
                 }
                 if (!isShooting && shootPos != null)
@@ -170,7 +175,8 @@ public class EnemyAI : MonoBehaviour, IDamage, IDistract
     {
         HP -= dmg;
 
-        StartCoroutine(flashColor());
+        gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.skeleton, aud);
+
 
         if (HP <= 0)
         {
@@ -192,6 +198,12 @@ public class EnemyAI : MonoBehaviour, IDamage, IDistract
 
             Destroy(gameObject, 2f); // destroy the object 
         }
+        else
+        {
+            agent.SetDestination(gameManager.instance.player.transform.position);
+
+            StartCoroutine(flashColor());
+        }
     }
 
     IEnumerator flashColor()
@@ -211,6 +223,7 @@ public class EnemyAI : MonoBehaviour, IDamage, IDistract
     void weaponColOn()
     {
         weaponCol.enabled = true;
+        gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.swordSwing, aud);
     }
 
     public void getStunned()

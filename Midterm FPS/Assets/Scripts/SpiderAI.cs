@@ -24,6 +24,10 @@ public class SpiderAI : MonoBehaviour, IDamage, IDistract
     [Header("----- Weapon Stats -----")]
     [SerializeField] float shootRate;
     [SerializeField] GameObject bullet;
+
+    [Header("----- Audio -----")]
+    [SerializeField] AudioSource aud;
+
     Vector3 startingPos;
     Vector3 playerDir;
     public bool inRange;
@@ -130,6 +134,7 @@ public class SpiderAI : MonoBehaviour, IDamage, IDistract
     {
         isShooting = true;
         animator.SetTrigger("Attack");
+        gameManager.instance.audioManager.PlaySFXArray(gameManager.instance.audioManager.spiderHiss, aud);
         CreateBullet();
         yield return new WaitForSeconds(shootRate);
         isShooting = false;
@@ -156,12 +161,14 @@ public class SpiderAI : MonoBehaviour, IDamage, IDistract
     {
 
         HP -= dmg;
+        gameManager.instance.audioManager.PlaySFXArray(gameManager.instance.audioManager.spiderHiss, aud);
 
         if (HP <= 0)
         {
             StopAllCoroutines();
             gameManager.instance.UpdateGameGoal(-1);
             animator.SetBool("Dead", true);
+            gameManager.instance.audioManager.PlaySFXArray(gameManager.instance.audioManager.spiderDeath, aud);
             agent.enabled = false;
             GetComponent<CapsuleCollider>().enabled = false;
             ItemDrop();
