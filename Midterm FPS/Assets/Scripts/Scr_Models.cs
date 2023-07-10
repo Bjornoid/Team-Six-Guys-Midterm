@@ -1,96 +1,96 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+//using System;
+//using System.Collections;
+//using System.Collections.Generic;
+//using UnityEngine;
 
-public static class scr_Models
-{
-    #region - Player - 
+//public static class scr_Models
+//{
+//    #region - Player - 
 
-    public enum PlayerStance
-    {
-        Stand,
-        Crouch,
-        Prone,
-    }
-
-
-    [Serializable]
-    public class PlayerSettingsModel
-    {
-        [Header("View Settings")]
-        public float ViewXSensitivity;
-        public float ViewYSensitivity;
-
-        public float AimingSensitivityEffector;
-
-        public bool ViewXInverted;
-        public bool ViewYInverted;
-
-        [Header("Movement Settings")]
-        public bool sprintingHold;
-        public float MovementSmoothing;
-
-        [Header("Movement - Running")]
-        public float RunningForwardSpeed;
-        public float RunningStrafeSpeed;
-
-        [Header("Movement - Walking")]
-        public float WalkingForwardSpeed;
-        public float WalkingBackwardSpeed;
-        public float WalkingStrafeSpeed;
+//    public enum PlayerStance
+//    {
+//        Stand,
+//        Crouch,
+//        Prone,
+//    }
 
 
-        [Header("Jumping")]
-        public float jumpingHeight;
-        public float jumpingFalloff;
-        public float FallingSmoothing;
+//    [Serializable]
+//    public class PlayerSettingsModel
+//    {
+//        [Header("View Settings")]
+//        public float ViewXSensitivity;
+//        public float ViewYSensitivity;
 
-        [Header("Speed Effectors")]
-        public float SpeedEffector = 1;
-        public float CrouchSpeedEffector;
-        public float ProneSpeedEffector;
-        public float FallingSpeedEffector;
-        public float AimingSpeedEffector;
+//        public float AimingSensitivityEffector;
 
-        [Header("Is Grounded / Falling")]
-        public float isGroundedRadius;
-        public float isFallingSpeed;
+//        public bool ViewXInverted;
+//        public bool ViewYInverted;
 
-    }
+//        [Header("Movement Settings")]
+//        public bool sprintingHold;
+//        public float MovementSmoothing;
 
-    [Serializable]
+//        [Header("Movement - Running")]
+//        public float RunningForwardSpeed;
+//        public float RunningStrafeSpeed;
 
-    public class CharacterStance
-    {
-        public float CameraHeight;
-        public CapsuleCollider StanceCollider;
-    }
+//        [Header("Movement - Walking")]
+//        public float WalkingForwardSpeed;
+//        public float WalkingBackwardSpeed;
+//        public float WalkingStrafeSpeed;
 
-    #endregion
 
-    #region - Weapons -
+//        [Header("Jumping")]
+//        public float jumpingHeight;
+//        public float jumpingFalloff;
+//        public float FallingSmoothing;
 
-    [Serializable]
-    public class WeaponSettingsModel
-    {
-        [Header("Weapon Sway")]
-        public float SwayAmount;
-        public bool SwayYInverted;
-        public bool SwayXInverted;
-        public float SwaySmoothing;
-        public float SwayResetSmoothing;
-        public float SwayClampX;
-        public float SwayClampY;
+//        [Header("Speed Effectors")]
+//        public float SpeedEffector = 1;
+//        public float CrouchSpeedEffector;
+//        public float ProneSpeedEffector;
+//        public float FallingSpeedEffector;
+//        public float AimingSpeedEffector;
 
-        [Header("Weapon Movement Sway")]
-        public float MovementSwayX;
-        public float MovementSwayY;
-        public bool MovementSwayXInverted;
-        public bool MovementSwayYInverted;
-        public float MovementSwaySmoothing;
+//        [Header("Is Grounded / Falling")]
+//        public float isGroundedRadius;
+//        public float isFallingSpeed;
 
-    }
+//    }
 
-    #endregion
-}
+//    [Serializable]
+
+//    public class CharacterStance
+//    {
+//        public float CameraHeight;
+//        public CapsuleCollider StanceCollider;
+//    }
+
+//    #endregion
+
+//    #region - Weapons -
+
+//    [Serializable]
+//    public class WeaponSettingsModel
+//    {
+//        [Header("Weapon Sway")]
+//        public float SwayAmount;
+//        public bool SwayYInverted;
+//        public bool SwayXInverted;
+//        public float SwaySmoothing;
+//        public float SwayResetSmoothing;
+//        public float SwayClampX;
+//        public float SwayClampY;
+
+//        [Header("Weapon Movement Sway")]
+//        public float MovementSwayX;
+//        public float MovementSwayY;
+//        public bool MovementSwayXInverted;
+//        public bool MovementSwayYInverted;
+//        public float MovementSwaySmoothing;
+
+//    }
+
+//    #endregion
+//}

@@ -36,6 +36,7 @@ public class zombieRoamingAI : MonoBehaviour, IDamage, ISlow, IDistract
     bool destinationChosen; // Checks to see if the enemy has chosen a location to roam
     bool isStun;
     bool isDistracted;
+    bool isShrunk;
 
     void Start()
     {
@@ -52,7 +53,11 @@ public class zombieRoamingAI : MonoBehaviour, IDamage, ISlow, IDistract
         if (agent.isActiveAndEnabled && !isDistracted)
         {
             //animation for walk
-
+            if (isShrunk)
+            {
+                if (Vector3.Distance(transform.position, gameManager.instance.player.transform.position) < 2)
+                    takeDamage(20);
+            }
             if (playerInRange) // if player is in range and Zombie CANNOT see player
             {
                 agent.stoppingDistance = stoppingDistOrig;
@@ -208,5 +213,25 @@ public class zombieRoamingAI : MonoBehaviour, IDamage, ISlow, IDistract
     public void getDistracted()
     {
         isDistracted = true;
+    }
+
+    public void getShrunk()
+    {
+        if (!isShrunk)
+            StartCoroutine(shrinkFor(5));
+    }
+
+    IEnumerator shrinkFor(float time)
+    {
+        isShrunk = true;
+        int hpBefore = HP;
+        HP = 1;
+
+        transform.localScale *= .5f;
+        yield return new WaitForSeconds(time);
+        transform.localScale *= 2;
+        HP = hpBefore / 2;
+
+        isShrunk = false;
     }
 }

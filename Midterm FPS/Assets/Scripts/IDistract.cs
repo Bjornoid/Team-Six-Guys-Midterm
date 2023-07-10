@@ -5,4 +5,6 @@ using UnityEngine;
 public interface IDistract
 {
     public void getDistracted();
+
+    public void getShrunk();
 }

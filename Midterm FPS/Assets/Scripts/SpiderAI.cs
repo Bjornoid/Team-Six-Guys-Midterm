@@ -30,6 +30,7 @@ public class SpiderAI : MonoBehaviour, IDamage, IDistract
     float angleToPlayer;
     bool isStun;
     bool isDistracted;
+    bool isShrunk;
     public bool isShooting;
     bool destinationChosen;
     float stoppingDistanceOrig;
@@ -46,6 +47,11 @@ public class SpiderAI : MonoBehaviour, IDamage, IDistract
     {
         if (agent.isActiveAndEnabled && !isDistracted)
         {
+            if (isShrunk)
+            {
+                if (Vector3.Distance(transform.position, gameManager.instance.player.transform.position) < 2)
+                    takeDamage(20);
+            }
             animator.SetFloat("Speed", agent.velocity.normalized.magnitude);
             if (inRange && !canSeePlayer())
             {
@@ -176,7 +182,7 @@ public class SpiderAI : MonoBehaviour, IDamage, IDistract
 
     private void ItemDrop()
     {
-        for (int i = 0; i < droppedItem.Length;  i++)
+        for (int i = 0; i < droppedItem.Length; i++)
         {
             Instantiate(droppedItem[i], transform.position, Quaternion.identity);
         }
@@ -207,5 +213,25 @@ public class SpiderAI : MonoBehaviour, IDamage, IDistract
     public void getDistracted()
     {
         isDistracted = true;
+    }
+
+    public void getShrunk()
+    {
+        if (!isShrunk)
+            StartCoroutine(shrinkFor(5));
+    }
+
+    IEnumerator shrinkFor(float time)
+    {
+        isShrunk = true;
+        int hpBefore = HP;
+        HP = 1;
+
+        transform.localScale *= .5f;
+        yield return new WaitForSeconds(time);
+        transform.localScale *= 2;
+        HP = hpBefore / 2;
+
+        isShrunk = false;
     }
 }
