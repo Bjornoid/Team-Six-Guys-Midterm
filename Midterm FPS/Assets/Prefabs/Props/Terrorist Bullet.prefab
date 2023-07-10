@@ -99,9 +99,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0dab419f1a734244bed62a7edc74292, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
-  speed: 25
+  damage: 2
+  speed: 30
   destroyTimer: 3
+  isTurret: 0
   rb: {fileID: 5206894172017754360}
 --- !u!135 &5206894172017754365
 SphereCollider:

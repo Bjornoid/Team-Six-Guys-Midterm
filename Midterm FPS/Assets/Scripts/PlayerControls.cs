@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class PlayerControls
     : MonoBehaviour, IDamage, IAmmo, ISlow
@@ -35,6 +37,8 @@ public class PlayerControls
     [SerializeField] Transform wavePos;
     [SerializeField] ParticleSystem flame;
     [SerializeField] Transform flamePos;
+    [SerializeField] ParticleSystem babyBlast;
+    [SerializeField] Transform babyBlastPos;
     [SerializeField] List<GunStats> gunList = new List<GunStats>();
     [SerializeField] GunStats startingPistol;  
     //[SerializeField][Range(3, 7)] float coolDownTimer;
@@ -145,11 +149,16 @@ public class PlayerControls
        // aud.PlayOneShot(damageSounds[UnityEngine.Random.Range(0, damageSounds.Length)], damageVol);
         HP -= dmg;
         UpdatePlayerUI();
-
         StartCoroutine(PlayerFlashDamage());
 
         if(HP<=0)
         {
+            if (SceneManager.GetActiveScene().name != "New Tutorial")
+            {
+                int deaths = PlayerPrefs.GetInt("deaths");
+                ++deaths;
+                PlayerPrefs.SetInt("deaths", deaths);
+            }
             gameManager.instance.YouLose();
             SpiderSpawner.playerNotInRange();
         }
@@ -330,6 +339,10 @@ public class PlayerControls
             {
                 gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.flamethrower);
             }
+            else if (gunList[selectedGun].name == "Baby Gun")
+            {
+                gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.voidEater);
+            }
 
             gunList[selectedGun].magAmmoCurr--;
             UpdatePlayerUI();
@@ -357,39 +370,69 @@ public class PlayerControls
             {
                 if (gunList[selectedGun].name.Equals("Wave Blast"))
                 {
-                    Instantiate(waveBlast, wavePos.position, transform.rotation);
+                    ParticleSystem effect = Instantiate(waveBlast, wavePos.position, transform.rotation);
+                    Destroy(effect, 5);
                     GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+                    GameObject debris = GameObject.FindGameObjectWithTag("Debris");
+                    if (Vector3.Distance(debris.transform.position, transform.position) < shootDist)
+                        Destroy(debris);
                     foreach (GameObject enemy in enemies)
                     {
                         Vector3 enemyDir = enemy.transform.position - transform.position;
                         float angleToEnemy = Vector3.Angle(new Vector3(enemyDir.x, 0, enemyDir.z), transform.forward);
                         if (Vector3.Distance(enemy.transform.position, transform.position) < shootDist && angleToEnemy <= 100)
-                        { 
+                        {
                             enemy.GetComponent<IDamage>().takeDamage(shootDamage);
                         }
                     }
                 }
-                else if(gunList[selectedGun].name.Equals("Scorched Annihilator"))
+                else if (gunList[selectedGun].name.Equals("Scorched Annihilator"))
                 {
                     Instantiate(flame, flamePos.position, transform.rotation);
                     GameObject[] enemy = GameObject.FindGameObjectsWithTag("Enemy");
-                    foreach(GameObject enemies in enemy)
+                    foreach (GameObject enemies in enemy)
                     {
                         Vector3 foeDir = enemies.transform.position - transform.position;
                         float angleToFoe = Vector3.Angle(new Vector3(foeDir.x, 0, foeDir.z), transform.forward);
-                        if(Vector3.Distance(enemies.transform.position, transform.position)< shootDist && angleToFoe <=100)
+                        if (Vector3.Distance(enemies.transform.position, transform.position) < shootDist && angleToFoe <= 100)
                         {
                             enemies.GetComponent<IDamage>().takeDamage(shootDamage);
                         }
                     }
                     //timeTilCoolDown--;
                 }
+                else if (gunList[selectedGun].name.Equals("Baby Gun"))
+                {
+                    ParticleSystem effect = Instantiate(babyBlast, babyBlastPos.position, transform.rotation);
+                    Destroy(effect, 5);
+                    GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+                    foreach (GameObject enemy in enemies)
+                    {
+                        Vector3 enemyDir = enemy.transform.position - transform.position;
+                        float angleToEnemy = Vector3.Angle(new Vector3(enemyDir.x, 0, enemyDir.z), transform.forward);
+                        if (Vector3.Distance(enemy.transform.position, transform.position) < shootDist && angleToEnemy <= 10)
+                        {
+                            IDistract d = enemy.GetComponent<IDistract>();
+                            if (d != null)
+                            {
+                                d.getShrunk();
+                            }
+                        }
+                    }
+                }
             }
 
             yield return new WaitForSeconds(shootRate);
 
             isShooting = false;
-        } 
+        }
+        else
+        {
+            isShooting = true;
+            gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.gunClick);
+            yield return new WaitForSeconds(shootRate);
+            isShooting = false;
+        }
     }
 
     public void SpawnPlayer()
@@ -594,6 +637,10 @@ public class PlayerControls
         else if (gunList[selectedGun].name == "Scorched Annihilator")
         {
             gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.akReload);
+        }
+        else if (gunList[selectedGun].name == "Baby Gun")
+        {
+            gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.shottyReload);
         }
 
         yield return new WaitForSeconds(gunList[selectedGun].reloadTime);

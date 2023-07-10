@@ -424,6 +424,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  isPoison: 0
 --- !u!136 &1497860105
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -484,6 +485,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  isPoison: 0
 --- !u!136 &761353685
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1873,7 +1875,7 @@ MonoBehaviour:
   headPos: {fileID: 1911679661325077081}
   handCollider1: {fileID: 1497860105}
   handCollider2: {fileID: 761353685}
-  HP: 5
+  HP: 2
   playerFaceSpeed: 9
   viewConeAngle: 180
   roamDist: 5

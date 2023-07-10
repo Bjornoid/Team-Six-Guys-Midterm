@@ -34,7 +34,6 @@ public class gameManager : MonoBehaviour
     public GameObject winMenu;
     public GameObject loseMenu;
     public GameObject loseFirstButton;
-    public GameObject winFirstButton;
     public GameObject audioFirstButton;
     public GameObject generalFirstButton;
     public GameObject checkpointPopUp;
@@ -48,6 +47,7 @@ public class gameManager : MonoBehaviour
     public TextMeshProUGUI mainTaskDescription;
     public TextMeshProUGUI sideQuestDescription;
     public TextMeshProUGUI interactPromptText;
+    public TextMeshProUGUI amountOfDeathsText;
     public TextMeshProUGUI ammoMaxText;
     public TextMeshProUGUI ammoCurText;
     public Button[] lvlButtons;
@@ -96,6 +96,7 @@ public class gameManager : MonoBehaviour
         }
 
         SetMusicVolume();
+        int deaths = PlayerPrefs.GetInt("deaths", 0);
         if (SceneManager.GetActiveScene().name == "Main Menu")
             handleLevelUnlocks();
     }
@@ -245,7 +246,6 @@ public class gameManager : MonoBehaviour
         activeMenu = winMenu;
         activeMenu.SetActive(true);
         statePaused();
-        eventSystem.SetSelectedGameObject(winFirstButton);
     }
 
     public void YouLose()
@@ -300,14 +300,14 @@ public class gameManager : MonoBehaviour
 
     public void handleLevelUnlocks()
     {
-        int levelAt = PlayerPrefs.GetInt("levelAt", 2);
+        int levelAt = PlayerPrefs.GetInt("levelAt", 1);
 
         for (int i = 0; i < lvlButtons.Length; i++) 
         {
             if (i + 1 > levelAt)
                 lvlButtons[i].interactable = false;
         }
-        if (levelAt > 2)
+        if (levelAt > 1)
         {
             loadGame.SetActive(true);
             eventSystem.SetSelectedGameObject(loadGame);
