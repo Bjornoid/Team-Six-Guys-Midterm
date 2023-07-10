@@ -40,7 +40,7 @@ public class PlayerControls
     [SerializeField] ParticleSystem babyBlast;
     [SerializeField] Transform babyBlastPos;
     [SerializeField] List<GunStats> gunList = new List<GunStats>();
-    [SerializeField] GunStats startingPistol;  
+    [SerializeField] GunStats startingPistol;
     //[SerializeField][Range(3, 7)] float coolDownTimer;
     //[SerializeField] float timeTilCoolDown;  
 
@@ -73,7 +73,7 @@ public class PlayerControls
     private Vector3 move; // movement for fps 
     private int jumpTimes; // the amount of time the player has jumped
     int playerHPOrig; // Original HP of player
-    private bool groundedPlayer; // checks if player is on ground
+    public bool groundedPlayer; // checks if player is on ground
     bool isShooting; // Checks if you are shooting
     bool isReloading;
     bool stepsIsPlaying; 
@@ -370,11 +370,11 @@ public class PlayerControls
             {
                 if (gunList[selectedGun].name.Equals("Wave Blast"))
                 {
-                    ParticleSystem effect = Instantiate(waveBlast, wavePos.position, transform.rotation);
-                    Destroy(effect, 5);
+                    Instantiate(waveBlast, wavePos.position, transform.rotation);
+
                     GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
                     GameObject debris = GameObject.FindGameObjectWithTag("Debris");
-                    if (Vector3.Distance(debris.transform.position, transform.position) < shootDist)
+                    if (debris != null && Vector3.Distance(debris.transform.position, transform.position) < shootDist)
                         Destroy(debris);
                     foreach (GameObject enemy in enemies)
                     {
@@ -403,8 +403,8 @@ public class PlayerControls
                 }
                 else if (gunList[selectedGun].name.Equals("Baby Gun"))
                 {
-                    ParticleSystem effect = Instantiate(babyBlast, babyBlastPos.position, transform.rotation);
-                    Destroy(effect, 5);
+                    Instantiate(babyBlast, babyBlastPos.position, transform.rotation);
+
                     GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
                     foreach (GameObject enemy in enemies)
                     {

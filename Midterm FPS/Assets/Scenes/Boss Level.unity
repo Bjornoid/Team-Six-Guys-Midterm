@@ -1513,6 +1513,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss Spider
       objectReference: {fileID: 0}
+    - target: {fileID: 8535066201176357360, guid: 3b0225570315ffb48b144ec92c68c410, type: 3}
+      propertyPath: biteCol
+      value: 
+      objectReference: {fileID: 349729384}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b0225570315ffb48b144ec92c68c410, type: 3}
 --- !u!4 &76939843 stripped
@@ -5883,6 +5887,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e52890ebb21e7704b8a5193fa0865463, type: 3}
+--- !u!65 &349729384 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 6211213635177504144, guid: 3b0225570315ffb48b144ec92c68c410, type: 3}
+  m_PrefabInstance: {fileID: 75186224}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &353982966
 PrefabInstance:
   m_ObjectHideFlags: 0

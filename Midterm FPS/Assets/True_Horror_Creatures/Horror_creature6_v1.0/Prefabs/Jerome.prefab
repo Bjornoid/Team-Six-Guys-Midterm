@@ -203,7 +203,6 @@ GameObject:
   - component: {fileID: 494698}
   - component: {fileID: 9500310}
   - component: {fileID: 14365428}
-  - component: {fileID: 11432326}
   m_Layer: 0
   m_Name: Jerome
   m_TagString: Untagged
@@ -267,22 +266,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1.1, z: 0}
---- !u!114 &11432326
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 111292}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e2744403d2cbfb4f867bb5e724215a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1.1
-  runSpeed: 3
-  turnSpeed: 65
-  gravity: 20
 --- !u!1 &112038
 GameObject:
   m_ObjectHideFlags: 0

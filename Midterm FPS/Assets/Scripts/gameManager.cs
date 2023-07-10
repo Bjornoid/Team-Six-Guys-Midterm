@@ -97,6 +97,7 @@ public class gameManager : MonoBehaviour
 
         SetMusicVolume();
         int deaths = PlayerPrefs.GetInt("deaths", 0);
+        float brightness = PlayerPrefs.GetFloat("brightness", 2);
         if (SceneManager.GetActiveScene().name == "Main Menu")
             handleLevelUnlocks();
     }
