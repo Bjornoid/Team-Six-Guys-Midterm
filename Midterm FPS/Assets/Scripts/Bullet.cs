@@ -31,7 +31,10 @@ public class Bullet : MonoBehaviour
         }
         else
         {
-            gameManager.instance.playerScript.emptyFuel();
+            if (other.CompareTag("Player"))
+            {
+                gameManager.instance.playerScript.emptyFuel();
+            }
         }
 
         Destroy(gameObject);
