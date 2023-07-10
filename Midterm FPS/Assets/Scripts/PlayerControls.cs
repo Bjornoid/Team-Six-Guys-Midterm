@@ -146,16 +146,16 @@ public class PlayerControls
        // aud.PlayOneShot(damageSounds[UnityEngine.Random.Range(0, damageSounds.Length)], damageVol);
         HP -= dmg;
         UpdatePlayerUI();
-        if (SceneManager.GetActiveScene().name != "New Tutorial")
-        {
-            int deaths = PlayerPrefs.GetInt("deaths");
-            ++deaths;
-            PlayerPrefs.SetInt("deaths", deaths);
-        }
         StartCoroutine(PlayerFlashDamage());
 
         if(HP<=0)
         {
+            if (SceneManager.GetActiveScene().name != "New Tutorial")
+            {
+                int deaths = PlayerPrefs.GetInt("deaths");
+                ++deaths;
+                PlayerPrefs.SetInt("deaths", deaths);
+            }
             gameManager.instance.YouLose();
             SpiderSpawner.playerNotInRange();
         }
