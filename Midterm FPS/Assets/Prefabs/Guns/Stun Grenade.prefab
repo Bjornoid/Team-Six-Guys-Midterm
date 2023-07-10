@@ -212,6 +212,7 @@ MonoBehaviour:
   effectOffset: {x: 0, y: 1, z: 0}
   explosionDelay: 2
   explosionRadius: 5
+  aud: {fileID: 7940156502924539182}
 --- !u!54 &33909176547989344
 Rigidbody:
   m_ObjectHideFlags: 0

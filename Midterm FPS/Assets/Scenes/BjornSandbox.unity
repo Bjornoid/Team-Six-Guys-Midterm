@@ -22936,9 +22936,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 64828918, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
-      propertyPath: monkeyBomb
+      propertyPath: stunGrenade
       value: 
-      objectReference: {fileID: 8300000, guid: edf3f0e8d5a3fb343a4dce2d7cd1f34c, type: 3}
+      objectReference: {fileID: 8300000, guid: 510cedeed9c05e447baa311bc4f4eb19, type: 3}
     - target: {fileID: 586781860318768780, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
       propertyPath: playerSpawnPosition
       value: 
