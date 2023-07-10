@@ -27,7 +27,7 @@ public class BossSpiderAI : MonoBehaviour, IDamage
     [SerializeField] float shootRate;
     [SerializeField] GameObject bullet;
     int startingHP;
-    Vector3 startingPos;
+    Transform startingPos;
     Vector3 playerDir;
     public bool inRange;
     public bool isAttacking;
@@ -46,7 +46,7 @@ public class BossSpiderAI : MonoBehaviour, IDamage
         //agent.enabled = true;
         startingHP = HP;
         phase2 = false;
-        startingPos = transform.position;
+        startingPos = transform;
     }
 
     // Update is called once per frame
@@ -86,8 +86,8 @@ public class BossSpiderAI : MonoBehaviour, IDamage
         else
         {
             //animator.SetTrigger("Spawn");
-            agent.SetDestination(startingPos);
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.identity, Time.deltaTime);
+            agent.SetDestination(startingPos.position);
+            transform.rotation = Quaternion.Lerp(transform.rotation, startingPos.rotation, Time.deltaTime);
             if (!nestSpawned)
             {
                 spiderNest.SetActive(true);
