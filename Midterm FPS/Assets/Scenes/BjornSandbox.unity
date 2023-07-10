@@ -2014,7 +2014,7 @@ PrefabInstance:
     - target: {fileID: 7419877011687573681, guid: 3c9c161fff045174fbf5bd48700020aa, type: 3}
       propertyPath: spawnObj
       value: 
-      objectReference: {fileID: 6153654709696198003, guid: 28c74b17da261f7429171da136db9ee1, type: 3}
+      objectReference: {fileID: 5243948586796081221, guid: 37a37f201f80f924b9939cd32db42520, type: 3}
     - target: {fileID: 7419877011687573681, guid: 3c9c161fff045174fbf5bd48700020aa, type: 3}
       propertyPath: numToSpawn
       value: 15
@@ -22936,9 +22936,193 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 64828918, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: skeleton
+      value: 
+      objectReference: {fileID: 8300000, guid: 93be2f6f13eb0eb409ece55257716cc4, type: 3}
+    - target: {fileID: 64828918, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: swordSwing
+      value: 
+      objectReference: {fileID: 8300000, guid: 4c7e0b8ee9f308c41b1728f31f31573c, type: 3}
+    - target: {fileID: 64828918, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
       propertyPath: stunGrenade
       value: 
       objectReference: {fileID: 8300000, guid: 510cedeed9c05e447baa311bc4f4eb19, type: 3}
+    - target: {fileID: 64828918, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: spiderHiss.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 64828918, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: spiderWalk.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 64828918, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: spiderDeath.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 64828918, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: soldierHurts.Array.size
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 64828918, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: zombieGroans.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 64828918, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: humanCrickets.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 64828918, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: spiderHiss.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 61c64a5ddd6590f439449bd1d4c62449, type: 3}
+    - target: {fileID: 64828918, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: spiderHiss.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: ccba5019ef9acc24a855a4037d4b82ff, type: 3}
+    - target: {fileID: 64828918, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: spiderHiss.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 62d89c69436d5494298ff6af1510c135, type: 3}
+    - target: {fileID: 64828918, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: spiderHiss.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: f033018c5ce6b9849977992f368085f0, type: 3}
+    - target: {fileID: 64828918, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: spiderWalk.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 9291c9dc478231d409e3346b88cb1e8f, type: 3}
+    - target: {fileID: 64828918, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: spiderWalk.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: addfc09df0b68a54387525e61f40fef1, type: 3}
+    - target: {fileID: 64828918, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: spiderWalk.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 9e959b3754e9bb349bac1dc82aa6d4e0, type: 3}
+    - target: {fileID: 64828918, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: spiderWalk.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: ea6227aadba923441a6f5f389ce4b129, type: 3}
+    - target: {fileID: 64828918, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: spiderWalk.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1c544926e40a0f1468e50b09dde2ef86, type: 3}
+    - target: {fileID: 64828918, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: spiderDeath.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 42596b48ffcbc6741a2b64da39ec72ef, type: 3}
+    - target: {fileID: 64828918, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: spiderDeath.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 57fe87b7e8f1bd14da3dc63f0760f23a, type: 3}
+    - target: {fileID: 64828918, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: spiderDeath.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 0f865ba7c7cc448428a7ccb0495840ce, type: 3}
+    - target: {fileID: 64828918, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: soldierHurts.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 2c2d8af24c057aa4bb5346c81cc3ce38, type: 3}
+    - target: {fileID: 64828918, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: soldierHurts.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 983b7b5c1d9c51a44bbee7d688e0c344, type: 3}
+    - target: {fileID: 64828918, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: soldierHurts.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 9e21b86fef86d7546b3c99d3890e9a28, type: 3}
+    - target: {fileID: 64828918, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: soldierHurts.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 38e8b5e5ceb1e6749a965d581ed07fe1, type: 3}
+    - target: {fileID: 64828918, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: soldierHurts.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: b0d5e83b828b11e4686d7529366ccfcf, type: 3}
+    - target: {fileID: 64828918, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: soldierHurts.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: 24042fe24638cab42bc5059cc4c285dc, type: 3}
+    - target: {fileID: 64828918, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: soldierHurts.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: 58f71caf9703e804bb36b08838f11a54, type: 3}
+    - target: {fileID: 64828918, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: soldierHurts.Array.data[7]
+      value: 
+      objectReference: {fileID: 8300000, guid: 883f8cc78f6c2274eb699429c23597f0, type: 3}
+    - target: {fileID: 64828918, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: soldierHurts.Array.data[8]
+      value: 
+      objectReference: {fileID: 8300000, guid: ede6960afcf75dc4e9fdc15300ace9ba, type: 3}
+    - target: {fileID: 64828918, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: soldierHurts.Array.data[9]
+      value: 
+      objectReference: {fileID: 8300000, guid: 72ac060801ff25142a00529da329498a, type: 3}
+    - target: {fileID: 64828918, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: zombieGroans.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: afad4bab0e1e17049a09c629cecc53c6, type: 3}
+    - target: {fileID: 64828918, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: zombieGroans.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: f967ffdc0e75ddd4084fec1c19d67243, type: 3}
+    - target: {fileID: 64828918, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: zombieGroans.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: db827d96a723cb3489cd258fd6e682bc, type: 3}
+    - target: {fileID: 64828918, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: zombieGroans.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: cb22e8417a72c654a9c8872cd6aa42d0, type: 3}
+    - target: {fileID: 64828918, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: zombieGroans.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 11c46a4dd0450184aa1763a696fb9d7e, type: 3}
+    - target: {fileID: 64828918, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: humanCrickets.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 2454b5dbf885a104e8dcecc198a97309, type: 3}
+    - target: {fileID: 64828918, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: humanCrickets.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 53fdb370c75f1b04ba7578e7bd5e3f89, type: 3}
+    - target: {fileID: 64828918, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: humanCrickets.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 95f752c469253e644a0328621c5b6310, type: 3}
+    - target: {fileID: 64828918, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: humanCrickets.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 2ccb1ba143bbd0c409518db6e81afe4d, type: 3}
+    - target: {fileID: 64828918, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: humanCrickets.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 0119d2af11632ae44b235c15025ddaf9, type: 3}
+    - target: {fileID: 64828918, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: soldierHurts.Array.data[10]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3e26562525daf0c42a479b341558d598, type: 3}
+    - target: {fileID: 64828918, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: soldierHurts.Array.data[11]
+      value: 
+      objectReference: {fileID: 8300000, guid: 567dd94b21140a2479350d2b9e1a3239, type: 3}
+    - target: {fileID: 64828918, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: soldierHurts.Array.data[12]
+      value: 
+      objectReference: {fileID: 8300000, guid: f5410e11203046d41a52f10f6538c01d, type: 3}
+    - target: {fileID: 64828918, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: soldierHurts.Array.data[13]
+      value: 
+      objectReference: {fileID: 8300000, guid: 0d2fef96338ee0845b16780c554e3e7b, type: 3}
+    - target: {fileID: 64828918, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: soldierHurts.Array.data[14]
+      value: 
+      objectReference: {fileID: 8300000, guid: 5a17a1ce4901a66478ac727c66f4476b, type: 3}
+    - target: {fileID: 64828918, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
+      propertyPath: soldierHurts.Array.data[15]
+      value: 
+      objectReference: {fileID: 8300000, guid: 7111e27efb5809342adec994ee87db3e, type: 3}
     - target: {fileID: 586781860318768780, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
       propertyPath: playerSpawnPosition
       value: 

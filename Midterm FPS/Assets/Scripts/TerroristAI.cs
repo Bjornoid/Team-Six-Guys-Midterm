@@ -23,6 +23,9 @@ public class TerroristAI : MonoBehaviour, IDamage, ISlow, IDistract
     [Header("----- Weapon Stats -----")]
     [SerializeField] float shootRate;
     [SerializeField] GameObject bullet;
+    [Header("----- Audio -----")]
+    [SerializeField] AudioSource aud;
+
     Vector3 startingPos;
     Vector3 playerDir;
     public bool inRange;
@@ -133,6 +136,7 @@ public class TerroristAI : MonoBehaviour, IDamage, ISlow, IDistract
 
         isShooting = true;
         animator.SetTrigger("Shoot");
+        gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.pistol, aud);
         Instantiate(bullet, shootPos.position, transform.rotation);
         yield return new WaitForSeconds(shootRate);
         isShooting = false;
@@ -156,6 +160,7 @@ public class TerroristAI : MonoBehaviour, IDamage, ISlow, IDistract
 
         HP -= dmg;
         StartCoroutine(flashColor());
+        gameManager.instance.audioManager.PlaySFXArray(gameManager.instance.audioManager.soldierHurts, aud);
         if (agent.isActiveAndEnabled)
             agent.SetDestination(gameManager.instance.player.transform.position);
         if (HP <= 0)

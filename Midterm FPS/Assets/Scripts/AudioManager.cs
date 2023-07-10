@@ -37,6 +37,14 @@ public class AudioManager : MonoBehaviour
     public AudioClip buttonSelect;
     public AudioClip monkeyBomb;
     public AudioClip stunGrenade;
+    public AudioClip[] humanCrickets;
+    public AudioClip skeleton;
+    public AudioClip swordSwing;
+    public AudioClip[] soldierHurts;
+    public AudioClip[] spiderDeath;
+    public AudioClip[] spiderWalk;
+    public AudioClip[] spiderHiss;
+    public AudioClip[] zombieGroans;
 
 
     private void Start()
@@ -58,5 +66,10 @@ public class AudioManager : MonoBehaviour
     public void PlaySFXArray(AudioClip[] clips) 
     {
         sfx.PlayOneShot(clips[UnityEngine.Random.Range(0, clips.Length)]);
+    }
+
+    public void PlaySFXArray(AudioClip[] clips, AudioSource source)
+    {
+        source.PlayOneShot(clips[UnityEngine.Random.Range(0, clips.Length)]);
     }
 }
