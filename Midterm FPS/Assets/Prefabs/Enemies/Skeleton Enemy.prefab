@@ -600,7 +600,7 @@ MonoBehaviour:
   headPos: {fileID: 5519099177206443735}
   shootPos: {fileID: 6214768936703736352}
   animator: {fileID: 4803340512922002579}
-  weaponCol: {fileID: 0}
+  weaponCol: {fileID: 2069314748}
   HP: 5
   playerFaceSpeed: 4
   viewConeAngle: 140
@@ -2151,6 +2151,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6214768936703736352}
   - component: {fileID: 6214768936703736353}
+  - component: {fileID: 2069314748}
   m_Layer: 8
   m_Name: Sword Collider
   m_TagString: Untagged
@@ -2187,3 +2188,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 2
   isPoison: 0
+--- !u!136 &2069314748
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6214768936703736354}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
