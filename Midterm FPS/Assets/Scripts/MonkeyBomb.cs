@@ -23,7 +23,7 @@ public class MonkeyBomb : MonoBehaviour
     private void Start()
     {
         //animator.enabled = false;
-        gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.monkeyBomb, aud);
+        gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.monkeyBomb,aud);
         countdown = explosionDelay;
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject enemy in enemies) 
@@ -97,8 +97,5 @@ public class MonkeyBomb : MonoBehaviour
             if (dmg != null && c.GetComponentInParent<PlayerControls>() == null)
                 dmg.takeDamage(100);
         }
-    }
-
-
-
+    } 
 }

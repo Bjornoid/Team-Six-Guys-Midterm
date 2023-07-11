@@ -42,7 +42,7 @@ public class StunGrenade : MonoBehaviour
         Destroy(explosionEffect, 4f);
 
         //play sound
-        gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.stunGrenade, aud);
+        gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.stunGrenade);
         //affect nearby enemies/player if too close
         stun();
 
