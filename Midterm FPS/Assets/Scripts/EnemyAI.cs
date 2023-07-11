@@ -59,7 +59,7 @@ public class EnemyAI : MonoBehaviour, IDamage, IDistract
             }
             animator.SetFloat("Speed", agent.velocity.normalized.magnitude);
 
-            if (playerInRange && !CanSeePlayer() && !isDistracted)
+            if (playerInRange && !CanSeePlayer())
             {
                 StartCoroutine(Roam());
             }
@@ -73,7 +73,7 @@ public class EnemyAI : MonoBehaviour, IDamage, IDistract
     // Allows enemy to roam
     IEnumerator Roam()
     {
-        if (!isDistracted && !isShrunk && !chosenDestination && agent.remainingDistance < 0.05f)
+        if (!isShrunk && !chosenDestination && agent.remainingDistance < 0.05f)
         {
             chosenDestination = true;
 

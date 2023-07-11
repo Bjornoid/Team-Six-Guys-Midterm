@@ -42,8 +42,8 @@ public class gameManager : MonoBehaviour
     public Image playerHPBar;
     public Image fuelBar;
     public Image reloadBar;
-    public Image stunGrenadeUI;
-    public Image monkeyBombUI;
+    public GameObject stunGrenadeUI;
+    public GameObject monkeyBombUI;
     public GameObject fuelUI;
     public GameObject playerFlashUI;
     public TextMeshProUGUI enemiesRemainingText;
@@ -53,8 +53,7 @@ public class gameManager : MonoBehaviour
     public TextMeshProUGUI amountOfDeathsText;
     public TextMeshProUGUI ammoMaxText;
     public TextMeshProUGUI ammoCurText;
-    public TextMeshProUGUI stunGrenadeText;
-    public TextMeshProUGUI buddyBombText;
+    public TextMeshProUGUI grenadeAmountText;
     public Button[] lvlButtons;
     public Button[] mainMenuBtns;
 

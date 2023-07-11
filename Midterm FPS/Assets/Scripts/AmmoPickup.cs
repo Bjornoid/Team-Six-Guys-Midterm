@@ -10,6 +10,14 @@ public class AmmoPickup : MonoBehaviour, IPickup
         Destroy(gameObject);
         Throwable item = gameManager.instance.player.GetComponent<Throwable>();
         item.thrown = 0;
+        if (item.getObjToThrow() == gameManager.instance.stunGrenade)
+        {
+            gameManager.instance.grenadeAmountText.text = 5.ToString();
+        }
+        else 
+        {
+            gameManager.instance.grenadeAmountText.text = 3.ToString();
+        }
     }
 
     private void OnTriggerEnter(Collider other)

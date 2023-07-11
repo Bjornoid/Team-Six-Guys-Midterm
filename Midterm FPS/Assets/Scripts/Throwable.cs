@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Throwable : MonoBehaviour
@@ -40,6 +42,11 @@ public class Throwable : MonoBehaviour
         objToThrow = obj;
     }
 
+    public GameObject getObjToThrow()
+    {
+        return objToThrow;
+    }
+
     void Update()
     {
         if (objToThrow != null && thrown < throwTimes)
@@ -59,6 +66,8 @@ public class Throwable : MonoBehaviour
                 //release throw
                 releaseThrow();
                 thrown++;
+                int currInt = Convert.ToInt32(gameManager.instance.grenadeAmountText.text);
+                gameManager.instance.grenadeAmountText.text = (currInt - 1).ToString();
             }
         }
     }
