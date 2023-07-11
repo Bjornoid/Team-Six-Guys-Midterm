@@ -1112,6 +1112,27 @@ MonoBehaviour:
   shootRate: 1.5
   bullet: {fileID: 5206894172017754366, guid: 9df591070fda82144b7450f1eaef3991, type: 3}
   aud: {fileID: 8318444233430333935}
+  damageSounds:
+  - {fileID: 8300000, guid: 2c2d8af24c057aa4bb5346c81cc3ce38, type: 3}
+  - {fileID: 8300000, guid: 983b7b5c1d9c51a44bbee7d688e0c344, type: 3}
+  - {fileID: 8300000, guid: 9e21b86fef86d7546b3c99d3890e9a28, type: 3}
+  - {fileID: 8300000, guid: 38e8b5e5ceb1e6749a965d581ed07fe1, type: 3}
+  - {fileID: 8300000, guid: b0d5e83b828b11e4686d7529366ccfcf, type: 3}
+  - {fileID: 8300000, guid: 24042fe24638cab42bc5059cc4c285dc, type: 3}
+  - {fileID: 8300000, guid: 58f71caf9703e804bb36b08838f11a54, type: 3}
+  - {fileID: 8300000, guid: 883f8cc78f6c2274eb699429c23597f0, type: 3}
+  - {fileID: 8300000, guid: ede6960afcf75dc4e9fdc15300ace9ba, type: 3}
+  - {fileID: 8300000, guid: 72ac060801ff25142a00529da329498a, type: 3}
+  - {fileID: 8300000, guid: 3e26562525daf0c42a479b341558d598, type: 3}
+  - {fileID: 8300000, guid: 567dd94b21140a2479350d2b9e1a3239, type: 3}
+  - {fileID: 8300000, guid: f5410e11203046d41a52f10f6538c01d, type: 3}
+  - {fileID: 8300000, guid: 0d2fef96338ee0845b16780c554e3e7b, type: 3}
+  - {fileID: 8300000, guid: 5a17a1ce4901a66478ac727c66f4476b, type: 3}
+  - {fileID: 8300000, guid: 7111e27efb5809342adec994ee87db3e, type: 3}
+  damageVol: 0.745
+  pistolsounds:
+  - {fileID: 8300000, guid: 8f9b233224ecd524a9465e7390fed26f, type: 3}
+  pistolVol: 0.757
   inRange: 0
   isShooting: 0
 --- !u!95 &5243948586796081225
@@ -1193,7 +1214,7 @@ AudioSource:
   m_GameObject: {fileID: 5243948586796081221}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -6494409933778371948, guid: 0898781b4ab44e344921d93a70e4d1f3, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1

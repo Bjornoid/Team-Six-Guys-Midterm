@@ -1658,6 +1658,7 @@ MonoBehaviour:
   lockVerMin: -90
   lockVerMax: 90
   invertY: 0
+  slider: {fileID: 0}
 --- !u!20 &1668069908981406649
 Camera:
   m_ObjectHideFlags: 0
@@ -1682,7 +1683,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 110
+  far clip plane: 420
   field of view: 60
   orthographic: 0
   orthographic size: 5

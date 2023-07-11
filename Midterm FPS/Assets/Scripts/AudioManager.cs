@@ -38,8 +38,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip monkeyBomb;
     public AudioClip stunGrenade;
     public AudioClip[] humanCrickets;
-    public AudioClip skeleton;
-    public AudioClip swordSwing;
+    public AudioClip[] skeleton;
+    public AudioClip[] swordSwing;
     public AudioClip[] soldierHurts;
     public AudioClip[] spiderDeath;
     public AudioClip[] spiderWalk;

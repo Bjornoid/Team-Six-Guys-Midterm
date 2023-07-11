@@ -407,6 +407,18 @@ MonoBehaviour:
   shootRate: 1
   bullet: {fileID: 4827986096082674542, guid: e504a3780ca48e847a00861a5c33ec8c, type: 3}
   aud: {fileID: 1098564483}
+  hissSounds:
+  - {fileID: 8300000, guid: 61c64a5ddd6590f439449bd1d4c62449, type: 3}
+  - {fileID: 8300000, guid: ccba5019ef9acc24a855a4037d4b82ff, type: 3}
+  - {fileID: 8300000, guid: 62d89c69436d5494298ff6af1510c135, type: 3}
+  - {fileID: 8300000, guid: f033018c5ce6b9849977992f368085f0, type: 3}
+  hissVol: 0.712
+  deathSounds:
+  - {fileID: 8300000, guid: 1589a8d7d5c2ff748a8601e66f7cdc7b, type: 3}
+  - {fileID: 8300000, guid: 42596b48ffcbc6741a2b64da39ec72ef, type: 3}
+  - {fileID: 8300000, guid: 57fe87b7e8f1bd14da3dc63f0760f23a, type: 3}
+  - {fileID: 8300000, guid: 0f865ba7c7cc448428a7ccb0495840ce, type: 3}
+  deathVol: 0.707
   inRange: 0
   isShooting: 0
   droppedItem: []
@@ -419,7 +431,7 @@ AudioSource:
   m_GameObject: {fileID: 6238086146351178788}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -6494409933778371948, guid: 0898781b4ab44e344921d93a70e4d1f3, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1

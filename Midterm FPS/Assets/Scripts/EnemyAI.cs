@@ -26,8 +26,13 @@ public class EnemyAI : MonoBehaviour, IDamage, IDistract
     [SerializeField] float shootRate;
     [SerializeField] GameObject bullet;
 
-    [Header("----- Audio -----")]
+    [Header("----- Audio -----")] 
     [SerializeField] AudioSource aud;
+    [SerializeField] AudioClip[] swingSounds; 
+    [SerializeField][Range(0, 1)] float swingVol;
+    [SerializeField] AudioClip[] damageSounds;
+    [SerializeField][Range(0, 1)] float damageVol;
+
 
 
     Vector3 playerDirection; // direction of the player
@@ -176,7 +181,7 @@ public class EnemyAI : MonoBehaviour, IDamage, IDistract
     {
         HP -= dmg;
 
-        gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.skeleton, aud);
+        gameManager.instance.audioManager.PlaySFXArray(gameManager.instance.audioManager.skeleton, aud);
 
 
         if (HP <= 0)
@@ -225,7 +230,7 @@ public class EnemyAI : MonoBehaviour, IDamage, IDistract
     void weaponColOn()
     {
         weaponCol.enabled = true;
-        gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.swordSwing, aud);
+        gameManager.instance.audioManager.PlaySFXArray(gameManager.instance.audioManager.swordSwing, aud);
     }
 
     public void getStunned()
