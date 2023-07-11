@@ -12,32 +12,31 @@ public class BossSpiderAI : MonoBehaviour, IDamage
     [SerializeField] Transform shootPos;
     [SerializeField] Animator animator;
     [SerializeField] Collider biteCol;
-    [SerializeField] GameObject spiderNest;
+    [SerializeField] GameObject[] spiderNests;
+    [SerializeField] float nestSpawnTimer;
 
     [Header("----- Enemy Stats -----")]
     [SerializeField] int HP;
     [SerializeField] int playerLookSpeed;
-    [SerializeField] int viewConeAngle;
-    [SerializeField] int roamDistance;
-    [SerializeField] int roamTimer;
     [SerializeField] float timeBeforeDelete;
 
 
     [Header("----- Attack Stats -----")]
     [SerializeField] float shootRate;
     [SerializeField] GameObject bullet;
-    int startingHP;
+
     Transform startingPos;
     Vector3 playerDir;
+    public GameObject[] droppedItem;
     public bool inRange;
     public bool isAttacking;
     bool destinationChosen;
     bool phase2;
     bool isStun;
-    bool nestSpawned;
-    public GameObject[] droppedItem;
+    bool nestsSpawned;
     float angleToPlayer;
     float stoppingDistanceOrig;
+    int startingHP;
     // Start is called before the first frame update
     void Start()
     {
@@ -52,7 +51,10 @@ public class BossSpiderAI : MonoBehaviour, IDamage
         if (agent.isActiveAndEnabled)
         {
             animator.SetFloat("Speed", agent.velocity.normalized.magnitude);
-            attack();
+            if (inRange)
+            {
+                attack();
+            }
         }
     }
 
@@ -80,16 +82,9 @@ public class BossSpiderAI : MonoBehaviour, IDamage
             else if (!isAttacking && gameManager.instance.player.transform.position.y - transform.position.y < 5 && agent.stoppingDistance > Vector3.Distance(gameManager.instance.player.transform.position, headPos.position))
                 StartCoroutine(bite());
         }
-        else
+        else if(!nestsSpawned)
         {
-            animator.SetTrigger("Spawn");
-            agent.SetDestination(startingPos.position);
-            transform.rotation = Quaternion.Lerp(transform.rotation, startingPos.rotation, Time.deltaTime);
-            if (!nestSpawned)
-            {
-                spiderNest.SetActive(true);
-                nestSpawned = true;
-            }
+            StartCoroutine(createNests());
         }
     }
 
@@ -108,6 +103,19 @@ public class BossSpiderAI : MonoBehaviour, IDamage
         animator.SetTrigger("Bite");
         yield return new WaitForSeconds(0.3f);
         isAttacking = false;
+    }
+
+    IEnumerator createNests()
+    {
+        for (int i = 0; i < spiderNests.Length; i++)
+        {
+            agent.SetDestination(spiderNests[i].transform.position);
+            yield return new WaitForSeconds(nestSpawnTimer);
+            spiderNests[i].SetActive(true);
+        }
+        nestsSpawned = true;
+        agent.SetDestination(startingPos.transform.position);
+        transform.rotation = Quaternion.Lerp(transform.rotation, startingPos.rotation, Time.deltaTime);
     }
 
 
@@ -156,7 +164,10 @@ public class BossSpiderAI : MonoBehaviour, IDamage
             agent.enabled = false;
             GetComponent<CapsuleCollider>().enabled = false;
             ItemDrop();
-            spiderNest.SetActive(false);
+            for (int i = 0; i < spiderNests.Length; i++)
+            {
+                spiderNests[i].SetActive(false);
+            }
             StartCoroutine(TimeToDelete());
         }
         else
