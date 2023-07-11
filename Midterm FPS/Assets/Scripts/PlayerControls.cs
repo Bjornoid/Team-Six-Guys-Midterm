@@ -688,14 +688,17 @@ public class PlayerControls
         if (gunList[selectedGun].name == "Starting Pistol")
         {
             gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.pistolReload);
+            pistolModel.GetComponent<Animator>().SetTrigger("reload");
         }
         else if (gunList[selectedGun].name == "Ak")
         {
             gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.akReload);
+            akModel.GetComponent<Animator>().SetTrigger("reload");
         }
         else if (gunList[selectedGun].name == "Shotty")
         {
             gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.shottyReload);
+            shottyModel.GetComponent<Animator>().SetTrigger("reload");
         }
         else if (gunList[selectedGun].name == "Wave Blast")
         {
