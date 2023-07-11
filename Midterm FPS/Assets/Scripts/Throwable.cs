@@ -17,6 +17,9 @@ public class Throwable : MonoBehaviour
     Camera mainCamera;
     GameObject objToThrow;
 
+    int stunGrenadeCurr;
+    int stunGrenadeMax = 5;
+
     bool isCharging = false;
     float chargeTime = 0f;
     public int throwTimes;
@@ -24,6 +27,8 @@ public class Throwable : MonoBehaviour
 
     void Start()
     {
+        stunGrenadeCurr = stunGrenadeMax;
+  
         thrown = 0;
         throwTimes = 5;
         objToThrow = gameManager.instance.stunGrenade;

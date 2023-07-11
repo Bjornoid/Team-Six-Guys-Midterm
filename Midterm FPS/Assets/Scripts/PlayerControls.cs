@@ -72,6 +72,8 @@ public class PlayerControls
     private Vector3 playerVelocity; // gets player velocty
     private Vector3 move; // movement for fps 
     private int jumpTimes; // the amount of time the player has jumped
+    float reloadTimer = 1f;
+    float maxReloadTimer = 1f;
     int playerHPOrig; // Original HP of player
     public bool groundedPlayer; // checks if player is on ground
     bool isShooting; // Checks if you are shooting
@@ -172,6 +174,22 @@ public class PlayerControls
         {
             gameManager.instance.ammoCurText.text = gunList[selectedGun].magAmmoCurr.ToString("F0");
             gameManager.instance.ammoMaxText.text = gunList[selectedGun].reserveAmmoCurr.ToString("F0");
+        }
+
+        if (isReloading)
+        {
+            reloadTimer -= Time.deltaTime;
+
+            gameManager.instance.reloadBar.enabled = true;
+
+            gameManager.instance.reloadBar.fillAmount = reloadTimer;
+            if (reloadTimer <= 0)
+            {
+                reloadTimer = maxReloadTimer;
+                gameManager.instance.reloadBar.fillAmount = maxReloadTimer;
+                gameManager.instance.reloadBar.enabled = false;
+
+            }
         }
     }
 
