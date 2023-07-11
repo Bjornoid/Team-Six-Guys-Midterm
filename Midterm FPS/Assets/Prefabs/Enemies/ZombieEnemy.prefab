@@ -1883,6 +1883,13 @@ MonoBehaviour:
   roamTimer: 5
   shootRate: 0
   aud: {fileID: 1354835722}
+  groanSounds:
+  - {fileID: 8300000, guid: afad4bab0e1e17049a09c629cecc53c6, type: 3}
+  - {fileID: 8300000, guid: f967ffdc0e75ddd4084fec1c19d67243, type: 3}
+  - {fileID: 8300000, guid: db827d96a723cb3489cd258fd6e682bc, type: 3}
+  - {fileID: 8300000, guid: cb22e8417a72c654a9c8872cd6aa42d0, type: 3}
+  - {fileID: 8300000, guid: 11c46a4dd0450184aa1763a696fb9d7e, type: 3}
+  groanVol: 0.738
   timeBeforeDelete: 2
   playerInRange: 0
 --- !u!195 &7151000984780474209
@@ -1943,7 +1950,7 @@ AudioSource:
   m_GameObject: {fileID: 6153654709696198003}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -6494409933778371948, guid: 0898781b4ab44e344921d93a70e4d1f3, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1

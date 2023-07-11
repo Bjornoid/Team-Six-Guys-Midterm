@@ -27,6 +27,10 @@ public class SpiderAI : MonoBehaviour, IDamage, IDistract
 
     [Header("----- Audio -----")]
     [SerializeField] AudioSource aud;
+    [SerializeField] AudioClip[] hissSounds;
+    [SerializeField][Range(0, 1)] float hissVol;
+    [SerializeField] AudioClip[] deathSounds;
+    [SerializeField][Range(0, 1)] float deathVol;
 
     Vector3 startingPos;
     Vector3 playerDir;

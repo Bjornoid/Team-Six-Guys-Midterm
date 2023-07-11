@@ -28,6 +28,8 @@ public class ZombieAI : MonoBehaviour, IDamage, ISlow, IDistract
 
     [Header("----- Audio -----")]
     [SerializeField] AudioSource aud;
+    [SerializeField] AudioClip[] groanSounds;
+    [SerializeField][Range(0, 1)] float groanVol;
 
     [SerializeField] float timeBeforeDelete;
 

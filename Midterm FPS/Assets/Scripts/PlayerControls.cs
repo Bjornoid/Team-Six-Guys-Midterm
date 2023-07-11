@@ -340,18 +340,22 @@ public class PlayerControls
             if (gunList[selectedGun].name == "Starting Pistol")
             {
                 gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.pistol);
+                pistolModel.GetComponent<Animator>().SetTrigger("shoot");
             }
             else if (gunList[selectedGun].name == "Ak")
             {
                 gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.sniper);
+                akModel.GetComponent<Animator>().SetTrigger("shoot");
             }
             else if (gunList[selectedGun].name == "Shotty")
             {
                 gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.shotty);
+                shottyModel.GetComponent<Animator>().SetTrigger("shoot");
             }
             else if (gunList[selectedGun].name == "Wave Blast")
             {
                 gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.current);
+                waveModel.GetComponent<Animator>().SetTrigger("shoot");
             }
             else if (gunList[selectedGun].name == "Scorched Annihilator")
             {
@@ -360,6 +364,7 @@ public class PlayerControls
             else if (gunList[selectedGun].name == "Baby Gun")
             {
                 gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.voidEater);
+                babyModel.GetComponent<Animator>().SetTrigger("shoot");
             }
 
             gunList[selectedGun].magAmmoCurr--;
@@ -630,14 +635,14 @@ public class PlayerControls
 
     void changeGun()
     {
-        if (Input.GetAxis("Mouse ScrollWheel") > 0 && selectedGun < gunList.Count - 1)
+        if (!isReloading && Input.GetAxis("Mouse ScrollWheel") > 0 && selectedGun < gunList.Count - 1)
         {
             selectedGun++;
             setGunModel(gunList[selectedGun].name);
             gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.gunCock);
             changeGunStats();
         }
-        else if (Input.GetAxis("Mouse ScrollWheel") < 0 && selectedGun > 0)
+        else if (!isReloading && Input.GetAxis("Mouse ScrollWheel") < 0 && selectedGun > 0)
         {
             selectedGun--;
             setGunModel(gunList[selectedGun].name);
@@ -683,14 +688,17 @@ public class PlayerControls
         if (gunList[selectedGun].name == "Starting Pistol")
         {
             gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.pistolReload);
+            pistolModel.GetComponent<Animator>().SetTrigger("reload");
         }
         else if (gunList[selectedGun].name == "Ak")
         {
             gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.akReload);
+            akModel.GetComponent<Animator>().SetTrigger("reload");
         }
         else if (gunList[selectedGun].name == "Shotty")
         {
             gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.shottyReload);
+            shottyModel.GetComponent<Animator>().SetTrigger("reload");
         }
         else if (gunList[selectedGun].name == "Wave Blast")
         {

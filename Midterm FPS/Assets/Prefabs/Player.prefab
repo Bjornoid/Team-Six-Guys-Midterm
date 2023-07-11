@@ -686,6 +686,7 @@ GameObject:
   - component: {fileID: 970816396}
   - component: {fileID: 970816398}
   - component: {fileID: 970816397}
+  - component: {fileID: 1611906083}
   m_Layer: 9
   m_Name: GunPos(Pistol)
   m_TagString: Untagged
@@ -761,6 +762,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &1611906083
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970816395}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d49cb3c4d0523d141bba3ab5eaea8162, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1153973293
 GameObject:
   m_ObjectHideFlags: 0
@@ -1189,6 +1211,7 @@ GameObject:
   - component: {fileID: 839495469702397601}
   - component: {fileID: 839495469701627521}
   - component: {fileID: 839495469700496449}
+  - component: {fileID: 141450503}
   m_Layer: 9
   m_Name: GunPos(Ak)
   m_TagString: Untagged
@@ -1265,6 +1288,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &141450503
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839495469702750849}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: de7b2537a61807645bd878a616cea8a2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &839495469702750851
 GameObject:
   m_ObjectHideFlags: 0
@@ -1658,6 +1702,7 @@ MonoBehaviour:
   lockVerMin: -90
   lockVerMax: 90
   invertY: 0
+  slider: {fileID: 0}
 --- !u!20 &1668069908981406649
 Camera:
   m_ObjectHideFlags: 0
@@ -1682,7 +1727,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 110
+  far clip plane: 420
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -1943,7 +1988,7 @@ MonoBehaviour:
   waveModel: {fileID: 5010645991688242943}
   annihilatorModel: {fileID: 6226137806714876865}
   babyModel: {fileID: 3477573382920709554}
-  waveBlast: {fileID: 4543116927540168680, guid: cbf9301f57dd96a4aa98a53371c026f0, type: 3}
+  waveBlast: {fileID: 2801989060685917888, guid: 9c41e32d48c0f73429cfc30ab1c07e5d, type: 3}
   wavePos: {fileID: 1909957793}
   flame: {fileID: 2882763600047587151, guid: 51fa7eb19b62edc4d9807c238e0495b0, type: 3}
   flamePos: {fileID: 787750721}
@@ -2300,6 +2345,7 @@ GameObject:
   - component: {fileID: 1687361874160091416}
   - component: {fileID: 1687361874161418552}
   - component: {fileID: 1687361874162385912}
+  - component: {fileID: 1125259520}
   m_Layer: 9
   m_Name: GunPos(Shotty)
   m_TagString: Untagged
@@ -2319,7 +2365,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1687361874160091418}
+  - {fileID: 252509019961580264}
   - {fileID: 1687361874160091420}
   m_Father: {fileID: 1668069908981406651}
   m_RootOrder: 1
@@ -2331,7 +2377,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687361874160393528}
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 4300000, guid: b49015f2652bf014ebc82262a397969f, type: 3}
 --- !u!23 &1687361874162385912
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2352,7 +2398,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 0e1c0d09730de0946b91abba779f4991, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2374,6 +2420,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &1125259520
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1687361874160393528}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 170d47313790bb24d9d3ad8bddfd53fa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1687361874160393530
 GameObject:
   m_ObjectHideFlags: 0
@@ -2399,12 +2466,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687361874160393530}
-  m_LocalRotation: {x: 0, y: -3.7865323e-29, z: 2.1175824e-22, w: 1}
-  m_LocalPosition: {x: -0.0000000071832433, y: -0.000000013386657, z: -0.08216672}
+  m_LocalRotation: {x: -0, y: -0, z: 2.1175824e-22, w: 1}
+  m_LocalPosition: {x: 0, y: 0.016, z: -0.00816673}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1687361874160091416}
+  m_Father: {fileID: 252509019961580264}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1687361874161418554
@@ -2414,7 +2481,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687361874160393530}
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 4300002, guid: c06a9ebaeb6ba7a428d694c73b45ca26, type: 3}
 --- !u!23 &1687361874162385914
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2435,7 +2502,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: a314af7a8405c5e4d8a607c659cd9bf9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2497,7 +2564,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687361874160393532}
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 4300004, guid: b49015f2652bf014ebc82262a397969f, type: 3}
 --- !u!23 &1687361874162385916
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2518,7 +2585,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: a314af7a8405c5e4d8a607c659cd9bf9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2551,6 +2618,7 @@ GameObject:
   - component: {fileID: 5464415835105519856}
   - component: {fileID: 2254024260713473757}
   - component: {fileID: 6382849064195645317}
+  - component: {fileID: 910210487}
   m_Layer: 9
   m_Name: GunPos(Baby)
   m_TagString: Untagged
@@ -2630,6 +2698,59 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &910210487
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3477573382920709554}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: aa6834c551392604987f5f0f35421505, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &4394392781528399420
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 252509019961580264}
+  m_Layer: 9
+  m_Name: magPivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &252509019961580264
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4394392781528399420}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: -0.016, z: -0.074}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1687361874160091418}
+  m_Father: {fileID: 1687361874160091416}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4562036092675122333
 GameObject:
   m_ObjectHideFlags: 0
@@ -3139,6 +3260,7 @@ GameObject:
   - component: {fileID: 5010645991688739551}
   - component: {fileID: 5010645991689542399}
   - component: {fileID: 5010645991690508351}
+  - component: {fileID: 1239790066}
   m_Layer: 9
   m_Name: GunPos(Wave)
   m_TagString: Untagged
@@ -3217,6 +3339,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &1239790066
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5010645991688242943}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c97519bc406e899469e9a1d707a1b18e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6195472987451668330
 GameObject:
   m_ObjectHideFlags: 0

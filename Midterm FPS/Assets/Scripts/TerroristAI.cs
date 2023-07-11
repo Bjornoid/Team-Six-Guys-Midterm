@@ -25,6 +25,10 @@ public class TerroristAI : MonoBehaviour, IDamage, ISlow, IDistract
     [SerializeField] GameObject bullet;
     [Header("----- Audio -----")]
     [SerializeField] AudioSource aud;
+    [SerializeField] AudioClip[] damageSounds;
+    [SerializeField][Range(0, 1)] float damageVol;
+    [SerializeField] AudioClip[] pistolsounds;
+    [SerializeField][Range(0, 1)] float pistolVol;
 
     Vector3 startingPos;
     Vector3 playerDir;
