@@ -40,6 +40,7 @@ public class EnemyAI : MonoBehaviour, IDamage, IDistract
     bool isStun;
     bool isDistracted;
     bool isShrunk;
+    bool isDead;
 
     void Start()
     { 
@@ -72,7 +73,7 @@ public class EnemyAI : MonoBehaviour, IDamage, IDistract
     // Allows enemy to roam
     IEnumerator Roam()
     {
-        if (!chosenDestination && agent.remainingDistance < 0.05f)
+        if (!isShrunk && !chosenDestination && agent.remainingDistance < 0.05f)
         {
             chosenDestination = true;
 
@@ -107,7 +108,7 @@ public class EnemyAI : MonoBehaviour, IDamage, IDistract
 
         if (Physics.Raycast(headPos.position, playerDirection, out hit))
         {
-            if (hit.collider.CompareTag("Player") && angleToPlayer <= viewConeAngle) // if player gets in range of enemy
+            if (hit.collider.CompareTag("Player") && angleToPlayer <= viewConeAngle && !isDead) // if player gets in range of enemy
             {
                 
                 agent.SetDestination(gameManager.instance.player.transform.position); // go towards the player
@@ -180,6 +181,7 @@ public class EnemyAI : MonoBehaviour, IDamage, IDistract
 
         if (HP <= 0)
         {
+            isDead = true;
             StopAllCoroutines();
 
             animator.SetBool("Dead", true);

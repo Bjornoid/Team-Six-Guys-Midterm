@@ -35,6 +35,7 @@ public class SpiderAI : MonoBehaviour, IDamage, IDistract
     bool isStun;
     bool isDistracted;
     bool isShrunk;
+    bool isDead;
     public bool isShooting;
     bool destinationChosen;
     float stoppingDistanceOrig;
@@ -71,7 +72,7 @@ public class SpiderAI : MonoBehaviour, IDamage, IDistract
 
     IEnumerator roam()
     {
-        if (!destinationChosen & agent.remainingDistance < 0.05)
+        if (!isShrunk && !destinationChosen & agent.remainingDistance < 0.05)
         {
             destinationChosen = true;
 
@@ -110,7 +111,7 @@ public class SpiderAI : MonoBehaviour, IDamage, IDistract
         RaycastHit hit;
         if (Physics.Raycast(headPos.position, playerDir, out hit))
         {
-            if (hit.collider.CompareTag("Player") && angleToPlayer <= viewConeAngle)
+            if (hit.collider.CompareTag("Player") && angleToPlayer <= viewConeAngle && !isDead)
             {
                 agent.SetDestination(gameManager.instance.player.transform.position);
                 if (agent.remainingDistance <= agent.stoppingDistance)
@@ -165,6 +166,7 @@ public class SpiderAI : MonoBehaviour, IDamage, IDistract
 
         if (HP <= 0)
         {
+            isDead = true;
             StopAllCoroutines();
             gameManager.instance.UpdateGameGoal(-1);
             animator.SetBool("Dead", true);

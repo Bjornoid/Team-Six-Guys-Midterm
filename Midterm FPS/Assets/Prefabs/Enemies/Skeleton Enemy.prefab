@@ -606,7 +606,7 @@ MonoBehaviour:
   playerFaceSpeed: 4
   viewConeAngle: 140
   roamDist: 25
-  roamTimer: 3
+  roamTimer: 8
   isMelee: 1
   shootRate: 0
   bullet: {fileID: 0}

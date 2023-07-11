@@ -72,7 +72,7 @@ public class TerroristAI : MonoBehaviour, IDamage, ISlow, IDistract
 
     IEnumerator roam()
     {
-        if (!destinationChosen & agent.remainingDistance < 0.05 && !isDead)
+        if (!isShrunk && !destinationChosen & agent.remainingDistance < 0.05 && !isDead)
         {
             destinationChosen = true;
 
@@ -111,7 +111,7 @@ public class TerroristAI : MonoBehaviour, IDamage, ISlow, IDistract
         RaycastHit hit;
         if (Physics.Raycast(headPos.position, playerDir, out hit))
         {
-            if (hit.collider.CompareTag("Player") && angleToPlayer <= viewConeAngle)
+            if (hit.collider.CompareTag("Player") && angleToPlayer <= viewConeAngle && !isDead)
             {
                 agent.SetDestination(gameManager.instance.player.transform.position);
                 if (agent.remainingDistance <= agent.stoppingDistance && !isDead)
@@ -161,7 +161,7 @@ public class TerroristAI : MonoBehaviour, IDamage, ISlow, IDistract
         HP -= dmg;
         StartCoroutine(flashColor());
         gameManager.instance.audioManager.PlaySFXArray(gameManager.instance.audioManager.soldierHurts, aud);
-        if (agent.isActiveAndEnabled)
+        if (agent.isActiveAndEnabled && !isShrunk)
             agent.SetDestination(gameManager.instance.player.transform.position);
         if (HP <= 0)
         {
