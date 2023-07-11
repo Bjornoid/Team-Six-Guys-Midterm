@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Wave Blast
   m_EditorClassIdentifier: 
   shootDist: 8
-  shootRate: 3
+  shootRate: 1.8
   shootDmg: 1000
-  magAmmoCurr: 1
+  magAmmoCurr: 3
   magAmmoMax: 3
-  reserveAmmoCurr: 13
+  reserveAmmoCurr: 3
   reserveAmmoMax: 15
   reloadTime: 2
   reloadSound: {fileID: 8300000, guid: 5f4ad43e6fbb8b644b3867b94c038d48, type: 3}
