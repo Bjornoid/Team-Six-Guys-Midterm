@@ -41,6 +41,9 @@ public class gameManager : MonoBehaviour
     public GameObject interactPrompt;
     public Image playerHPBar;
     public Image fuelBar;
+    public Image reloadBar;
+    public Image stunGrenadeUI;
+    public Image monkeyBombUI;
     public GameObject fuelUI;
     public GameObject playerFlashUI;
     public TextMeshProUGUI enemiesRemainingText;
@@ -50,6 +53,8 @@ public class gameManager : MonoBehaviour
     public TextMeshProUGUI amountOfDeathsText;
     public TextMeshProUGUI ammoMaxText;
     public TextMeshProUGUI ammoCurText;
+    public TextMeshProUGUI stunGrenadeText;
+    public TextMeshProUGUI buddyBombText;
     public Button[] lvlButtons;
     public Button[] mainMenuBtns;
 
@@ -57,6 +62,7 @@ public class gameManager : MonoBehaviour
     int enemiesRemaining;
     int targetsRemaining;
     int locksRemaining;
+    public static int levelToLoad;
 
     [Header("----- Audio -----")]
     public AudioManager audioManager;
@@ -104,7 +110,7 @@ public class gameManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Cancel") && activeMenu == null && pauseMenu != null && canPause && SceneManager.GetActiveScene().name != "Main Menu")
+        if (Input.GetButtonDown("Cancel") && activeMenu == null && pauseMenu != null && canPause && SceneManager.GetActiveScene().name != "Main Menu" && SceneManager.GetActiveScene().name != "Elevator")
         {
             statePaused();
             activeMenu = pauseMenu;

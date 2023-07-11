@@ -26,6 +26,9 @@ public class EnemyAI : MonoBehaviour, IDamage, IDistract
     [SerializeField] float shootRate;
     [SerializeField] GameObject bullet;
 
+    [Header("----- Audio -----")]
+    [SerializeField] AudioSource aud;
+
 
     Vector3 playerDirection; // direction of the player
     public bool playerInRange; // checks to see if player is in range
@@ -37,6 +40,7 @@ public class EnemyAI : MonoBehaviour, IDamage, IDistract
     bool isStun;
     bool isDistracted;
     bool isShrunk;
+    bool isDead;
 
     void Start()
     { 
@@ -50,16 +54,16 @@ public class EnemyAI : MonoBehaviour, IDamage, IDistract
         {
             if (isShrunk)
             {
-                if (Vector3.Distance(transform.position, gameManager.instance.player.transform.position) < 2)
+                if (Vector3.Distance(transform.position, gameManager.instance.player.transform.position) < 2.3)
                     takeDamage(20);
             }
             animator.SetFloat("Speed", agent.velocity.normalized.magnitude);
 
-            if (playerInRange && !CanSeePlayer())
+            if (playerInRange && !CanSeePlayer() && !isDistracted)
             {
                 StartCoroutine(Roam());
             }
-            else if (agent.destination != gameManager.instance.player.transform.position)
+            else if (!isDistracted && agent.destination != gameManager.instance.player.transform.position)
             {
                 StartCoroutine(Roam());
             }
@@ -69,7 +73,7 @@ public class EnemyAI : MonoBehaviour, IDamage, IDistract
     // Allows enemy to roam
     IEnumerator Roam()
     {
-        if (!chosenDestination && agent.remainingDistance < 0.05f)
+        if (!isDistracted && !isShrunk && !chosenDestination && agent.remainingDistance < 0.05f)
         {
             chosenDestination = true;
 
@@ -104,7 +108,7 @@ public class EnemyAI : MonoBehaviour, IDamage, IDistract
 
         if (Physics.Raycast(headPos.position, playerDirection, out hit))
         {
-            if (hit.collider.CompareTag("Player") && angleToPlayer <= viewConeAngle) // if player gets in range of enemy
+            if (hit.collider.CompareTag("Player") && angleToPlayer <= viewConeAngle && !isDead) // if player gets in range of enemy
             {
                 
                 agent.SetDestination(gameManager.instance.player.transform.position); // go towards the player
@@ -115,6 +119,8 @@ public class EnemyAI : MonoBehaviour, IDamage, IDistract
                     if (isMelee)
                     {
                         animator.SetTrigger("Swing");
+
+
                     }
                 }
                 if (!isShooting && shootPos != null)
@@ -170,10 +176,12 @@ public class EnemyAI : MonoBehaviour, IDamage, IDistract
     {
         HP -= dmg;
 
-        StartCoroutine(flashColor());
+        gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.skeleton, aud);
+
 
         if (HP <= 0)
         {
+            isDead = true;
             StopAllCoroutines();
 
             animator.SetBool("Dead", true);
@@ -191,6 +199,12 @@ public class EnemyAI : MonoBehaviour, IDamage, IDistract
             gameObject.GetComponent<NavMeshAgent>().enabled = false;
 
             Destroy(gameObject, 2f); // destroy the object 
+        }
+        else
+        {
+            agent.SetDestination(gameManager.instance.player.transform.position);
+
+            StartCoroutine(flashColor());
         }
     }
 
@@ -211,6 +225,7 @@ public class EnemyAI : MonoBehaviour, IDamage, IDistract
     void weaponColOn()
     {
         weaponCol.enabled = true;
+        gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.swordSwing, aud);
     }
 
     public void getStunned()
@@ -236,7 +251,7 @@ public class EnemyAI : MonoBehaviour, IDamage, IDistract
     public void getShrunk()
     {
         if (!isShrunk)
-            StartCoroutine(shrinkFor(5));
+            StartCoroutine(shrinkFor(8));
     }
 
     IEnumerator shrinkFor(float time)

@@ -72,6 +72,8 @@ public class PlayerControls
     private Vector3 playerVelocity; // gets player velocty
     private Vector3 move; // movement for fps 
     private int jumpTimes; // the amount of time the player has jumped
+    float reloadTimer = 1f;
+    float maxReloadTimer = 1f;
     int playerHPOrig; // Original HP of player
     public bool groundedPlayer; // checks if player is on ground
     bool isShooting; // Checks if you are shooting
@@ -172,6 +174,22 @@ public class PlayerControls
         {
             gameManager.instance.ammoCurText.text = gunList[selectedGun].magAmmoCurr.ToString("F0");
             gameManager.instance.ammoMaxText.text = gunList[selectedGun].reserveAmmoCurr.ToString("F0");
+        }
+
+        if (isReloading)
+        {
+            reloadTimer -= Time.deltaTime;
+
+            gameManager.instance.reloadBar.enabled = true;
+
+            gameManager.instance.reloadBar.fillAmount = reloadTimer;
+            if (reloadTimer <= 0)
+            {
+                reloadTimer = maxReloadTimer;
+                gameManager.instance.reloadBar.fillAmount = maxReloadTimer;
+                gameManager.instance.reloadBar.enabled = false;
+
+            }
         }
     }
 
@@ -410,7 +428,7 @@ public class PlayerControls
                     {
                         Vector3 enemyDir = enemy.transform.position - transform.position;
                         float angleToEnemy = Vector3.Angle(new Vector3(enemyDir.x, 0, enemyDir.z), transform.forward);
-                        if (Vector3.Distance(enemy.transform.position, transform.position) < shootDist && angleToEnemy <= 10)
+                        if (Vector3.Distance(enemy.transform.position, transform.position) < shootDist && angleToEnemy <= 15)
                         {
                             IDistract d = enemy.GetComponent<IDistract>();
                             if (d != null)
@@ -540,6 +558,7 @@ public class PlayerControls
 
     public void gunPickup(GunStats gunStat)
     {
+        gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.gunCock);
         gunList.Add(gunStat);
         selectedGun = gunList.Count - 1;
         shootDamage = gunStat.shootDmg;
@@ -569,12 +588,53 @@ public class PlayerControls
         UpdatePlayerUI();
     }
 
+    public void dropGun()
+    {
+        if (gunList[selectedGun].name != "Starting Pistol")
+        {
+            if (selectedGun == 0)
+            {
+                gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.gunCock);
+                setGunModel("Starting Pistol");
+                selectedGun = 1;
+                changeGunStats();
+                gunList.RemoveAt(0);
+                selectedGun = 0;
+            }
+            else if (selectedGun == 1) 
+            {
+                gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.gunCock);
+                setGunModel("Starting Pistol");
+                selectedGun = 0;
+                changeGunStats();
+                gunList.RemoveAt(1);
+            }
+        }
+        else
+        {
+            if (selectedGun == 0)
+            {
+                gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.gunCock);
+                gunList.RemoveAt(1);
+            }
+            else
+            {
+                gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.gunCock);
+                selectedGun--;
+                gunList.RemoveAt(0);
+            }
+
+        }
+        
+    }
+
     void changeGun()
     {
         if (Input.GetAxis("Mouse ScrollWheel") > 0 && selectedGun < gunList.Count - 1)
         {
             selectedGun++;
             setGunModel(gunList[selectedGun].name);
+            gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.gunCock);
             changeGunStats();
         }
         else if (Input.GetAxis("Mouse ScrollWheel") < 0 && selectedGun > 0)
@@ -582,6 +642,7 @@ public class PlayerControls
             selectedGun--;
             setGunModel(gunList[selectedGun].name);
             changeGunStats();
+            gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.gunCock);
         }
         UpdatePlayerUI();
     }
