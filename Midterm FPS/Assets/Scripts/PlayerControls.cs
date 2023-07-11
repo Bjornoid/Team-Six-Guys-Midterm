@@ -703,6 +703,7 @@ public class PlayerControls
         else if (gunList[selectedGun].name == "Wave Blast")
         {
             gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.akReload);
+            waveModel.GetComponent<Animator>().SetTrigger("reload");
         }
         else if (gunList[selectedGun].name == "Scorched Annihilator")
         {
@@ -711,6 +712,7 @@ public class PlayerControls
         else if (gunList[selectedGun].name == "Baby Gun")
         {
             gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.shottyReload);
+            babyModel.GetComponent<Animator>().SetTrigger("reload");
         }
 
         yield return new WaitForSeconds(gunList[selectedGun].reloadTime);
