@@ -2,14 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CameraControls : MonoBehaviour
 {
     [Header("----- Camera Settings -----")]
-    [SerializeField] int sensitivity;
+    [SerializeField] float sensitivity;
     [SerializeField] int lockVerMin;
     [SerializeField] int lockVerMax;
-    [SerializeField] bool invertY; 
+    [SerializeField] bool invertY;
+    [SerializeField] Slider slider; 
 
     float xRotation; // Rotation of X Axis
 
@@ -50,5 +52,10 @@ public class CameraControls : MonoBehaviour
 
         transform.parent.Rotate(Vector3.up * mouseX);
 
+    }
+
+    public void AdjustSpeed(float speed)
+    {
+        sensitivity = speed * 10;
     }
 }
