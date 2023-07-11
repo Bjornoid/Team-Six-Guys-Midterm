@@ -102,8 +102,8 @@ public class ZombieAI : MonoBehaviour, IDamage, ISlow, IDistract
   
       angleToPlayer = Vector3.Angle(new Vector3(playerDirection.x, 0, playerDirection.z), transform.forward);
   
-      Debug.DrawRay(headPos.position, playerDirection); // draws a straight line from Zombie to player (for debugging)
-      Debug.Log(angleToPlayer); // spits a number into console
+      //Debug.DrawRay(headPos.position, playerDirection); // draws a straight line from Zombie to player (for debugging)
+      //Debug.Log(angleToPlayer); // spits a number into console
   
       RaycastHit hit;
   
