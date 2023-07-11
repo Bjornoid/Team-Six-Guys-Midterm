@@ -570,6 +570,44 @@ public class PlayerControls
         UpdatePlayerUI();
     }
 
+    public void dropGun()
+    {
+        if (gunList[selectedGun].name != "Starting Pistol")
+        {
+            if (selectedGun == 0)
+            {
+                gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.gunCock);
+                setGunModel("Starting Pistol");
+                selectedGun = 1;
+                changeGunStats();
+                gunList.RemoveAt(0);
+                selectedGun = 0;
+            }
+            else if (selectedGun == 1) 
+            {
+                gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.gunCock);
+                setGunModel("Starting Pistol");
+                selectedGun = 0;
+                changeGunStats();
+                gunList.RemoveAt(1);
+            }
+        }
+        else
+        {
+            if (selectedGun == 0)
+            {
+                gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.gunCock);
+            }
+            else
+            {
+                gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.gunCock);
+
+            }
+
+        }
+        
+    }
+
     void changeGun()
     {
         if (Input.GetAxis("Mouse ScrollWheel") > 0 && selectedGun < gunList.Count - 1)
