@@ -12,9 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/New Tutorial/New Tutorial.unity
     guid: 48889b4e72baa9f4793f244ab49d3c83
   - enabled: 1
-    path: Assets/Scenes/Elevator.unity
-    guid: 9848514d7c739cf458a23c847ae9a716
-  - enabled: 1
     path: Assets/Scenes/Bjorn & John/B & J Level.unity
     guid: 2135854075dfd704a8c5a2e07bb76198
   - enabled: 1
@@ -29,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Ending_Scene.unity
     guid: 0b65cc1b95ecfee4680840c64ce754f0
+  - enabled: 1
+    path: Assets/Scenes/Elevator.unity
+    guid: 9848514d7c739cf458a23c847ae9a716
   m_configObjects: {}

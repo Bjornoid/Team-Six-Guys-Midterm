@@ -615,11 +615,13 @@ public class PlayerControls
             if (selectedGun == 0)
             {
                 gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.gunCock);
+                gunList.RemoveAt(1);
             }
             else
             {
                 gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.gunCock);
-
+                selectedGun--;
+                gunList.RemoveAt(0);
             }
 
         }

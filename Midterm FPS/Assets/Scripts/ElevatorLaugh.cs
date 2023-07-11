@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ElevatorLaugh : MonoBehaviour
 {
@@ -18,6 +19,13 @@ public class ElevatorLaugh : MonoBehaviour
             gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.hotelSpirit);
             gameManager.instance.playerScript.dropGun();
             gameManager.instance.fuelUI.SetActive(false);
+            StartCoroutine(loadNextLevel());
         }
+    }
+
+    IEnumerator loadNextLevel()
+    {
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene(gameManager.levelToLoad);
     }
 }

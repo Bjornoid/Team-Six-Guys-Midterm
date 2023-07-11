@@ -81,7 +81,8 @@ public class ButtonFunctions : MonoBehaviour
     public void nextLevel()
     {
         int nextLevel = SceneManager.GetActiveScene().buildIndex + 1;
-        SceneManager.LoadScene(nextLevel);
+        gameManager.levelToLoad = nextLevel;
+        SceneManager.LoadScene("Elevator");
         gameManager.instance.stateUnPaused();
 
         if (nextLevel > PlayerPrefs.GetInt("levelAt"))

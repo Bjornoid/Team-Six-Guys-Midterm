@@ -59,11 +59,11 @@ public class EnemyAI : MonoBehaviour, IDamage, IDistract
             }
             animator.SetFloat("Speed", agent.velocity.normalized.magnitude);
 
-            if (playerInRange && !CanSeePlayer())
+            if (playerInRange && !CanSeePlayer() && !isDistracted)
             {
                 StartCoroutine(Roam());
             }
-            else if (agent.destination != gameManager.instance.player.transform.position)
+            else if (!isDistracted && agent.destination != gameManager.instance.player.transform.position)
             {
                 StartCoroutine(Roam());
             }
@@ -73,7 +73,7 @@ public class EnemyAI : MonoBehaviour, IDamage, IDistract
     // Allows enemy to roam
     IEnumerator Roam()
     {
-        if (!isShrunk && !chosenDestination && agent.remainingDistance < 0.05f)
+        if (!isDistracted && !isShrunk && !chosenDestination && agent.remainingDistance < 0.05f)
         {
             chosenDestination = true;
 
