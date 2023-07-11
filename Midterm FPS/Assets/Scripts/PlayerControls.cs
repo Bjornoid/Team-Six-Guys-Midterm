@@ -182,7 +182,7 @@ public class PlayerControls
 
             gameManager.instance.reloadBar.enabled = true;
 
-            gameManager.instance.reloadBar.fillAmount = reloadTimer;
+            gameManager.instance.reloadBar.fillAmount = reloadTimer / gunList[selectedGun].reloadTime;
             if (reloadTimer <= 0)
             {
                 reloadTimer = maxReloadTimer;
@@ -676,7 +676,8 @@ public class PlayerControls
 
     IEnumerator reload()
     {
-       
+        reloadTimer = gunList[selectedGun].reloadTime;
+
         isReloading = true;
 
         if (gunList[selectedGun].name == "Starting Pistol")
