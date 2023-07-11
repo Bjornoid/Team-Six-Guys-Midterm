@@ -676,7 +676,8 @@ public class PlayerControls
 
     IEnumerator reload()
     {
-       
+        reloadTimer = gunList[selectedGun].reloadTime;
+
         isReloading = true;
 
         if (gunList[selectedGun].name == "Starting Pistol")
