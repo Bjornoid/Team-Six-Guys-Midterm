@@ -41,12 +41,9 @@ public class BossSpiderAI : MonoBehaviour, IDamage
     // Start is called before the first frame update
     void Start()
     {
-        //agent.enabled = false;
-        //animator.SetTrigger("Spawned");
-        //agent.enabled = true;
         startingHP = HP;
-        phase2 = false;
         startingPos = transform;
+        phase2 = false;
     }
 
     // Update is called once per frame
@@ -85,7 +82,7 @@ public class BossSpiderAI : MonoBehaviour, IDamage
         }
         else
         {
-            //animator.SetTrigger("Spawn");
+            animator.SetTrigger("Spawn");
             agent.SetDestination(startingPos.position);
             transform.rotation = Quaternion.Lerp(transform.rotation, startingPos.rotation, Time.deltaTime);
             if (!nestSpawned)
@@ -101,7 +98,6 @@ public class BossSpiderAI : MonoBehaviour, IDamage
     {
         isAttacking = true;
         animator.SetTrigger("Shoot");
-        CreateBullet();
         yield return new WaitForSeconds(shootRate);
         isAttacking = false;
     }
@@ -109,8 +105,8 @@ public class BossSpiderAI : MonoBehaviour, IDamage
     IEnumerator bite()
     {
         isAttacking = true;
-        yield return new WaitForSeconds(0.3f);
         animator.SetTrigger("Bite");
+        yield return new WaitForSeconds(0.3f);
         isAttacking = false;
     }
 
@@ -127,6 +123,7 @@ public class BossSpiderAI : MonoBehaviour, IDamage
             inRange = true;
         }
     }
+
     void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -134,11 +131,13 @@ public class BossSpiderAI : MonoBehaviour, IDamage
             inRange = false;
         }
     }
+
     void facePlayer()
     {
         Quaternion rot = Quaternion.LookRotation(new Vector3(playerDir.x, 0, playerDir.z));
         transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * playerLookSpeed);
     }
+
     public void takeDamage(int dmg)
     {
         HP -= dmg;
@@ -166,6 +165,7 @@ public class BossSpiderAI : MonoBehaviour, IDamage
             StartCoroutine(flashColor());
         }
     }
+
     IEnumerator flashColor()
     {
         model.material.color = Color.red;
