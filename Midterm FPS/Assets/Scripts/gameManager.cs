@@ -41,6 +41,9 @@ public class gameManager : MonoBehaviour
     public GameObject interactPrompt;
     public Image playerHPBar;
     public Image fuelBar;
+    public Image reloadBar;
+    public Image stunGrenadeUI;
+    public Image monkeyBombUI;
     public GameObject fuelUI;
     public GameObject playerFlashUI;
     public TextMeshProUGUI enemiesRemainingText;
@@ -50,6 +53,8 @@ public class gameManager : MonoBehaviour
     public TextMeshProUGUI amountOfDeathsText;
     public TextMeshProUGUI ammoMaxText;
     public TextMeshProUGUI ammoCurText;
+    public TextMeshProUGUI stunGrenadeText;
+    public TextMeshProUGUI buddyBombText;
     public Button[] lvlButtons;
     public Button[] mainMenuBtns;
 
@@ -97,6 +102,7 @@ public class gameManager : MonoBehaviour
 
         SetMusicVolume();
         int deaths = PlayerPrefs.GetInt("deaths", 0);
+        float brightness = PlayerPrefs.GetFloat("brightness", 2);
         if (SceneManager.GetActiveScene().name == "Main Menu")
             handleLevelUnlocks();
     }

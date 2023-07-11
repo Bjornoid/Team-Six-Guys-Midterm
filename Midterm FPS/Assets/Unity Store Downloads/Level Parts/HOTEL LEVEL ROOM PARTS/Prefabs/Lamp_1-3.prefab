@@ -15,7 +15,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4000014010085998
 Transform:
@@ -44,7 +44,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1.6
+  m_Intensity: 1
   m_Range: 20
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -111,7 +111,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4000012374763960
 Transform:
@@ -122,7 +122,7 @@ Transform:
   m_GameObject: {fileID: 1000013579690866}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -0.741, y: -10.548, z: -14.343975}
-  m_LocalScale: {x: 1.9458, y: 1.9458, z: 1.9458}
+  m_LocalScale: {x: 1.9458, y: 1.9458, z: 0.7303812}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4000014010085998}

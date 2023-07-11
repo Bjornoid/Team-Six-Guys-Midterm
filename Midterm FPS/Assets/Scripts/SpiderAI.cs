@@ -24,6 +24,10 @@ public class SpiderAI : MonoBehaviour, IDamage, IDistract
     [Header("----- Weapon Stats -----")]
     [SerializeField] float shootRate;
     [SerializeField] GameObject bullet;
+
+    [Header("----- Audio -----")]
+    [SerializeField] AudioSource aud;
+
     Vector3 startingPos;
     Vector3 playerDir;
     public bool inRange;
@@ -31,6 +35,7 @@ public class SpiderAI : MonoBehaviour, IDamage, IDistract
     bool isStun;
     bool isDistracted;
     bool isShrunk;
+    bool isDead;
     public bool isShooting;
     bool destinationChosen;
     float stoppingDistanceOrig;
@@ -49,7 +54,7 @@ public class SpiderAI : MonoBehaviour, IDamage, IDistract
         {
             if (isShrunk)
             {
-                if (Vector3.Distance(transform.position, gameManager.instance.player.transform.position) < 2)
+                if (Vector3.Distance(transform.position, gameManager.instance.player.transform.position) < 2.3)
                     takeDamage(20);
             }
             animator.SetFloat("Speed", agent.velocity.normalized.magnitude);
@@ -67,7 +72,7 @@ public class SpiderAI : MonoBehaviour, IDamage, IDistract
 
     IEnumerator roam()
     {
-        if (!destinationChosen & agent.remainingDistance < 0.05)
+        if (!isShrunk && !destinationChosen & agent.remainingDistance < 0.05)
         {
             destinationChosen = true;
 
@@ -106,7 +111,7 @@ public class SpiderAI : MonoBehaviour, IDamage, IDistract
         RaycastHit hit;
         if (Physics.Raycast(headPos.position, playerDir, out hit))
         {
-            if (hit.collider.CompareTag("Player") && angleToPlayer <= viewConeAngle)
+            if (hit.collider.CompareTag("Player") && angleToPlayer <= viewConeAngle && !isDead)
             {
                 agent.SetDestination(gameManager.instance.player.transform.position);
                 if (agent.remainingDistance <= agent.stoppingDistance)
@@ -130,6 +135,7 @@ public class SpiderAI : MonoBehaviour, IDamage, IDistract
     {
         isShooting = true;
         animator.SetTrigger("Attack");
+        gameManager.instance.audioManager.PlaySFXArray(gameManager.instance.audioManager.spiderHiss, aud);
         CreateBullet();
         yield return new WaitForSeconds(shootRate);
         isShooting = false;
@@ -156,12 +162,15 @@ public class SpiderAI : MonoBehaviour, IDamage, IDistract
     {
 
         HP -= dmg;
+        gameManager.instance.audioManager.PlaySFXArray(gameManager.instance.audioManager.spiderHiss, aud);
 
         if (HP <= 0)
         {
+            isDead = true;
             StopAllCoroutines();
             gameManager.instance.UpdateGameGoal(-1);
             animator.SetBool("Dead", true);
+            gameManager.instance.audioManager.PlaySFXArray(gameManager.instance.audioManager.spiderDeath, aud);
             agent.enabled = false;
             GetComponent<CapsuleCollider>().enabled = false;
             ItemDrop();
@@ -218,7 +227,7 @@ public class SpiderAI : MonoBehaviour, IDamage, IDistract
     public void getShrunk()
     {
         if (!isShrunk)
-            StartCoroutine(shrinkFor(5));
+            StartCoroutine(shrinkFor(8));
     }
 
     IEnumerator shrinkFor(float time)

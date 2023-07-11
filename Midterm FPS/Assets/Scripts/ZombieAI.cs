@@ -26,6 +26,9 @@ public class ZombieAI : MonoBehaviour, IDamage, ISlow, IDistract
     [Header("----- Damage Stats -----")]
     [SerializeField] float shootRate;
 
+    [Header("----- Audio -----")]
+    [SerializeField] AudioSource aud;
+
     [SerializeField] float timeBeforeDelete;
 
     Vector3 playerDirection; // Direction of the player
@@ -61,18 +64,9 @@ public class ZombieAI : MonoBehaviour, IDamage, ISlow, IDistract
 
             if (isShrunk)
             {
-                if (Vector3.Distance(transform.position, gameManager.instance.player.transform.position) < 2)
+                if (Vector3.Distance(transform.position, gameManager.instance.player.transform.position) < 2.3)
                     takeDamage(20);
             }
-
-            //if (playerInRange && !CanSeePlayer()) // if player is in range and Zombie CANNOT see player
-            //{
-            //    StartCoroutine(Roam());
-            //}
-            //else if (agent.destination != gameManager.instance.player.transform.position) // if enemy destination is NOT the player
-            //{
-            //    StartCoroutine(Roam());
-            //}
         }
     }
 
@@ -151,6 +145,7 @@ public class ZombieAI : MonoBehaviour, IDamage, ISlow, IDistract
     {
         handCollider1.enabled = true;
         handCollider2.enabled = true;
+        gameManager.instance.audioManager.PlaySFXArray(gameManager.instance.audioManager.zombieGroans, aud);
     }
 
     public void HandColOff()
@@ -188,6 +183,8 @@ public class ZombieAI : MonoBehaviour, IDamage, ISlow, IDistract
 
         HandColOff();
 
+        gameManager.instance.audioManager.PlaySFXArray(gameManager.instance.audioManager.zombieGroans, aud);
+
         if (HP <= 0)
         {
             StopAllCoroutines(); // Stop flash and shoot
@@ -203,6 +200,8 @@ public class ZombieAI : MonoBehaviour, IDamage, ISlow, IDistract
             GetComponent<Animator>().enabled = false;
 
             GetComponent<CapsuleCollider>().enabled = false; // Disables dmg collider
+
+            gameManager.instance.audioManager.PlaySFXArray(gameManager.instance.audioManager.zombieGroans, aud);
 
             StartCoroutine(TimeToDelete());
         }
@@ -259,7 +258,7 @@ public class ZombieAI : MonoBehaviour, IDamage, ISlow, IDistract
     public void getShrunk()
     {
         if (!isShrunk)
-            StartCoroutine(shrinkFor(5));
+            StartCoroutine(shrinkFor(8));
     }
 
     IEnumerator shrinkFor(float time)

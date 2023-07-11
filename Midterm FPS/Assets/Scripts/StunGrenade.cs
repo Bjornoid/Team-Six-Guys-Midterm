@@ -11,7 +11,8 @@ public class StunGrenade : MonoBehaviour
     [SerializeField] float explosionDelay = .1f;
     [SerializeField] float explosionRadius = 10f;
 
-    [Header("Audio Effects")]
+    [Header("----- Audio -----")]
+    [SerializeField] AudioSource aud;
 
     float countdown;
     bool hasExploded;
@@ -41,12 +42,12 @@ public class StunGrenade : MonoBehaviour
         Destroy(explosionEffect, 4f);
 
         //play sound
-
+        gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.stunGrenade, aud);
         //affect nearby enemies/player if too close
         stun();
 
 
-        Destroy(gameObject);
+        Destroy(gameObject, 1);
     }
 
 

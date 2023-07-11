@@ -23,6 +23,9 @@ public class TerroristAI : MonoBehaviour, IDamage, ISlow, IDistract
     [Header("----- Weapon Stats -----")]
     [SerializeField] float shootRate;
     [SerializeField] GameObject bullet;
+    [Header("----- Audio -----")]
+    [SerializeField] AudioSource aud;
+
     Vector3 startingPos;
     Vector3 playerDir;
     public bool inRange;
@@ -50,7 +53,7 @@ public class TerroristAI : MonoBehaviour, IDamage, ISlow, IDistract
         {
             if (isShrunk)
             {
-                if (Vector3.Distance(transform.position, gameManager.instance.player.transform.position) < 2)
+                if (Vector3.Distance(transform.position, gameManager.instance.player.transform.position) < 2.3)
                     takeDamage(20);
             }
             animator.SetFloat("Speed", agent.velocity.normalized.magnitude);
@@ -69,7 +72,7 @@ public class TerroristAI : MonoBehaviour, IDamage, ISlow, IDistract
 
     IEnumerator roam()
     {
-        if (!destinationChosen & agent.remainingDistance < 0.05 && !isDead)
+        if (!isShrunk && !destinationChosen & agent.remainingDistance < 0.05 && !isDead)
         {
             destinationChosen = true;
 
@@ -108,7 +111,7 @@ public class TerroristAI : MonoBehaviour, IDamage, ISlow, IDistract
         RaycastHit hit;
         if (Physics.Raycast(headPos.position, playerDir, out hit))
         {
-            if (hit.collider.CompareTag("Player") && angleToPlayer <= viewConeAngle)
+            if (hit.collider.CompareTag("Player") && angleToPlayer <= viewConeAngle && !isDead)
             {
                 agent.SetDestination(gameManager.instance.player.transform.position);
                 if (agent.remainingDistance <= agent.stoppingDistance && !isDead)
@@ -133,6 +136,7 @@ public class TerroristAI : MonoBehaviour, IDamage, ISlow, IDistract
 
         isShooting = true;
         animator.SetTrigger("Shoot");
+        gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.pistol, aud);
         Instantiate(bullet, shootPos.position, transform.rotation);
         yield return new WaitForSeconds(shootRate);
         isShooting = false;
@@ -156,7 +160,8 @@ public class TerroristAI : MonoBehaviour, IDamage, ISlow, IDistract
 
         HP -= dmg;
         StartCoroutine(flashColor());
-        if (agent.isActiveAndEnabled)
+        gameManager.instance.audioManager.PlaySFXArray(gameManager.instance.audioManager.soldierHurts, aud);
+        if (agent.isActiveAndEnabled && !isShrunk)
             agent.SetDestination(gameManager.instance.player.transform.position);
         if (HP <= 0)
         {
@@ -224,7 +229,7 @@ public class TerroristAI : MonoBehaviour, IDamage, ISlow, IDistract
     public void getShrunk()
     {
         if (!isShrunk)
-            StartCoroutine(shrinkFor(5));
+            StartCoroutine(shrinkFor(8));
     }
 
     IEnumerator shrinkFor(float time)

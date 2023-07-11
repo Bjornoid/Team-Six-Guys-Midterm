@@ -1989,6 +1989,7 @@ MonoBehaviour:
   keyVol: 0.8
   throwForce: 1000
   projectile: {fileID: 5745418468700925630, guid: 5d44eb1d86a1468418a555d332dfe09d, type: 3}
+  groundedPlayer: 0
   ammoPickedUp: 0
   hasWonderWeapon: 0
   movementState: 0
