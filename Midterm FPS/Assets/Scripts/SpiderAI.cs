@@ -138,7 +138,7 @@ public class SpiderAI : MonoBehaviour, IDamage, IDistract
     IEnumerator shoot()
     {
         isShooting = true;
-        animator.SetTrigger("Attack");
+        animator.SetTrigger("Shoot");
         gameManager.instance.audioManager.PlaySFXArray(gameManager.instance.audioManager.spiderHiss, aud);
         CreateBullet();
         yield return new WaitForSeconds(shootRate);
