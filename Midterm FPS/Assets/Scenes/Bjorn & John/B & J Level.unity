@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.46169513, g: 0.5124164, b: 0.58993304, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -20301,8 +20301,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cee8087cb8927346a26c4d40c81bd41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  elevator: {fileID: 0}
   menu: {fileID: 0}
+  powerSwitch: {fileID: 0}
   needsPower: 0
+  powerActivated: 0
 --- !u!4 &883471333
 Transform:
   m_ObjectHideFlags: 0
@@ -36675,6 +36678,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 5595987153259709269, guid: f33b56cc24231774da3d72455f3d9435, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.567
+      objectReference: {fileID: 0}
     - target: {fileID: 5595987153259709270, guid: f33b56cc24231774da3d72455f3d9435, type: 3}
       propertyPath: m_text
       value: 'End
@@ -39783,6 +39790,10 @@ PrefabInstance:
     - target: {fileID: 5595987153259709268, guid: f33b56cc24231774da3d72455f3d9435, type: 3}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595987153259709270, guid: f33b56cc24231774da3d72455f3d9435, type: 3}
+      propertyPath: m_text
+      value: Floor 1
       objectReference: {fileID: 0}
     - target: {fileID: 5595987153676637715, guid: f33b56cc24231774da3d72455f3d9435, type: 3}
       propertyPath: m_Name
