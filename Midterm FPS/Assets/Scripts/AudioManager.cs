@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class AudioManager : MonoBehaviour
@@ -9,6 +10,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource sfx;
 
     public AudioClip backgroundMusic;
+    public AudioClip bossSong;
     public AudioClip[] steps;
     public AudioClip ammoPickup;
     public AudioClip current;
@@ -56,7 +58,10 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        music.clip = backgroundMusic;
+        if (SceneManager.GetActiveScene().name != "Boss Level")
+            music.clip = backgroundMusic;
+        else
+            music.clip = bossSong;
         music.Play();
     }
 
