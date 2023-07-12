@@ -208,6 +208,7 @@ GameObject:
   - component: {fileID: 8872527239212397133}
   - component: {fileID: 8872527239212397132}
   - component: {fileID: 8872527239212397123}
+  - component: {fileID: -8040704143599338597}
   m_Layer: 0
   m_Name: Target
   m_TagString: Target
@@ -296,3 +297,19 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!54 &-8040704143599338597
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8872527239212397122}
+  serializedVersion: 2
+  m_Mass: 5
+  m_Drag: 0.05
+  m_AngularDrag: 100
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

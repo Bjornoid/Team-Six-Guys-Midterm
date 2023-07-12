@@ -46,6 +46,9 @@ public class AudioManager : MonoBehaviour
     public AudioClip[] spiderHiss;
     public AudioClip[] zombieGroans;
     public AudioClip hotelSpirit;
+    public AudioClip jetpackEmpty;
+    public AudioClip jetpackFull;
+    public AudioClip targetPing;
 
 
     private void Start()
