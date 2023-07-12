@@ -213,4 +213,9 @@ public class ButtonFunctions : MonoBehaviour
         gameManager.instance.playerScript.SpawnPlayer();
         gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.buttonPress);
     }
+
+    public void LoadCredits()
+    {
+        SceneManager.LoadScene("EndCredits");
+    }
 }

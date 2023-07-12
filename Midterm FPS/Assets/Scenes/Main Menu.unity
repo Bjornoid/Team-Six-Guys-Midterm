@@ -2795,13 +2795,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 360357232}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 360357237}
+        m_TargetAssemblyTypeName: ButtonFunctions, Assembly-CSharp
+        m_MethodName: LoadCredits
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3972,7 +3972,6 @@ MonoBehaviour:
   winMenu: {fileID: 0}
   loseMenu: {fileID: 0}
   loseFirstButton: {fileID: 0}
-  winFirstButton: {fileID: 0}
   audioFirstButton: {fileID: 727797447}
   generalFirstButton: {fileID: 1420887516}
   checkpointPopUp: {fileID: 0}
@@ -3980,14 +3979,19 @@ MonoBehaviour:
   interactPrompt: {fileID: 0}
   playerHPBar: {fileID: 0}
   fuelBar: {fileID: 0}
+  reloadBar: {fileID: 0}
+  stunGrenadeUI: {fileID: 0}
+  monkeyBombUI: {fileID: 0}
   fuelUI: {fileID: 0}
   playerFlashUI: {fileID: 0}
   enemiesRemainingText: {fileID: 0}
   mainTaskDescription: {fileID: 0}
   sideQuestDescription: {fileID: 0}
   interactPromptText: {fileID: 0}
+  amountOfDeathsText: {fileID: 0}
   ammoMaxText: {fileID: 0}
   ammoCurText: {fileID: 0}
+  grenadeAmountText: {fileID: 0}
   lvlButtons:
   - {fileID: 852084256}
   - {fileID: 1349398141}
@@ -4255,6 +4259,24 @@ MonoBehaviour:
   popUp: {fileID: 8300000, guid: d79d6a7f1b12c1646ae4d622a86c8c06, type: 3}
   buttonPress: {fileID: 8300000, guid: f8edeaeda7147f1499407409d6c30b4d, type: 3}
   buttonSelect: {fileID: 8300000, guid: d79d6a7f1b12c1646ae4d622a86c8c06, type: 3}
+  monkeyBomb: {fileID: 0}
+  stunGrenade: {fileID: 0}
+  humanCrickets: []
+  skeleton: []
+  swordSwing: []
+  soldierHurts: []
+  spiderDeath: []
+  spiderWalk: []
+  spiderHiss: []
+  zombieGroans: []
+  hotelSpirit: {fileID: 0}
+  jetpackEmpty: {fileID: 0}
+  jetpackFull: {fileID: 0}
+  targetPing: {fileID: 0}
+  part1: {fileID: 0}
+  part2: {fileID: 0}
+  part3: {fileID: 0}
+  wwBuilt: {fileID: 0}
 --- !u!4 &383855541
 Transform:
   m_ObjectHideFlags: 0
