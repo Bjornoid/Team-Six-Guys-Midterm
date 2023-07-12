@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using static UnityEngine.EventSystems.EventTrigger;
 
@@ -435,8 +436,8 @@ public class PlayerControls
                         if (Vector3.Distance(enemies.transform.position, transform.position) < shootDist && angleToFoe <= 100)
                         {
                             enemies.GetComponent<IDamage>().takeDamage(shootDamage);
-                        }
-                    }
+                        } 
+                    } 
                     //timeTilCoolDown--;
                 }
                 else if (gunList[selectedGun].name.Equals("Baby Gun"))
