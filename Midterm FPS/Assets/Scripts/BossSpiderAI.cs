@@ -24,6 +24,8 @@ public class BossSpiderAI : MonoBehaviour, IDamage
     [SerializeField] float shootRate;
     [SerializeField] GameObject bullet;
 
+    [SerializeField] GameObject platforms;
+
     Transform startingPos;
     Vector3 playerDir;
     public GameObject[] droppedItem;
@@ -42,6 +44,7 @@ public class BossSpiderAI : MonoBehaviour, IDamage
         startingHP = HP;
         startingPos = transform;
         isPhase2 = false;
+        platforms.SetActive(false);
     }
 
     // Update is called once per frame
@@ -156,6 +159,7 @@ public class BossSpiderAI : MonoBehaviour, IDamage
             GetComponent<CapsuleCollider>().enabled = false;
             ItemDrop();
             StartCoroutine(TimeToDelete());
+            platforms.SetActive(true);
         }
         else
         {

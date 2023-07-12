@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 421711184}
   - component: {fileID: 421711183}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: CreditControls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -154,6 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3327950af262db46b588b9aa0ab97f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  escText: {fileID: 1238831241}
 --- !u!65 &421711184
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -411,7 +412,6 @@ GameObject:
   - component: {fileID: 1238831239}
   - component: {fileID: 1238831242}
   - component: {fileID: 1238831241}
-  - component: {fileID: 1238831240}
   m_Layer: 5
   m_Name: Esc
   m_TagString: Untagged
@@ -439,27 +439,6 @@ RectTransform:
   m_AnchoredPosition: {x: -818, y: 465}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!95 &1238831240
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1238831238}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 444daf76a65212349b879ad25ab8b5af, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &1238831241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -489,7 +468,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 3976200191
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3

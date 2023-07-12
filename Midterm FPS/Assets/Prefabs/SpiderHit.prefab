@@ -59,9 +59,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0dab419f1a734244bed62a7edc74292, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 2
   speed: 10
   destroyTimer: 3
+  isTurret: 0
   rb: {fileID: 3978677852781142400}
 --- !u!54 &3978677852781142400
 Rigidbody:
