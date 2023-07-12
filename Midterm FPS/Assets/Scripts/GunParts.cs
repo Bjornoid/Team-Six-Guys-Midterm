@@ -10,6 +10,18 @@ public class GunParts : MonoBehaviour, IPickup
     public void pickup()
     {
         gameManager.instance.partList.Add(gunPart);
+        switch(gameManager.instance.partList.Count)
+        {
+            case 1:
+                gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.part1);
+                break;
+            case 2:
+                gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.part2);
+                break;
+            case 3:
+                gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.part3);
+                break;
+        }
         gunPart.SetActive(false);
 
         int fullGun = 3;

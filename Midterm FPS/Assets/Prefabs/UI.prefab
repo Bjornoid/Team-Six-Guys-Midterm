@@ -460,6 +460,10 @@ MonoBehaviour:
   jetpackEmpty: {fileID: 8300000, guid: 7f5bc17ecdedf8f45b32d1814e6d641a, type: 3}
   jetpackFull: {fileID: 8300000, guid: e0a6a2c1b2e46154983cd2ee4db7784d, type: 3}
   targetPing: {fileID: 8300000, guid: bf5fcd54c13bb2c4bb6ed0f8b8000db1, type: 3}
+  part1: {fileID: 8300000, guid: da2c84e087c34de488a12998b0547b7a, type: 3}
+  part2: {fileID: 8300000, guid: 339b9df3ba1429a4197cf9e47b3f05cc, type: 3}
+  part3: {fileID: 8300000, guid: 8b82da223aee85341b652e79beea5245, type: 3}
+  wwBuilt: {fileID: 8300000, guid: 57bf86712efb59742844c136f3fb4d14, type: 3}
 --- !u!1 &70759495
 GameObject:
   m_ObjectHideFlags: 0
@@ -20273,7 +20277,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300026, guid: a1d46cd3f2614cc43be92ab44ea7d819, type: 3}
+  m_Sprite: {fileID: -2038129890, guid: d4bf76b91a61d1240b3b9a47bf6d33c6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -20349,7 +20353,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300034, guid: 2f84b5c8ce2b18549a175522847db7d6, type: 3}
+  m_Sprite: {fileID: -1136569558, guid: d4bf76b91a61d1240b3b9a47bf6d33c6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

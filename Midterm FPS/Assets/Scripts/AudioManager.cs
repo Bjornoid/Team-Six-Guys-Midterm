@@ -49,7 +49,10 @@ public class AudioManager : MonoBehaviour
     public AudioClip jetpackEmpty;
     public AudioClip jetpackFull;
     public AudioClip targetPing;
-
+    public AudioClip part1;
+    public AudioClip part2;
+    public AudioClip part3;
+    public AudioClip wwBuilt;
 
     private void Start()
     {

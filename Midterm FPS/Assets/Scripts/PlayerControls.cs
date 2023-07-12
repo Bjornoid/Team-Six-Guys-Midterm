@@ -578,14 +578,17 @@ public class PlayerControls
 
     public void gunPickup(GunStats gunStat)
     {
-        gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.gunCock);
         gunList.Add(gunStat);
         selectedGun = gunList.Count - 1;
         shootDamage = gunStat.shootDmg;
         shootDist = gunStat.shootDist;
         shootRate = gunStat.shootRate;
         setGunModel(gunStat.name);
-        setGunModel(gunStat.name);
+        if (!hasWonderWeapon)
+            gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.gunCock);
+        else
+            gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.wwBuilt);
+
         gunModel.GetComponent<MeshFilter>().mesh = gunStat.model.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().material = gunStat.model.GetComponent<MeshRenderer>().sharedMaterial;
 
