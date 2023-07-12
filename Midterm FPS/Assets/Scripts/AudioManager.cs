@@ -11,7 +11,8 @@ public class AudioManager : MonoBehaviour
 
     public AudioClip backgroundMusic;
     public AudioClip bossSong;
-    public AudioClip shaunxCredits; 
+    public AudioClip shaunLevel; 
+    public AudioClip credits; 
     public AudioClip cutScene;
     public AudioClip[] steps;
     public AudioClip ammoPickup;
@@ -60,10 +61,17 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        if (SceneManager.GetActiveScene().name != "Boss Level")
+        if (SceneManager.GetActiveScene().name != "Boss Level" && SceneManager.GetActiveScene().name != "L & S Level" && SceneManager.GetActiveScene().name != "Ending_Scene" && SceneManager.GetActiveScene().name != "EndCredits")
             music.clip = backgroundMusic;
-        else
+        else if (SceneManager.GetActiveScene().name == "Boss Level")
             music.clip = bossSong;
+        else if (SceneManager.GetActiveScene().name == "L & S Level")
+            music.clip = shaunLevel;
+        else if (SceneManager.GetActiveScene().name == "EndCredits")
+            music.clip = credits;
+        else if (SceneManager.GetActiveScene().name == "Ending_Scene")
+            music.clip = cutScene;
+
         music.Play();
     }
 

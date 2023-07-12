@@ -359,6 +359,9 @@ MonoBehaviour:
   sfx: {fileID: 1696978183}
   backgroundMusic: {fileID: 8300000, guid: 9574b63fbbb760c47b0f583910fd6873, type: 3}
   bossSong: {fileID: 8300000, guid: 99849af64c4051442ac8167c90534e18, type: 3}
+  shaunLevel: {fileID: 8300000, guid: ac6c2f0e4a8abb8468f15c489952eccf, type: 3}
+  credits: {fileID: 8300000, guid: ac6c2f0e4a8abb8468f15c489952eccf, type: 3}
+  cutScene: {fileID: 8300000, guid: 1f20e761b6602204bbc867176caf6dbb, type: 3}
   steps:
   - {fileID: 8300000, guid: d365e1e8342e3a1459514a13aeda4e90, type: 3}
   - {fileID: 8300000, guid: 6831c57dc47f7214a92993cf75a1937a, type: 3}
@@ -412,13 +415,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2ccb1ba143bbd0c409518db6e81afe4d, type: 3}
   - {fileID: 8300000, guid: 0119d2af11632ae44b235c15025ddaf9, type: 3}
   skeleton:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 1513d980c14084045be7b1495a8129de, type: 3}
+  - {fileID: 8300000, guid: 93be2f6f13eb0eb409ece55257716cc4, type: 3}
   swordSwing:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: b6ff82d3c906d30468cc5739cc205f1e, type: 3}
+  - {fileID: 8300000, guid: 4c7e0b8ee9f308c41b1728f31f31573c, type: 3}
   soldierHurts:
   - {fileID: 8300000, guid: 2c2d8af24c057aa4bb5346c81cc3ce38, type: 3}
   - {fileID: 8300000, guid: 983b7b5c1d9c51a44bbee7d688e0c344, type: 3}
@@ -1534,9 +1535,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ButtonFunctions, Assembly-CSharp
-        m_MethodName: Audio
-        m_Mode: 1
+        m_TargetAssemblyTypeName: Sensitivity, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4010,7 +4011,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &392298089
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6354,7 +6355,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &679094461
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7570,7 +7571,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &771713564
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10579,7 +10580,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &965926718
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12242,7 +12243,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1175663878
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13119,7 +13120,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1249851156
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13609,7 +13610,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1283201943
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16086,7 +16087,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1566526600
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18504,7 +18505,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1764870908
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19563,7 +19564,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1848533398
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20193,20 +20194,20 @@ MonoBehaviour:
   m_FillRect: {fileID: 794040636}
   m_HandleRect: {fileID: 1845618888}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: 1
+  m_MaxValue: 420
   m_WholeNumbers: 0
   m_Value: 0.417
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5749609704740858554}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: CameraControls, Assembly-CSharp
+        m_MethodName: AdjustSpeed
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -20592,7 +20593,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1943398512
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21846,7 +21847,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2096172032
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21925,7 +21926,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2105621448
 RectTransform:
   m_ObjectHideFlags: 0
