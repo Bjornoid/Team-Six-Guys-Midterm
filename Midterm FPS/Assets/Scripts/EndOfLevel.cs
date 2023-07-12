@@ -5,13 +5,16 @@ using UnityEngine.UI;
 
 public class EndOfLevel : MonoBehaviour
 {
+    [SerializeField] GameObject elevator;
     [SerializeField] GameObject menu;                   //Menu to fill in for boss level and tutorial
-    [SerializeField] bool needsPower;                   //Check if the elevator needs power from a switch
+    [SerializeField] GameObject powerSwitch;
+    [SerializeField] bool needsPower;
+    public bool powerActivated = false;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            if (!needsPower)
+            if (!needsPower || powerActivated)
             {
                 gameManager.instance.statePaused();         //Pause the game
 
@@ -29,5 +32,10 @@ public class EndOfLevel : MonoBehaviour
                 gameManager.instance.eventSystem.SetSelectedGameObject(btns[0].gameObject);
             }
         }
+
+    }
+    public void ActivatePower()
+    {
+        powerActivated = true;
     }
 }

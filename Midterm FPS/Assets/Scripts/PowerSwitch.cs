@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PowerSwitch : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private EndOfLevel endOfLevelScript;
+    [SerializeField] UnityEvent evt;
+    private void OnTriggerEnter(Collider other)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (other.CompareTag("Player"))
+        {
+            if (endOfLevelScript != null)
+            {
+                evt.Invoke();
+            }
+        }
     }
 }
