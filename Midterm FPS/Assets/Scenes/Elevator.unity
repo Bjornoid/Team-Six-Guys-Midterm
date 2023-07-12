@@ -3425,6 +3425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ak: {fileID: 11400000, guid: 7758d00f396b74946b4f939b07789195, type: 2}
+  bossSong: {fileID: 8300000, guid: 99849af64c4051442ac8167c90534e18, type: 3}
 --- !u!1001 &249157568
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34816,14 +34817,23 @@ MonoBehaviour:
   monkeyBomb: {fileID: 8300000, guid: edf3f0e8d5a3fb343a4dce2d7cd1f34c, type: 3}
   stunGrenade: {fileID: 8300000, guid: c2f4f8f15062a584ebf166447ee0cc53, type: 3}
   humanCrickets: []
-  skeleton: {fileID: 0}
-  swordSwing: {fileID: 0}
+  skeleton:
+  - {fileID: 0}
+  swordSwing:
+  - {fileID: 0}
   soldierHurts: []
   spiderDeath: []
   spiderWalk: []
   spiderHiss: []
   zombieGroans: []
   hotelSpirit: {fileID: 8300000, guid: 434a0e28a1801fb4d844fa2d75e6b59f, type: 3}
+  jetpackEmpty: {fileID: 0}
+  jetpackFull: {fileID: 0}
+  targetPing: {fileID: 0}
+  part1: {fileID: 0}
+  part2: {fileID: 0}
+  part3: {fileID: 0}
+  wwBuilt: {fileID: 0}
 --- !u!4 &8560779300331324066
 Transform:
   m_ObjectHideFlags: 0
@@ -42483,6 +42493,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelSelectFirstButton: {fileID: 0}
   settingsFirstButton: {fileID: 0}
+  bossSong: {fileID: 0}
 --- !u!114 &9059823106625940171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42590,8 +42601,7 @@ MonoBehaviour:
   amountOfDeathsText: {fileID: 0}
   ammoMaxText: {fileID: 8560779301676750458}
   ammoCurText: {fileID: 8560779300058895666}
-  stunGrenadeText: {fileID: 0}
-  buddyBombText: {fileID: 0}
+  grenadeAmountText: {fileID: 0}
   lvlButtons: []
   mainMenuBtns: []
   audioManager: {fileID: 8560779300331324065}

@@ -12,8 +12,7 @@ public class BossSpiderAI : MonoBehaviour, IDamage
     [SerializeField] Transform shootPos;
     [SerializeField] Animator animator;
     [SerializeField] Collider biteCol;
-    [SerializeField] GameObject[] spiderNests;
-    [SerializeField] float nestSpawnTimer;
+    [SerializeField] GameObject spawner;
 
     [Header("----- Enemy Stats -----")]
     [SerializeField] int HP;
@@ -31,9 +30,9 @@ public class BossSpiderAI : MonoBehaviour, IDamage
     public bool inRange;
     public bool isAttacking;
     bool destinationChosen;
-    bool phase2;
+    bool isPhase2;
+    bool spawnerActive;
     bool isStun;
-    bool nestsSpawned;
     float angleToPlayer;
     float stoppingDistanceOrig;
     int startingHP;
@@ -42,7 +41,7 @@ public class BossSpiderAI : MonoBehaviour, IDamage
     {
         startingHP = HP;
         startingPos = transform;
-        phase2 = false;
+        isPhase2 = false;
     }
 
     // Update is called once per frame
@@ -53,6 +52,14 @@ public class BossSpiderAI : MonoBehaviour, IDamage
             animator.SetFloat("Speed", agent.velocity.normalized.magnitude);
             if (inRange)
             {
+                playerDir = gameManager.instance.player.transform.position - headPos.position;
+                angleToPlayer = Vector3.Angle(new Vector3(playerDir.x, 0, playerDir.z), transform.forward);
+                facePlayer();
+
+                if (agent.remainingDistance <= agent.stoppingDistance)
+                {
+                    agent.SetDestination(gameManager.instance.player.transform.position);
+                }
                 attack();
             }
         }
@@ -61,30 +68,18 @@ public class BossSpiderAI : MonoBehaviour, IDamage
 
     void attack()
     {
-        if (!phase2)
+        if (!isPhase2)
         {
-            playerDir = gameManager.instance.player.transform.position - headPos.position;
-            angleToPlayer = Vector3.Angle(new Vector3(playerDir.x, 0, playerDir.z), transform.forward);
-            Debug.DrawRay(headPos.position, playerDir);
-            Debug.Log(angleToPlayer);
-            facePlayer();
-
-            if (agent.remainingDistance <= agent.stoppingDistance)
-            {
-                agent.SetDestination(gameManager.instance.player.transform.position);
-            }
-
-
             if (!isAttacking && gameManager.instance.player.transform.position.y - transform.position.y > 5)
             {
                 StartCoroutine(shoot());
             }
-            else if (!isAttacking && gameManager.instance.player.transform.position.y - transform.position.y < 5 && agent.stoppingDistance > Vector3.Distance(gameManager.instance.player.transform.position, headPos.position))
+            else if (!isAttacking && Vector3.Distance(gameManager.instance.player.transform.position, headPos.position) < agent.stoppingDistance)
                 StartCoroutine(bite());
         }
-        else if(!nestsSpawned)
+        else if (isPhase2 && !spawnerActive)
         {
-            StartCoroutine(createNests());
+            StartCoroutine(phase2());
         }
     }
 
@@ -105,19 +100,15 @@ public class BossSpiderAI : MonoBehaviour, IDamage
         isAttacking = false;
     }
 
-    IEnumerator createNests()
+    IEnumerator phase2()
     {
-        for (int i = 0; i < spiderNests.Length; i++)
-        {
-            agent.SetDestination(spiderNests[i].transform.position);
-            yield return new WaitForSeconds(nestSpawnTimer);
-            spiderNests[i].SetActive(true);
-        }
-        nestsSpawned = true;
-        agent.SetDestination(startingPos.transform.position);
-        transform.rotation = Quaternion.Lerp(transform.rotation, startingPos.rotation, Time.deltaTime);
+        agent.isStopped = true;
+        animator.SetTrigger("Spawn");
+        spawner.SetActive(true);
+        yield return new WaitForSeconds(1);
+        agent.isStopped = false;
+        spawnerActive = true;
     }
-
 
     public void CreateBullet()
     {
@@ -152,10 +143,10 @@ public class BossSpiderAI : MonoBehaviour, IDamage
 
         if (HP <= startingHP / 2 && HP >= startingHP / 4)
         {
-            phase2 = true;
+            isPhase2 = true;
         }
         else
-            phase2 = false;
+            isPhase2 = false;
 
         if (HP <= 0)
         {
@@ -164,10 +155,6 @@ public class BossSpiderAI : MonoBehaviour, IDamage
             agent.enabled = false;
             GetComponent<CapsuleCollider>().enabled = false;
             ItemDrop();
-            for (int i = 0; i < spiderNests.Length; i++)
-            {
-                spiderNests[i].SetActive(false);
-            }
             StartCoroutine(TimeToDelete());
         }
         else

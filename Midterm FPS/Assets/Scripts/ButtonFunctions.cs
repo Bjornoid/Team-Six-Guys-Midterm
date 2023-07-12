@@ -82,7 +82,10 @@ public class ButtonFunctions : MonoBehaviour
     {
         int nextLevel = SceneManager.GetActiveScene().buildIndex + 1;
         gameManager.levelToLoad = nextLevel;
-        SceneManager.LoadScene("Elevator");
+        if (SceneManager.GetActiveScene().name != "Boss Level")
+            SceneManager.LoadScene("Elevator");
+        else
+            SceneManager.LoadScene("Ending_Scene");
         gameManager.instance.stateUnPaused();
 
         if (nextLevel > PlayerPrefs.GetInt("levelAt"))
@@ -113,7 +116,7 @@ public class ButtonFunctions : MonoBehaviour
     }
     public void floor4()
     {
-        SceneManager.LoadScene("Boss Level");
+        SceneManager.LoadScene("Boss Level"); 
         gameManager.instance.stateUnPaused();
         gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.buttonPress);
     }
@@ -212,5 +215,10 @@ public class ButtonFunctions : MonoBehaviour
         SpiderSpawner.playerNotInRange();
         gameManager.instance.playerScript.SpawnPlayer();
         gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.buttonPress);
+    }
+
+    public void LoadCredits()
+    {
+        SceneManager.LoadScene("EndCredits");
     }
 }
