@@ -12,8 +12,6 @@ public class EndCredits : MonoBehaviour
     void Start()
     {
         StartCoroutine(Credits());
-
-        StartCoroutine(EscFade());
     }
 
     private void Update()
@@ -30,12 +28,5 @@ public class EndCredits : MonoBehaviour
         yield return new WaitForSeconds(48);
 
         SceneManager.LoadScene("Main Menu");
-    }
-
-    IEnumerator EscFade()
-    {
-        yield return new WaitForSeconds(2);
-
-        escText.enabled = false;
     }
 }
