@@ -11,6 +11,8 @@ public class AudioManager : MonoBehaviour
 
     public AudioClip backgroundMusic;
     public AudioClip bossSong;
+    public AudioClip shaunxCredits; 
+    public AudioClip cutScene;
     public AudioClip[] steps;
     public AudioClip ammoPickup;
     public AudioClip current;
