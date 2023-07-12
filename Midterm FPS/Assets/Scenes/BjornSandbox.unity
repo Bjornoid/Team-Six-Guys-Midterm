@@ -23490,10 +23490,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 64828918, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
-      propertyPath: backgroundMusic
-      value: 
-      objectReference: {fileID: 8300000, guid: 9574b63fbbb760c47b0f583910fd6873, type: 3}
     - target: {fileID: 586781860318768780, guid: 6cc049a475e2d294485f3f022ccad939, type: 3}
       propertyPath: playerSpawnPosition
       value: 
