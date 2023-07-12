@@ -357,7 +357,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   music: {fileID: 1631687658}
   sfx: {fileID: 1696978183}
-  backgroundMusic: {fileID: 8300000, guid: 3c47c396513dd9b4eb233872b0bb02ed, type: 3}
+  backgroundMusic: {fileID: 8300000, guid: 9574b63fbbb760c47b0f583910fd6873, type: 3}
+  bossSong: {fileID: 8300000, guid: 99849af64c4051442ac8167c90534e18, type: 3}
   steps:
   - {fileID: 8300000, guid: d365e1e8342e3a1459514a13aeda4e90, type: 3}
   - {fileID: 8300000, guid: 6831c57dc47f7214a92993cf75a1937a, type: 3}
