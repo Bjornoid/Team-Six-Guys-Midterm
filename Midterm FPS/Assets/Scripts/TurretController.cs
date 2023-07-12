@@ -15,12 +15,14 @@ public class TurretController : MonoBehaviour
     public float nextFire;
     private bool isShooting;
     bool isOn;
+    AudioSource source;
 
     // Start is called before the first frame update
     void Start()
     {
         isOn = true;
         Player = GameObject.FindGameObjectWithTag("Player").transform;
+        source = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -46,6 +48,7 @@ public class TurretController : MonoBehaviour
     IEnumerator Shoot()
     {
         isShooting = true;
+        gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.sniper, source);
         GameObject clone = Instantiate(projectile, ShootPos.position, Head.rotation);
         clone.GetComponent<Rigidbody>().AddForce(Head.forward * projectileSpeed);
         yield return new WaitForSeconds(fireRate);

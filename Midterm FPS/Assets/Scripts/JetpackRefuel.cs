@@ -9,6 +9,7 @@ public class JetpackRefuel : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             gameManager.instance.playerScript.pickupFuel();
+            gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.laser);
             gameObject.SetActive(false);
         }
     }

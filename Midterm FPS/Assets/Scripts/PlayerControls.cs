@@ -84,7 +84,8 @@ public class PlayerControls
     GameObject gunModel;
     public bool hasWonderWeapon;
     public MovementState movementState;
-    bool isStun; 
+    bool isStun;
+    List<GameObject> targets = new List<GameObject>();
     //bool isCoolingDown; 
 
     public enum MovementState
@@ -213,6 +214,10 @@ public class PlayerControls
             if (jetpackTime > 0)
             {
                 jetpackTime -= Time.deltaTime;
+                if (jetpackTime <= 0)
+                {
+                    gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.jetpackFull);
+                }
                 gameManager.instance.fuelBar.fillAmount = 1 - jetpackTime/ jetpackDuration;
                 canJetpack = true;
             }
@@ -229,6 +234,10 @@ public class PlayerControls
             if (jetpackTime > 0)
             {
                 jetpackTime -= Time.deltaTime;
+                if (jetpackTime <= 0)
+                {
+                    gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.jetpackFull);
+                }
                 gameManager.instance.fuelBar.fillAmount = 1 - jetpackTime / jetpackDuration;
                 canJetpack = true;
             }
@@ -244,7 +253,7 @@ public class PlayerControls
             if (jetpackTime >= jetpackDuration)
             {
                 canJetpack = false;
-                
+                gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.jetpackEmpty);
             }
             movementState = MovementState.jetpacking;
             if (playerVelocity.y < 0)
@@ -383,8 +392,14 @@ public class PlayerControls
                     }
                     else if (hit.collider.gameObject.CompareTag("Target"))
                     {
-                        Destroy(hit.collider.gameObject);
-                        gameManager.instance.updateTargetCount(-1);
+                        if (targets.Count == 0 || !targets.Contains(hit.collider.gameObject))
+                        {
+                            gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.targetPing);
+                            hit.collider.GetComponent<Rigidbody>().isKinematic = false;
+                            gameManager.instance.updateTargetCount(-1);
+                            targets.Add(hit.collider.gameObject);
+                            Destroy(hit.collider.gameObject, 3);
+                        }
                     }
                     Instantiate(gunList[selectedGun].hitEffect, hit.point, Quaternion.identity);
                 }
@@ -563,14 +578,17 @@ public class PlayerControls
 
     public void gunPickup(GunStats gunStat)
     {
-        gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.gunCock);
         gunList.Add(gunStat);
         selectedGun = gunList.Count - 1;
         shootDamage = gunStat.shootDmg;
         shootDist = gunStat.shootDist;
         shootRate = gunStat.shootRate;
         setGunModel(gunStat.name);
-        setGunModel(gunStat.name);
+        if (!hasWonderWeapon)
+            gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.gunCock);
+        else
+            gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.wwBuilt);
+
         gunModel.GetComponent<MeshFilter>().mesh = gunStat.model.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().material = gunStat.model.GetComponent<MeshRenderer>().sharedMaterial;
 
@@ -703,6 +721,7 @@ public class PlayerControls
         else if (gunList[selectedGun].name == "Wave Blast")
         {
             gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.akReload);
+            waveModel.GetComponent<Animator>().SetTrigger("reload");
         }
         else if (gunList[selectedGun].name == "Scorched Annihilator")
         {
@@ -711,6 +730,7 @@ public class PlayerControls
         else if (gunList[selectedGun].name == "Baby Gun")
         {
             gameManager.instance.audioManager.PlaySFX(gameManager.instance.audioManager.shottyReload);
+            babyModel.GetComponent<Animator>().SetTrigger("reload");
         }
 
         yield return new WaitForSeconds(gunList[selectedGun].reloadTime);
